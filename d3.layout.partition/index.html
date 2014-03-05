@@ -2,9 +2,11 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
-    <link type="text/css" rel="stylesheet" href="style.css"/>
-    <script type="text/javascript" src="d3/d3.js"></script>
-    <script type="text/javascript" src="d3/d3.layout.js"></script>
+    <!--link type="text/css" rel="stylesheet" href="style.css"/-->
+    <link type="text/css" rel="stylesheet" href="css/spa.d3.css"/>
+    <!--script type="text/javascript" src="d3/d3.js"></script-->
+    <!--script type="text/javascript" src="d3/d3.layout.js"></script-->
+    <script type="text/javascript" src="js/d3/d3.v3.js"></script>
     <style type="text/css">
 
 .chart {
@@ -56,7 +58,7 @@ var vis = d3.select("#body").append("div")
 var partition = d3.layout.partition()
     .value(function(d) { return d.size; });
 
-d3.json("flare.json", function(root) {
+d3.json("json/flare.json", function(root) {
   var g = vis.selectAll("g")
       .data(partition.nodes(root))
     .enter().append("svg:g")

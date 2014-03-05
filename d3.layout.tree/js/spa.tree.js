@@ -20,11 +20,17 @@ spa.tree = (function () {
     
     var
     configMap = {
+        m: [20, 120, 20, 120],
+        width: 1280,
+        height: 800,
         settable_map: {
-        },
+            m: true,
+            width: true,
+            height: true
+        }
     },
     stateMap = {
-        $append_target: undefined,
+        $3append_target: undefined,
         i: 0,
         root: undefined,
         tree: undefined,
@@ -48,7 +54,7 @@ spa.tree = (function () {
     };
 
     setD3Map = function () {
-        jqueryMap = {
+        d3Map = {
         };
     };
 
@@ -141,6 +147,13 @@ spa.tree = (function () {
         });
     }
 
+    function toggleAll(d) {
+        if (d.children) {
+            d.children.forEach(toggleAll);
+            toggle(d);
+        }
+    }
+            
     function toggle(d) {
 
         // Toggle children
@@ -191,7 +204,7 @@ spa.tree = (function () {
      * Purpose: Directs tree to offer its capability to the user
      *
      * Arguments:
-     *   $append_target - A jQuery collection that should represent a
+     *   $3append_target - A D3 collection that should represent a
      *                    single DOM container. Example: ('#div_id')
      *
      * Action:
@@ -207,37 +220,28 @@ spa.tree = (function () {
      *
      * Example: spa.tree.initModule($('#div_id'));
      */
-    initModule = function ($append_target) {
+    initModule = function ($3append_target) {
 
-        stateMap.$append_target = $append_target
+        stateMap.$3append_target = $3append_target
 
-        var
-        m = [20, 120, 20, 120],
-        w = 1280 - m[1] - m[3],
-        h = 800 - m[0] - m[2];
+        stateMap.w = configMap.width - configMap.m[1] - configMap.m[3];
+        stateMap.h = configMap.height - configMap.m[0] - configMap.m[2];
 
         stateMap.i = 0;
         stateMap.tree = d3.layout.tree()
-            .size([h, w])
+            .size([stateMap.h, stateMap.w])
         stateMap.diagonal = d3.svg.diagonal()
             .projection(function(d) { return [d.y, d.x]; })
-        stateMap.vis = $append_target.append("svg:svg")
-            .attr("width", w + m[1] + m[3])
-            .attr("height", h + m[0] + m[2])
+        stateMap.vis = $3append_target.append("svg:svg")
+            .attr("width", stateMap.w + configMap.m[1] + configMap.m[3])
+            .attr("height", stateMap.h + configMap.m[0] + configMap.m[2])
             .append("svg:g")
-            .attr("transform", "translate(" + m[3] + "," + m[0] + ")")
+            .attr("transform", "translate(" + configMap.m[3] + "," + configMap.m[0] + ")")
         
-        d3.json("flare.json", function(json) {
+        d3.json("json/flare.json", function(json) {
             stateMap.root = json;
-            stateMap.root.x0 = h / 2;
+            stateMap.root.x0 = stateMap.h / 2;
             stateMap.root.y0 = 0;
-            
-            function toggleAll(d) {
-                if (d.children) {
-                    d.children.forEach(toggleAll);
-                    toggle(d);
-                }
-            }
             
             // Initialize the display to show a few nodes.
             stateMap.root.children.forEach(toggleAll);

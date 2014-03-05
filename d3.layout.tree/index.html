@@ -2,12 +2,12 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
-    <link type="text/css" rel="stylesheet" href="style.css"/>
+    <!--link type="text/css" rel="stylesheet" href="style.css"/-->
+    <link type="text/css" rel="stylesheet" href="css/spa.d3.css"/>
     <!--script type="text/javascript" src="d3/d3.js"></script-->
     <!--script type="text/javascript" src="d3/d3.layout.js"></script-->
     <script type="text/javascript" src="js/d3/d3.v3.js"></script>
     <style type="text/css">
-
 
 .node circle {
   cursor: pointer;
@@ -55,7 +55,7 @@ var vis = d3.select("#body").append("svg:svg")
   .append("svg:g")
     .attr("transform", "translate(" + m[3] + "," + m[0] + ")");
 
-d3.json("flare.json", function(json) {
+d3.json("json/flare.json", function(json) {
   root = json;
   root.x0 = h / 2;
   root.y0 = 0;

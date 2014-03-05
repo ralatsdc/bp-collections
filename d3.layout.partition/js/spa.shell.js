@@ -23,7 +23,7 @@ spa.shell = (function () {
         main_html: String()
             + '<div class="spa-shell-head">'
             + '  <h1>SPA</h1>'
-            + '  <p>D3 Tree Layout</p>'
+            + '  <p>D3 Partition Layout</p>'
             + '</div>'
             + '<div class="spa-shell-main">'
             + '  <!--div class="spa-shell-main-nav"></div-->'
@@ -91,8 +91,8 @@ spa.shell = (function () {
         setD3Map();
 
         // Configure and initialize feature modules
-        spa.tree.configModule({});
-        spa.tree.initModule(d3Map.$3container.select(".spa-shell-main-content"));
+        spa.partition.configModule({});
+        spa.partition.initModule(d3Map.$3container.select(".spa-shell-main-content"));
 
     };
     
