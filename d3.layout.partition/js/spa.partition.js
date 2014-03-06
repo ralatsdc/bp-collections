@@ -131,9 +131,10 @@ spa.partition = (function () {
      *                    single DOM container. Example: ('#div_id')
      *
      * Action:
-     *   Appends the tree slider to the provided container and fills
-     *   it with HTML content. It then initializes elements, events,
-     *   and handlers to provide the user with a tree-room interface
+     *   Appends the partition layout to the provided container and
+     *   fills it with HTML content. It then initializes elements,
+     *   events, and handlers to provide the user with a tree-room
+     *   interface
      *
      * Returns:
      *   true - on success

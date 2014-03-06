@@ -1,0 +1,8 @@
+/*
+ * spa.sunburst.css
+ * D3 tree layout feature styles
+ */
+path {
+  stroke: #fff;
+  fill-rule: evenodd;
+}

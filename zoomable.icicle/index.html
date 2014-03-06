@@ -8,7 +8,8 @@ rect {
 
 </style>
 <body>
-<script src="http://d3js.org/d3.v3.min.js"></script>
+<!--script src="http://d3js.org/d3.v3.min.js"></script-->
+<script type="text/javascript" src="js/d3/d3.v3.js"></script>
 <script>
 
 var width = 960,
@@ -32,7 +33,7 @@ var svg = d3.select("body").append("svg")
 
 var rect = svg.selectAll("rect");
 
-d3.json("readme.json", function(error, root) {
+d3.json("json/readme.json", function(error, root) {
   rect = rect
       .data(partition(d3.entries(root)[0]))
     .enter().append("rect")

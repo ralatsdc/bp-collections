@@ -9,7 +9,8 @@ path {
 
 </style>
 <body>
-<script src="http://d3js.org/d3.v3.min.js"></script>
+<!--script src="http://d3js.org/d3.v3.min.js"></script-->
+<script type="text/javascript" src="js/d3/d3.v3.js"></script>
 <script>
 
 var width = 960,
@@ -39,7 +40,7 @@ var arc = d3.svg.arc()
     .innerRadius(function(d) { return Math.max(0, y(d.y)); })
     .outerRadius(function(d) { return Math.max(0, y(d.y + d.dy)); });
 
-d3.json("/d/4063550/flare.json", function(error, root) {
+d3.json("json/flare.json", function(error, root) {
   var path = svg.selectAll("path")
       .data(partition.nodes(root))
     .enter().append("path")

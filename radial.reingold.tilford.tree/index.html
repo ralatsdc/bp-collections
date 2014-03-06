@@ -20,7 +20,8 @@
 
 </style>
 <body>
-<script src="http://d3js.org/d3.v3.min.js"></script>
+<!--script src="http://d3js.org/d3.v3.min.js"></script-->
+<script type="text/javascript" src="js/d3/d3.v3.js"></script>
 <script>
 
 var diameter = 960;
@@ -38,7 +39,7 @@ var svg = d3.select("body").append("svg")
   .append("g")
     .attr("transform", "translate(" + diameter / 2 + "," + diameter / 2 + ")");
 
-d3.json("flare.json", function(error, root) {
+d3.json("json/flare.json", function(error, root) {
   var nodes = tree.nodes(root),
       links = tree.links(nodes);
 
