@@ -1,13 +1,6 @@
-var dint = 0;
-var data = [
-    ["one"],
-    ["two", "three"],
-    ["three"]
-];
-
-var container = d3.select("div.container");
-
 function update(data) {
+
+    var container = d3.select("div.container");
 
     // Bind data
     var div = container.selectAll("h1")
@@ -33,6 +26,12 @@ function update(data) {
 }
 
 function run() {
+    var dint = 0;
+    var data = [
+        ["one"],
+        ["two", "three"],
+        ["three"]
+    ];
     update(data[dint % 3]);
     setInterval(function() {
         dint += 1
