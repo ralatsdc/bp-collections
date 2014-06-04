@@ -1,0 +1,128 @@
+[
+    {
+        "service": "flickr",
+        "age": 1,
+        "engagement": 1,
+        "volume": 1,
+        "source": "Central African Republic",
+        "frequency": 1,
+        "type": "crisis"
+    },
+    {
+        "service": "tumblr",
+        "age": 0,
+        "engagement": 1,
+        "volume": 0,
+        "source": "axaiiless",
+        "frequency": 0,
+        "type": "crisis"
+    },
+    {
+        "service": "tumblr",
+        "age": 1,
+        "engagement": 0,
+        "volume": 0,
+        "source": "lbespace",
+        "frequency": 1,
+        "type": "crisis"
+    },
+    {
+        "service": "tumblr",
+        "age": -1,
+        "engagement": -1,
+        "volume": 1,
+        "source": "myafroweek",
+        "frequency": -1,
+        "type": "crisis"
+    },
+    {
+        "service": "tumblr",
+        "age": 0,
+        "engagement": 0,
+        "volume": -1,
+        "source": "intamunu",
+        "frequency": 0,
+        "type": "crisis"
+    },
+    {
+        "service": "tumblr",
+        "age": 0,
+        "engagement": 0,
+        "volume": -1,
+        "source": "rachelrostad",
+        "frequency": 0,
+        "type": "crisis"
+    },
+    {
+        "service": "tumblr",
+        "age": -1,
+        "engagement": 1,
+        "volume": 0,
+        "source": "committeetoprotectjournalists",
+        "frequency": -1,
+        "type": "crisis"
+    },
+    {
+        "service": "tumblr",
+        "age": 1,
+        "engagement": -1,
+        "volume": 0,
+        "source": "wfp",
+        "frequency": 1,
+        "type": "crisis"
+    },
+    {
+        "service": "tumblr",
+        "age": 0,
+        "engagement": 0,
+        "volume": 1,
+        "source": "mercycorps",
+        "frequency": 0,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": -1,
+        "engagement": -1,
+        "volume": 1,
+        "source": "Paix Centrafrique",
+        "frequency": 0,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": 1,
+        "volume": 0,
+        "source": "Centrafrique news ",
+        "frequency": 1,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": 0,
+        "volume": 0,
+        "source": "Centrafrique Blogue",
+        "frequency": 0,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": 1,
+        "engagement": 0,
+        "volume": -1,
+        "source": "Centrafrique SF",
+        "frequency": -1,
+        "type": "crisis"
+    },
+    {
+        "service": "feed",
+        "age": 0,
+        "engagement": 0,
+        "volume": 0,
+        "source": "Doctors Without Borders",
+        "frequency": 0,
+        "type": "crisis"
+    }
+]

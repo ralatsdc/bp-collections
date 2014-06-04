@@ -1,0 +1,884 @@
+[
+    {
+        "service": "flickr",
+        "age": -1,
+        "engagement": 0,
+        "volume": 0,
+        "source": "Nucléaire Non Merci !",
+        "frequency": -1,
+        "type": "crisis"
+    },
+    {
+        "service": "flickr",
+        "age": 0,
+        "engagement": 0,
+        "volume": 0,
+        "source": "Japan We Wish You Well 3.10.11",
+        "frequency": 1,
+        "type": "crisis"
+    },
+    {
+        "service": "flickr",
+        "age": 0,
+        "engagement": 1,
+        "volume": 0,
+        "source": "Japan photo group",
+        "frequency": 1,
+        "type": "crisis"
+    },
+    {
+        "service": "flickr",
+        "age": 0,
+        "engagement": -1,
+        "volume": 1,
+        "source": "Praying for Japan",
+        "frequency": 0,
+        "type": "crisis"
+    },
+    {
+        "service": "flickr",
+        "age": -1,
+        "engagement": 0,
+        "volume": 1,
+        "source": "Japanese Onsen",
+        "frequency": 0,
+        "type": "crisis"
+    },
+    {
+        "service": "flickr",
+        "age": 1,
+        "engagement": 0,
+        "volume": -1,
+        "source": "Hopes for Japan",
+        "frequency": 0,
+        "type": "crisis"
+    },
+    {
+        "service": "flickr",
+        "age": 0,
+        "engagement": -1,
+        "volume": -1,
+        "source": "flashmob!",
+        "frequency": 1,
+        "type": "crisis"
+    },
+    {
+        "service": "flickr",
+        "age": -1,
+        "engagement": 0,
+        "volume": 1,
+        "source": "Japanese Onsen",
+        "frequency": 0,
+        "type": "crisis"
+    },
+    {
+        "service": "flickr",
+        "age": 0,
+        "engagement": 0,
+        "volume": 0,
+        "source": "Tainan food 台南美食、小吃、餐廳",
+        "frequency": 0,
+        "type": "crisis"
+    },
+    {
+        "service": "flickr",
+        "age": 0,
+        "engagement": 0,
+        "volume": 0,
+        "source": "Japan We Wish You Well 3.10.11",
+        "frequency": 1,
+        "type": "crisis"
+    },
+    {
+        "service": "flickr",
+        "age": 0,
+        "engagement": 1,
+        "volume": 0,
+        "source": "Japan photo group",
+        "frequency": 1,
+        "type": "crisis"
+    },
+    {
+        "service": "flickr",
+        "age": 0,
+        "engagement": 0,
+        "volume": 1,
+        "source": "Help Japan",
+        "frequency": 0,
+        "type": "crisis"
+    },
+    {
+        "service": "flickr",
+        "age": -1,
+        "engagement": 0,
+        "volume": 1,
+        "source": "Pray for Japan",
+        "frequency": -1,
+        "type": "crisis"
+    },
+    {
+        "service": "flickr",
+        "age": 0,
+        "engagement": -1,
+        "volume": 0,
+        "source": "Tsunami Photos",
+        "frequency": 0,
+        "type": "crisis"
+    },
+    {
+        "service": "flickr",
+        "age": 1,
+        "engagement": 0,
+        "volume": -1,
+        "source": "Hopes for Japan",
+        "frequency": 0,
+        "type": "crisis"
+    },
+    {
+        "service": "flickr",
+        "age": 0,
+        "engagement": 1,
+        "volume": 0,
+        "source": "Dolly Community unite for the Japan EarthQuake &amp; Tsunami:",
+        "frequency": 0,
+        "type": "crisis"
+    },
+    {
+        "service": "flickr",
+        "age": 1,
+        "engagement": 1,
+        "volume": 0,
+        "source": "Tsunami Quilt",
+        "frequency": 1,
+        "type": "crisis"
+    },
+    {
+        "service": "flickr",
+        "age": 1,
+        "engagement": 0,
+        "volume": -1,
+        "source": "One thousand Cranes, One thousand Photos  pray for Japan",
+        "frequency": 0,
+        "type": "crisis"
+    },
+    {
+        "service": "flickr",
+        "age": 1,
+        "engagement": 0,
+        "volume": -1,
+        "source": "Project FUR Japan",
+        "frequency": -1,
+        "type": "crisis"
+    },
+    {
+        "service": "flickr",
+        "age": -1,
+        "engagement": 1,
+        "volume": 1,
+        "source": "1000 Cranes for Japan",
+        "frequency": 0,
+        "type": "crisis"
+    },
+    {
+        "service": "flickr",
+        "age": 1,
+        "engagement": -1,
+        "volume": -1,
+        "source": "The world cares about you, Japan.",
+        "frequency": -1,
+        "type": "crisis"
+    },
+    {
+        "service": "flickr",
+        "age": -1,
+        "engagement": 1,
+        "volume": 1,
+        "source": "Please Donate for Japan Earthquake",
+        "frequency": -1,
+        "type": "crisis"
+    },
+    {
+        "service": "flickr",
+        "age": -1,
+        "engagement": -1,
+        "volume": 0,
+        "source": "Flickr members for Japan",
+        "frequency": -1,
+        "type": "crisis"
+    },
+    {
+        "service": "flickr",
+        "age": -1,
+        "engagement": -1,
+        "volume": 1,
+        "source": "Disasters",
+        "frequency": 0,
+        "type": "crisis"
+    },
+    {
+        "service": "flickr",
+        "age": 0,
+        "engagement": -1,
+        "volume": 1,
+        "source": "Praying for Japan",
+        "frequency": 0,
+        "type": "crisis"
+    },
+    {
+        "service": "flickr",
+        "age": 1,
+        "engagement": 0,
+        "volume": 0,
+        "source": "Hope to Japan Hoffnung für Japan Esperanza para el Japón",
+        "frequency": 0,
+        "type": "crisis"
+    },
+    {
+        "service": "flickr",
+        "age": 0,
+        "engagement": 0,
+        "volume": 1,
+        "source": "Critical Condition: Health, Medicine, and Survival",
+        "frequency": -1,
+        "type": "crisis"
+    },
+    {
+        "service": "flickr",
+        "age": 1,
+        "engagement": 1,
+        "volume": -1,
+        "source": "1000 cranes (grullas)",
+        "frequency": 1,
+        "type": "crisis"
+    },
+    {
+        "service": "flickr",
+        "age": 1,
+        "engagement": 1,
+        "volume": 0,
+        "source": "Hands to S. E. Asia",
+        "frequency": 1,
+        "type": "crisis"
+    },
+    {
+        "service": "flickr",
+        "age": 1,
+        "engagement": 0,
+        "volume": 0,
+        "source": "iPhone Painters Japan",
+        "frequency": 0,
+        "type": "crisis"
+    },
+    {
+        "service": "flickr",
+        "age": 0,
+        "engagement": 1,
+        "volume": 0,
+        "source": "WWIII: Op.Meltdown.",
+        "frequency": 0,
+        "type": "crisis"
+    },
+    {
+        "service": "flickr",
+        "age": 0,
+        "engagement": 0,
+        "volume": 0,
+        "source": "“Disconnected World” Photo Campaign Seeking Submissions",
+        "frequency": 1,
+        "type": "crisis"
+    },
+    {
+        "service": "flickr",
+        "age": 0,
+        "engagement": -1,
+        "volume": 0,
+        "source": "Nikon Coolpix S6000",
+        "frequency": 0,
+        "type": "crisis"
+    },
+    {
+        "service": "tumblr",
+        "age": 0,
+        "engagement": 0,
+        "volume": 0,
+        "source": "illustra-tr",
+        "frequency": 0,
+        "type": "crisis"
+    },
+    {
+        "service": "tumblr",
+        "age": -1,
+        "engagement": 0,
+        "volume": 1,
+        "source": "sparrowdreams",
+        "frequency": -1,
+        "type": "crisis"
+    },
+    {
+        "service": "tumblr",
+        "age": 1,
+        "engagement": -1,
+        "volume": 1,
+        "source": "blinkofani",
+        "frequency": 1,
+        "type": "crisis"
+    },
+    {
+        "service": "tumblr",
+        "age": -1,
+        "engagement": 1,
+        "volume": 0,
+        "source": "neko-suna",
+        "frequency": 0,
+        "type": "crisis"
+    },
+    {
+        "service": "tumblr",
+        "age": 0,
+        "engagement": 0,
+        "volume": 0,
+        "source": "japoninfos",
+        "frequency": 0,
+        "type": "crisis"
+    },
+    {
+        "service": "tumblr",
+        "age": -1,
+        "engagement": -1,
+        "volume": 1,
+        "source": "firelabi",
+        "frequency": -1,
+        "type": "crisis"
+    },
+    {
+        "service": "tumblr",
+        "age": 0,
+        "engagement": 0,
+        "volume": -1,
+        "source": "nonoyes-com",
+        "frequency": 0,
+        "type": "crisis"
+    },
+    {
+        "service": "tumblr",
+        "age": 0,
+        "engagement": 1,
+        "volume": 0,
+        "source": "misfitghoul",
+        "frequency": 0,
+        "type": "crisis"
+    },
+    {
+        "service": "tumblr",
+        "age": 1,
+        "engagement": 1,
+        "volume": -1,
+        "source": "framed-unwilling",
+        "frequency": 1,
+        "type": "crisis"
+    },
+    {
+        "service": "tumblr",
+        "age": 0,
+        "engagement": -1,
+        "volume": 0,
+        "source": "cbldf",
+        "frequency": 0,
+        "type": "crisis"
+    },
+    {
+        "service": "tumblr",
+        "age": 0,
+        "engagement": 0,
+        "volume": 0,
+        "source": "greenpeace",
+        "frequency": 0,
+        "type": "crisis"
+    },
+    {
+        "service": "tumblr",
+        "age": -1,
+        "engagement": -1,
+        "volume": 0,
+        "source": "sylviarpellegrino",
+        "frequency": 0,
+        "type": "crisis"
+    },
+    {
+        "service": "tumblr",
+        "age": -1,
+        "engagement": 0,
+        "volume": 1,
+        "source": "detectivegonzalez",
+        "frequency": -1,
+        "type": "crisis"
+    },
+    {
+        "service": "tumblr",
+        "age": 0,
+        "engagement": 1,
+        "volume": -1,
+        "source": "writeandrender",
+        "frequency": 0,
+        "type": "crisis"
+    },
+    {
+        "service": "tumblr",
+        "age": 1,
+        "engagement": 0,
+        "volume": -1,
+        "source": "shamthebeat",
+        "frequency": 1,
+        "type": "crisis"
+    },
+    {
+        "service": "tumblr",
+        "age": 0,
+        "engagement": 0,
+        "volume": 1,
+        "source": "wotfigo",
+        "frequency": 0,
+        "type": "crisis"
+    },
+    {
+        "service": "tumblr",
+        "age": -1,
+        "engagement": 1,
+        "volume": 1,
+        "source": "nok0706",
+        "frequency": -1,
+        "type": "crisis"
+    },
+    {
+        "service": "tumblr",
+        "age": 0,
+        "engagement": 0,
+        "volume": -1,
+        "source": "isolomon12y",
+        "frequency": -1,
+        "type": "crisis"
+    },
+    {
+        "service": "tumblr",
+        "age": 0,
+        "engagement": 0,
+        "volume": 0,
+        "source": "natalya24",
+        "frequency": 0,
+        "type": "crisis"
+    },
+    {
+        "service": "tumblr",
+        "age": 1,
+        "engagement": -1,
+        "volume": 0,
+        "source": "55madworks",
+        "frequency": 1,
+        "type": "crisis"
+    },
+    {
+        "service": "tumblr",
+        "age": 0,
+        "engagement": 0,
+        "volume": 0,
+        "source": "korduroytv",
+        "frequency": 0,
+        "type": "crisis"
+    },
+    {
+        "service": "tumblr",
+        "age": 1,
+        "engagement": 1,
+        "volume": 0,
+        "source": "shalalanet",
+        "frequency": 1,
+        "type": "crisis"
+    },
+    {
+        "service": "tumblr",
+        "age": 1,
+        "engagement": -1,
+        "volume": -1,
+        "source": "jmdonline",
+        "frequency": 1,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": 1,
+        "engagement": 0,
+        "volume": 1,
+        "source": "福島原発の現況・最新ニュース",
+        "frequency": -1,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": -1,
+        "engagement": 0,
+        "volume": 1,
+        "source": "Channel ｒｆｃ【ラジオ福島】",
+        "frequency": -1,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": 1,
+        "volume": 0,
+        "source": "朝日新聞福島総局",
+        "frequency": 0,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": 0,
+        "volume": 0,
+        "source": "Rila Fukushima",
+        "frequency": 0,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": 0,
+        "volume": 0,
+        "source": "テレビユー福島編成部",
+        "frequency": 0,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": -1,
+        "engagement": -1,
+        "volume": 1,
+        "source": "福島正伸BOT",
+        "frequency": -1,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": 0,
+        "volume": 1,
+        "source": "福島中央テレビ スタッフ情報",
+        "frequency": 0,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": -1,
+        "engagement": 0,
+        "volume": 1,
+        "source": "超空室対策室&超相続借地研究室の服島秀信",
+        "frequency": -1,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": -1,
+        "volume": 0,
+        "source": "Michinori Fukushima",
+        "frequency": 1,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": -1,
+        "engagement": 0,
+        "volume": 1,
+        "source": "福島民報",
+        "frequency": -1,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": 1,
+        "engagement": 0,
+        "volume": 1,
+        "source": "赤城修司",
+        "frequency": 0,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": 1,
+        "engagement": 0,
+        "volume": -1,
+        "source": "Image.Fukushima",
+        "frequency": 1,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": 1,
+        "volume": -1,
+        "source": "シティ情報ふくしま",
+        "frequency": 0,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": 1,
+        "volume": 0,
+        "source": "Mark Willacy",
+        "frequency": 1,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": -1,
+        "volume": 0,
+        "source": "Mari Saito",
+        "frequency": 0,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": 0,
+        "volume": -1,
+        "source": "福島バル実行委員会事務局",
+        "frequency": 0,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": 1,
+        "volume": 1,
+        "source": "大友良英　otomo yoshihide",
+        "frequency": 0,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": 0,
+        "volume": 0,
+        "source": "福島良一",
+        "frequency": 0,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": -1,
+        "volume": 0,
+        "source": "CRMS市民放射能測定所 福島",
+        "frequency": 0,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": 0,
+        "volume": 0,
+        "source": "ＮＨＫ福島放送局",
+        "frequency": 1,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": -1,
+        "engagement": 0,
+        "volume": 1,
+        "source": "福島あるある拡散アカウント",
+        "frequency": 0,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": 1,
+        "engagement": 0,
+        "volume": -1,
+        "source": "Noriko Fukushima",
+        "frequency": 1,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": -1,
+        "engagement": 0,
+        "volume": 0,
+        "source": "三浦サリー",
+        "frequency": 0,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": 1,
+        "engagement": -1,
+        "volume": 0,
+        "source": "Fukushima Diary",
+        "frequency": 0,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": 1,
+        "volume": -1,
+        "source": "Greenpeace Japan",
+        "frequency": 0,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": -1,
+        "engagement": -1,
+        "volume": 0,
+        "source": "福島市美容室@kamiken.黒岩店",
+        "frequency": -1,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": -1,
+        "engagement": -1,
+        "volume": 0,
+        "source": "福島市美容室@kamiken.清明店",
+        "frequency": -1,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": -1,
+        "volume": -1,
+        "source": "kamiken.モニタールーム@福島市",
+        "frequency": 0,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": -1,
+        "engagement": 1,
+        "volume": 0,
+        "source": "高橋まこと",
+        "frequency": -1,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": 0,
+        "volume": 0,
+        "source": "キャノン FoZZtone",
+        "frequency": 0,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": 1,
+        "engagement": 0,
+        "volume": 0,
+        "source": "福島市クリーニング店＠クリーニング三愛",
+        "frequency": 1,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": -1,
+        "engagement": -1,
+        "volume": 0,
+        "source": "ave(エイウ゛)",
+        "frequency": -1,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": -1,
+        "volume": 0,
+        "source": "CRMS市民放射能測定所 福島",
+        "frequency": 0,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": -1,
+        "volume": 0,
+        "source": "飯坂温泉",
+        "frequency": 0,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": 1,
+        "volume": -1,
+        "source": "シティ情報ふくしま",
+        "frequency": 0,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": 1,
+        "engagement": 0,
+        "volume": -1,
+        "source": "丸森あや ＊　あやまる",
+        "frequency": 1,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": 1,
+        "engagement": 0,
+        "volume": -1,
+        "source": "ももりん【公式】",
+        "frequency": 1,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": 1,
+        "engagement": 1,
+        "volume": 0,
+        "source": "ぱそこん屋　ししど",
+        "frequency": 1,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": 1,
+        "volume": 1,
+        "source": "Earthquake & Tsunami",
+        "frequency": 0,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": -1,
+        "engagement": 1,
+        "volume": 1,
+        "source": "Earthquakes Tsunamis",
+        "frequency": 0,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": 1,
+        "engagement": 1,
+        "volume": -1,
+        "source": "総務省消防庁",
+        "frequency": 1,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": 1,
+        "engagement": 0,
+        "volume": -1,
+        "source": "JEARS",
+        "frequency": 1,
+        "type": "crisis"
+    }
+]

@@ -1,0 +1,1451 @@
+[
+    {
+        "service": "flickr",
+        "age": 49,
+        "engagement": 0,
+        "volume": -1,
+        "source": "Philippine Tours (Join the CONTEST: PHOTO OF THE DAY)",
+        "frequency": 25,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": -19,
+        "engagement": 0,
+        "volume": -1,
+        "source": "philippines farmers",
+        "frequency": 3,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": -24,
+        "engagement": 0,
+        "volume": 0,
+        "source": "Philippine Cityscapes and Townscapes",
+        "frequency": -15,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 36,
+        "engagement": 0,
+        "volume": 0,
+        "source": "Philippine Cycling Network",
+        "frequency": 34,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": -26,
+        "engagement": 0,
+        "volume": 0,
+        "source": "Philippine Mountains",
+        "frequency": -13,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": -22,
+        "engagement": 0,
+        "volume": 0,
+        "source": "Philippine Fruits, Vegetables, Plants &amp; Animals!",
+        "frequency": 5,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 45,
+        "engagement": 0,
+        "volume": 0,
+        "source": "***The Philippines 2011 Calendar Project***",
+        "frequency": -19,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 7,
+        "engagement": 0,
+        "volume": -1,
+        "source": "Philippine postcards",
+        "frequency": 10,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": -10,
+        "engagement": 0,
+        "volume": 0,
+        "source": "PHILIPPINE TOURISM PUBLIC PHOTOS",
+        "frequency": -17,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 18,
+        "engagement": 1,
+        "volume": 0,
+        "source": "Philippine Baroque",
+        "frequency": 38,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": -37,
+        "engagement": 0,
+        "volume": 0,
+        "source": "Philippine Waters",
+        "frequency": -30,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": -39,
+        "engagement": 0,
+        "volume": 0,
+        "source": "Airlines: Philippine Airlines [PR/PAL]",
+        "frequency": -37,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": -6,
+        "engagement": 1,
+        "volume": -1,
+        "source": "Yahoo! PH News",
+        "frequency": 14,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": -28,
+        "engagement": -1,
+        "volume": 1,
+        "source": "Philippine Jeepneys",
+        "frequency": -22,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 23,
+        "engagement": 0,
+        "volume": 0,
+        "source": "Philippine Street Dancing",
+        "frequency": 32,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 14,
+        "engagement": 1,
+        "volume": -1,
+        "source": "Pinoy Movie",
+        "frequency": -50,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 1,
+        "engagement": 1,
+        "volume": -1,
+        "source": "Tricycles in the Philippines",
+        "frequency": 12,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": -44,
+        "engagement": -1,
+        "volume": 1,
+        "source": "Fashion Philippines",
+        "frequency": -42,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": -46,
+        "engagement": 1,
+        "volume": 1,
+        "source": "Film Fests",
+        "frequency": -44,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": -48,
+        "engagement": 1,
+        "volume": 1,
+        "source": "Beaches of the World (geotagged)",
+        "frequency": -46,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": -33,
+        "engagement": 1,
+        "volume": -1,
+        "source": "D31Club Philippines",
+        "frequency": -33,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": -50,
+        "engagement": -1,
+        "volume": 1,
+        "source": "Sunsets &amp; Sunrises around the world (121 Countries!)",
+        "frequency": -48,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": -33,
+        "engagement": 0,
+        "volume": 0,
+        "source": "Smile Campaign",
+        "frequency": -26,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": -13,
+        "engagement": 0,
+        "volume": 1,
+        "source": "The Market Place",
+        "frequency": -28,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": -4,
+        "engagement": 1,
+        "volume": 0,
+        "source": "I.M. Pei / 貝聿銘",
+        "frequency": -4,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": -8,
+        "engagement": -1,
+        "volume": 0,
+        "source": "DEMOCRACY and WORLD ORDER",
+        "frequency": 16,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 21,
+        "engagement": -1,
+        "volume": 0,
+        "source": "Pilipinas Watch Tower",
+        "frequency": 41,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": -2,
+        "engagement": 0,
+        "volume": 0,
+        "source": "&quot;Three Stars and A Sun&quot;",
+        "frequency": 36,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 41,
+        "engagement": -1,
+        "volume": 1,
+        "source": "Pinoy Photojournalist",
+        "frequency": -8,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": -28,
+        "engagement": -1,
+        "volume": 1,
+        "source": "Philippine Jeepneys",
+        "frequency": -22,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 27,
+        "engagement": 1,
+        "volume": 0,
+        "source": "Mga mukha ng Pasko",
+        "frequency": 21,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 32,
+        "engagement": -1,
+        "volume": 0,
+        "source": "Metroblogging Manila",
+        "frequency": 46,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": -17,
+        "engagement": 0,
+        "volume": 0,
+        "source": "The Philippine Islands",
+        "frequency": -6,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 34,
+        "engagement": -1,
+        "volume": 0,
+        "source": "*BANDILA*",
+        "frequency": 43,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 16,
+        "engagement": 0,
+        "volume": -1,
+        "source": "Ang Mga Veronica ng Pilipinas",
+        "frequency": 27,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 10,
+        "engagement": 1,
+        "volume": 0,
+        "source": "Mga Koronadang Imahen ng Mahal na Birhen sa Pilipinas",
+        "frequency": -35,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 12,
+        "engagement": 0,
+        "volume": -1,
+        "source": "Manila Bay Harbor, Philippines.",
+        "frequency": 21,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 49,
+        "engagement": 0,
+        "volume": 1,
+        "source": "LA NAVAL DE MANILA",
+        "frequency": 49,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 5,
+        "engagement": 0,
+        "volume": 0,
+        "source": "FILIPINO SAN LORENZO RUIZ DE MANILA",
+        "frequency": 7,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": -15,
+        "engagement": 0,
+        "volume": 1,
+        "source": "Old Manila Nostalgia",
+        "frequency": 1,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 32,
+        "engagement": -1,
+        "volume": 0,
+        "source": "Metroblogging Manila",
+        "frequency": 46,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 41,
+        "engagement": -1,
+        "volume": 1,
+        "source": "Pinoy Photojournalist",
+        "frequency": -8,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 43,
+        "engagement": 1,
+        "volume": 0,
+        "source": "Ateneo de Manila University",
+        "frequency": -2,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": -42,
+        "engagement": 0,
+        "volume": 1,
+        "source": "***Architecture in the Philippines***",
+        "frequency": -39,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 25,
+        "engagement": 1,
+        "volume": -1,
+        "source": "Mariquina",
+        "frequency": 30,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 3,
+        "engagement": -1,
+        "volume": -1,
+        "source": "DIONET'S LINER",
+        "frequency": 23,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": 30,
+        "engagement": 1,
+        "volume": 1,
+        "source": "langoy",
+        "frequency": 2,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": 46,
+        "engagement": 1,
+        "volume": 0,
+        "source": "blackskyflakes",
+        "frequency": 46,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": -18,
+        "engagement": -1,
+        "volume": -1,
+        "source": "whonskatt",
+        "frequency": -18,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": -50,
+        "engagement": -1,
+        "volume": 1,
+        "source": "hondamarc",
+        "frequency": -50,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": -34,
+        "engagement": 0,
+        "volume": 0,
+        "source": "greenprincess29",
+        "frequency": -30,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": 49,
+        "engagement": 0,
+        "volume": 0,
+        "source": "rosedaneerwin",
+        "frequency": 49,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": 26,
+        "engagement": 0,
+        "volume": 0,
+        "source": "flipsimmons",
+        "frequency": 38,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": -14,
+        "engagement": 0,
+        "volume": -1,
+        "source": "jentotskie",
+        "frequency": -14,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": 22,
+        "engagement": 1,
+        "volume": -1,
+        "source": "tala-araw",
+        "frequency": 30,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": 42,
+        "engagement": 0,
+        "volume": 0,
+        "source": "ninjaponexperience",
+        "frequency": 42,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": 6,
+        "engagement": 1,
+        "volume": 1,
+        "source": "powerpuffjer",
+        "frequency": -18,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": -30,
+        "engagement": 1,
+        "volume": 1,
+        "source": "janessasulaik",
+        "frequency": -46,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": -38,
+        "engagement": 0,
+        "volume": 0,
+        "source": "jaedavao",
+        "frequency": -30,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": -10,
+        "engagement": 1,
+        "volume": 0,
+        "source": "karolous",
+        "frequency": -2,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": -26,
+        "engagement": 0,
+        "volume": 1,
+        "source": "eybloveselle",
+        "frequency": -38,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": 10,
+        "engagement": -1,
+        "volume": 0,
+        "source": "grnpnsth",
+        "frequency": 22,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": 14,
+        "engagement": -1,
+        "volume": -1,
+        "source": "happyfitz",
+        "frequency": 22,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": 2,
+        "engagement": 0,
+        "volume": 0,
+        "source": "gizzychan",
+        "frequency": 22,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": 34,
+        "engagement": 1,
+        "volume": 0,
+        "source": "imcrumbleweird",
+        "frequency": 10,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": -2,
+        "engagement": -1,
+        "volume": 1,
+        "source": "vogelmann",
+        "frequency": -2,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": 38,
+        "engagement": 0,
+        "volume": -1,
+        "source": "adrianramirez02",
+        "frequency": 34,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": 18,
+        "engagement": 0,
+        "volume": 0,
+        "source": "thegoodmike",
+        "frequency": 30,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": -23,
+        "engagement": 0,
+        "volume": -1,
+        "source": "thelittlegirlslittleworld",
+        "frequency": -26,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": -6,
+        "engagement": -1,
+        "volume": -1,
+        "source": "dinxpassion",
+        "frequency": 5,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": -46,
+        "engagement": 0,
+        "volume": 1,
+        "source": "kayedeebutac",
+        "frequency": -2,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": -38,
+        "engagement": -1,
+        "volume": 0,
+        "source": "enzai",
+        "frequency": -42,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": -28,
+        "engagement": 1,
+        "volume": 1,
+        "source": "MYX Philippines",
+        "frequency": -39,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": -43,
+        "engagement": 1,
+        "volume": 1,
+        "source": "Philippine Airlines",
+        "frequency": -25,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": -39,
+        "engagement": 0,
+        "volume": 1,
+        "source": "Yahoo Philippines",
+        "frequency": -25,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": -28,
+        "engagement": 0,
+        "volume": 0,
+        "source": "NBA Philippines",
+        "frequency": -39,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": -28,
+        "engagement": 1,
+        "volume": -1,
+        "source": "OLX Philippines",
+        "frequency": -39,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 44,
+        "engagement": 1,
+        "volume": -1,
+        "source": "Twitter Philippines",
+        "frequency": 44,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 2,
+        "engagement": -1,
+        "volume": 1,
+        "source": "Tourism Philippines",
+        "frequency": -3,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 29,
+        "engagement": 1,
+        "volume": 0,
+        "source": "Philippine Red Cross",
+        "frequency": 35,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 1,
+        "engagement": -1,
+        "volume": 0,
+        "source": "PhilippineVolcanoes™",
+        "frequency": -8,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": -17,
+        "engagement": 1,
+        "volume": 0,
+        "source": "FHM Philippines",
+        "frequency": -15,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": -49,
+        "engagement": 1,
+        "volume": 1,
+        "source": "GMA News",
+        "frequency": -39,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 14,
+        "engagement": 0,
+        "volume": 0,
+        "source": "Avon Philippines",
+        "frequency": 20,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": -5,
+        "engagement": 0,
+        "volume": 0,
+        "source": "Choose Philippines",
+        "frequency": 2,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 17,
+        "engagement": 0,
+        "volume": -1,
+        "source": "Levi's Philippines",
+        "frequency": 25,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": -21,
+        "engagement": -1,
+        "volume": 1,
+        "source": "Philippine Concerts",
+        "frequency": -15,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 11,
+        "engagement": -1,
+        "volume": 0,
+        "source": "Habitat Philippines",
+        "frequency": 20,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 5,
+        "engagement": -1,
+        "volume": 0,
+        "source": "Nuffnang Philippines",
+        "frequency": 11,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 13,
+        "engagement": 0,
+        "volume": 1,
+        "source": "EXO PHILIPPINES",
+        "frequency": 16,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 16,
+        "engagement": 0,
+        "volume": -1,
+        "source": "Watsons Philippines",
+        "frequency": 25,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 39,
+        "engagement": -1,
+        "volume": 0,
+        "source": "WowPhilippines",
+        "frequency": 39,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": -5,
+        "engagement": -1,
+        "volume": 0,
+        "source": "Top Gear Philippines",
+        "frequency": -8,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": -12,
+        "engagement": 0,
+        "volume": -1,
+        "source": "KCC Philippines",
+        "frequency": -15,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 36,
+        "engagement": -1,
+        "volume": -1,
+        "source": "Joong Ki Philippines",
+        "frequency": 42,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 45,
+        "engagement": 0,
+        "volume": 0,
+        "source": "survivor philippines",
+        "frequency": 49,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": 0,
+        "volume": 0,
+        "source": "Berocca Philippines",
+        "frequency": 2,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": -45,
+        "engagement": 0,
+        "volume": 0,
+        "source": "Closeup Philippines",
+        "frequency": -25,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 23,
+        "engagement": 1,
+        "volume": -1,
+        "source": "Noynoy Aquino",
+        "frequency": 16,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 23,
+        "engagement": 1,
+        "volume": -1,
+        "source": "Noynoy Aquino",
+        "frequency": 16,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": -28,
+        "engagement": 1,
+        "volume": 1,
+        "source": "Official Gazette PH",
+        "frequency": -39,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": -27,
+        "engagement": 1,
+        "volume": 0,
+        "source": "DepEd",
+        "frequency": -25,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 20,
+        "engagement": 0,
+        "volume": 1,
+        "source": "GMA Party Pilipinas",
+        "frequency": 29,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": -23,
+        "engagement": 0,
+        "volume": -1,
+        "source": "Gilas Pilipinas",
+        "frequency": -15,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 47,
+        "engagement": 1,
+        "volume": 0,
+        "source": "PARTY PILIPINAS",
+        "frequency": 32,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": -9,
+        "engagement": 0,
+        "volume": -1,
+        "source": "Intel Philippines",
+        "frequency": -3,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": -20,
+        "engagement": -1,
+        "volume": 0,
+        "source": "Greenpeace Pilipinas",
+        "frequency": -8,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 49,
+        "engagement": 0,
+        "volume": -1,
+        "source": "BlackBerry Pilipinas",
+        "frequency": 49,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": -2,
+        "engagement": 0,
+        "volume": -1,
+        "source": "NokiaPilipinas",
+        "frequency": 2,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": -3,
+        "engagement": 0,
+        "volume": -1,
+        "source": "Gilas Pilipinas Army",
+        "frequency": -3,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 30,
+        "engagement": 1,
+        "volume": 0,
+        "source": "paolo bediones",
+        "frequency": 30,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": -46,
+        "engagement": 0,
+        "volume": 1,
+        "source": "Unang Hirit",
+        "frequency": -25,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 32,
+        "engagement": 0,
+        "volume": 0,
+        "source": "Wattpad Pilipinas",
+        "frequency": 26,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 42,
+        "engagement": 1,
+        "volume": 0,
+        "source": "Smart Gilas",
+        "frequency": 47,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": -15,
+        "engagement": 1,
+        "volume": 0,
+        "source": "Chot Reyes",
+        "frequency": -25,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 25,
+        "engagement": 1,
+        "volume": 0,
+        "source": "Jared Dillinger",
+        "frequency": 35,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 26,
+        "engagement": 0,
+        "volume": -1,
+        "source": "Ray Parks",
+        "frequency": 25,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": -5,
+        "engagement": -1,
+        "volume": 0,
+        "source": "Garvo Lanete",
+        "frequency": 11,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": -49,
+        "engagement": -1,
+        "volume": 1,
+        "source": "Manila Bulletin News",
+        "frequency": -39,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": -14,
+        "engagement": 1,
+        "volume": 0,
+        "source": "U.S. Embassy Manila",
+        "frequency": -8,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": -25,
+        "engagement": -1,
+        "volume": 1,
+        "source": "Manila Concert Scene",
+        "frequency": -15,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 41,
+        "engagement": 1,
+        "volume": 0,
+        "source": "Ateneo de Manila",
+        "frequency": 45,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": -28,
+        "engagement": -1,
+        "volume": 1,
+        "source": "The Manila Times",
+        "frequency": -39,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 10,
+        "engagement": 0,
+        "volume": 0,
+        "source": "Sofitel Manila",
+        "frequency": 11,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 4,
+        "engagement": -1,
+        "volume": -1,
+        "source": "LETRAN MANILA",
+        "frequency": 11,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 27,
+        "engagement": -1,
+        "volume": -1,
+        "source": "Manila Hotel",
+        "frequency": 38,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": -28,
+        "engagement": 0,
+        "volume": 1,
+        "source": "TV5",
+        "frequency": -39,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": -11,
+        "engagement": 0,
+        "volume": 1,
+        "source": "Manila Luzon",
+        "frequency": -8,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": -42,
+        "engagement": 0,
+        "volume": 1,
+        "source": "Girlie Rodis",
+        "frequency": -25,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 7,
+        "engagement": 0,
+        "volume": 1,
+        "source": "TeamManila",
+        "frequency": 11,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": -28,
+        "engagement": 0,
+        "volume": 0,
+        "source": "Love Radio Manila",
+        "frequency": -39,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 19,
+        "engagement": 0,
+        "volume": 0,
+        "source": "Vans Ph Manila",
+        "frequency": 29,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": -24,
+        "engagement": 0,
+        "volume": 0,
+        "source": "Manila Philippines",
+        "frequency": -15,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 10,
+        "engagement": 0,
+        "volume": 0,
+        "source": "Resorts World Manila",
+        "frequency": 2,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": -18,
+        "engagement": -1,
+        "volume": 0,
+        "source": "TicketWorld Manila",
+        "frequency": -15,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 35,
+        "engagement": 0,
+        "volume": 0,
+        "source": "Harvey Carey II",
+        "frequency": 41,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 49,
+        "engagement": 0,
+        "volume": -1,
+        "source": "The Manila Machine",
+        "frequency": 11,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 38,
+        "engagement": 0,
+        "volume": 0,
+        "source": "Words of Wisdom",
+        "frequency": 36,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": -48,
+        "engagement": 0,
+        "volume": 1,
+        "source": "Official MMDA",
+        "frequency": -25,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 33,
+        "engagement": -1,
+        "volume": 0,
+        "source": "Manila Girl",
+        "frequency": 20,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": -39,
+        "engagement": 0,
+        "volume": 0,
+        "source": "Team Barbie Forteza",
+        "frequency": -25,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": -50,
+        "engagement": 0,
+        "volume": 0,
+        "source": "mercycorps",
+        "frequency": -50,
+        "type": "crisis"
+    },
+    {
+        "service": "tumblr",
+        "age": 16,
+        "engagement": -1,
+        "volume": 1,
+        "source": "berryshares",
+        "frequency": 16,
+        "type": "crisis"
+    },
+    {
+        "service": "tumblr",
+        "age": 49,
+        "engagement": 1,
+        "volume": 0,
+        "source": "iskobralm",
+        "frequency": -17,
+        "type": "crisis"
+    },
+    {
+        "service": "tumblr",
+        "age": -17,
+        "engagement": 0,
+        "volume": -1,
+        "source": "joanniemarie",
+        "frequency": 49,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": -35,
+        "engagement": 0,
+        "volume": 1,
+        "source": "WHO Philippines",
+        "frequency": -27,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": 42,
+        "engagement": 0,
+        "volume": -1,
+        "source": "Typhoon Haiyan",
+        "frequency": -12,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": 49,
+        "engagement": 0,
+        "volume": -1,
+        "source": "Typhoon Haiyan",
+        "frequency": -50,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": -43,
+        "engagement": -1,
+        "volume": 1,
+        "source": "Rachid_Boumnijel",
+        "frequency": -20,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": -27,
+        "engagement": 0,
+        "volume": -1,
+        "source": "Typhoon Haiyan",
+        "frequency": -43,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": -50,
+        "engagement": 1,
+        "volume": 1,
+        "source": "Philippine Red Cross",
+        "frequency": -35,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": 34,
+        "engagement": -1,
+        "volume": 1,
+        "source": "Adobo Hoedown",
+        "frequency": 49,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": 26,
+        "engagement": 1,
+        "volume": 0,
+        "source": "Never Give Up PH",
+        "frequency": 19,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": 26,
+        "engagement": 1,
+        "volume": 0,
+        "source": "Never Give Up PH",
+        "frequency": 19,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": -4,
+        "engagement": 0,
+        "volume": 0,
+        "source": "Haiyan-Aid",
+        "frequency": 42,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": 26,
+        "engagement": 1,
+        "volume": 0,
+        "source": "Never Give Up PH",
+        "frequency": 19,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": -4,
+        "engagement": 0,
+        "volume": 0,
+        "source": "Haiyan-Aid",
+        "frequency": 42,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": 26,
+        "engagement": 1,
+        "volume": 0,
+        "source": "Never Give Up PH",
+        "frequency": 19,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": -4,
+        "engagement": 0,
+        "volume": 0,
+        "source": "Haiyan-Aid",
+        "frequency": 42,
+        "type": "crisis"
+    },
+    {
+        "service": "feed",
+        "age": 0,
+        "engagement": 0,
+        "volume": 0,
+        "source": "Doctor's Without Borders",
+        "frequency": 0,
+        "type": "crisis"
+    },
+    {
+        "service": "feed",
+        "age": 0,
+        "engagement": 0,
+        "volume": 0,
+        "source": "Oxfam International",
+        "frequency": 0,
+        "type": "crisis"
+    }
+]

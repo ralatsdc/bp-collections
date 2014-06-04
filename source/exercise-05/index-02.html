@@ -53,27 +53,87 @@
     <!-- Primary Page Layout
 	 ================================================== -->
     
-    <svg>
-      <g>
-        <switch>
-          <foreignobject
-             requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
-            <body>
-              <div class="container">
-                <div class="twelve columns">
-	          <h1 class="remove-bottom" style="margin-top: 40px">Exercise-04</h1>
-	          <hr />
-                </div>
-              </div>
-            </body>
-          </foreignobject>
-          <text font-size="20" font-family="Verdana">
-            <tspan x="20" y="20">Two</tspan>
-          </text>
-          <circle cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="red" />
-        </switch>
-xd      </g>
-    </svg> 
+    <div class="main">
+    </div><!-- main -->
+    
+    <script>
+
+var width = 500;
+var height = 500;
+var margin = 50;
+
+var x = d3.scale.linear();
+var y = d3.scale.linear();
+var r = d3.scale.linear();
+var o = d3.scale.linear();
+
+x
+    .domain([-50, 50])
+    .range([margin, width - margin]);
+y
+    .domain([-50, 50])
+    .range([height - margin, margin]);
+r
+    .domain([-1, 1])
+    .range([5, 20]);
+o
+    .domain([-1, 1])
+    .range([0.25, 0.75]);
+
+var svg = d3.select("div.main").append("svg");
+
+svg
+    .attr("width", width)
+    .attr("height", height);
+
+d3.json("json/japan.json", function(abc) {
+
+    var fill = d3.scale.category10();
+
+    var force = d3.layout.force()
+        .nodes(abc)
+        .size([width, height])
+        .on("tick", tick)
+        .start();
+
+    var node = svg.selectAll(".node")
+        .data(abc)
+        .enter().append("circle")
+        .attr("class", "node")
+        .attr("cx", function(d) {return x(-d.age);})
+        .attr("cy", function(d) {return y(-d.frequency);})
+        .attr("r", function(d) {return r(+d.volume);})
+        .style("fill", function(d, i) { return fill(i & 3); })
+        .style("stroke", function(d, i) { return d3.rgb(fill(i & 3)).darker(2); })
+        .call(force.drag)
+        .on("mousedown", function() { d3.event.stopPropagation(); });
+    
+    d3.select("body")
+        .on("mousedown", mousedown);
+
+    function tick(e) {
+
+        // Push different nodes in different directions for clustering.
+        var k = 6 * e.alpha;
+        abc.forEach(function(o, i) {
+            o.y += i & 1 ? k : -k;
+            o.x += i & 2 ? k : -k;
+        });
+
+        abc
+            .attr("cx", function(d) {return x(-d.age);})
+            .attr("cy", function(d) {return y(-d.frequency);});
+    }
+
+    function mousedown() {
+        abc.forEach(function(o, i) {
+            o.x += (Math.random() - .5) * 40;
+            o.y += (Math.random() - .5) * 40;
+        });
+        force.resume();
+    }
+});
+    </script>
 
     <!-- End Document
          ================================================== -->

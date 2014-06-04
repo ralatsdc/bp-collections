@@ -1,0 +1,884 @@
+[
+    {
+        "service": "flickr",
+        "age": 0,
+        "engagement": 0,
+        "volume": 0,
+        "source": "Haiti Outreach Group",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 1,
+        "engagement": 0,
+        "volume": 0,
+        "source": "Haiti vodou",
+        "frequency": 1,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 0,
+        "engagement": 0,
+        "volume": 1,
+        "source": "Hope for Haiti 2010",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 0,
+        "engagement": 1,
+        "volume": -1,
+        "source": "Haiti Relief",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 0,
+        "engagement": 0,
+        "volume": 0,
+        "source": "SOS Haiti",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 1,
+        "engagement": 1,
+        "volume": -1,
+        "source": "*~ Künstler organisieren Spenden für Haiti ~*",
+        "frequency": 1,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 0,
+        "engagement": 1,
+        "volume": 0,
+        "source": "Posters for Haiti",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 1,
+        "engagement": -1,
+        "volume": 0,
+        "source": "Peace Corps: Dominican Republic",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 0,
+        "engagement": -1,
+        "volume": 1,
+        "source": "The Global Community",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": -1,
+        "engagement": 0,
+        "volume": 1,
+        "source": "Film Fests",
+        "frequency": -1,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 1,
+        "engagement": 0,
+        "volume": -1,
+        "source": "Global Videos",
+        "frequency": 1,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": -1,
+        "engagement": 1,
+        "volume": 1,
+        "source": "Beaches of the World (geotagged)",
+        "frequency": -1,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": -1,
+        "engagement": 0,
+        "volume": 0,
+        "source": "Smile Campaign",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 1,
+        "engagement": 0,
+        "volume": 0,
+        "source": "Target Vacations Travel Pics",
+        "frequency": 1,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 0,
+        "engagement": -1,
+        "volume": 0,
+        "source": "Caribbean Carnival",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 0,
+        "engagement": 0,
+        "volume": 0,
+        "source": "inflatables/Balloons",
+        "frequency": -1,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 0,
+        "engagement": 0,
+        "volume": -1,
+        "source": "Hope International",
+        "frequency": -1,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": -1,
+        "engagement": -1,
+        "volume": 0,
+        "source": "Airlines: Air Transat",
+        "frequency": -1,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 0,
+        "engagement": 1,
+        "volume": -1,
+        "source": "Caribbean Idols, Totems, and Deities",
+        "frequency": 1,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 0,
+        "engagement": 1,
+        "volume": -1,
+        "source": "Living Water International",
+        "frequency": 1,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": -1,
+        "engagement": -1,
+        "volume": 0,
+        "source": "Caribbean by tips4travels",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 1,
+        "engagement": 0,
+        "volume": 0,
+        "source": "Atlantis Events",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 0,
+        "engagement": 0,
+        "volume": 1,
+        "source": "The Market Place",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": -1,
+        "engagement": -1,
+        "volume": 1,
+        "source": "Abandoned and Disused Trains",
+        "frequency": -1,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": 0,
+        "engagement": -1,
+        "volume": 0,
+        "source": "power-j",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": 0,
+        "engagement": 0,
+        "volume": 0,
+        "source": "awayishome",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": -1,
+        "engagement": 0,
+        "volume": 1,
+        "source": "they-call-me-oklahoma",
+        "frequency": -1,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": 1,
+        "engagement": 1,
+        "volume": -1,
+        "source": "tisamy2k",
+        "frequency": 1,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": -1,
+        "engagement": 0,
+        "volume": 0,
+        "source": "nine4eight",
+        "frequency": -1,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": 1,
+        "engagement": 0,
+        "volume": 0,
+        "source": "blacklooks",
+        "frequency": 1,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": -1,
+        "engagement": 1,
+        "volume": 1,
+        "source": "accras",
+        "frequency": -1,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": 0,
+        "engagement": 0,
+        "volume": 1,
+        "source": "lptheory",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": -1,
+        "engagement": -1,
+        "volume": 1,
+        "source": "ladieslove-djbchery",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": 0,
+        "engagement": 1,
+        "volume": 0,
+        "source": "artdream",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": 1,
+        "engagement": -1,
+        "volume": -1,
+        "source": "gregorytelfort",
+        "frequency": 1,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": -1,
+        "engagement": 0,
+        "volume": 0,
+        "source": "lunionsuite",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": 0,
+        "engagement": -1,
+        "volume": 1,
+        "source": "rapadoo",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": -1,
+        "engagement": 0,
+        "volume": 1,
+        "source": "lostinurbanism",
+        "frequency": -1,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": -1,
+        "engagement": 0,
+        "volume": -1,
+        "source": "quidam-elusuario",
+        "frequency": -1,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": 0,
+        "engagement": 0,
+        "volume": -1,
+        "source": "free0fmind",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": 1,
+        "engagement": 0,
+        "volume": -1,
+        "source": "crazycoolgeek",
+        "frequency": 1,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": 0,
+        "engagement": -1,
+        "volume": 0,
+        "source": "romaly10",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": 0,
+        "engagement": 1,
+        "volume": 1,
+        "source": "chanellwashere",
+        "frequency": -1,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": 1,
+        "engagement": 0,
+        "volume": 0,
+        "source": "paralleladele",
+        "frequency": 1,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": 0,
+        "engagement": 1,
+        "volume": 0,
+        "source": "ayedeez",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": 0,
+        "engagement": 1,
+        "volume": -1,
+        "source": "roomscapeu",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": -1,
+        "engagement": 0,
+        "volume": 1,
+        "source": "omarthegreat",
+        "frequency": -1,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": 0,
+        "engagement": -1,
+        "volume": 0,
+        "source": "smaxmusic",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": 1,
+        "engagement": 0,
+        "volume": 0,
+        "source": "cazalis",
+        "frequency": 1,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": 0,
+        "engagement": -1,
+        "volume": 1,
+        "source": "nicholasroutzen",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": -1,
+        "engagement": -1,
+        "volume": 1,
+        "source": "sejoe",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": -1,
+        "engagement": 0,
+        "volume": 0,
+        "source": "haitianreggie",
+        "frequency": -1,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": 0,
+        "engagement": 1,
+        "volume": 0,
+        "source": "lizzieeg30",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": 0,
+        "engagement": -1,
+        "volume": 0,
+        "source": "footynions",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": 0,
+        "engagement": 0,
+        "volume": -1,
+        "source": "richardsonleadstheway",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": 0,
+        "engagement": -1,
+        "volume": 0,
+        "source": "cbcburke9",
+        "frequency": -1,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": 0,
+        "engagement": 0,
+        "volume": 0,
+        "source": "killaaahh",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": 0,
+        "engagement": 0,
+        "volume": -1,
+        "source": "pommeris",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": 1,
+        "engagement": 1,
+        "volume": -1,
+        "source": "derekrphotos",
+        "frequency": 1,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": 0,
+        "engagement": 0,
+        "volume": 0,
+        "source": "jsplarrieux",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": 1,
+        "engagement": 0,
+        "volume": 0,
+        "source": "jelanihasan",
+        "frequency": 1,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": 1,
+        "engagement": 1,
+        "volume": -1,
+        "source": "benhorton83",
+        "frequency": 1,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": 0,
+        "engagement": 1,
+        "volume": 0,
+        "source": "naskademini",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": 1,
+        "engagement": 0,
+        "volume": 0,
+        "source": "establishedin88",
+        "frequency": 1,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": -1,
+        "engagement": -1,
+        "volume": 1,
+        "source": "RAMhaiti",
+        "frequency": -1,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": -1,
+        "volume": 0,
+        "source": "Future Haiti",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": 0,
+        "volume": 1,
+        "source": "Troy Livesay",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 1,
+        "engagement": 0,
+        "volume": 1,
+        "source": "Fireside Int.",
+        "frequency": 1,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 1,
+        "engagement": 1,
+        "volume": -1,
+        "source": "YELE HAITI",
+        "frequency": 1,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": 0,
+        "volume": 0,
+        "source": "USAID Haiti",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": -1,
+        "engagement": 0,
+        "volume": 1,
+        "source": "US Embassy Haiti",
+        "frequency": -1,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 1,
+        "engagement": -1,
+        "volume": -1,
+        "source": "HaitiRewired",
+        "frequency": 1,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": 1,
+        "volume": 0,
+        "source": "Michel J. Martelly",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 1,
+        "engagement": 0,
+        "volume": -1,
+        "source": "Lambi Fund of Haiti",
+        "frequency": 1,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 1,
+        "engagement": -1,
+        "volume": 0,
+        "source": "Haiti Watch Blog",
+        "frequency": 1,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 1,
+        "engagement": -1,
+        "volume": -1,
+        "source": "clay kilgore HAITI",
+        "frequency": -1,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": 0,
+        "volume": -1,
+        "source": "Haiti Net",
+        "frequency": 1,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": 1,
+        "volume": 1,
+        "source": "Wyclef Jean",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": 0,
+        "volume": 0,
+        "source": "Pooja Bhatia",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": 1,
+        "volume": 0,
+        "source": "Hope for Haiti",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": -1,
+        "engagement": 0,
+        "volume": 1,
+        "source": "Laurent Lamothe",
+        "frequency": -1,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": -1,
+        "engagement": 1,
+        "volume": 1,
+        "source": "Juno7™ Haiti",
+        "frequency": -1,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": -1,
+        "volume": -1,
+        "source": "Trenton Daniel",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": -1,
+        "engagement": 1,
+        "volume": 0,
+        "source": "Partners In Health",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": -1,
+        "engagement": -1,
+        "volume": 1,
+        "source": "Le Nouvelliste",
+        "frequency": -1,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": 0,
+        "volume": -1,
+        "source": "La France en Haïti",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": 0,
+        "volume": 0,
+        "source": "Tourism Haiti ",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 1,
+        "engagement": 0,
+        "volume": -1,
+        "source": "Haiti Press Network",
+        "frequency": 1,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": -1,
+        "engagement": 0,
+        "volume": 0,
+        "source": "BélO Haiti",
+        "frequency": -1,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": -1,
+        "volume": -1,
+        "source": "Embassy of Haiti",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": -1,
+        "engagement": -1,
+        "volume": 0,
+        "source": "Haiti Business ",
+        "frequency": -1,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": -1,
+        "engagement": 1,
+        "volume": 1,
+        "source": "Lakou Haiti",
+        "frequency": -1,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": 1,
+        "volume": 0,
+        "source": "Michel J. Martelly",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": 1,
+        "volume": 0,
+        "source": "Michel J. Martelly",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": 1,
+        "volume": 0,
+        "source": "Michel J. Martelly",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": 1,
+        "volume": 0,
+        "source": "Michel J. Martelly",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 1,
+        "engagement": 0,
+        "volume": 0,
+        "source": "†Nippcey",
+        "frequency": 1,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 1,
+        "engagement": 0,
+        "volume": 0,
+        "source": "†Nippcey",
+        "frequency": 1,
+        "type": "common"
+    }
+]

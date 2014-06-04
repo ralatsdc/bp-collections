@@ -1,0 +1,1325 @@
+[
+    {
+        "service": "flickr",
+        "age": -16,
+        "engagement": 0,
+        "volume": 0,
+        "source": "Haiti Outreach Group",
+        "frequency": 2,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 49,
+        "engagement": 0,
+        "volume": 0,
+        "source": "Haiti vodou",
+        "frequency": 32,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": -11,
+        "engagement": 0,
+        "volume": 1,
+        "source": "Hope for Haiti 2010",
+        "frequency": 6,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 10,
+        "engagement": 1,
+        "volume": -1,
+        "source": "Haiti Relief",
+        "frequency": -3,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 6,
+        "engagement": 0,
+        "volume": 0,
+        "source": "SOS Haiti",
+        "frequency": 19,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 41,
+        "engagement": 1,
+        "volume": -1,
+        "source": "*~ Künstler organisieren Spenden für Haiti ~*",
+        "frequency": 49,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": -7,
+        "engagement": 1,
+        "volume": 0,
+        "source": "Posters for Haiti",
+        "frequency": 15,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 28,
+        "engagement": -1,
+        "volume": 0,
+        "source": "Peace Corps: Dominican Republic",
+        "frequency": 10,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 2,
+        "engagement": -1,
+        "volume": 1,
+        "source": "The Global Community",
+        "frequency": -20,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": -46,
+        "engagement": 0,
+        "volume": 1,
+        "source": "Film Fests",
+        "frequency": -33,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 45,
+        "engagement": 0,
+        "volume": -1,
+        "source": "Global Videos",
+        "frequency": 45,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": -50,
+        "engagement": 1,
+        "volume": 1,
+        "source": "Beaches of the World (geotagged)",
+        "frequency": -42,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": -33,
+        "engagement": 0,
+        "volume": 0,
+        "source": "Smile Campaign",
+        "frequency": -11,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 36,
+        "engagement": 0,
+        "volume": 0,
+        "source": "Target Vacations Travel Pics",
+        "frequency": 28,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": -3,
+        "engagement": -1,
+        "volume": 0,
+        "source": "Caribbean Carnival",
+        "frequency": -7,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": -20,
+        "engagement": 0,
+        "volume": 0,
+        "source": "inflatables/Balloons",
+        "frequency": -46,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 23,
+        "engagement": 0,
+        "volume": -1,
+        "source": "Hope International",
+        "frequency": -46,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": -37,
+        "engagement": -1,
+        "volume": 0,
+        "source": "Airlines: Air Transat",
+        "frequency": -29,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 15,
+        "engagement": 1,
+        "volume": -1,
+        "source": "Caribbean Idols, Totems, and Deities",
+        "frequency": 41,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 19,
+        "engagement": 1,
+        "volume": -1,
+        "source": "Living Water International",
+        "frequency": 36,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": -29,
+        "engagement": -1,
+        "volume": 0,
+        "source": "Caribbean by tips4travels",
+        "frequency": -24,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 32,
+        "engagement": 0,
+        "volume": 0,
+        "source": "Atlantis Events",
+        "frequency": 23,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": -24,
+        "engagement": 0,
+        "volume": 1,
+        "source": "The Market Place",
+        "frequency": -16,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": -42,
+        "engagement": -1,
+        "volume": 1,
+        "source": "Abandoned and Disused Trains",
+        "frequency": -33,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": -7,
+        "engagement": -1,
+        "volume": 0,
+        "source": "power-j",
+        "frequency": -12,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": 24,
+        "engagement": 0,
+        "volume": 0,
+        "source": "awayishome",
+        "frequency": 21,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": -45,
+        "engagement": 0,
+        "volume": 1,
+        "source": "they-call-me-oklahoma",
+        "frequency": -45,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": 49,
+        "engagement": 1,
+        "volume": -1,
+        "source": "tisamy2k",
+        "frequency": 47,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": -38,
+        "engagement": 0,
+        "volume": 0,
+        "source": "nine4eight",
+        "frequency": -35,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": 32,
+        "engagement": 0,
+        "volume": 0,
+        "source": "blacklooks",
+        "frequency": 37,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": -45,
+        "engagement": 1,
+        "volume": 1,
+        "source": "accras",
+        "frequency": -45,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": 1,
+        "engagement": 0,
+        "volume": 1,
+        "source": "lptheory",
+        "frequency": 3,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": -35,
+        "engagement": -1,
+        "volume": 1,
+        "source": "ladieslove-djbchery",
+        "frequency": -12,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": 14,
+        "engagement": 1,
+        "volume": 0,
+        "source": "artdream",
+        "frequency": 6,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": 39,
+        "engagement": -1,
+        "volume": -1,
+        "source": "gregorytelfort",
+        "frequency": 42,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": -27,
+        "engagement": 0,
+        "volume": 0,
+        "source": "lunionsuite",
+        "frequency": -25,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": -15,
+        "engagement": -1,
+        "volume": 1,
+        "source": "rapadoo",
+        "frequency": -7,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": -33,
+        "engagement": 0,
+        "volume": 1,
+        "source": "lostinurbanism",
+        "frequency": -35,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": -45,
+        "engagement": 0,
+        "volume": -1,
+        "source": "quidam-elusuario",
+        "frequency": -45,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": 16,
+        "engagement": 0,
+        "volume": -1,
+        "source": "free0fmind",
+        "frequency": 8,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": 26,
+        "engagement": 0,
+        "volume": -1,
+        "source": "crazycoolgeek",
+        "frequency": 29,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": -9,
+        "engagement": -1,
+        "volume": 0,
+        "source": "romaly10",
+        "frequency": -2,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": -21,
+        "engagement": 1,
+        "volume": 1,
+        "source": "chanellwashere",
+        "frequency": -25,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": 34,
+        "engagement": 0,
+        "volume": 0,
+        "source": "paralleladele",
+        "frequency": 26,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": -21,
+        "engagement": 1,
+        "volume": 0,
+        "source": "ayedeez",
+        "frequency": -12,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": 21,
+        "engagement": 1,
+        "volume": -1,
+        "source": "roomscapeu",
+        "frequency": 24,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": -40,
+        "engagement": 0,
+        "volume": 1,
+        "source": "omarthegreat",
+        "frequency": -35,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": -2,
+        "engagement": -1,
+        "volume": 0,
+        "source": "smaxmusic",
+        "frequency": -2,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": 37,
+        "engagement": 0,
+        "volume": 0,
+        "source": "cazalis",
+        "frequency": 34,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": -12,
+        "engagement": -1,
+        "volume": 1,
+        "source": "nicholasroutzen",
+        "frequency": -12,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": -27,
+        "engagement": -1,
+        "volume": 1,
+        "source": "sejoe",
+        "frequency": -12,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": -43,
+        "engagement": 0,
+        "volume": 0,
+        "source": "haitianreggie",
+        "frequency": -43,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": -17,
+        "engagement": 1,
+        "volume": 0,
+        "source": "lizzieeg30",
+        "frequency": -25,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": 11,
+        "engagement": -1,
+        "volume": 0,
+        "source": "footynions",
+        "frequency": 16,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": 6,
+        "engagement": 0,
+        "volume": -1,
+        "source": "richardsonleadstheway",
+        "frequency": 11,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": -25,
+        "engagement": -1,
+        "volume": 0,
+        "source": "cbcburke9",
+        "frequency": -25,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": -4,
+        "engagement": 0,
+        "volume": 0,
+        "source": "killaaahh",
+        "frequency": -7,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": 19,
+        "engagement": 0,
+        "volume": -1,
+        "source": "pommeris",
+        "frequency": 14,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": 42,
+        "engagement": 1,
+        "volume": -1,
+        "source": "derekrphotos",
+        "frequency": 39,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": 3,
+        "engagement": 0,
+        "volume": 0,
+        "source": "jsplarrieux",
+        "frequency": 3,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": 44,
+        "engagement": 0,
+        "volume": 0,
+        "source": "jelanihasan",
+        "frequency": 49,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": 29,
+        "engagement": 1,
+        "volume": -1,
+        "source": "benhorton83",
+        "frequency": 32,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": 8,
+        "engagement": 1,
+        "volume": 0,
+        "source": "naskademini",
+        "frequency": 21,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": 47,
+        "engagement": 0,
+        "volume": 0,
+        "source": "establishedin88",
+        "frequency": 44,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": -38,
+        "engagement": -1,
+        "volume": 1,
+        "source": "RAMhaiti",
+        "frequency": -38,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 13,
+        "engagement": -1,
+        "volume": 0,
+        "source": "Future Haiti",
+        "frequency": 13,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": -20,
+        "engagement": 0,
+        "volume": 1,
+        "source": "Troy Livesay",
+        "frequency": -3,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 37,
+        "engagement": 0,
+        "volume": 1,
+        "source": "Fireside Int.",
+        "frequency": 43,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 49,
+        "engagement": 1,
+        "volume": -1,
+        "source": "YELE HAITI",
+        "frequency": 49,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": -17,
+        "engagement": 0,
+        "volume": 0,
+        "source": "USAID Haiti",
+        "frequency": 10,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": -50,
+        "engagement": 0,
+        "volume": 1,
+        "source": "US Embassy Haiti",
+        "frequency": -29,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 46,
+        "engagement": -1,
+        "volume": -1,
+        "source": "HaitiRewired",
+        "frequency": 46,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 1,
+        "engagement": 1,
+        "volume": 0,
+        "source": "Michel J. Martelly",
+        "frequency": -3,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 28,
+        "engagement": 0,
+        "volume": -1,
+        "source": "Lambi Fund of Haiti",
+        "frequency": 28,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 34,
+        "engagement": -1,
+        "volume": 0,
+        "source": "Haiti Watch Blog",
+        "frequency": 40,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 31,
+        "engagement": -1,
+        "volume": -1,
+        "source": "clay kilgore HAITI",
+        "frequency": -41,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 10,
+        "engagement": 0,
+        "volume": -1,
+        "source": "Haiti Net",
+        "frequency": 25,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": -14,
+        "engagement": 1,
+        "volume": 1,
+        "source": "Wyclef Jean",
+        "frequency": 10,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 22,
+        "engagement": 0,
+        "volume": 0,
+        "source": "Pooja Bhatia",
+        "frequency": 19,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 22,
+        "engagement": 1,
+        "volume": 0,
+        "source": "Hope for Haiti",
+        "frequency": 16,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": -47,
+        "engagement": 0,
+        "volume": 1,
+        "source": "Laurent Lamothe",
+        "frequency": -41,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": -35,
+        "engagement": 1,
+        "volume": 1,
+        "source": "Juno7™ Haiti",
+        "frequency": -29,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 16,
+        "engagement": -1,
+        "volume": -1,
+        "source": "Trenton Daniel",
+        "frequency": 10,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": -29,
+        "engagement": 1,
+        "volume": 0,
+        "source": "Partners In Health",
+        "frequency": -23,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": -41,
+        "engagement": -1,
+        "volume": 1,
+        "source": "Le Nouvelliste",
+        "frequency": -41,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 7,
+        "engagement": 0,
+        "volume": -1,
+        "source": "La France en Haïti",
+        "frequency": 22,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": -23,
+        "engagement": 0,
+        "volume": 0,
+        "source": "Tourism Haiti ",
+        "frequency": 1,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 25,
+        "engagement": 0,
+        "volume": -1,
+        "source": "Haiti Press Network",
+        "frequency": 31,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": -44,
+        "engagement": 0,
+        "volume": 0,
+        "source": "BélO Haiti",
+        "frequency": -50,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 4,
+        "engagement": -1,
+        "volume": -1,
+        "source": "Embassy of Haiti",
+        "frequency": -3,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": -32,
+        "engagement": -1,
+        "volume": 0,
+        "source": "Haiti Business ",
+        "frequency": -23,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": -26,
+        "engagement": 1,
+        "volume": 1,
+        "source": "Lakou Haiti",
+        "frequency": -29,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 1,
+        "engagement": 1,
+        "volume": 0,
+        "source": "Michel J. Martelly",
+        "frequency": -3,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 1,
+        "engagement": 1,
+        "volume": 0,
+        "source": "Michel J. Martelly",
+        "frequency": -3,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 1,
+        "engagement": 1,
+        "volume": 0,
+        "source": "Michel J. Martelly",
+        "frequency": -3,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 1,
+        "engagement": 1,
+        "volume": 0,
+        "source": "Michel J. Martelly",
+        "frequency": -3,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 43,
+        "engagement": 0,
+        "volume": 0,
+        "source": "†Nippcey",
+        "frequency": 37,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 43,
+        "engagement": 0,
+        "volume": 0,
+        "source": "†Nippcey",
+        "frequency": 37,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 43,
+        "engagement": -1,
+        "volume": 0,
+        "source": "Haiti Earthquake and Recovery",
+        "frequency": 39,
+        "type": "crisis"
+    },
+    {
+        "service": "flickr",
+        "age": 1,
+        "engagement": 0,
+        "volume": 1,
+        "source": "Hope for Haiti 2010",
+        "frequency": 7,
+        "type": "crisis"
+    },
+    {
+        "service": "flickr",
+        "age": 25,
+        "engagement": 0,
+        "volume": 1,
+        "source": "SOS Haiti",
+        "frequency": 18,
+        "type": "crisis"
+    },
+    {
+        "service": "flickr",
+        "age": -40,
+        "engagement": 0,
+        "volume": 1,
+        "source": "Disasters",
+        "frequency": -13,
+        "type": "crisis"
+    },
+    {
+        "service": "flickr",
+        "age": 18,
+        "engagement": 1,
+        "volume": -1,
+        "source": "Dolly Community unite for the Japan EarthQuake &amp; Tsunami:",
+        "frequency": 12,
+        "type": "crisis"
+    },
+    {
+        "service": "flickr",
+        "age": -9,
+        "engagement": 1,
+        "volume": 0,
+        "source": "Tents",
+        "frequency": 1,
+        "type": "crisis"
+    },
+    {
+        "service": "flickr",
+        "age": -6,
+        "engagement": 1,
+        "volume": 1,
+        "source": "Critical Condition: Health, Medicine, and Survival",
+        "frequency": -37,
+        "type": "crisis"
+    },
+    {
+        "service": "flickr",
+        "age": 49,
+        "engagement": 1,
+        "volume": -1,
+        "source": "The Giving Lens",
+        "frequency": -9,
+        "type": "crisis"
+    },
+    {
+        "service": "flickr",
+        "age": 5,
+        "engagement": -1,
+        "volume": 1,
+        "source": "The Global Community",
+        "frequency": -30,
+        "type": "crisis"
+    },
+    {
+        "service": "flickr",
+        "age": 15,
+        "engagement": 0,
+        "volume": 0,
+        "source": "Humanitarian Assistance Image Contest (HADR International)",
+        "frequency": 29,
+        "type": "crisis"
+    },
+    {
+        "service": "flickr",
+        "age": -16,
+        "engagement": -1,
+        "volume": 1,
+        "source": "The Photo League 2",
+        "frequency": -6,
+        "type": "crisis"
+    },
+    {
+        "service": "flickr",
+        "age": -23,
+        "engagement": 1,
+        "volume": 0,
+        "source": "Nonprofit Organizations",
+        "frequency": -19,
+        "type": "crisis"
+    },
+    {
+        "service": "flickr",
+        "age": 12,
+        "engagement": 1,
+        "volume": -1,
+        "source": "2010 Pakistan Floods",
+        "frequency": 25,
+        "type": "crisis"
+    },
+    {
+        "service": "flickr",
+        "age": -19,
+        "engagement": 0,
+        "volume": 0,
+        "source": "Nonprofit groups",
+        "frequency": -23,
+        "type": "crisis"
+    },
+    {
+        "service": "flickr",
+        "age": -26,
+        "engagement": -1,
+        "volume": 0,
+        "source": "Chile 8.8 2010 EARTHQUAKE",
+        "frequency": -40,
+        "type": "crisis"
+    },
+    {
+        "service": "flickr",
+        "age": 1,
+        "engagement": 0,
+        "volume": 1,
+        "source": "Hope for Haiti 2010",
+        "frequency": 7,
+        "type": "crisis"
+    },
+    {
+        "service": "flickr",
+        "age": 46,
+        "engagement": -1,
+        "volume": -1,
+        "source": "Earthquake",
+        "frequency": 49,
+        "type": "crisis"
+    },
+    {
+        "service": "flickr",
+        "age": 43,
+        "engagement": -1,
+        "volume": 0,
+        "source": "Haiti Earthquake and Recovery",
+        "frequency": 39,
+        "type": "crisis"
+    },
+    {
+        "service": "flickr",
+        "age": -40,
+        "engagement": 0,
+        "volume": 1,
+        "source": "Disasters",
+        "frequency": -13,
+        "type": "crisis"
+    },
+    {
+        "service": "flickr",
+        "age": 12,
+        "engagement": 1,
+        "volume": -1,
+        "source": "2010 Pakistan Floods",
+        "frequency": 25,
+        "type": "crisis"
+    },
+    {
+        "service": "flickr",
+        "age": 25,
+        "engagement": 0,
+        "volume": 1,
+        "source": "SOS Haiti",
+        "frequency": 18,
+        "type": "crisis"
+    },
+    {
+        "service": "flickr",
+        "age": -26,
+        "engagement": 0,
+        "volume": 0,
+        "source": "ChileAyuda.com | Fotos de Terremoto en Chile 2010",
+        "frequency": -40,
+        "type": "crisis"
+    },
+    {
+        "service": "flickr",
+        "age": 29,
+        "engagement": 1,
+        "volume": -1,
+        "source": "earthquake in chile, pictures and videos",
+        "frequency": 46,
+        "type": "crisis"
+    },
+    {
+        "service": "flickr",
+        "age": -47,
+        "engagement": 0,
+        "volume": -1,
+        "source": "¡¡¡Levántate Chile!!! / ¡¡¡Stand Up Chile!!!",
+        "frequency": -33,
+        "type": "crisis"
+    },
+    {
+        "service": "flickr",
+        "age": -26,
+        "engagement": 0,
+        "volume": 0,
+        "source": "Terremoto Chile",
+        "frequency": -40,
+        "type": "crisis"
+    },
+    {
+        "service": "flickr",
+        "age": -26,
+        "engagement": -1,
+        "volume": 0,
+        "source": "Post Terremoto",
+        "frequency": -40,
+        "type": "crisis"
+    },
+    {
+        "service": "flickr",
+        "age": 32,
+        "engagement": 0,
+        "volume": -1,
+        "source": "PUENTES DE CHILE",
+        "frequency": 32,
+        "type": "crisis"
+    },
+    {
+        "service": "flickr",
+        "age": 36,
+        "engagement": 0,
+        "volume": 0,
+        "source": "Bridges in South America",
+        "frequency": 43,
+        "type": "crisis"
+    },
+    {
+        "service": "flickr",
+        "age": -9,
+        "engagement": 1,
+        "volume": 0,
+        "source": "Tents",
+        "frequency": 1,
+        "type": "crisis"
+    },
+    {
+        "service": "flickr",
+        "age": -50,
+        "engagement": -1,
+        "volume": 0,
+        "source": "Providencia, Chile",
+        "frequency": -26,
+        "type": "crisis"
+    },
+    {
+        "service": "tumblr",
+        "age": 16,
+        "engagement": -1,
+        "volume": -1,
+        "source": "livelifeclean",
+        "frequency": 16,
+        "type": "crisis"
+    },
+    {
+        "service": "tumblr",
+        "age": -50,
+        "engagement": 0,
+        "volume": 1,
+        "source": "gippeebean",
+        "frequency": -17,
+        "type": "crisis"
+    },
+    {
+        "service": "tumblr",
+        "age": 49,
+        "engagement": 1,
+        "volume": 0,
+        "source": "exposureforclosure",
+        "frequency": 49,
+        "type": "crisis"
+    },
+    {
+        "service": "tumblr",
+        "age": -17,
+        "engagement": 0,
+        "volume": 0,
+        "source": "internationalprofessorsproject",
+        "frequency": -50,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": 25,
+        "engagement": 1,
+        "volume": 0,
+        "source": "YELE HAITI",
+        "frequency": 0,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": 41,
+        "engagement": 0,
+        "volume": -1,
+        "source": "ShelterCluster Haiti",
+        "frequency": -17,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": 16,
+        "engagement": -1,
+        "volume": 0,
+        "source": "Dan Woolley",
+        "frequency": 41,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": 33,
+        "engagement": 0,
+        "volume": -1,
+        "source": "The Renmen Project",
+        "frequency": 49,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": 49,
+        "engagement": -1,
+        "volume": -1,
+        "source": "The Green Angel",
+        "frequency": -9,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": -25,
+        "engagement": 0,
+        "volume": 1,
+        "source": "Rebuild Christchurch",
+        "frequency": -25,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": 8,
+        "engagement": 1,
+        "volume": 0,
+        "source": "La Source",
+        "frequency": 33,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": -25,
+        "engagement": -1,
+        "volume": 1,
+        "source": "Rebuild Christchurch",
+        "frequency": -25,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": 8,
+        "engagement": 1,
+        "volume": 0,
+        "source": "La Source",
+        "frequency": 33,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": -25,
+        "engagement": 0,
+        "volume": 1,
+        "source": "Rebuild Christchurch",
+        "frequency": -25,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": 8,
+        "engagement": 1,
+        "volume": 0,
+        "source": "La Source",
+        "frequency": 33,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": -25,
+        "engagement": 0,
+        "volume": 1,
+        "source": "Rebuild Christchurch",
+        "frequency": -25,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": 8,
+        "engagement": 1,
+        "volume": 0,
+        "source": "La Source",
+        "frequency": 33,
+        "type": "crisis"
+    },
+    {
+        "service": "feed",
+        "age": 0,
+        "engagement": 0,
+        "volume": 0,
+        "source": "World Food Programme",
+        "frequency": 0,
+        "type": "crisis"
+    },
+    {
+        "service": "feed",
+        "age": 0,
+        "engagement": 0,
+        "volume": 0,
+        "source": "IRIN",
+        "frequency": 0,
+        "type": "crisis"
+    }
+]

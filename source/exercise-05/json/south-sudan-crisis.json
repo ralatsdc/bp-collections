@@ -1,0 +1,56 @@
+[
+    {
+        "service": "flickr",
+        "age": 0,
+        "engagement": 1,
+        "volume": -1,
+        "source": "Nonprofit Organizations",
+        "frequency": 0,
+        "type": "crisis"
+    },
+    {
+        "service": "flickr",
+        "age": 1,
+        "engagement": 0,
+        "volume": 0,
+        "source": "Democratic Republic of Congo",
+        "frequency": 1,
+        "type": "crisis"
+    },
+    {
+        "service": "flickr",
+        "age": 0,
+        "engagement": 0,
+        "volume": 1,
+        "source": "Magnum Showcase (Moderated)",
+        "frequency": 0,
+        "type": "crisis"
+    },
+    {
+        "service": "flickr",
+        "age": -1,
+        "engagement": 1,
+        "volume": 1,
+        "source": "African Girls/Women",
+        "frequency": -1,
+        "type": "crisis"
+    },
+    {
+        "service": "flickr",
+        "age": 1,
+        "engagement": -1,
+        "volume": 0,
+        "source": "SOS Haiti",
+        "frequency": 1,
+        "type": "crisis"
+    },
+    {
+        "service": "feed",
+        "age": 0,
+        "engagement": 0,
+        "volume": 0,
+        "source": "Doctor's Without Borders",
+        "frequency": 0,
+        "type": "crisis"
+    }
+]

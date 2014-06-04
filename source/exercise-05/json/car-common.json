@@ -1,0 +1,317 @@
+[
+    {
+        "service": "flickr",
+        "age": 0,
+        "engagement": 0,
+        "volume": 0,
+        "source": "Africa - From Above",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": -1,
+        "engagement": 1,
+        "volume": 0,
+        "source": "Film Fests",
+        "frequency": -1,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 0,
+        "engagement": -1,
+        "volume": 1,
+        "source": "UNESCO - MAB Biosphere Reserves (photo guide)",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 0,
+        "engagement": 0,
+        "volume": -1,
+        "source": "Smile Campaign",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 0,
+        "engagement": -1,
+        "volume": 0,
+        "source": "ttwff",
+        "frequency": 1,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 1,
+        "engagement": 0,
+        "volume": 0,
+        "source": "The Global Community",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": -1,
+        "engagement": 0,
+        "volume": 1,
+        "source": "Ξ ۩ DoorsWindowsWorld ۩ Ξ  DWWG (Please tag dwwg)",
+        "frequency": -1,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 1,
+        "engagement": 1,
+        "volume": -1,
+        "source": "Ilocanos Love Ilocos (&quot;ILI&quot;)",
+        "frequency": 1,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": 0,
+        "engagement": 0,
+        "volume": 1,
+        "source": "c-u-l-t-u-r-e-s",
+        "frequency": -1,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": -1,
+        "engagement": 1,
+        "volume": -1,
+        "source": "giagonzales",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": 1,
+        "engagement": 1,
+        "volume": 0,
+        "source": "kalamoemo",
+        "frequency": 1,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": 0,
+        "engagement": 0,
+        "volume": 0,
+        "source": "mschanktinjoy",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": -1,
+        "engagement": 1,
+        "volume": 1,
+        "source": "vpg",
+        "frequency": -1,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": 0,
+        "engagement": -1,
+        "volume": 0,
+        "source": "minalovesyoubigtime",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": 1,
+        "engagement": 0,
+        "volume": 0,
+        "source": "iamjhaynhelle",
+        "frequency": 1,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": 0,
+        "engagement": -1,
+        "volume": 0,
+        "source": "atemaan",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": 1,
+        "engagement": 0,
+        "volume": -1,
+        "source": "grinpyz",
+        "frequency": 1,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": 0,
+        "engagement": 0,
+        "volume": -1,
+        "source": "theharoldlubo",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": -1,
+        "engagement": -1,
+        "volume": 1,
+        "source": "janinemascarenas",
+        "frequency": -1,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": -1,
+        "engagement": 1,
+        "volume": 0,
+        "source": "ZIGUELE   MARTIN",
+        "frequency": -1,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": 0,
+        "volume": 1,
+        "source": "Bêafrika Sango",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": -1,
+        "engagement": 0,
+        "volume": -1,
+        "source": "Espoirs Centrafrique",
+        "frequency": -1,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": 0,
+        "volume": -1,
+        "source": "Team236",
+        "frequency": 1,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 1,
+        "engagement": 0,
+        "volume": 0,
+        "source": "#PrayForRCA",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 1,
+        "engagement": 1,
+        "volume": 0,
+        "source": "••1m71deFiertée:",
+        "frequency": 1,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": 0,
+        "volume": -1,
+        "source": "Team236",
+        "frequency": 1,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 1,
+        "engagement": 0,
+        "volume": 0,
+        "source": "#PrayForRCA",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 1,
+        "engagement": 1,
+        "volume": 0,
+        "source": "••1m71deFiertée:",
+        "frequency": 1,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": 0,
+        "volume": -1,
+        "source": "Team236",
+        "frequency": 1,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 1,
+        "engagement": 0,
+        "volume": 0,
+        "source": "#PrayForRCA",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 1,
+        "engagement": 1,
+        "volume": 0,
+        "source": "••1m71deFiertée:",
+        "frequency": 1,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": -1,
+        "engagement": 1,
+        "volume": 1,
+        "source": "Dominic Banguis",
+        "frequency": -1,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": -1,
+        "engagement": 1,
+        "volume": 0,
+        "source": "Hippolyte Donossio",
+        "frequency": -1,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": -1,
+        "volume": 1,
+        "source": "Alexis Masciarelli",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": -1,
+        "volume": 1,
+        "source": "andre banguis",
+        "frequency": 0,
+        "type": "common"
+    }
+]

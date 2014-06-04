@@ -1,0 +1,281 @@
+[
+    {
+        "service": "tumblr",
+        "age": -1,
+        "engagement": 1,
+        "volume": 1,
+        "source": "runhaliqa",
+        "frequency": 1,
+        "type": "crisis"
+    },
+    {
+        "service": "tumblr",
+        "age": 1,
+        "engagement": -1,
+        "volume": -1,
+        "source": "speakup4syrianchildren",
+        "frequency": -1,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": 0,
+        "volume": 1,
+        "source": "حـمودي #Save_Aleppo",
+        "frequency": 0,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": 1,
+        "engagement": 1,
+        "volume": 0,
+        "source": "Fezz S AlTamimi",
+        "frequency": 1,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": 0,
+        "volume": 0,
+        "source": "SaveAleppo",
+        "frequency": 0,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": 0,
+        "volume": 1,
+        "source": "حـمودي #Save_Aleppo",
+        "frequency": 0,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": 1,
+        "engagement": 1,
+        "volume": 0,
+        "source": "Fezz S AlTamimi",
+        "frequency": 1,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": 0,
+        "volume": 0,
+        "source": "SaveAleppo",
+        "frequency": 0,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": 0,
+        "volume": 1,
+        "source": "حـمودي #Save_Aleppo",
+        "frequency": 0,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": 1,
+        "engagement": 1,
+        "volume": 0,
+        "source": "Fezz S AlTamimi",
+        "frequency": 1,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": 0,
+        "volume": 0,
+        "source": "SaveAleppo",
+        "frequency": 0,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": 0,
+        "volume": 1,
+        "source": "حـمودي #Save_Aleppo",
+        "frequency": 0,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": 1,
+        "engagement": 1,
+        "volume": 0,
+        "source": "Fezz S AlTamimi",
+        "frequency": 1,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": 0,
+        "volume": 0,
+        "source": "SaveAleppo",
+        "frequency": 0,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": 0,
+        "volume": 1,
+        "source": "حـمودي #Save_Aleppo",
+        "frequency": 0,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": 1,
+        "engagement": 1,
+        "volume": 0,
+        "source": "Fezz S AlTamimi",
+        "frequency": 1,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": 0,
+        "volume": 0,
+        "source": "SaveAleppo",
+        "frequency": 0,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": 0,
+        "volume": 1,
+        "source": "حـمودي #Save_Aleppo",
+        "frequency": 0,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": 1,
+        "engagement": 1,
+        "volume": 0,
+        "source": "Fezz S AlTamimi",
+        "frequency": 1,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": 0,
+        "volume": 0,
+        "source": "SaveAleppo",
+        "frequency": 0,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": 0,
+        "volume": 1,
+        "source": "حـمودي #Save_Aleppo",
+        "frequency": 0,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": 1,
+        "engagement": 1,
+        "volume": 0,
+        "source": "Fezz S AlTamimi",
+        "frequency": 1,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": 0,
+        "volume": 0,
+        "source": "SaveAleppo",
+        "frequency": 0,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": 0,
+        "volume": 1,
+        "source": "حـمودي #Save_Aleppo",
+        "frequency": 0,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": 1,
+        "engagement": 1,
+        "volume": 0,
+        "source": "Fezz S AlTamimi",
+        "frequency": 1,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": 0,
+        "volume": 0,
+        "source": "SaveAleppo",
+        "frequency": 0,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": -1,
+        "engagement": 0,
+        "volume": 1,
+        "source": "SAC",
+        "frequency": 0,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": -1,
+        "engagement": 0,
+        "volume": 1,
+        "source": "SAC",
+        "frequency": 0,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": -1,
+        "engagement": 0,
+        "volume": 1,
+        "source": "SAC",
+        "frequency": 0,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": -1,
+        "engagement": 0,
+        "volume": 1,
+        "source": "SAC",
+        "frequency": 0,
+        "type": "crisis"
+    },
+    {
+        "service": "feed",
+        "age": 0,
+        "engagement": 0,
+        "volume": 0,
+        "source": "Doctors Without Borders",
+        "frequency": 0,
+        "type": "crisis"
+    }
+]

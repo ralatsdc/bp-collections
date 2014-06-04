@@ -1,0 +1,1784 @@
+[
+    {
+        "service": "flickr",
+        "age": 1,
+        "engagement": 0,
+        "volume": 0,
+        "source": "Damascus in photos",
+        "frequency": 1,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 1,
+        "engagement": 0,
+        "volume": -1,
+        "source": "Hama city",
+        "frequency": 1,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": -1,
+        "engagement": -1,
+        "volume": -1,
+        "source": "فلكر سوريا",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 0,
+        "engagement": -1,
+        "volume": 0,
+        "source": "Islamic Holy shrine and Art",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 0,
+        "engagement": 0,
+        "volume": 0,
+        "source": "Mesopotamia",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 0,
+        "engagement": 0,
+        "volume": 0,
+        "source": "هواة التصوير بحلب Aleppo's photographer",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 0,
+        "engagement": -1,
+        "volume": 0,
+        "source": "Palmyra تدمر",
+        "frequency": 1,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 0,
+        "engagement": 1,
+        "volume": 0,
+        "source": "Syrian revolution /  الثورة السورية",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": -1,
+        "engagement": -1,
+        "volume": -1,
+        "source": "فلكر سوريا",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 1,
+        "engagement": 1,
+        "volume": -1,
+        "source": "ô¨§™©» ShaBaB &amp; BaNat «©™§¨ô",
+        "frequency": 1,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 0,
+        "engagement": 0,
+        "volume": 0,
+        "source": "مجموعة التراث الإسلامي ISLAMIC ART",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 0,
+        "engagement": 0,
+        "volume": 0,
+        "source": "هواة التصوير بحلب Aleppo's photographer",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 0,
+        "engagement": 0,
+        "volume": 1,
+        "source": "مدرسة التصوير الضوئي",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": -1,
+        "engagement": 0,
+        "volume": 1,
+        "source": "Emarati",
+        "frequency": -1,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 0,
+        "engagement": 1,
+        "volume": 0,
+        "source": "حيـاتي بلا أغـاني ,, لها معنى ثـاني",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 1,
+        "engagement": 0,
+        "volume": 0,
+        "source": "Damascus in photos",
+        "frequency": 1,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": -1,
+        "engagement": 0,
+        "volume": 0,
+        "source": "arab",
+        "frequency": -1,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 0,
+        "engagement": 0,
+        "volume": 0,
+        "source": "صور إسلامية ISLAMIC PIC",
+        "frequency": -1,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": -1,
+        "engagement": -1,
+        "volume": 1,
+        "source": "# Random Pictures #",
+        "frequency": -1,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": -1,
+        "engagement": 1,
+        "volume": 0,
+        "source": "Arabian Beauty",
+        "frequency": -1,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 0,
+        "engagement": 0,
+        "volume": 0,
+        "source": "The Arab Revolution / الثورة العربية",
+        "frequency": -1,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 0,
+        "engagement": 1,
+        "volume": 0,
+        "source": "Syrian revolution /  الثورة السورية",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": -1,
+        "engagement": 1,
+        "volume": -1,
+        "source": "ЦДЭ™",
+        "frequency": -1,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 1,
+        "engagement": 1,
+        "volume": -1,
+        "source": "ô¨§™©» ShaBaB &amp; BaNat «©™§¨ô",
+        "frequency": 1,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": -1,
+        "engagement": 0,
+        "volume": 0,
+        "source": "Dentist Offices and Signs Of The World (Interior)",
+        "frequency": -1,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 1,
+        "engagement": 0,
+        "volume": 0,
+        "source": "Damascus in photos",
+        "frequency": 1,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 1,
+        "engagement": 1,
+        "volume": 0,
+        "source": "Flickr Survivals",
+        "frequency": 1,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 0,
+        "engagement": 1,
+        "volume": 0,
+        "source": "Dictators",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 0,
+        "engagement": 1,
+        "volume": 0,
+        "source": "▓▒░الشعراء░▒▓",
+        "frequency": 1,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 0,
+        "engagement": 0,
+        "volume": 0,
+        "source": "Black + White Dark Room Photography for the SERIOUS ART STUDENT!",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 0,
+        "engagement": -1,
+        "volume": 0,
+        "source": "Palmyra تدمر",
+        "frequency": 1,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": -1,
+        "engagement": -1,
+        "volume": -1,
+        "source": "فلكر سوريا",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 1,
+        "engagement": 0,
+        "volume": -1,
+        "source": "Hama city",
+        "frequency": 1,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": -1,
+        "engagement": 0,
+        "volume": 0,
+        "source": "كــن بلسماً ..",
+        "frequency": -1,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": -1,
+        "engagement": 0,
+        "volume": 1,
+        "source": "Emarati",
+        "frequency": -1,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": -1,
+        "engagement": 1,
+        "volume": 1,
+        "source": "Film Fests",
+        "frequency": -1,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": -1,
+        "engagement": 0,
+        "volume": 0,
+        "source": "Smile Campaign",
+        "frequency": -1,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": -1,
+        "engagement": -1,
+        "volume": 1,
+        "source": "Sunsets &amp; Sunrises around the world (121 Countries!)",
+        "frequency": -1,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 1,
+        "engagement": 0,
+        "volume": 0,
+        "source": "Damascus in photos",
+        "frequency": 1,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 0,
+        "engagement": 0,
+        "volume": -1,
+        "source": "OLD DAMASCUS !!",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": -1,
+        "engagement": -1,
+        "volume": -1,
+        "source": "فلكر سوريا",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 0,
+        "engagement": -1,
+        "volume": 0,
+        "source": "Islamic Holy shrine and Art",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 1,
+        "engagement": 0,
+        "volume": -1,
+        "source": "Hama city",
+        "frequency": 1,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 0,
+        "engagement": 0,
+        "volume": 0,
+        "source": "Bazaars",
+        "frequency": -1,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 1,
+        "engagement": 0,
+        "volume": 0,
+        "source": "Damascus in photos",
+        "frequency": 1,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": -1,
+        "engagement": -1,
+        "volume": -1,
+        "source": "فلكر سوريا",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 1,
+        "engagement": 1,
+        "volume": -1,
+        "source": "ô¨§™©» ShaBaB &amp; BaNat «©™§¨ô",
+        "frequency": 1,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": -1,
+        "engagement": 0,
+        "volume": 0,
+        "source": "Dentist Offices and Signs Of The World (Interior)",
+        "frequency": -1,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 1,
+        "engagement": 1,
+        "volume": -1,
+        "source": "Ideas &amp; Creative",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 0,
+        "engagement": 0,
+        "volume": -1,
+        "source": "OLD DAMASCUS !!",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 0,
+        "engagement": 1,
+        "volume": 0,
+        "source": "Syrian revolution /  الثورة السورية",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 0,
+        "engagement": 0,
+        "volume": 0,
+        "source": "مجموعة التراث الإسلامي ISLAMIC ART",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 0,
+        "engagement": 0,
+        "volume": 0,
+        "source": "The Arab Revolution / الثورة العربية",
+        "frequency": -1,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 0,
+        "engagement": -1,
+        "volume": 0,
+        "source": "Islamic Holy shrine and Art",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": -1,
+        "engagement": 0,
+        "volume": 1,
+        "source": "Emarati",
+        "frequency": -1,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 0,
+        "engagement": 0,
+        "volume": 0,
+        "source": "هواة التصوير بحلب Aleppo's photographer",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 1,
+        "engagement": 0,
+        "volume": -1,
+        "source": "Hama city",
+        "frequency": 1,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 0,
+        "engagement": 0,
+        "volume": 1,
+        "source": "مدرسة التصوير الضوئي",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 0,
+        "engagement": 1,
+        "volume": 0,
+        "source": "حيـاتي بلا أغـاني ,, لها معنى ثـاني",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 1,
+        "engagement": 1,
+        "volume": 0,
+        "source": "NAZIM HİKMET",
+        "frequency": 1,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 0,
+        "engagement": 1,
+        "volume": 0,
+        "source": "Let Us Pray",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 0,
+        "engagement": 0,
+        "volume": 1,
+        "source": "Macro Arabs // Post 1, Award 2 //",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 0,
+        "engagement": 1,
+        "volume": 1,
+        "source": "Arabian Facebook",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 1,
+        "engagement": -1,
+        "volume": -1,
+        "source": "Modern travels",
+        "frequency": 1,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": -1,
+        "engagement": 0,
+        "volume": 1,
+        "source": "Arab food (ﺍﻠﻃﻌﺍﻢ ﺍﻠﻌﺭﺑﯥ)",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 0,
+        "engagement": 0,
+        "volume": 1,
+        "source": "Arab Kids &amp; Juniors اكبادنا تمشي على الأرض",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 0,
+        "engagement": -1,
+        "volume": 1,
+        "source": "خــلــقُ الله ALLAH(God)Creatures",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 0,
+        "engagement": 0,
+        "volume": 0,
+        "source": "مجموعة التراث الإسلامي ISLAMIC ART",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 1,
+        "engagement": 1,
+        "volume": -1,
+        "source": "Asian Flickr",
+        "frequency": 1,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 1,
+        "engagement": 1,
+        "volume": 1,
+        "source": "]| مليــت ألمــح لــكــ♥ــ |[",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 1,
+        "engagement": -1,
+        "volume": -1,
+        "source": "Lawrence of Arabia",
+        "frequency": 1,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 1,
+        "engagement": 0,
+        "volume": -1,
+        "source": "Armenian heritage (outside Armenia)",
+        "frequency": 1,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": -1,
+        "engagement": 0,
+        "volume": 1,
+        "source": "Photography Arab ♥]|I•ஐ.•.°.•",
+        "frequency": -1,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 0,
+        "engagement": -1,
+        "volume": -1,
+        "source": "~Under 21~{(and no exceptions)}",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 0,
+        "engagement": 0,
+        "volume": 0,
+        "source": "هواة التصوير بحلب Aleppo's photographer",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 0,
+        "engagement": 0,
+        "volume": 1,
+        "source": "مدرسة التصوير الضوئي",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 0,
+        "engagement": 1,
+        "volume": 0,
+        "source": "حيـاتي بلا أغـاني ,, لها معنى ثـاني",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 0,
+        "engagement": 0,
+        "volume": 1,
+        "source": "Macro Arabs // Post 1, Award 2 //",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 0,
+        "engagement": -1,
+        "volume": 1,
+        "source": "خــلــقُ الله ALLAH(God)Creatures",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 1,
+        "engagement": 0,
+        "volume": -1,
+        "source": "Armenian heritage (outside Armenia)",
+        "frequency": 1,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 0,
+        "engagement": 0,
+        "volume": 0,
+        "source": "مجموعة التراث الإسلامي ISLAMIC ART",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 1,
+        "engagement": 1,
+        "volume": 1,
+        "source": "]| مليــت ألمــح لــكــ♥ــ |[",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 0,
+        "engagement": 0,
+        "volume": 1,
+        "source": "Arab Kids &amp; Juniors اكبادنا تمشي على الأرض",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 0,
+        "engagement": 0,
+        "volume": 0,
+        "source": "ازياء شعبية وتراثية Popular and traditional cos",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": -1,
+        "engagement": 0,
+        "volume": 1,
+        "source": "The Arabic Studio..الأستديو العربي",
+        "frequency": -1,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": -1,
+        "engagement": -1,
+        "volume": 1,
+        "source": "Portrait - بورتريه",
+        "frequency": -1,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 0,
+        "engagement": 1,
+        "volume": 1,
+        "source": "Arabian Facebook",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": -1,
+        "engagement": 0,
+        "volume": 0,
+        "source": "eyadah",
+        "frequency": -1,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": -1,
+        "engagement": 1,
+        "volume": 0,
+        "source": "refugeeartproject",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": 1,
+        "engagement": 0,
+        "volume": 0,
+        "source": "resistance-episteme",
+        "frequency": 1,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": -1,
+        "engagement": 1,
+        "volume": 1,
+        "source": "orkideh84",
+        "frequency": -1,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": -1,
+        "engagement": -1,
+        "volume": 1,
+        "source": "leftieskerthings",
+        "frequency": -1,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": 0,
+        "engagement": 0,
+        "volume": 1,
+        "source": "hilalchouman",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": 0,
+        "engagement": 1,
+        "volume": -1,
+        "source": "arwad88",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": 0,
+        "engagement": 0,
+        "volume": 0,
+        "source": "aonsyr",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": -1,
+        "engagement": -1,
+        "volume": 0,
+        "source": "ad3yya",
+        "frequency": -1,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": 0,
+        "engagement": 0,
+        "volume": 0,
+        "source": "o-h2",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": 0,
+        "engagement": 0,
+        "volume": 0,
+        "source": "drmeem",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": 0,
+        "engagement": -1,
+        "volume": 0,
+        "source": "isloom",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": 0,
+        "engagement": 1,
+        "volume": -1,
+        "source": "sh91",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": -1,
+        "engagement": -1,
+        "volume": 1,
+        "source": "justanotherpalestinian",
+        "frequency": -1,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": 1,
+        "engagement": 0,
+        "volume": 1,
+        "source": "vanoos",
+        "frequency": -1,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": 1,
+        "engagement": 0,
+        "volume": -1,
+        "source": "thevoiceofsyria",
+        "frequency": 1,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": 0,
+        "engagement": -1,
+        "volume": 0,
+        "source": "moniseum",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": 1,
+        "engagement": 1,
+        "volume": -1,
+        "source": "byhiba",
+        "frequency": 1,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": 0,
+        "engagement": 0,
+        "volume": -1,
+        "source": "zakiyh",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": 1,
+        "engagement": 0,
+        "volume": 0,
+        "source": "elizrael",
+        "frequency": 1,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": 0,
+        "engagement": 0,
+        "volume": -1,
+        "source": "speakup4syrianchildren",
+        "frequency": 1,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": 0,
+        "engagement": 0,
+        "volume": 0,
+        "source": "duntherpomuk",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": 1,
+        "engagement": -1,
+        "volume": 1,
+        "source": "bob-ers",
+        "frequency": 1,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": 0,
+        "engagement": 1,
+        "volume": 0,
+        "source": "iiwwttbbmm",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": 0,
+        "volume": -1,
+        "source": "Joshua Landis",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": 0,
+        "volume": -1,
+        "source": "Syria Deeply",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": -1,
+        "engagement": 0,
+        "volume": 1,
+        "source": "صفحة الثورة السورية",
+        "frequency": -1,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": -1,
+        "engagement": -1,
+        "volume": 1,
+        "source": "Free Syria Media Hub",
+        "frequency": -1,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": 1,
+        "volume": -1,
+        "source": "Liz Sly",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": -1,
+        "volume": 1,
+        "source": "SyriaHorra",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": 0,
+        "volume": 0,
+        "source": "wissamtarif",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 1,
+        "engagement": 0,
+        "volume": 0,
+        "source": "Syria Campaigns",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 1,
+        "engagement": 0,
+        "volume": -1,
+        "source": "Obeida Nahas",
+        "frequency": 1,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 1,
+        "engagement": 0,
+        "volume": 0,
+        "source": "Samsom homs",
+        "frequency": 1,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": 1,
+        "volume": 0,
+        "source": "Jenan Moussa",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": -1,
+        "engagement": 0,
+        "volume": -1,
+        "source": "Sam Dagher",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": 0,
+        "volume": 0,
+        "source": "Alexander Page",
+        "frequency": 1,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": -1,
+        "engagement": -1,
+        "volume": 0,
+        "source": "SANA English",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 1,
+        "engagement": -1,
+        "volume": 0,
+        "source": "Jasmine ياسمين",
+        "frequency": 1,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 1,
+        "engagement": -1,
+        "volume": 0,
+        "source": "Syrian Revolution",
+        "frequency": 1,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": 0,
+        "volume": 0,
+        "source": "Charles Lister",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": -1,
+        "engagement": 1,
+        "volume": -1,
+        "source": "Razan Ghazzawi",
+        "frequency": -1,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": 1,
+        "volume": 1,
+        "source": "سوريا الحدث",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": -1,
+        "volume": 0,
+        "source": "Rime Allaf",
+        "frequency": 1,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": 0,
+        "volume": -1,
+        "source": "Syrian Coalition",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 1,
+        "engagement": 0,
+        "volume": -1,
+        "source": "Forward Syria",
+        "frequency": 1,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": 1,
+        "volume": 0,
+        "source": "فطائس حالش",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 1,
+        "engagement": 0,
+        "volume": -1,
+        "source": "LIVE from Syria",
+        "frequency": 1,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": 1,
+        "volume": 0,
+        "source": "Lara Setrakian",
+        "frequency": 1,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": -1,
+        "engagement": 0,
+        "volume": 1,
+        "source": "هيئة إغاثة سوريا",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": 1,
+        "volume": 1,
+        "source": "سوريا الحدث",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": -1,
+        "engagement": 0,
+        "volume": 1,
+        "source": "جهازالمخابرات العامة",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": 1,
+        "volume": -1,
+        "source": "هادي العبد الله",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": 1,
+        "volume": 0,
+        "source": "العربية سوريا",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 1,
+        "engagement": 1,
+        "volume": 1,
+        "source": "▫كتائب مجاهدي الشام▫",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": 0,
+        "volume": 1,
+        "source": "سوريا الآن",
+        "frequency": 1,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": -1,
+        "engagement": 1,
+        "volume": 0,
+        "source": "عاجل سوريا ",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 1,
+        "engagement": -1,
+        "volume": 1,
+        "source": "شبكة سوريا المجد",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": 1,
+        "volume": 0,
+        "source": "العقيد رياض الأسعد",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": 1,
+        "volume": 1,
+        "source": "سوريا_تتحرر",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": 0,
+        "volume": 1,
+        "source": "كلمة سواء ( سوريا )",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": -1,
+        "engagement": 0,
+        "volume": 1,
+        "source": "شبكة شام الإخبارية",
+        "frequency": -1,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 1,
+        "engagement": 0,
+        "volume": 1,
+        "source": "من أجل سوريا",
+        "frequency": 1,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": 1,
+        "volume": 0,
+        "source": "سوريا و العراق",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": 0,
+        "volume": 0,
+        "source": "أيمن الإبراهيم#سوريا",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": -1,
+        "engagement": 0,
+        "volume": 1,
+        "source": "المركز الاعلامي الحر",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 1,
+        "engagement": 0,
+        "volume": -1,
+        "source": "جبهة تحرير سوريا",
+        "frequency": 1,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": -1,
+        "engagement": 0,
+        "volume": 1,
+        "source": "أخبار الثورة السورية",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": 1,
+        "volume": -1,
+        "source": "أبو يزن الشامي",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": -1,
+        "engagement": 0,
+        "volume": 1,
+        "source": "عبدالرحمن النصار",
+        "frequency": -1,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": -1,
+        "volume": 0,
+        "source": "عشاق سوريا الأسد",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": 0,
+        "volume": 0,
+        "source": "سوريا عاجل",
+        "frequency": 1,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": 1,
+        "volume": -1,
+        "source": "عدنان العرعور",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": 1,
+        "volume": 0,
+        "source": "فطائس حالش",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": -1,
+        "engagement": 1,
+        "volume": 0,
+        "source": "أنور مالك",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 1,
+        "engagement": 0,
+        "volume": 0,
+        "source": " دعم أحرار سوريا",
+        "frequency": 1,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": 1,
+        "volume": 0,
+        "source": "محسن الشمري",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": -1,
+        "engagement": 0,
+        "volume": -1,
+        "source": "حدث في سوريا",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": -1,
+        "engagement": 1,
+        "volume": 1,
+        "source": "أمُونツ ",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": -1,
+        "engagement": 0,
+        "volume": 0,
+        "source": "الحياة سورية",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 1,
+        "engagement": -1,
+        "volume": 1,
+        "source": "مركز سورية الاستشاري",
+        "frequency": 1,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": -1,
+        "volume": 0,
+        "source": "نور سورية",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 1,
+        "engagement": 0,
+        "volume": 0,
+        "source": "Syria Campaigns",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": -1,
+        "volume": -1,
+        "source": "أطفال سورية",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 1,
+        "engagement": -1,
+        "volume": 0,
+        "source": "Wafa Zaidan",
+        "frequency": 1,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": -1,
+        "engagement": 0,
+        "volume": -1,
+        "source": "قباني سورية ❤",
+        "frequency": -1,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": -1,
+        "volume": 0,
+        "source": "Alia Malek",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": 0,
+        "volume": 0,
+        "source": "Partisangirl",
+        "frequency": -1,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 1,
+        "engagement": 0,
+        "volume": 0,
+        "source": "المجلس العسكري بدمشق",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 1,
+        "engagement": 0,
+        "volume": 0,
+        "source": "Kh",
+        "frequency": 1,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": -1,
+        "volume": -1,
+        "source": "Yusuf Omar",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 1,
+        "engagement": 0,
+        "volume": 0,
+        "source": "معركة دمشق الكبرى",
+        "frequency": 1,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": 1,
+        "volume": 0,
+        "source": "عبدالمجيد العتيبي",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": -1,
+        "engagement": 0,
+        "volume": -1,
+        "source": "عَشتار •",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": -1,
+        "engagement": -1,
+        "volume": 1,
+        "source": "فيصل الشقحاء",
+        "frequency": -1,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": -1,
+        "engagement": 0,
+        "volume": 0,
+        "source": "شـاكر الشامي",
+        "frequency": -1,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": 0,
+        "volume": 0,
+        "source": "تنسيقية حي المهاجرين",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": -1,
+        "volume": 0,
+        "source": "سارة العسكر",
+        "frequency": 1,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 1,
+        "engagement": -1,
+        "volume": 0,
+        "source": "تنسيقية الميدان",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": -1,
+        "volume": -1,
+        "source": "انتفاضة حلب الكبرى",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": -1,
+        "volume": 1,
+        "source": "SyriaHorra",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 1,
+        "engagement": 0,
+        "volume": 0,
+        "source": "Kh",
+        "frequency": 1,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": 0,
+        "volume": 0,
+        "source": "حلب الشهباء",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": -1,
+        "engagement": 0,
+        "volume": 1,
+        "source": "HalabToday حلب اليوم",
+        "frequency": -1,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": 0,
+        "volume": 0,
+        "source": "حلب الشهباء",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": -1,
+        "engagement": -1,
+        "volume": 0,
+        "source": "H.N.N شبكة حلب نيوز",
+        "frequency": -1,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": -1,
+        "volume": -1,
+        "source": "انتفاضة حلب الكبرى",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 1,
+        "engagement": 0,
+        "volume": 0,
+        "source": "Dr.Muath",
+        "frequency": -1,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 1,
+        "engagement": -1,
+        "volume": -1,
+        "source": "ولاية حلب ",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 1,
+        "engagement": 1,
+        "volume": -1,
+        "source": "أحمد الداوود الصباح",
+        "frequency": 1,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 1,
+        "engagement": 0,
+        "volume": 0,
+        "source": "معاذ الشيخ الصفوك",
+        "frequency": 1,
+        "type": "common"
+    }
+]

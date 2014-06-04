@@ -1,0 +1,578 @@
+[
+    {
+        "service": "flickr",
+        "age": 1,
+        "engagement": 0,
+        "volume": 0,
+        "source": "Zimbabwe: Peace, Justice, Freedom and Democracy",
+        "frequency": 1,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": -1,
+        "engagement": -1,
+        "volume": 1,
+        "source": "Victoria Falls, Zimbabwe",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 0,
+        "engagement": 1,
+        "volume": -1,
+        "source": "Airlines: Avient [Z3/SMJ]",
+        "frequency": 1,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 0,
+        "engagement": 0,
+        "volume": 0,
+        "source": "Bushman and San Paintings",
+        "frequency": -1,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 0,
+        "engagement": -1,
+        "volume": -1,
+        "source": "Zambia's Vic Falls",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": -1,
+        "engagement": 1,
+        "volume": 0,
+        "source": "NB69 Photography-Facebook",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 1,
+        "engagement": 0,
+        "volume": 0,
+        "source": "People live here: Stop forced evictions in Africa",
+        "frequency": -1,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": -1,
+        "engagement": 1,
+        "volume": 0,
+        "source": "ennebi69 photography",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 0,
+        "engagement": 0,
+        "volume": 0,
+        "source": "Waterfalls of AFRICA",
+        "frequency": 1,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 1,
+        "engagement": 0,
+        "volume": -1,
+        "source": "Bridges in Africa",
+        "frequency": 1,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 0,
+        "engagement": -1,
+        "volume": 0,
+        "source": "African Birds",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 0,
+        "engagement": 1,
+        "volume": -1,
+        "source": "Ebony Beauties",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 0,
+        "engagement": 0,
+        "volume": 1,
+        "source": "Cheetahs",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": -1,
+        "engagement": 0,
+        "volume": 1,
+        "source": "Film Fests",
+        "frequency": -1,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 0,
+        "engagement": -1,
+        "volume": 1,
+        "source": "The Global Community",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": -1,
+        "engagement": -1,
+        "volume": 1,
+        "source": "Smile Campaign",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 0,
+        "engagement": 0,
+        "volume": -1,
+        "source": "inflatables/Balloons",
+        "frequency": -1,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 1,
+        "engagement": 0,
+        "volume": 0,
+        "source": "Zimbabwe: Peace, Justice, Freedom and Democracy",
+        "frequency": 1,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 0,
+        "engagement": 0,
+        "volume": 0,
+        "source": "Bushman and San Paintings",
+        "frequency": -1,
+        "type": "common"
+    },
+    {
+        "service": "flickr",
+        "age": 1,
+        "engagement": 1,
+        "volume": 0,
+        "source": "Convergys and Friends Photo Group",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": -1,
+        "engagement": 0,
+        "volume": 0,
+        "source": "internationalwomensinitiative",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": -1,
+        "engagement": -1,
+        "volume": 0,
+        "source": "lefauxpas",
+        "frequency": -1,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": 0,
+        "engagement": 0,
+        "volume": 0,
+        "source": "cecilialee-anne",
+        "frequency": -1,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": -1,
+        "engagement": 1,
+        "volume": 0,
+        "source": "daywhite",
+        "frequency": -1,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": -1,
+        "engagement": -1,
+        "volume": 1,
+        "source": "philchard",
+        "frequency": -1,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": 1,
+        "engagement": -1,
+        "volume": -1,
+        "source": "zimbabweanwomen",
+        "frequency": 1,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": 0,
+        "engagement": 1,
+        "volume": 0,
+        "source": "africanmusicdiary",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": 1,
+        "engagement": 1,
+        "volume": -1,
+        "source": "explorersneeded",
+        "frequency": 1,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": 1,
+        "engagement": 0,
+        "volume": -1,
+        "source": "kabweza",
+        "frequency": 1,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": 0,
+        "engagement": 1,
+        "volume": 1,
+        "source": "monsterbeard",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": 1,
+        "engagement": 1,
+        "volume": -1,
+        "source": "jeredscott",
+        "frequency": 1,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": 0,
+        "engagement": 0,
+        "volume": 0,
+        "source": "tangowithwords",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": 0,
+        "engagement": -1,
+        "volume": 0,
+        "source": "straightauds",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": 1,
+        "engagement": 0,
+        "volume": 0,
+        "source": "gavinrea",
+        "frequency": 1,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": 0,
+        "engagement": 0,
+        "volume": 0,
+        "source": "ngosikadzi-africa",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": 0,
+        "engagement": 0,
+        "volume": 1,
+        "source": "djpaine",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": 0,
+        "engagement": 0,
+        "volume": 1,
+        "source": "nikkofrikko",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": -1,
+        "engagement": 0,
+        "volume": 0,
+        "source": "reignivxgenius",
+        "frequency": -1,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": 0,
+        "engagement": 0,
+        "volume": -1,
+        "source": "garancita",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "tumblr",
+        "age": 0,
+        "engagement": -1,
+        "volume": 1,
+        "source": "jad3dminefi3ld",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": -1,
+        "engagement": 0,
+        "volume": 1,
+        "source": "NewsDay",
+        "frequency": -1,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": 1,
+        "volume": 0,
+        "source": "MDC Zimbabwe",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": 0,
+        "volume": 0,
+        "source": "Zimbabwe Daily News",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": -1,
+        "engagement": -1,
+        "volume": 0,
+        "source": "The Herald",
+        "frequency": -1,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 1,
+        "engagement": 0,
+        "volume": 0,
+        "source": "NewsOfZimbabwe",
+        "frequency": 1,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 1,
+        "engagement": 0,
+        "volume": 0,
+        "source": "Cricket Zimbabwe",
+        "frequency": 1,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 1,
+        "engagement": 1,
+        "volume": 0,
+        "source": "sokwanele",
+        "frequency": 1,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": 1,
+        "volume": 0,
+        "source": "Rebuild Zimbabwe",
+        "frequency": 1,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": -1,
+        "engagement": 0,
+        "volume": 1,
+        "source": "U.S. Embassy Harare",
+        "frequency": -1,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 1,
+        "engagement": 1,
+        "volume": -1,
+        "source": "Saviour Kasukuwere",
+        "frequency": 1,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": -1,
+        "engagement": -1,
+        "volume": 0,
+        "source": "Kubatana.net",
+        "frequency": -1,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": -1,
+        "volume": -1,
+        "source": "Zimbabwe Achievers",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 1,
+        "engagement": 0,
+        "volume": -1,
+        "source": "Zimbabwe.com",
+        "frequency": 1,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": -1,
+        "volume": 0,
+        "source": "Crisis Coalition",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": 0,
+        "volume": 1,
+        "source": "David Coltart",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": 0,
+        "volume": 1,
+        "source": "David Coltart",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": 1,
+        "volume": -1,
+        "source": "Zimbabwe Independent",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": -1,
+        "volume": 0,
+        "source": "Sunday Mail Zimbabwe",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": -1,
+        "volume": -1,
+        "source": "Activate Zimbabwe",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": 1,
+        "volume": 0,
+        "source": "David Pocock",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": -1,
+        "engagement": 0,
+        "volume": 1,
+        "source": "U.S. Embassy Harare",
+        "frequency": -1,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": 0,
+        "volume": 0,
+        "source": "Cynic ",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": 1,
+        "engagement": 0,
+        "volume": -1,
+        "source": "Invest Harare",
+        "frequency": 0,
+        "type": "common"
+    },
+    {
+        "service": "twitter",
+        "age": -1,
+        "engagement": 0,
+        "volume": 1,
+        "source": "Trevor Ncube",
+        "frequency": -1,
+        "type": "common"
+    }
+]

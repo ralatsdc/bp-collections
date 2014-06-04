@@ -1,0 +1,443 @@
+[
+    {
+        "service": "flickr",
+        "age": 1,
+        "engagement": -1,
+        "volume": 0,
+        "source": "Haiti Earthquake and Recovery",
+        "frequency": 1,
+        "type": "crisis"
+    },
+    {
+        "service": "flickr",
+        "age": 0,
+        "engagement": 0,
+        "volume": 1,
+        "source": "Hope for Haiti 2010",
+        "frequency": 0,
+        "type": "crisis"
+    },
+    {
+        "service": "flickr",
+        "age": 1,
+        "engagement": 0,
+        "volume": 1,
+        "source": "SOS Haiti",
+        "frequency": 0,
+        "type": "crisis"
+    },
+    {
+        "service": "flickr",
+        "age": -1,
+        "engagement": 0,
+        "volume": 1,
+        "source": "Disasters",
+        "frequency": 0,
+        "type": "crisis"
+    },
+    {
+        "service": "flickr",
+        "age": 0,
+        "engagement": 1,
+        "volume": -1,
+        "source": "Dolly Community unite for the Japan EarthQuake &amp; Tsunami:",
+        "frequency": 0,
+        "type": "crisis"
+    },
+    {
+        "service": "flickr",
+        "age": 0,
+        "engagement": 1,
+        "volume": 0,
+        "source": "Tents",
+        "frequency": 0,
+        "type": "crisis"
+    },
+    {
+        "service": "flickr",
+        "age": 0,
+        "engagement": 1,
+        "volume": 1,
+        "source": "Critical Condition: Health, Medicine, and Survival",
+        "frequency": -1,
+        "type": "crisis"
+    },
+    {
+        "service": "flickr",
+        "age": 1,
+        "engagement": 1,
+        "volume": -1,
+        "source": "The Giving Lens",
+        "frequency": 0,
+        "type": "crisis"
+    },
+    {
+        "service": "flickr",
+        "age": 0,
+        "engagement": -1,
+        "volume": 1,
+        "source": "The Global Community",
+        "frequency": -1,
+        "type": "crisis"
+    },
+    {
+        "service": "flickr",
+        "age": 0,
+        "engagement": 0,
+        "volume": 0,
+        "source": "Humanitarian Assistance Image Contest (HADR International)",
+        "frequency": 1,
+        "type": "crisis"
+    },
+    {
+        "service": "flickr",
+        "age": 0,
+        "engagement": -1,
+        "volume": 1,
+        "source": "The Photo League 2",
+        "frequency": 0,
+        "type": "crisis"
+    },
+    {
+        "service": "flickr",
+        "age": 0,
+        "engagement": 1,
+        "volume": 0,
+        "source": "Nonprofit Organizations",
+        "frequency": 0,
+        "type": "crisis"
+    },
+    {
+        "service": "flickr",
+        "age": 0,
+        "engagement": 1,
+        "volume": -1,
+        "source": "2010 Pakistan Floods",
+        "frequency": 1,
+        "type": "crisis"
+    },
+    {
+        "service": "flickr",
+        "age": 0,
+        "engagement": 0,
+        "volume": 0,
+        "source": "Nonprofit groups",
+        "frequency": 0,
+        "type": "crisis"
+    },
+    {
+        "service": "flickr",
+        "age": -1,
+        "engagement": -1,
+        "volume": 0,
+        "source": "Chile 8.8 2010 EARTHQUAKE",
+        "frequency": -1,
+        "type": "crisis"
+    },
+    {
+        "service": "flickr",
+        "age": 0,
+        "engagement": 0,
+        "volume": 1,
+        "source": "Hope for Haiti 2010",
+        "frequency": 0,
+        "type": "crisis"
+    },
+    {
+        "service": "flickr",
+        "age": 1,
+        "engagement": -1,
+        "volume": -1,
+        "source": "Earthquake",
+        "frequency": 1,
+        "type": "crisis"
+    },
+    {
+        "service": "flickr",
+        "age": 1,
+        "engagement": -1,
+        "volume": 0,
+        "source": "Haiti Earthquake and Recovery",
+        "frequency": 1,
+        "type": "crisis"
+    },
+    {
+        "service": "flickr",
+        "age": -1,
+        "engagement": 0,
+        "volume": 1,
+        "source": "Disasters",
+        "frequency": 0,
+        "type": "crisis"
+    },
+    {
+        "service": "flickr",
+        "age": 0,
+        "engagement": 1,
+        "volume": -1,
+        "source": "2010 Pakistan Floods",
+        "frequency": 1,
+        "type": "crisis"
+    },
+    {
+        "service": "flickr",
+        "age": 1,
+        "engagement": 0,
+        "volume": 1,
+        "source": "SOS Haiti",
+        "frequency": 0,
+        "type": "crisis"
+    },
+    {
+        "service": "flickr",
+        "age": -1,
+        "engagement": 0,
+        "volume": 0,
+        "source": "ChileAyuda.com | Fotos de Terremoto en Chile 2010",
+        "frequency": -1,
+        "type": "crisis"
+    },
+    {
+        "service": "flickr",
+        "age": 1,
+        "engagement": 1,
+        "volume": -1,
+        "source": "earthquake in chile, pictures and videos",
+        "frequency": 1,
+        "type": "crisis"
+    },
+    {
+        "service": "flickr",
+        "age": -1,
+        "engagement": 0,
+        "volume": -1,
+        "source": "¡¡¡Levántate Chile!!! / ¡¡¡Stand Up Chile!!!",
+        "frequency": -1,
+        "type": "crisis"
+    },
+    {
+        "service": "flickr",
+        "age": -1,
+        "engagement": 0,
+        "volume": 0,
+        "source": "Terremoto Chile",
+        "frequency": -1,
+        "type": "crisis"
+    },
+    {
+        "service": "flickr",
+        "age": -1,
+        "engagement": -1,
+        "volume": 0,
+        "source": "Post Terremoto",
+        "frequency": -1,
+        "type": "crisis"
+    },
+    {
+        "service": "flickr",
+        "age": 1,
+        "engagement": 0,
+        "volume": -1,
+        "source": "PUENTES DE CHILE",
+        "frequency": 1,
+        "type": "crisis"
+    },
+    {
+        "service": "flickr",
+        "age": 1,
+        "engagement": 0,
+        "volume": 0,
+        "source": "Bridges in South America",
+        "frequency": 1,
+        "type": "crisis"
+    },
+    {
+        "service": "flickr",
+        "age": 0,
+        "engagement": 1,
+        "volume": 0,
+        "source": "Tents",
+        "frequency": 0,
+        "type": "crisis"
+    },
+    {
+        "service": "flickr",
+        "age": -1,
+        "engagement": -1,
+        "volume": 0,
+        "source": "Providencia, Chile",
+        "frequency": -1,
+        "type": "crisis"
+    },
+    {
+        "service": "tumblr",
+        "age": 0,
+        "engagement": -1,
+        "volume": -1,
+        "source": "livelifeclean",
+        "frequency": 0,
+        "type": "crisis"
+    },
+    {
+        "service": "tumblr",
+        "age": -1,
+        "engagement": 0,
+        "volume": 1,
+        "source": "gippeebean",
+        "frequency": 0,
+        "type": "crisis"
+    },
+    {
+        "service": "tumblr",
+        "age": 1,
+        "engagement": 1,
+        "volume": 0,
+        "source": "exposureforclosure",
+        "frequency": 1,
+        "type": "crisis"
+    },
+    {
+        "service": "tumblr",
+        "age": 0,
+        "engagement": 0,
+        "volume": 0,
+        "source": "internationalprofessorsproject",
+        "frequency": -1,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": 1,
+        "engagement": 1,
+        "volume": 0,
+        "source": "YELE HAITI",
+        "frequency": 0,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": 1,
+        "engagement": 0,
+        "volume": -1,
+        "source": "ShelterCluster Haiti",
+        "frequency": 0,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": -1,
+        "volume": 0,
+        "source": "Dan Woolley",
+        "frequency": 1,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": 1,
+        "engagement": 0,
+        "volume": -1,
+        "source": "The Renmen Project",
+        "frequency": 1,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": 1,
+        "engagement": -1,
+        "volume": -1,
+        "source": "The Green Angel",
+        "frequency": 0,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": 0,
+        "volume": 1,
+        "source": "Rebuild Christchurch",
+        "frequency": 0,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": 1,
+        "volume": 0,
+        "source": "La Source",
+        "frequency": 1,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": -1,
+        "volume": 1,
+        "source": "Rebuild Christchurch",
+        "frequency": 0,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": 1,
+        "volume": 0,
+        "source": "La Source",
+        "frequency": 1,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": 0,
+        "volume": 1,
+        "source": "Rebuild Christchurch",
+        "frequency": 0,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": 1,
+        "volume": 0,
+        "source": "La Source",
+        "frequency": 1,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": 0,
+        "volume": 1,
+        "source": "Rebuild Christchurch",
+        "frequency": 0,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": 1,
+        "volume": 0,
+        "source": "La Source",
+        "frequency": 1,
+        "type": "crisis"
+    },
+    {
+        "service": "feed",
+        "age": 0,
+        "engagement": 0,
+        "volume": 0,
+        "source": "World Food Programme",
+        "frequency": 0,
+        "type": "crisis"
+    },
+    {
+        "service": "feed",
+        "age": 0,
+        "engagement": 0,
+        "volume": 0,
+        "source": "IRIN",
+        "frequency": 0,
+        "type": "crisis"
+    }
+]

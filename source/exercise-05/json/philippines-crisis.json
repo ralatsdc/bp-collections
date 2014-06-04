@@ -1,0 +1,182 @@
+[
+    {
+        "service": "tumblr",
+        "age": -1,
+        "engagement": 0,
+        "volume": 0,
+        "source": "mercycorps",
+        "frequency": -1,
+        "type": "crisis"
+    },
+    {
+        "service": "tumblr",
+        "age": 0,
+        "engagement": -1,
+        "volume": 1,
+        "source": "berryshares",
+        "frequency": 0,
+        "type": "crisis"
+    },
+    {
+        "service": "tumblr",
+        "age": 1,
+        "engagement": 1,
+        "volume": 0,
+        "source": "iskobralm",
+        "frequency": 0,
+        "type": "crisis"
+    },
+    {
+        "service": "tumblr",
+        "age": 0,
+        "engagement": 0,
+        "volume": -1,
+        "source": "joanniemarie",
+        "frequency": 1,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": -1,
+        "engagement": 0,
+        "volume": 1,
+        "source": "WHO Philippines",
+        "frequency": -1,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": 1,
+        "engagement": 0,
+        "volume": -1,
+        "source": "Typhoon Haiyan",
+        "frequency": 0,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": 1,
+        "engagement": 0,
+        "volume": -1,
+        "source": "Typhoon Haiyan",
+        "frequency": -1,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": -1,
+        "engagement": -1,
+        "volume": 1,
+        "source": "Rachid_Boumnijel",
+        "frequency": 0,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": -1,
+        "engagement": 0,
+        "volume": -1,
+        "source": "Typhoon Haiyan",
+        "frequency": -1,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": -1,
+        "engagement": 1,
+        "volume": 1,
+        "source": "Philippine Red Cross",
+        "frequency": -1,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": 1,
+        "engagement": -1,
+        "volume": 1,
+        "source": "Adobo Hoedown",
+        "frequency": 1,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": 1,
+        "engagement": 1,
+        "volume": 0,
+        "source": "Never Give Up PH",
+        "frequency": 0,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": 1,
+        "engagement": 1,
+        "volume": 0,
+        "source": "Never Give Up PH",
+        "frequency": 0,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": 0,
+        "volume": 0,
+        "source": "Haiyan-Aid",
+        "frequency": 1,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": 1,
+        "engagement": 1,
+        "volume": 0,
+        "source": "Never Give Up PH",
+        "frequency": 0,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": 0,
+        "volume": 0,
+        "source": "Haiyan-Aid",
+        "frequency": 1,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": 1,
+        "engagement": 1,
+        "volume": 0,
+        "source": "Never Give Up PH",
+        "frequency": 0,
+        "type": "crisis"
+    },
+    {
+        "service": "twitter",
+        "age": 0,
+        "engagement": 0,
+        "volume": 0,
+        "source": "Haiyan-Aid",
+        "frequency": 1,
+        "type": "crisis"
+    },
+    {
+        "service": "feed",
+        "age": 0,
+        "engagement": 0,
+        "volume": 0,
+        "source": "Doctor's Without Borders",
+        "frequency": 0,
+        "type": "crisis"
+    },
+    {
+        "service": "feed",
+        "age": 0,
+        "engagement": 0,
+        "volume": 0,
+        "source": "Oxfam International",
+        "frequency": 0,
+        "type": "crisis"
+    }
+]
