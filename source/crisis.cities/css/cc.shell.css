@@ -1,0 +1,77 @@
+/*
+ * cc.shell.css
+ */
+
+/* All elements position property */
+
+.cc-shell-head,
+.cc-shell-main, .cc-shell-main-nav, .cc-shell-main-content,
+.cc-shell-foot,
+.cc-shell-modal {
+    position: absolute;
+}
+
+/* Head element properties */
+
+.cc-shell-head {
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 40px;
+}
+.cc-shell-head h1 {
+    font: 800 10px/10px arial, Helvetica, sans-serif;
+    margin: 0;
+}
+.cc-shell-head p {
+    font: 800 10px/10px arial, Helvetica, sans-serif;
+    margin: 0;
+}
+
+/* Main element properties */
+
+.cc-shell-main {
+    top: 40px;
+    left: 0;
+    bottom: 40px;
+    right: 0;
+}
+.cc-shell-main-nav,
+.cc-shell-main-content {
+    top: 0;
+    bottom: 0;
+}
+.cc-shell-main-nav {
+    width: 0;
+    background: #eee;
+    z-index: 1;
+}
+.cc-shell-main-content {
+    left: 0;
+    right: 0;
+    background: #ddd;
+}
+
+/* Foot element properties */
+
+.cc-shell-foot {
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 40px;
+}
+
+/* Modal element properties */
+
+.cc-shell-modal {
+    margin-top: -200px;
+    margin-left: -200px;
+    top: 50%;
+    left: 50%;
+    width: 400px;
+    height: 400px;
+    background: #fff;
+    border-radius: 3px;
+    z-index: 2;
+    display: none;
+}
