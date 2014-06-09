@@ -1,5 +1,5 @@
 {
-    "data": [
+    "sources": [
         {
             "include": false,
             "name": "886100@N25",
@@ -125,7 +125,7 @@
             "include": false,
             "name": "436893@N22",
             "service": "flickr",
-            "age": -43,
+            "age": -44,
             "engagement": -1,
             "volume": 1,
             "frequency": -31,
@@ -279,7 +279,7 @@
             "include": false,
             "name": "436893@N22",
             "service": "flickr",
-            "age": -43,
+            "age": -44,
             "engagement": -1,
             "volume": 1,
             "frequency": -31,
@@ -337,7 +337,7 @@
             "age": 13,
             "engagement": 1,
             "volume": 0,
-            "frequency": -31,
+            "frequency": -38,
             "score": 509,
             "type": "common"
         },
@@ -458,7 +458,7 @@
             "age": 30,
             "engagement": 1,
             "volume": 1,
-            "frequency": 5,
+            "frequency": 2,
             "score": 9470,
             "type": "common"
         },
@@ -480,7 +480,7 @@
             "age": -18,
             "engagement": -1,
             "volume": -1,
-            "frequency": -22,
+            "frequency": -18,
             "score": 737,
             "type": "common"
         },
@@ -565,10 +565,10 @@
             "include": false,
             "name": "http://powerpuffjer.tumblr.com/",
             "service": "tumblr",
-            "age": 2,
+            "age": 6,
             "engagement": 1,
             "volume": 1,
-            "frequency": -14,
+            "frequency": -18,
             "score": 390,
             "type": "common"
         },
@@ -587,7 +587,7 @@
             "include": false,
             "name": "http://jaedavao.tumblr.com/",
             "service": "tumblr",
-            "age": -46,
+            "age": -38,
             "engagement": 0,
             "volume": 0,
             "frequency": -30,
@@ -623,7 +623,7 @@
             "age": 10,
             "engagement": -1,
             "volume": 0,
-            "frequency": 18,
+            "frequency": 22,
             "score": 4817,
             "type": "common"
         },
@@ -642,10 +642,10 @@
             "include": false,
             "name": "http://gizzychan.tumblr.com/",
             "service": "tumblr",
-            "age": 6,
+            "age": 2,
             "engagement": 0,
             "volume": 0,
-            "frequency": 18,
+            "frequency": 22,
             "score": 2712,
             "type": "common"
         },
@@ -719,7 +719,7 @@
             "include": false,
             "name": "http://kayedeebutac.tumblr.com/",
             "service": "tumblr",
-            "age": -42,
+            "age": -46,
             "engagement": 0,
             "volume": 1,
             "frequency": -2,
@@ -741,7 +741,7 @@
             "include": false,
             "name": "MYXphilippines",
             "service": "twitter",
-            "age": -43,
+            "age": -39,
             "engagement": 1,
             "volume": 1,
             "frequency": -36,
@@ -752,10 +752,10 @@
             "include": false,
             "name": "YahooPH",
             "service": "twitter",
-            "age": -42,
+            "age": -40,
             "engagement": 0,
             "volume": 1,
-            "frequency": -36,
+            "frequency": -46,
             "score": 130,
             "type": "common"
         },
@@ -763,10 +763,10 @@
             "include": false,
             "name": "NBA_Philippines",
             "service": "twitter",
-            "age": -39,
+            "age": -40,
             "engagement": 0,
             "volume": 0,
-            "frequency": -45,
+            "frequency": -46,
             "score": 132,
             "type": "common"
         },
@@ -810,7 +810,7 @@
             "age": -28,
             "engagement": 1,
             "volume": 0,
-            "frequency": -21,
+            "frequency": -25,
             "score": 56,
             "type": "common"
         },
@@ -818,10 +818,10 @@
             "include": false,
             "name": "gmanews",
             "service": "twitter",
-            "age": -46,
+            "age": -50,
             "engagement": 1,
             "volume": 1,
-            "frequency": -45,
+            "frequency": -36,
             "score": 24,
             "type": "common"
         },
@@ -832,7 +832,7 @@
             "age": -23,
             "engagement": 0,
             "volume": 0,
-            "frequency": -25,
+            "frequency": -21,
             "score": 107,
             "type": "common"
         },
@@ -840,10 +840,10 @@
             "include": true,
             "name": "ChoosePhils",
             "service": "twitter",
-            "age": -8,
+            "age": -9,
             "engagement": 0,
             "volume": 0,
-            "frequency": -20,
+            "frequency": -18,
             "score": 385,
             "type": "common"
         },
@@ -851,10 +851,10 @@
             "include": false,
             "name": "LevisPhil",
             "service": "twitter",
-            "age": -15,
+            "age": -17,
             "engagement": 0,
             "volume": -1,
-            "frequency": -11,
+            "frequency": -12,
             "score": 45,
             "type": "common"
         },
@@ -862,10 +862,10 @@
             "include": false,
             "name": "philconcerts",
             "service": "twitter",
-            "age": -46,
+            "age": -45,
             "engagement": -1,
             "volume": 1,
-            "frequency": -45,
+            "frequency": -36,
             "score": 47,
             "type": "common"
         },
@@ -884,7 +884,7 @@
             "include": false,
             "name": "NuffnangPH",
             "service": "twitter",
-            "age": -14,
+            "age": -15,
             "engagement": -1,
             "volume": 0,
             "frequency": -8,
@@ -898,7 +898,7 @@
             "age": -30,
             "engagement": 0,
             "volume": 1,
-            "frequency": -36,
+            "frequency": -46,
             "score": 9,
             "type": "common"
         },
@@ -909,7 +909,7 @@
             "age": -18,
             "engagement": 0,
             "volume": -1,
-            "frequency": -11,
+            "frequency": -12,
             "score": 40,
             "type": "common"
         },
@@ -928,10 +928,10 @@
             "include": false,
             "name": "TopGearPh",
             "service": "twitter",
-            "age": -34,
+            "age": -33,
             "engagement": -1,
             "volume": 0,
-            "frequency": -25,
+            "frequency": -30,
             "score": 16,
             "type": "common"
         },
@@ -975,7 +975,7 @@
             "age": -25,
             "engagement": 0,
             "volume": 0,
-            "frequency": -17,
+            "frequency": -18,
             "score": 75,
             "type": "common"
         },
@@ -983,10 +983,10 @@
             "include": true,
             "name": "CloseupPH",
             "service": "twitter",
-            "age": -9,
+            "age": -8,
             "engagement": 0,
             "volume": 0,
-            "frequency": -11,
+            "frequency": -12,
             "score": 183,
             "type": "common"
         },
@@ -1019,7 +1019,7 @@
             "age": -40,
             "engagement": 1,
             "volume": 1,
-            "frequency": -36,
+            "frequency": -46,
             "score": 39,
             "type": "common"
         },
@@ -1027,10 +1027,10 @@
             "include": false,
             "name": "Party_Pilipinas",
             "service": "twitter",
-            "age": -17,
+            "age": -14,
             "engagement": 0,
             "volume": 1,
-            "frequency": -11,
+            "frequency": -8,
             "score": 24,
             "type": "common"
         },
@@ -1038,10 +1038,10 @@
             "include": false,
             "name": "smartgilasph",
             "service": "twitter",
-            "age": -33,
+            "age": -31,
             "engagement": 0,
             "volume": -1,
-            "frequency": -25,
+            "frequency": -30,
             "score": 21,
             "type": "common"
         },
@@ -1049,7 +1049,7 @@
             "include": false,
             "name": "IntelPilipinas",
             "service": "twitter",
-            "age": -31,
+            "age": -34,
             "engagement": 0,
             "volume": -1,
             "frequency": -36,
@@ -1060,10 +1060,10 @@
             "include": false,
             "name": "NokiaPilipinas",
             "service": "twitter",
-            "age": -34,
+            "age": -36,
             "engagement": 0,
             "volume": -1,
-            "frequency": -33,
+            "frequency": -30,
             "score": 158,
             "type": "common"
         },
@@ -1096,7 +1096,7 @@
             "age": -37,
             "engagement": 0,
             "volume": -1,
-            "frequency": -33,
+            "frequency": -30,
             "score": 17,
             "type": "common"
         },
@@ -1104,7 +1104,7 @@
             "include": false,
             "name": "garvothe13",
             "service": "twitter",
-            "age": -24,
+            "age": -23,
             "engagement": -1,
             "volume": 0,
             "frequency": -21,
@@ -1115,10 +1115,10 @@
             "include": false,
             "name": "manila_bulletin",
             "service": "twitter",
-            "age": -46,
+            "age": -49,
             "engagement": -1,
             "volume": 1,
-            "frequency": -45,
+            "frequency": -36,
             "score": 2,
             "type": "common"
         },
@@ -1126,10 +1126,10 @@
             "include": false,
             "name": "Manilaconcerts",
             "service": "twitter",
-            "age": -46,
+            "age": -45,
             "engagement": -1,
             "volume": 1,
-            "frequency": -45,
+            "frequency": -36,
             "score": 89,
             "type": "common"
         },
@@ -1159,7 +1159,7 @@
             "include": false,
             "name": "LetranOfficial",
             "service": "twitter",
-            "age": -6,
+            "age": -5,
             "engagement": -1,
             "volume": -1,
             "frequency": -5,
@@ -1376,28 +1376,106 @@
             "type": "crisis"
         }
     ],
-    "tags": {
-        "common": {
-            "skyporn": 62,
-            "igersasia": 73,
-            "sky": 63,
-            "CloseupForeverSummer": 87,
-            "manila": 74,
-            "ig_asia": 68,
-            "photography": 168,
-            "clouds": 62,
-            "philippines": 386
+    "tags": [
+        {
+            "count": 1,
+            "tag": "vision:clouds=0942",
+            "type": "common"
         },
-        "crisis": {
-            "fashion": 35,
-            "TyphoonHaiyan": 43,
-            "Yolanda": 24,
-            "haiyan": 22,
-            "YolandaPH": 29,
-            "livelihoods": 42,
-            "Philippines": 21,
-            "Mercy Corps": 26,
-            "Haiyan": 63
+        {
+            "count": 1,
+            "tag": "vision:clouds=0943",
+            "type": "common"
+        },
+        {
+            "count": 1,
+            "tag": "celso",
+            "type": "common"
+        },
+        {
+            "count": 1,
+            "tag": "",
+            "type": "common"
+        },
+        {
+            "count": 2,
+            "tag": "raining",
+            "type": "common"
+        },
+        {
+            "count": 1,
+            "tag": "flipsimmons",
+            "type": "common"
+        },
+        {
+            "count": 1,
+            "tag": "treasuresofbolinao",
+            "type": "common"
+        },
+        {
+            "count": 2,
+            "tag": "sanagustin",
+            "type": "common"
+        },
+        {
+            "count": 15,
+            "tag": "yellow",
+            "type": "common"
+        },
+        {
+            "count": 1,
+            "tag": "wwwdgphotoscouk",
+            "type": "common"
+        },
+        {
+            "count": 1,
+            "tag": "Gratitude",
+            "type": "crisis"
+        },
+        {
+            "count": 1,
+            "tag": "",
+            "type": "crisis"
+        },
+        {
+            "count": 1,
+            "tag": "tacloban.",
+            "type": "crisis"
+        },
+        {
+            "count": 1,
+            "tag": "boyce avenue",
+            "type": "crisis"
+        },
+        {
+            "count": 1,
+            "tag": "keaton stromberg",
+            "type": "crisis"
+        },
+        {
+            "count": 1,
+            "tag": "Yaks",
+            "type": "crisis"
+        },
+        {
+            "count": 1,
+            "tag": "katy perry",
+            "type": "crisis"
+        },
+        {
+            "count": 1,
+            "tag": "international women's day",
+            "type": "crisis"
+        },
+        {
+            "count": 1,
+            "tag": "focus",
+            "type": "crisis"
+        },
+        {
+            "count": 1,
+            "tag": "rememberingcory",
+            "type": "crisis"
         }
-    }
+    ]
 }

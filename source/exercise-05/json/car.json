@@ -1,5 +1,247 @@
 {
-    "data": [
+    "included": [
+        {
+            "count": 64,
+            "volume": 1,
+            "tag": "africa",
+            "frequency": 49,
+            "name": "48568377@N00",
+            "service": "flickr",
+            "engagement": 1,
+            "age": 49,
+            "total": 110,
+            "type": "crisis"
+        },
+        {
+            "count": 74,
+            "volume": 1,
+            "tag": "car",
+            "frequency": 49,
+            "name": "48568377@N00",
+            "service": "flickr",
+            "engagement": 1,
+            "age": 49,
+            "total": 74,
+            "type": "crisis"
+        },
+        {
+            "count": 52,
+            "volume": 0,
+            "tag": "travel",
+            "frequency": 35,
+            "name": "1032987@N25",
+            "service": "flickr",
+            "engagement": -1,
+            "age": 21,
+            "total": 69,
+            "type": "common"
+        },
+        {
+            "count": 64,
+            "volume": 0,
+            "tag": "walk",
+            "frequency": 35,
+            "name": "1032987@N25",
+            "service": "flickr",
+            "engagement": -1,
+            "age": 21,
+            "total": 64,
+            "type": "common"
+        },
+        {
+            "count": 63,
+            "volume": 0,
+            "tag": "hike",
+            "frequency": 35,
+            "name": "1032987@N25",
+            "service": "flickr",
+            "engagement": -1,
+            "age": 21,
+            "total": 63,
+            "type": "common"
+        },
+        {
+            "count": 63,
+            "volume": 1,
+            "tag": "centralafricanrepublic",
+            "frequency": 49,
+            "name": "48568377@N00",
+            "service": "flickr",
+            "engagement": 1,
+            "age": 49,
+            "total": 63,
+            "type": "crisis"
+        },
+        {
+            "count": 62,
+            "volume": 0,
+            "tag": "backpacking",
+            "frequency": 35,
+            "name": "1032987@N25",
+            "service": "flickr",
+            "engagement": -1,
+            "age": 21,
+            "total": 62,
+            "type": "common"
+        },
+        {
+            "count": 61,
+            "volume": 0,
+            "tag": "hiking",
+            "frequency": 35,
+            "name": "1032987@N25",
+            "service": "flickr",
+            "engagement": -1,
+            "age": 21,
+            "total": 61,
+            "type": "common"
+        },
+        {
+            "count": 61,
+            "volume": 0,
+            "tag": "hikes",
+            "frequency": 35,
+            "name": "1032987@N25",
+            "service": "flickr",
+            "engagement": -1,
+            "age": 21,
+            "total": 61,
+            "type": "common"
+        },
+        {
+            "count": 59,
+            "volume": 0,
+            "tag": "walking",
+            "frequency": 35,
+            "name": "1032987@N25",
+            "service": "flickr",
+            "engagement": -1,
+            "age": 21,
+            "total": 59,
+            "type": "common"
+        },
+        {
+            "count": 58,
+            "volume": 0,
+            "tag": "england",
+            "frequency": 35,
+            "name": "1032987@N25",
+            "service": "flickr",
+            "engagement": -1,
+            "age": 21,
+            "total": 58,
+            "type": "common"
+        },
+        {
+            "count": 58,
+            "volume": 0,
+            "tag": "walks",
+            "frequency": 35,
+            "name": "1032987@N25",
+            "service": "flickr",
+            "engagement": -1,
+            "age": 21,
+            "total": 58,
+            "type": "common"
+        },
+        {
+            "count": 56,
+            "volume": 0,
+            "tag": "WFP",
+            "frequency": 49,
+            "name": "http://wfp.tumblr.com/",
+            "service": "tumblr",
+            "engagement": -1,
+            "age": 35,
+            "total": 56,
+            "type": "crisis"
+        },
+        {
+            "count": 41,
+            "volume": 0,
+            "tag": "photography",
+            "frequency": -36,
+            "name": "http://committeetoprotectjournalists.tumblr.com/",
+            "service": "tumblr",
+            "engagement": 1,
+            "age": -36,
+            "total": 54,
+            "type": "crisis"
+        },
+        {
+            "count": 51,
+            "volume": 0,
+            "tag": "path",
+            "frequency": 35,
+            "name": "1032987@N25",
+            "service": "flickr",
+            "engagement": -1,
+            "age": 21,
+            "total": 51,
+            "type": "common"
+        },
+        {
+            "count": 44,
+            "volume": 1,
+            "tag": "bangui",
+            "frequency": 49,
+            "name": "48568377@N00",
+            "service": "flickr",
+            "engagement": 1,
+            "age": 49,
+            "total": 47,
+            "type": "crisis"
+        },
+        {
+            "count": 40,
+            "volume": 1,
+            "tag": "centrafrique",
+            "frequency": 49,
+            "name": "48568377@N00",
+            "service": "flickr",
+            "engagement": 1,
+            "age": 49,
+            "total": 40,
+            "type": "crisis"
+        },
+        {
+            "count": 40,
+            "volume": -1,
+            "tag": "photojournalism",
+            "frequency": 7,
+            "name": "http://intamunu.tumblr.com/",
+            "service": "tumblr",
+            "engagement": 0,
+            "age": 21,
+            "total": 40,
+            "type": "crisis"
+        },
+        {
+            "count": 39,
+            "volume": 1,
+            "tag": "rca",
+            "frequency": 49,
+            "name": "48568377@N00",
+            "service": "flickr",
+            "engagement": 1,
+            "age": 49,
+            "total": 39,
+            "type": "crisis"
+        },
+        {
+            "count": 38,
+            "volume": 1,
+            "tag": "centrafricaine",
+            "frequency": 49,
+            "name": "48568377@N00",
+            "service": "flickr",
+            "engagement": 1,
+            "age": 49,
+            "total": 38,
+            "type": "crisis"
+        }
+    ],
+    "selected": [
         {
             "include": true,
             "name": "1619798@N22",
@@ -257,7 +499,7 @@
             "include": true,
             "name": "TheTeam236",
             "service": "twitter",
-            "age": -40,
+            "age": -37,
             "engagement": 0,
             "volume": 0,
             "frequency": -37,
@@ -279,7 +521,7 @@
             "include": false,
             "name": "TheTeam236",
             "service": "twitter",
-            "age": -40,
+            "age": -37,
             "engagement": 0,
             "volume": 0,
             "frequency": -37,
@@ -301,7 +543,7 @@
             "include": false,
             "name": "TheTeam236",
             "service": "twitter",
-            "age": -40,
+            "age": -37,
             "engagement": 0,
             "volume": 0,
             "frequency": -37,
@@ -462,29 +704,5 @@
             "score": 102,
             "type": "crisis"
         }
-    ],
-    "tags": {
-        "common": {
-            "walking": 59,
-            "england": 58,
-            "hiking": 61,
-            "walk": 64,
-            "hike": 63,
-            "walks": 58,
-            "backpacking": 62,
-            "travel": 95,
-            "hikes": 61
-        },
-        "crisis": {
-            "photojournalism": 71,
-            "africa": 64,
-            "WFP": 56,
-            "photography": 54,
-            "Centrafrique": 49,
-            "bangui": 44,
-            "centralafricanrepublic": 63,
-            "car": 74,
-            "centrafrique": 40
-        }
-    }
+    ]
 }

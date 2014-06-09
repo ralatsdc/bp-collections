@@ -1,5 +1,5 @@
 /*
- * cc.contents.js
+ * cc.model.js
  */
 
 /*jslint
@@ -11,17 +11,16 @@
   $, cc
 */
 
-cc.contents = (function () {
+cc.model = (function () {
     
     'use strict';
-    
+
     var
     moduleConfig = {
         settable: {
         }
     },
     moduleState = {
-        $3container: undefined
     },
     initModule,
     configModule;
@@ -30,8 +29,12 @@ cc.contents = (function () {
         cc.util.setConfig(input_config, moduleConfig);
         return true;
     };
-    
-    initModule = function () {
+
+    initModule = function (input_file_name) {
+        d3.json(input_file_name, function(input_json) {
+            data = input_json.data;
+            tags = input_json.tags;
+        });
     };
     
     return {

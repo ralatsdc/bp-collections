@@ -1,5 +1,5 @@
 {
-    "data": [
+    "sources": [
         {
             "include": false,
             "name": "71803328@N00",
@@ -40,7 +40,7 @@
             "age": 2,
             "engagement": 0,
             "volume": 0,
-            "frequency": -24,
+            "frequency": -30,
             "score": 7119,
             "type": "common"
         },
@@ -73,7 +73,7 @@
             "age": 34,
             "engagement": 0,
             "volume": 0,
-            "frequency": -45,
+            "frequency": -40,
             "score": 1661,
             "type": "common"
         },
@@ -139,7 +139,7 @@
             "age": 23,
             "engagement": 0,
             "volume": 1,
-            "frequency": -35,
+            "frequency": -24,
             "score": 3035,
             "type": "common"
         },
@@ -205,7 +205,7 @@
             "age": 2,
             "engagement": 0,
             "volume": 0,
-            "frequency": -24,
+            "frequency": -30,
             "score": 7119,
             "type": "common"
         },
@@ -271,7 +271,7 @@
             "age": -40,
             "engagement": -1,
             "volume": 1,
-            "frequency": -40,
+            "frequency": -35,
             "score": 390,
             "type": "common"
         },
@@ -392,7 +392,7 @@
             "age": -8,
             "engagement": 0,
             "volume": 1,
-            "frequency": 2,
+            "frequency": -3,
             "score": 633,
             "type": "common"
         },
@@ -444,7 +444,7 @@
             "include": false,
             "name": "NewsDayZimbabwe",
             "service": "twitter",
-            "age": -50,
+            "age": -46,
             "engagement": 0,
             "volume": 1,
             "frequency": -37,
@@ -477,7 +477,7 @@
             "include": false,
             "name": "Hon_Kasukuwere",
             "service": "twitter",
-            "age": -20,
+            "age": -24,
             "engagement": 1,
             "volume": -1,
             "frequency": -7,
@@ -488,10 +488,10 @@
             "include": false,
             "name": "kubatana",
             "service": "twitter",
-            "age": -46,
+            "age": -50,
             "engagement": -1,
             "volume": 0,
-            "frequency": -37,
+            "frequency": -50,
             "score": 63,
             "type": "common"
         },
@@ -532,10 +532,10 @@
             "include": false,
             "name": "SundayMailZim",
             "service": "twitter",
-            "age": -24,
+            "age": -20,
             "engagement": -1,
             "volume": 0,
-            "frequency": -29,
+            "frequency": -33,
             "score": 2,
             "type": "common"
         },
@@ -573,18 +573,56 @@
             "type": "common"
         }
     ],
-    "tags": {
-        "common": {
-            "jeremysmithuk": 74,
-            "smith": 74,
-            "copyrightjeremysmithphotography": 74,
-            "jeremysmithzimbabwe": 74,
-            "jez": 74,
-            "jeremysmith007": 74,
-            "rockart": 78,
-            "africa": 105,
-            "zimbabwe": 239
+    "tags": [
+        {
+            "count": 1,
+            "tag": "raining",
+            "type": "common"
         },
-        "crisis": {}
-    }
+        {
+            "count": 1,
+            "tag": "ethan luck",
+            "type": "common"
+        },
+        {
+            "count": 1,
+            "tag": "outdooradvertising",
+            "type": "common"
+        },
+        {
+            "count": 3,
+            "tag": "yellow",
+            "type": "common"
+        },
+        {
+            "count": 2,
+            "tag": "woods",
+            "type": "common"
+        },
+        {
+            "count": 1,
+            "tag": "sony300mmf28ssmg",
+            "type": "common"
+        },
+        {
+            "count": 1,
+            "tag": "High Bun",
+            "type": "common"
+        },
+        {
+            "count": 1,
+            "tag": "sexual assault",
+            "type": "common"
+        },
+        {
+            "count": 1,
+            "tag": "dillish",
+            "type": "common"
+        },
+        {
+            "count": 1,
+            "tag": "trigpoint",
+            "type": "common"
+        }
+    ]
 }

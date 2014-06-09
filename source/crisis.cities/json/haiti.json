@@ -1,5 +1,5 @@
 {
-    "data": [
+    "sources": [
         {
             "include": true,
             "name": "1211994@N25",
@@ -271,7 +271,7 @@
             "age": -7,
             "engagement": -1,
             "volume": 0,
-            "frequency": -7,
+            "frequency": -12,
             "score": 491,
             "type": "common"
         },
@@ -290,7 +290,7 @@
             "include": false,
             "name": "http://they-call-me-oklahoma.tumblr.com/",
             "service": "tumblr",
-            "age": -43,
+            "age": -45,
             "engagement": 0,
             "volume": 1,
             "frequency": -45,
@@ -315,7 +315,7 @@
             "age": -38,
             "engagement": 0,
             "volume": 0,
-            "frequency": -27,
+            "frequency": -35,
             "score": 917,
             "type": "common"
         },
@@ -334,7 +334,7 @@
             "include": false,
             "name": "http://accras.tumblr.com/",
             "service": "tumblr",
-            "age": -43,
+            "age": -45,
             "engagement": 1,
             "volume": 1,
             "frequency": -45,
@@ -345,7 +345,7 @@
             "include": false,
             "name": "http://www.lptheory.com.br/",
             "service": "tumblr",
-            "age": -2,
+            "age": 1,
             "engagement": 0,
             "volume": 1,
             "frequency": 1,
@@ -359,7 +359,7 @@
             "age": -33,
             "engagement": -1,
             "volume": 1,
-            "frequency": -27,
+            "frequency": -12,
             "score": 290,
             "type": "common"
         },
@@ -389,10 +389,10 @@
             "include": false,
             "name": "http://lunionsuite.tumblr.com/",
             "service": "tumblr",
-            "age": -30,
+            "age": -27,
             "engagement": 0,
             "volume": 0,
-            "frequency": -15,
+            "frequency": -12,
             "score": 2058,
             "type": "common"
         },
@@ -400,10 +400,10 @@
             "include": false,
             "name": "http://rapadoo.tumblr.com/",
             "service": "tumblr",
-            "age": -17,
+            "age": -15,
             "engagement": -1,
             "volume": 1,
-            "frequency": -15,
+            "frequency": -9,
             "score": 3177,
             "type": "common"
         },
@@ -422,7 +422,7 @@
             "include": false,
             "name": "http://quidam-elusuario.tumblr.com/",
             "service": "tumblr",
-            "age": -43,
+            "age": -45,
             "engagement": 0,
             "volume": -1,
             "frequency": -45,
@@ -433,10 +433,10 @@
             "include": false,
             "name": "http://free0fmind.tumblr.com/",
             "service": "tumblr",
-            "age": 19,
+            "age": 16,
             "engagement": 0,
             "volume": -1,
-            "frequency": 11,
+            "frequency": 8,
             "score": 94,
             "type": "common"
         },
@@ -466,10 +466,10 @@
             "include": false,
             "name": "http://chanellwashere.tumblr.com/",
             "service": "tumblr",
-            "age": -25,
+            "age": -22,
             "engagement": 1,
             "volume": 1,
-            "frequency": -35,
+            "frequency": -30,
             "score": 260,
             "type": "common"
         },
@@ -488,10 +488,10 @@
             "include": false,
             "name": "http://ayedeez.tumblr.com/",
             "service": "tumblr",
-            "age": -15,
+            "age": -22,
             "engagement": 1,
             "volume": 0,
-            "frequency": -15,
+            "frequency": -12,
             "score": 292,
             "type": "common"
         },
@@ -521,7 +521,7 @@
             "include": false,
             "name": "http://smaxmusic.tumblr.com/",
             "service": "tumblr",
-            "age": 1,
+            "age": -2,
             "engagement": -1,
             "volume": 0,
             "frequency": -2,
@@ -546,7 +546,7 @@
             "age": -12,
             "engagement": -1,
             "volume": 1,
-            "frequency": -7,
+            "frequency": -12,
             "score": 1613,
             "type": "common"
         },
@@ -554,10 +554,10 @@
             "include": false,
             "name": "http://sejoe.tumblr.com/",
             "service": "tumblr",
-            "age": -25,
+            "age": -30,
             "engagement": -1,
             "volume": 1,
-            "frequency": -15,
+            "frequency": -12,
             "score": 1121,
             "type": "common"
         },
@@ -565,10 +565,10 @@
             "include": false,
             "name": "http://haitianreggie.tumblr.com/",
             "service": "tumblr",
-            "age": -50,
+            "age": -43,
             "engagement": 0,
             "volume": 0,
-            "frequency": -35,
+            "frequency": -43,
             "score": 11,
             "type": "common"
         },
@@ -579,7 +579,7 @@
             "age": -17,
             "engagement": 1,
             "volume": 0,
-            "frequency": -15,
+            "frequency": -12,
             "score": 780,
             "type": "common"
         },
@@ -601,7 +601,7 @@
             "age": 6,
             "engagement": 0,
             "volume": -1,
-            "frequency": 8,
+            "frequency": 11,
             "score": 128,
             "type": "common"
         },
@@ -609,10 +609,10 @@
             "include": false,
             "name": "http://cbcburke9.tumblr.com/",
             "service": "tumblr",
-            "age": -22,
+            "age": -17,
             "engagement": -1,
             "volume": 0,
-            "frequency": -27,
+            "frequency": -30,
             "score": 66,
             "type": "common"
         },
@@ -623,7 +623,7 @@
             "age": -4,
             "engagement": 0,
             "volume": 0,
-            "frequency": -7,
+            "frequency": -2,
             "score": 185,
             "type": "common"
         },
@@ -708,10 +708,10 @@
             "include": false,
             "name": "RAMhaiti",
             "service": "twitter",
-            "age": -47,
+            "age": -44,
             "engagement": -1,
             "volume": 1,
-            "frequency": -41,
+            "frequency": -32,
             "score": 1271,
             "type": "common"
         },
@@ -733,7 +733,7 @@
             "age": 1,
             "engagement": 0,
             "volume": 1,
-            "frequency": -8,
+            "frequency": -5,
             "score": 314,
             "type": "common"
         },
@@ -763,7 +763,7 @@
             "include": true,
             "name": "USAID_Haiti",
             "service": "twitter",
-            "age": -20,
+            "age": -17,
             "engagement": 0,
             "volume": 0,
             "frequency": -26,
@@ -777,7 +777,7 @@
             "age": -50,
             "engagement": 0,
             "volume": 1,
-            "frequency": -50,
+            "frequency": -44,
             "score": 229,
             "type": "common"
         },
@@ -796,10 +796,10 @@
             "include": false,
             "name": "MichelJMartelly",
             "service": "twitter",
-            "age": -23,
+            "age": -25,
             "engagement": 1,
             "volume": 0,
-            "frequency": -11,
+            "frequency": -5,
             "score": 166,
             "type": "common"
         },
@@ -832,7 +832,7 @@
             "age": 37,
             "engagement": -1,
             "volume": -1,
-            "frequency": -41,
+            "frequency": -44,
             "score": 2171,
             "type": "common"
         },
@@ -876,7 +876,7 @@
             "age": 16,
             "engagement": 1,
             "volume": 0,
-            "frequency": 25,
+            "frequency": 28,
             "score": 369,
             "type": "common"
         },
@@ -884,10 +884,10 @@
             "include": false,
             "name": "LaurentLamothe",
             "service": "twitter",
-            "age": -38,
+            "age": -44,
             "engagement": 0,
             "volume": 1,
-            "frequency": -41,
+            "frequency": -44,
             "score": 938,
             "type": "common"
         },
@@ -895,10 +895,10 @@
             "include": false,
             "name": "juno7",
             "service": "twitter",
-            "age": -38,
+            "age": -41,
             "engagement": 1,
             "volume": 1,
-            "frequency": -35,
+            "frequency": -32,
             "score": 65,
             "type": "common"
         },
@@ -920,7 +920,7 @@
             "age": -14,
             "engagement": 1,
             "volume": 0,
-            "frequency": -26,
+            "frequency": -32,
             "score": 124,
             "type": "common"
         },
@@ -928,10 +928,10 @@
             "include": false,
             "name": "ambafranceht",
             "service": "twitter",
-            "age": -11,
+            "age": -8,
             "engagement": 0,
             "volume": -1,
-            "frequency": 1,
+            "frequency": 4,
             "score": 532,
             "type": "common"
         },
@@ -939,7 +939,7 @@
             "include": true,
             "name": "TourismHaiti",
             "service": "twitter",
-            "age": -8,
+            "age": -11,
             "engagement": 0,
             "volume": 0,
             "frequency": -2,
@@ -983,7 +983,7 @@
             "include": false,
             "name": "haitistartup",
             "service": "twitter",
-            "age": -17,
+            "age": -20,
             "engagement": -1,
             "volume": 0,
             "frequency": -26,
@@ -997,7 +997,7 @@
             "age": -5,
             "engagement": 1,
             "volume": 1,
-            "frequency": -2,
+            "frequency": -5,
             "score": 5,
             "type": "common"
         },
@@ -1005,10 +1005,10 @@
             "include": false,
             "name": "MichelJMartelly",
             "service": "twitter",
-            "age": -23,
+            "age": -25,
             "engagement": 1,
             "volume": 0,
-            "frequency": -11,
+            "frequency": -5,
             "score": 166,
             "type": "common"
         },
@@ -1016,10 +1016,10 @@
             "include": false,
             "name": "MichelJMartelly",
             "service": "twitter",
-            "age": -23,
+            "age": -25,
             "engagement": 1,
             "volume": 0,
-            "frequency": -11,
+            "frequency": -5,
             "score": 166,
             "type": "common"
         },
@@ -1027,10 +1027,10 @@
             "include": false,
             "name": "MichelJMartelly",
             "service": "twitter",
-            "age": -23,
+            "age": -25,
             "engagement": 1,
             "volume": 0,
-            "frequency": -11,
+            "frequency": -5,
             "score": 166,
             "type": "common"
         },
@@ -1038,10 +1038,10 @@
             "include": false,
             "name": "MichelJMartelly",
             "service": "twitter",
-            "age": -23,
+            "age": -25,
             "engagement": 1,
             "volume": 0,
-            "frequency": -11,
+            "frequency": -5,
             "score": 166,
             "type": "common"
         },
@@ -1541,28 +1541,106 @@
             "type": "crisis"
         }
     ],
-    "tags": {
-        "common": {
-            "Haiti": 195,
-            "jeremiehaiti": 70,
-            "photography": 61,
-            "Ayiti": 75,
-            "cotallo": 59,
-            "haiti": 296,
-            "orphans": 68,
-            "poverty": 71,
-            "nonocot": 61
+    "tags": [
+        {
+            "count": 1,
+            "tag": "princessjuliana",
+            "type": "common"
         },
-        "crisis": {
-            "pakistan": 110,
-            "education": 40,
-            "hilo": 37,
-            "photography": 37,
-            "hi": 37,
-            "charity": 73,
-            "floods": 46,
-            "sindh": 38,
-            "aid": 38
+        {
+            "count": 2,
+            "tag": "raining",
+            "type": "common"
+        },
+        {
+            "count": 5,
+            "tag": "",
+            "type": "common"
+        },
+        {
+            "count": 1,
+            "tag": "outdooradvertising",
+            "type": "common"
+        },
+        {
+            "count": 1,
+            "tag": "canon60d",
+            "type": "common"
+        },
+        {
+            "count": 1,
+            "tag": "Dirk van Delen",
+            "type": "common"
+        },
+        {
+            "count": 1,
+            "tag": "Soca Monarch 2014",
+            "type": "common"
+        },
+        {
+            "count": 1,
+            "tag": "Poetry",
+            "type": "common"
+        },
+        {
+            "count": 8,
+            "tag": "yellow",
+            "type": "common"
+        },
+        {
+            "count": 1,
+            "tag": "RYW2014",
+            "type": "common"
+        },
+        {
+            "count": 1,
+            "tag": "vision:clouds=0942",
+            "type": "crisis"
+        },
+        {
+            "count": 1,
+            "tag": "parroquias",
+            "type": "crisis"
+        },
+        {
+            "count": 1,
+            "tag": "canon60d",
+            "type": "crisis"
+        },
+        {
+            "count": 4,
+            "tag": "sudamérica",
+            "type": "crisis"
+        },
+        {
+            "count": 1,
+            "tag": "Poetry",
+            "type": "crisis"
+        },
+        {
+            "count": 8,
+            "tag": "yellow",
+            "type": "crisis"
+        },
+        {
+            "count": 1,
+            "tag": "nairobijijiga",
+            "type": "crisis"
+        },
+        {
+            "count": 1,
+            "tag": "volunteerabroadprograms",
+            "type": "crisis"
+        },
+        {
+            "count": 1,
+            "tag": "higher university fees",
+            "type": "crisis"
+        },
+        {
+            "count": 2,
+            "tag": "水害",
+            "type": "crisis"
         }
-    }
+    ]
 }

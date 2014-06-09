@@ -1,4 +1,6 @@
-d3.json("json/philippines.json", function(node_values) {
+d3.json("json/philippines.json", function(country_json) {
+
+    var node_values = country_json.data;
 
     var width = 600;
     var height = 600;

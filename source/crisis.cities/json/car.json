@@ -1,5 +1,5 @@
 {
-    "data": [
+    "sources": [
         {
             "include": true,
             "name": "1619798@N22",
@@ -249,7 +249,7 @@
             "age": 49,
             "engagement": 0,
             "volume": -1,
-            "frequency": 29,
+            "frequency": 27,
             "score": 302,
             "type": "common"
         },
@@ -257,10 +257,10 @@
             "include": true,
             "name": "TheTeam236",
             "service": "twitter",
-            "age": -40,
+            "age": -39,
             "engagement": 0,
             "volume": 0,
-            "frequency": -37,
+            "frequency": -30,
             "score": 357,
             "type": "common"
         },
@@ -271,7 +271,7 @@
             "age": 49,
             "engagement": 0,
             "volume": -1,
-            "frequency": 29,
+            "frequency": 27,
             "score": 302,
             "type": "common"
         },
@@ -279,10 +279,10 @@
             "include": false,
             "name": "TheTeam236",
             "service": "twitter",
-            "age": -40,
+            "age": -39,
             "engagement": 0,
             "volume": 0,
-            "frequency": -37,
+            "frequency": -30,
             "score": 357,
             "type": "common"
         },
@@ -293,7 +293,7 @@
             "age": 49,
             "engagement": 0,
             "volume": -1,
-            "frequency": 29,
+            "frequency": 27,
             "score": 302,
             "type": "common"
         },
@@ -301,10 +301,10 @@
             "include": false,
             "name": "TheTeam236",
             "service": "twitter",
-            "age": -40,
+            "age": -39,
             "engagement": 0,
             "volume": 0,
-            "frequency": -37,
+            "frequency": -30,
             "score": 357,
             "type": "common"
         },
@@ -463,28 +463,106 @@
             "type": "crisis"
         }
     ],
-    "tags": {
-        "common": {
-            "walking": 59,
-            "england": 58,
-            "hiking": 61,
-            "walk": 64,
-            "hike": 63,
-            "walks": 58,
-            "backpacking": 62,
-            "travel": 95,
-            "hikes": 61
+    "tags": [
+        {
+            "count": 3,
+            "tag": "",
+            "type": "common"
         },
-        "crisis": {
-            "photojournalism": 71,
-            "africa": 64,
-            "WFP": 56,
-            "photography": 54,
-            "Centrafrique": 49,
-            "bangui": 44,
-            "centralafricanrepublic": 63,
-            "car": 74,
-            "centrafrique": 40
+        {
+            "count": 1,
+            "tag": "raining",
+            "type": "common"
+        },
+        {
+            "count": 1,
+            "tag": "boyce avenue",
+            "type": "common"
+        },
+        {
+            "count": 1,
+            "tag": "swedishsettler",
+            "type": "common"
+        },
+        {
+            "count": 1,
+            "tag": "vision:ocean=0778",
+            "type": "common"
+        },
+        {
+            "count": 1,
+            "tag": "domesticanimals",
+            "type": "common"
+        },
+        {
+            "count": 1,
+            "tag": "centrallondon",
+            "type": "common"
+        },
+        {
+            "count": 1,
+            "tag": "sign language",
+            "type": "common"
+        },
+        {
+            "count": 1,
+            "tag": "filmspiration",
+            "type": "common"
+        },
+        {
+            "count": 3,
+            "tag": "AGB",
+            "type": "common"
+        },
+        {
+            "count": 1,
+            "tag": "bizzart",
+            "type": "crisis"
+        },
+        {
+            "count": 1,
+            "tag": "chile",
+            "type": "crisis"
+        },
+        {
+            "count": 1,
+            "tag": "vision:car=0746",
+            "type": "crisis"
+        },
+        {
+            "count": 1,
+            "tag": "centrafricainecentrafriquecentral",
+            "type": "crisis"
+        },
+        {
+            "count": 1,
+            "tag": "NYT",
+            "type": "crisis"
+        },
+        {
+            "count": 2,
+            "tag": "protest",
+            "type": "crisis"
+        },
+        {
+            "count": 1,
+            "tag": "woods",
+            "type": "crisis"
+        },
+        {
+            "count": 1,
+            "tag": "NYE",
+            "type": "crisis"
+        },
+        {
+            "count": 1,
+            "tag": "feeding",
+            "type": "crisis"
+        },
+        {
+            "count": 1,
+            "tag": "paris",
+            "type": "crisis"
         }
-    }
+    ]
 }

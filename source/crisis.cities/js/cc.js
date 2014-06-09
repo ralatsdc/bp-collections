@@ -15,7 +15,10 @@ var cc = (function () {
 
     'use strict';
 
-    var initModule = function ($3container) {
+    var
+    initModule;
+
+    initModule = function ($3container) {
         cc.shell.initModule($3container);
     };
 
