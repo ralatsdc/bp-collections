@@ -2,16 +2,9 @@
  * cc.util.js
  */
 
-/*jslint
-  browser: true, continue: true, devel: true, indent: 2, maxerr: 50, newcap: true,
-  nomen: true, plusplus: true, regexp: true, sloppy: true, vars: true, white: true
-*/
+/* global cc */
 
-/*global
-  $, cc
-*/
-
-cc.util = (function () {
+cc.util = (function() {
     
     'use strict';
     
@@ -33,15 +26,13 @@ cc.util = (function () {
         var key_name, error;
         for (key_name in input_config) {
             if (input_config.hasOwnProperty(key_name)) {
-                if (output_config.settable.hasOwnProperty(key_name)
-                    && output_config.settable.key_name) {
+                if (output_config.settable.hasOwnProperty(key_name) &&
+                    output_config.settable.key_name) {
                     output_config[key_name] = input_config[key_name];
                 }
                 else {
                     error = makeError('Bad input',
-                                      'Setting config key "'
-                                      + key_name
-                                      + '" is not supported');
+                                      'Setting config key "' + key_name + '" is not supported');
                     throw error;
                 }
             }

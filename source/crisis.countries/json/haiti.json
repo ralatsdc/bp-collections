@@ -271,7 +271,7 @@
             "age": -7,
             "engagement": -1,
             "volume": 0,
-            "frequency": -12,
+            "frequency": -15,
             "score": 491,
             "type": "common"
         },
@@ -359,7 +359,7 @@
             "age": -33,
             "engagement": -1,
             "volume": 1,
-            "frequency": -12,
+            "frequency": -15,
             "score": 290,
             "type": "common"
         },
@@ -392,7 +392,7 @@
             "age": -27,
             "engagement": 0,
             "volume": 0,
-            "frequency": -12,
+            "frequency": -15,
             "score": 2058,
             "type": "common"
         },
@@ -466,7 +466,7 @@
             "include": false,
             "name": "http://chanellwashere.tumblr.com/",
             "service": "tumblr",
-            "age": -22,
+            "age": -25,
             "engagement": 1,
             "volume": 1,
             "frequency": -30,
@@ -491,7 +491,7 @@
             "age": -22,
             "engagement": 1,
             "volume": 0,
-            "frequency": -12,
+            "frequency": -9,
             "score": 292,
             "type": "common"
         },
@@ -546,7 +546,7 @@
             "age": -12,
             "engagement": -1,
             "volume": 1,
-            "frequency": -12,
+            "frequency": -15,
             "score": 1613,
             "type": "common"
         },
@@ -557,7 +557,7 @@
             "age": -30,
             "engagement": -1,
             "volume": 1,
-            "frequency": -12,
+            "frequency": -15,
             "score": 1121,
             "type": "common"
         },
@@ -579,7 +579,7 @@
             "age": -17,
             "engagement": 1,
             "volume": 0,
-            "frequency": -12,
+            "frequency": -15,
             "score": 780,
             "type": "common"
         },
@@ -1543,103 +1543,103 @@
     ],
     "tags": [
         {
-            "count": 1,
-            "tag": "princessjuliana",
+            "count": 47,
+            "tag": "haiti",
             "type": "common"
         },
         {
-            "count": 2,
-            "tag": "raining",
+            "count": 46,
+            "tag": "Haiti",
             "type": "common"
         },
         {
-            "count": 5,
-            "tag": "",
+            "count": 20,
+            "tag": "love",
             "type": "common"
         },
         {
-            "count": 1,
-            "tag": "outdooradvertising",
+            "count": 20,
+            "tag": "art",
             "type": "common"
         },
         {
-            "count": 1,
-            "tag": "canon60d",
+            "count": 19,
+            "tag": "beach",
             "type": "common"
         },
         {
-            "count": 1,
-            "tag": "Dirk van Delen",
+            "count": 18,
+            "tag": "music",
             "type": "common"
         },
         {
-            "count": 1,
-            "tag": "Soca Monarch 2014",
+            "count": 18,
+            "tag": "black",
             "type": "common"
         },
         {
-            "count": 1,
-            "tag": "Poetry",
+            "count": 18,
+            "tag": "water",
             "type": "common"
         },
         {
-            "count": 8,
-            "tag": "yellow",
+            "count": 18,
+            "tag": "caribbean",
             "type": "common"
         },
         {
-            "count": 1,
-            "tag": "RYW2014",
+            "count": 16,
+            "tag": "photography",
             "type": "common"
         },
         {
-            "count": 1,
-            "tag": "vision:clouds=0942",
+            "count": 21,
+            "tag": "black",
             "type": "crisis"
         },
         {
-            "count": 1,
-            "tag": "parroquias",
+            "count": 20,
+            "tag": "water",
             "type": "crisis"
         },
         {
-            "count": 1,
-            "tag": "canon60d",
+            "count": 19,
+            "tag": "earthquake",
             "type": "crisis"
         },
         {
-            "count": 4,
-            "tag": "sudamérica",
+            "count": 18,
+            "tag": "child",
             "type": "crisis"
         },
         {
-            "count": 1,
-            "tag": "Poetry",
+            "count": 17,
+            "tag": "green",
             "type": "crisis"
         },
         {
-            "count": 8,
-            "tag": "yellow",
+            "count": 17,
+            "tag": "school",
             "type": "crisis"
         },
         {
-            "count": 1,
-            "tag": "nairobijijiga",
+            "count": 16,
+            "tag": "travel",
             "type": "crisis"
         },
         {
-            "count": 1,
-            "tag": "volunteerabroadprograms",
+            "count": 16,
+            "tag": "camp",
             "type": "crisis"
         },
         {
-            "count": 1,
-            "tag": "higher university fees",
+            "count": 16,
+            "tag": "america",
             "type": "crisis"
         },
         {
-            "count": 2,
-            "tag": "水害",
+            "count": 16,
+            "tag": "portrait",
             "type": "crisis"
         }
     ]

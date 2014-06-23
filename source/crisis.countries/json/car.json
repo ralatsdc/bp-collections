@@ -465,103 +465,103 @@
     ],
     "tags": [
         {
-            "count": 3,
-            "tag": "",
+            "count": 12,
+            "tag": "beach",
             "type": "common"
         },
         {
-            "count": 1,
-            "tag": "raining",
+            "count": 12,
+            "tag": "bangui",
             "type": "common"
         },
         {
-            "count": 1,
-            "tag": "boyce avenue",
+            "count": 10,
+            "tag": "nature",
             "type": "common"
         },
         {
-            "count": 1,
-            "tag": "swedishsettler",
+            "count": 10,
+            "tag": "summer",
             "type": "common"
         },
         {
-            "count": 1,
-            "tag": "vision:ocean=0778",
+            "count": 10,
+            "tag": "Bangui",
             "type": "common"
         },
         {
-            "count": 1,
-            "tag": "domesticanimals",
+            "count": 9,
+            "tag": "travel",
             "type": "common"
         },
         {
-            "count": 1,
-            "tag": "centrallondon",
+            "count": 9,
+            "tag": "Centrafrique",
             "type": "common"
         },
         {
-            "count": 1,
-            "tag": "sign language",
+            "count": 9,
+            "tag": "sunset",
             "type": "common"
         },
         {
-            "count": 1,
-            "tag": "filmspiration",
+            "count": 9,
+            "tag": "RCA",
             "type": "common"
         },
         {
-            "count": 3,
-            "tag": "AGB",
+            "count": 9,
+            "tag": "sky",
             "type": "common"
         },
         {
-            "count": 1,
-            "tag": "bizzart",
+            "count": 6,
+            "tag": "CARcrisis",
             "type": "crisis"
         },
         {
-            "count": 1,
-            "tag": "chile",
+            "count": 6,
+            "tag": "centrafrique",
             "type": "crisis"
         },
         {
-            "count": 1,
-            "tag": "vision:car=0746",
+            "count": 5,
+            "tag": "central african republic",
             "type": "crisis"
         },
         {
-            "count": 1,
-            "tag": "centrafricainecentrafriquecentral",
+            "count": 5,
+            "tag": "camille lepage",
             "type": "crisis"
         },
         {
-            "count": 1,
-            "tag": "NYT",
+            "count": 5,
+            "tag": "women",
             "type": "crisis"
         },
         {
-            "count": 2,
-            "tag": "protest",
+            "count": 4,
+            "tag": "war",
             "type": "crisis"
         },
         {
-            "count": 1,
-            "tag": "woods",
+            "count": 4,
+            "tag": "water",
             "type": "crisis"
         },
         {
-            "count": 1,
-            "tag": "NYE",
+            "count": 4,
+            "tag": "photojournalism",
             "type": "crisis"
         },
         {
-            "count": 1,
-            "tag": "feeding",
+            "count": 4,
+            "tag": "carcrisis",
             "type": "crisis"
         },
         {
-            "count": 1,
-            "tag": "paris",
+            "count": 4,
+            "tag": "CAR",
             "type": "crisis"
         }
     ]

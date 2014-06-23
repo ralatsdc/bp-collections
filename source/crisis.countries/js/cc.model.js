@@ -2,16 +2,9 @@
  * cc.model.js
  */
 
-/*jslint
-  browser: true, continue: true, devel: true, indent: 2, maxerr: 50, newcap: true,
-  nomen: true, plusplus: true, regexp: true, sloppy: true, vars: true, white: true
-*/
+ /* global cc, d3 */
 
-/*global
-  $, cc
-*/
-
-cc.model = (function () {
+cc.model = (function() {
     
     'use strict';
 
@@ -21,19 +14,37 @@ cc.model = (function () {
         }
     },
     moduleState = {
+        sources: undefined,
+        tags: undefined
     },
     initModule,
     configModule;
     
-    configModule = function (input_config) {
+    configModule = function(input_config) {
         cc.util.setConfig(input_config, moduleConfig);
         return true;
     };
 
-    initModule = function (input_file_name) {
+    initModule = function(input_file_name) {
         d3.json(input_file_name, function(input_json) {
-            data = input_json.data;
-            tags = input_json.tags;
+            /*
+              include: true,
+              name: "1619798@N22",
+              service: "flickr",
+              age: -22,
+              engagement: 0,
+              volume: 0,
+              frequency: -22,
+              score: 2290,
+              type: "common"
+            */
+            moduleState.sources = input_json.sources;
+            /*
+              count: 12,
+              tag: "beach",
+              type: "common"
+            */
+            moduleState.tags = input_json.tags;
         });
     };
     

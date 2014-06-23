@@ -15,14 +15,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <!-- Third-party stylesheets -->
-    <link rel="stylesheet" href="css/skeleton/base.css">
-    <link rel="stylesheet" href="css/skeleton/layout.css">
-    <link rel="stylesheet" href="css/skeleton/skeleton.css">
+    <link rel="stylesheet" type="text/css" href="css/skeleton/base.css">
+    <link rel="stylesheet" type="text/css" href="css/skeleton/layout.css">
+    <link rel="stylesheet" type="text/css" href="css/skeleton/skeleton.css">
     
     <!-- Local stylesheets -->
-    <link rel="stylesheet" href="css/cc.content.css">
-    <link rel="stylesheet" href="css/cc.root.css">
-    <link rel="stylesheet" href="css/cc.shell.css">
+    <link rel="stylesheet" type="text/css" href="css/cc.base.css">
+    <link rel="stylesheet" type="text/css" href="css/cc.layout.css">
+    <link rel="stylesheet" type="text/css" href="css/cc.skeleton.css">
+    <link rel="stylesheet" type="text/css" href="css/cc.shell.css">
     
     <!-- Favicons -->
     <link rel="shortcut icon" href="img/favicon.ico">
@@ -33,7 +34,8 @@
     <!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
     
     <!-- Third-party javascript -->
-    <script src="js/d3/d3.v3.js" charset="utf-8"></script>
+    <script src="js/jq/jquery-1.9.1.js" type="text/javascript"></script>
+    <script src="js/d3/d3.v3.js" type="text/javascript" charset="utf-8"></script>
     
   </head>
   <body>
@@ -42,8 +44,12 @@
     <div id="main"></div>
     
     <!-- Local javascript -->
+    <script src="js/cc.js" type="text/javascript"></script>
+    <script src="js/cc.util.js" type="text/javascript"></script>
+    <script src="js/cc.shell.js" type="text/javascript"></script>
+    <script src="js/cc.model.js" type="text/javascript"></script>
     <script type="text/javascript">
-      cc.init(d3.select('#main'));
+      cc.initModule($('#main'), d3.select('#main'));
     </script>
     
   </body>

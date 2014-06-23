@@ -1,1 +1,3 @@
 *.log
+.jshintrc
+.tern-port

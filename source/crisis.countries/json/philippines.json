@@ -73,7 +73,7 @@
             "age": -9,
             "engagement": 0,
             "volume": 0,
-            "frequency": -2,
+            "frequency": -4,
             "score": 19732,
             "type": "common"
         },
@@ -1378,103 +1378,103 @@
     ],
     "tags": [
         {
-            "count": 1,
-            "tag": "vision:clouds=0942",
+            "count": 58,
+            "tag": "philippines",
             "type": "common"
         },
         {
-            "count": 1,
-            "tag": "vision:clouds=0943",
+            "count": 42,
+            "tag": "manila",
             "type": "common"
         },
         {
-            "count": 1,
-            "tag": "celso",
+            "count": 35,
+            "tag": "travel",
             "type": "common"
         },
         {
-            "count": 1,
-            "tag": "",
+            "count": 35,
+            "tag": "beach",
             "type": "common"
         },
         {
-            "count": 2,
-            "tag": "raining",
+            "count": 32,
+            "tag": "summer",
             "type": "common"
         },
         {
-            "count": 1,
-            "tag": "flipsimmons",
+            "count": 32,
+            "tag": "photography",
             "type": "common"
         },
         {
-            "count": 1,
-            "tag": "treasuresofbolinao",
+            "count": 31,
+            "tag": "sunset",
             "type": "common"
         },
         {
-            "count": 2,
-            "tag": "sanagustin",
+            "count": 27,
+            "tag": "love",
             "type": "common"
         },
         {
-            "count": 15,
-            "tag": "yellow",
+            "count": 27,
+            "tag": "nikon",
             "type": "common"
         },
         {
-            "count": 1,
-            "tag": "wwwdgphotoscouk",
+            "count": 27,
+            "tag": "asia",
             "type": "common"
         },
         {
-            "count": 1,
-            "tag": "Gratitude",
+            "count": 9,
+            "tag": "Philippines",
             "type": "crisis"
         },
         {
-            "count": 1,
-            "tag": "",
+            "count": 9,
+            "tag": "Haiyan",
             "type": "crisis"
         },
         {
-            "count": 1,
-            "tag": "tacloban.",
+            "count": 9,
+            "tag": "haiyan",
             "type": "crisis"
         },
         {
-            "count": 1,
-            "tag": "boyce avenue",
+            "count": 7,
+            "tag": "YolandaPH",
             "type": "crisis"
         },
         {
-            "count": 1,
-            "tag": "keaton stromberg",
+            "count": 5,
+            "tag": "philippines",
             "type": "crisis"
         },
         {
-            "count": 1,
-            "tag": "Yaks",
+            "count": 5,
+            "tag": "Yolanda",
             "type": "crisis"
         },
         {
-            "count": 1,
-            "tag": "katy perry",
+            "count": 4,
+            "tag": "NeverGiveUpPH\"",
             "type": "crisis"
         },
         {
-            "count": 1,
-            "tag": "international women's day",
+            "count": 4,
+            "tag": "BREAKING",
             "type": "crisis"
         },
         {
-            "count": 1,
-            "tag": "focus",
+            "count": 4,
+            "tag": "nevergiveup",
             "type": "crisis"
         },
         {
-            "count": 1,
-            "tag": "rememberingcory",
+            "count": 4,
+            "tag": "nevergiveupph",
             "type": "crisis"
         }
     ]
