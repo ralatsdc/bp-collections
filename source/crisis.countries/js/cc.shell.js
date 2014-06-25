@@ -708,7 +708,7 @@ cc.shell = (function() {
             .append('<div></div>')
             .find('div:last')
             .attr('id', 'cc-' + page_name + '-publisher')
-            .text('publisher')
+            .text('publisher---')
             .end()
 
             .end(); // div#cc-page-name-footer
