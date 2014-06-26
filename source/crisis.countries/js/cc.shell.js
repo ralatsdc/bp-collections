@@ -24,7 +24,6 @@ cc.shell = (function() {
     initModule;
 
     var
-    content,
     present_page,
     dismiss_page,
     create_page,
@@ -70,7 +69,7 @@ cc.shell = (function() {
 
     create_page = function(page_name) {
 
-        var page_id = 'cc-shell-pg-' + page_name;
+        var page_id = 'cc-shell-' + page_name;
         moduleState.jq_containers.main
             .append('<div></div>')
             .find('div:last')
@@ -88,52 +87,51 @@ cc.shell = (function() {
 
                 .append('<div></div>')
                 .find('div:last')
-                .attr('id', 'cc-cover-header')
+                .attr('id', 'cc-shell-cover-header')
                 .addClass('sixteen columns')
 
                 .append('<div></div>')
                 .find('div:last')
-                .attr('id', 'cc-cover-logo')
-                .text('logo')
+                .attr('id', 'cc-shell-cover-logo')
                 .click({page_name: 'contents'}, present_page)
+                .text('logo')
                 .end()
 
                 .append('<div></div>')
                 .find('div:last')
-                .attr('id', 'cc-cover-author')
-                .text('Blue Peninsula')
+                .attr('id', 'cc-shell-cover-author')
+                .load('html/cc-shell-cover-author.html')
                 .end()
 
-                .end() // div#cc-cover-header
+                .end() // div#cc-shell-cover-header
 
             // body
 
                 .append('<div></div>')
                 .find('div:last')
-                .attr('id', 'cc-cover-body')
+                .attr('id', 'cc-shell-cover-body')
                 .addClass('sixteen columns')
 
                 .append('<div></div>')
                 .find('div:last')
-                .attr('id', 'cc-cover-title')
-                .append('<h1>Japan</h1>')
-                .append('<h2>A Visual Collection</h2>')
+                .attr('id', 'cc-shell-cover-title')
+                .load('html/cc-shell-cover-title.html')
                 .end()
 
                 .append('<div></div>')
                 .find('div:last')
-                .attr('id', 'cc-cover-image')
+                .attr('id', 'cc-shell-cover-image')
                 .text('image')
                 .end()
 
                 .append('<div></div>')
                 .find('div:last')
-                .attr('id', 'cc-cover-nav')
+                .attr('id', 'cc-shell-cover-navigation')
                 .click({page_name: 'contents'}, present_page)
-                .append('<p>VIEW THE COLLECTION</p>')
+                .load('html/cc-shell-cover-navigation.html')
                 .end()
 
-                .end(); // div#cc-cover-body
+                .end(); // div#cc-shell-cover-body
 
             break;
 
@@ -141,320 +139,128 @@ cc.shell = (function() {
             create_front(moduleState.jq_containers[page_name], page_name);
 
             moduleState.jq_containers[page_name]
-                .find('div#cc-' + page_name + '-column-left')
+                .find('div#cc-shell-contents-column-left')
                 .addClass('contents')
+                .load('html/cc-shell-contents.html', function() {
+                    moduleState.jq_containers[page_name]
+                        .find('#cc-shell-contents-preface')
+                        .click({page_name: 'preface'}, present_page)
+                        .end()
 
-                .append('<h1></h1>')
-                .find('h1:last')
-                .text('Contents')
-                .end()
+                        .find('#cc-shell-contents-introduction')
+                        .click({page_name: 'introduction'}, present_page)
+                        .end()
 
-                .append('<h2></h2>')
-                .find('h2:last')
-                .text('Preface')
-                .click({page_name: 'preface'}, present_page)
-                .end()
+                        .find('#cc-shell-contents-volume')
+                        .click({page_name: 'volume'}, present_page)
+                        .end()
 
-                .append('<h2></h2>')
-                .find('h2:last')
-                .text('Introduction')
-                .click({page_name: 'introduction'}, present_page)
-                .end()
+                        .find('#cc-shell-contents-trust')
+                        .click({page_name: 'trust'}, present_page)
+                        .end()
 
-                .append('<h2></h2>')
-                .find('h2:last')
-                .text('Perspectives')
-                .end()
+                        .find('#cc-shell-contents-topics')
+                        .click({page_name: 'topics'}, present_page)
+                        .end()
 
-                .append('<h3></h3>')
-                .find('h3:last')
-                .addClass('contents indent-by-one')
-                .text('Volume')
-                .click({page_name: 'volume'}, present_page)
-                .end()
+                        .find('#cc-shell-contents-frequency')
+                        .click({page_name: 'frequency'}, present_page)
+                        .end()
 
-                .append('<p></p>')
-                .find('p:last')
-                .addClass('contents indent-by-one')
-                .text('Posts and photos proliferate')
-                .end()
+                        .find('#cc-shell-contents-postscript')
+                        .click({page_name: 'postscript'}, present_page)
+                        .end()
 
-                .append('<h3></h3>')
-                .find('h3:last')
-                .addClass('contents indent-by-one')
-                .text('Trust')
-                .click({page_name: 'trust'}, present_page)
-                .end()
+                        .find('#cc-shell-contents-colophon')
+                        .click({page_name: 'colophon'}, present_page)
+                        .end();
+                })
+                .end(); // div#cc-shell-contents-column-left
 
-                .append('<p></p>')
-                .find('p:last')
-                .addClass('contents indent-by-one')
-                .text('Readers engage')
-                .end()
-
-                .append('<h3></h3>')
-                .find('h3:last')
-                .addClass('contents indent-by-one')
-                .text('Topics')
-                .click({page_name: 'topics'}, present_page)
-                .end()
-
-                .append('<p></p>')
-                .find('p:last')
-                .addClass('contents indent-by-one')
-                .text('Top tags surface')
-                .end()
-
-                .append('<h3></h3>')
-                .find('h3:last')
-                .addClass('contents indent-by-one')
-                .text('Frequency')
-                .click({page_name: 'frequency'}, present_page)
-                .end()
-
-                .append('<p></p>')
-                .find('p:last')
-                .addClass('contents indent-by-one')
-                .text('Content old and new, fast and slow')
-                .end()
-
-                .append('<h2></h2>')
-                .find('h2:last')
-                .text('Postscript')
-                .click({page_name: 'postscript'}, present_page)
-                .end()
-
-                .append('<h2></h2>')
-                .find('h2:last')
-                .text('Colophon')
-                .click({page_name: 'colophon'}, present_page)
-                .end()
-
-                .end();
-
-            content =
-                '<p>' +
-                '405' +
-                '</p><p>' +
-                'It might be lonelier</br>' +
-                'Without the Loneliness &mdash;</br>' +
-                'I’m so accustomed to my Fate &mdash;</br>' +
-                'Perhaps the Other &mdash; Peace &mdash;' +
-                '</p><p>' +
-                'Would interrupt the Dark &mdash;</br>' +
-                'And crowd the little Room &mdash;</br>' +
-                'Too scant &mdash; by Cubits &mdash; to contain</br>' +
-                'The Sacrament &mdash; of Him &mdash;' +
-                '</p><p>' +
-                'I am not used to Hope &mdash;</br>' +
-                'It might intrude upon &mdash;</br>' +
-                'It’s sweet parade &mdash; blaspheme the place &mdash;</br>' +
-                'Ordained to Suffering &mdash;' +
-                '</p><p>' +
-                'It might be easier</br>' +
-                'To fail &mdash; with Land in Sight &mdash;</br>' +
-                'Than gain &mdash; My Blue Peninsula &mdash;</br>' +
-                'To perish &mdash; of Delight &mdash;' +
-                '</p><p>' +
-                '&mdash; Emily Dickinson' +
-                '</p>';
-
-            moduleState.jq_containers[page_name].find('div#cc-' + page_name + '-column-right')
+            moduleState.jq_containers[page_name]
+                .find('div#cc-shell-contents-column-right')
                 .empty()
-                .append(content);
+                .load('html/cc-shell-epigraph.html');
 
             break;
 
         case 'preface':
             create_front(moduleState.jq_containers[page_name], page_name);
 
-            content =
-                '<h1>PREFACE</h1>' +
-                '<p>' +
-                '"Tangible fragments of life" -- "oddball collections of ' +
-                'trinkets amidst compendia of data" -- "open-ended ' +
-                'juxtapositions". All descriptions of assemblages by the ' +
-                'American artist Joseph Cornell (1903-1972). With no formal ' +
-                'training, and while living with his mother and disabled ' +
-                'brother in a small house in Flushing, Queens, he placed ' +
-                'everyday objects in shadow boxes, in unexpected and ' +
-                'evocative arrangements, creating art simultaneously above ' +
-                'movements and styles, and ultimately influencing ' +
-                'generations of American artists.' +
-                '</p><p>' + 
-                'The work of Joseph Cornell is an inspiration to Blue ' +
-                'Peninsula as we work, not with the physical objects of ' +
-                'everyday, but the virtual objects of the internet, that ' +
-                'vast compendium of everyday human expression. Unlike ' +
-                'Joseph Cornell, who sought to express a personal statement ' +
-                'by his selection and juxtaposition of objects, Blue ' +
-                'Peninsula seeks to create a visible storage of online ' +
-                'content. Like Stewart Culin, the late "museum magician" of ' +
-                'the Brooklyn Museum, we are "preserving the seed of things ' +
-                'which may blossom and fruit again". The result is a ' +
-                'personal narrative, not molded by a curator, but drawn by ' +
-                'the viewer’s experience of the grouping and analyzing the ' +
-                'content as a whole.' +
-                '</p>';
-
-            moduleState.jq_containers[page_name].find('div#cc-' + page_name + '-column-left')
-                .append(content);
+            moduleState.jq_containers[page_name]
+                .find('div#cc-shell-preface-column-left')
+                .load('html/cc-shell-preface.html');
 
             break;
 
         case 'introduction':
             create_front(moduleState.jq_containers[page_name], page_name);
 
-            content =
-                '<h1>INTRODUCTION</h1>' +
-                '<p>' +
-                'Blue Peninsula collects sources you can trust and displays ' +
-                'their web content in beautiful visual collections stored ' +
-                'for reading now or later. For each series, we search among ' +
-                'the millions of internet sources to analyze thousands and ' +
-                'provide you with the best to streamline your finding, ' +
-                'selecting, organizing, and reading web content. We ' +
-                'identify trusted sources by measuring their volume and ' +
-                'frequency of contribution, and the community interaction ' +
-                'with their content, then collect the trusted content ' +
-                'together by analyzing key factors to create original works ' +
-                'that you navigate visually. Our collections are forever so ' +
-                'you can read them on your own schedule and not worry about ' +
-                'missing something or being left behind. You’ll discover ' +
-                'new sources and delight in our surprising storehouses that ' +
-                'prove “the whole is other than the sum of its parts.”' +
-                '<p>';
-
-            moduleState.jq_containers[page_name].find('div#cc-' + page_name + '-column-left')
-                .append(content);
+            moduleState.jq_containers[page_name]
+                .find('div#cc-shell-introduction-column-left')
+                .load('html/cc-shell-introduction.html');
 
             break;
 
         case 'volume':
             create_body(moduleState.jq_containers[page_name], page_name);
 
-            content =
-                '<p>' +
-                'Chart shows all trusted sources collected. Each circle ' +
-                'represents one source and the size indicates the amount of ' +
-                'content (photos, posts, or tweets) produced. To view a ' +
-                'description of the source, hover over a circle, to view a ' +
-                'sampling of the content, click.' +
-                '</p>';
+            moduleState.jq_containers[page_name]
+                .find('div#cc-shell-volume-title')
+                .load('html/cc-shell-volume-description.html');
 
-            moduleState.jq_containers[page_name].find('div#cc-' + page_name + '-title')
-                .append(content);
-
-            content =
-                '<h3>How much content is produced</h3>' +
-                '<p>' +
-                'Circles represent each selected source, and are sized ' +
-                'according to the amount of content produced: photos, ' +
-                'posts, or tweets.' +
-                '</p>';
-
-            moduleState.jq_containers[page_name].find('div#cc-' + page_name + '-column-left')
-                .append(content);
+            moduleState.jq_containers[page_name]
+                .find('div#cc-shell-volume-column-left')
+                .load('html/cc-shell-volume-legend.html');
 
             break;
 
         case 'trust':
             create_body(moduleState.jq_containers[page_name], page_name);
 
-            content =
-                '<p>' +
-                'Chart shows all trusted sources collected. Colors indicate ' +
-                'the social media service where the source content was ' +
-                'created. Trust is measured as the ratio of the number of ' +
-                'members to posts (for Flickr), the number of likes to ' +
-                'posts (for Tumblr), or the number of followers to tweets ' +
-                '(for Twitter). More saturated, darker, colors indicate ' +
-                'more trusted sources.' +
-                '</p>';
+            moduleState.jq_containers[page_name]
+                .find('div#cc-shell-trust-title')
+                .load('html/cc-shell-trust-description.html');
 
-            moduleState.jq_containers[page_name].find('div#cc-' + page_name + '-title')
-                .append(content);
-
-            content =
-                '<h3>How trusted is a source</h3>' +
-                '<p>' +
-                'Colors indicate social media service with More saturated, ' +
-                'darker, colors indicating more trusted sources.' +
-                '</p>';
-
-            moduleState.jq_containers[page_name].find('div#cc-' + page_name + '-column-left')
-                .append(content);
+            moduleState.jq_containers[page_name]
+                .find('div#cc-shell-trust-column-left')
+                .load('html/cc-shell-trust-legend.html');
 
             break;
 
         case 'topics':
             create_body(moduleState.jq_containers[page_name], page_name);
 
-            content =
-                '<p>' +
-                'Chart shows the top tags collected from the most trusted ' +
-                'sources, divided into topics related to Crisis or Culture.' +
-                '</p>';
-
-            moduleState.jq_containers[page_name].find('div#cc-' + page_name + '-title')
-                .append(content);
+            moduleState.jq_containers[page_name]
+                .find('div#cc-shell-topics-title')
+                .load('html/cc-shell-topics-description.html');
 
             break;
 
         case 'frequency':
             create_body(moduleState.jq_containers[page_name], page_name);
             
-            content =
-                '<p>' +
-                'Chart shows the most trusted sources as a function of ' +
-                'their frequency of creation and age of the content in ' +
-                'days.' +
-                '</p>';
-
-            moduleState.jq_containers[page_name].find('div#cc-' + page_name + '-title')
-                .append(content);
+            moduleState.jq_containers[page_name]
+                .find('div#cc-shell-frequency-title')
+                .load('html/cc-shell-frequency-description.html');
 
             break;
 
         case 'postscript':
             create_back(moduleState.jq_containers[page_name], page_name);
 
-            content =
-                '<h1>POSTSCRIPT</h1>' +
-                '<p>' +
-                'Here is how to take action...' +
-                '</p>';
-
-            moduleState.jq_containers[page_name].find('div#cc-' + page_name + '-column-left')
-                .append(content);
+            moduleState.jq_containers[page_name]
+                .find('div#cc-shell-postscript-column-left')
+                .load('html/cc-shell-postscript.html');
 
             break;
 
         case 'colophon':
             create_back(moduleState.jq_containers[page_name], page_name);
 
-            content =
-                '<h1>COLOPHON</h1>' +
-                '<p>' +
-                'Grid system created using Skeleton</br>' +
-                'Graphics rendered using d3.js</br>' +
-                'Content collected using Python</br>' +
-                'Packaged as a single page web application</br>' +
-                'Typefaces by Blu Pen Foundry' +
-                '</p><p>' +
-                'Graphic Design by Amy LeClair</br>' +
-                'Technical Development by Raymond LeClair' +
-                '</p><p>' +
-                'Published by Blue Peninsula' +
-                '</p><p>' +
-                'Blue Peninsula</br>' +
-                'Boston' +
-                '</p><p>' +
-                'www.blue-peninsula.com' +
-                '</p>';
-            
-            moduleState.jq_containers[page_name].find('div#cc-' + page_name + '-column-left')
-                .append(content);
+            moduleState.jq_containers[page_name]
+                .find('div#cc-shell-colophon-column-left')
+                .load('html/cc-shell-colophon.html');
 
             break;
 
@@ -470,30 +276,29 @@ cc.shell = (function() {
 
             .append('<div></div>')
             .find('div:last')
-            .attr('id', 'cc-' + page_name + '-header')
+            .attr('id', 'cc-shell-' + page_name + '-header')
             .addClass('sixteen columns')
 
             .append('<div></div>')
             .find('div:last')
-            .attr('id', 'cc-' + page_name + '-logo')
-            .click({page_name: 'cover'}, present_page)
-            .text('logo')
+            .attr('id', 'cc-shell-' + page_name + '-logo')
             .click({page_name: 'contents'}, present_page)
+            .text('logox')
             .end()
 
             .append('<div></div>')
             .find('div:last')
-            .attr('id', 'cc-' + page_name + '-title')
-            .append('<h4>Japan &mdash; A Visual Collection</h4>')
+            .attr('id', 'cc-shell-' + page_name + '-title')
+            .load('html/cc-shell-front-matter-title.html')
             .end()
 
-            .end() // div#cc-page-name-header
+            .end() // div#cc-shell-page-name-header
 
         // body
 
             .append('<div></div>')
             .find('div:last')
-            .attr('id', 'cc-' + page_name + '-body')
+            .attr('id', 'cc-shell-' + page_name + '-body')
             .addClass('sixteen columns')
 
             .append('<div></div>')
@@ -502,91 +307,68 @@ cc.shell = (function() {
 
             .append('<div></div>')
             .find('div:last')
-            .attr('id', 'cc-' + page_name + '-column-left')
+            .attr('id', 'cc-shell-' + page_name + '-column-left')
             .addClass('twelve columns alpha')
             .end()
 
             .append('<div></div>')
             .find('div:last')
-            .attr('id', 'cc-' + page_name + '-column-right')
+            .attr('id', 'cc-shell-' + page_name + '-column-right')
             .addClass('four columns omega')
             .end()
 
             .end() // div.row
 
-            .end(); // div#cc-page-name-body
+            .end(); // div#cc-shell-page-name-body
 
-        // column left navigation
+        // column right navigation
 
         moduleState.jq_containers[page_name]
-            .find('div#cc-' + page_name + '-column-right')
+            .find('div#cc-shell-' + page_name + '-column-right')
             .addClass('contents')
+            .load('html/cc-shell-front-matter-navigation.html', function() {
+                moduleState.jq_containers[page_name]
+                    .find('#cc-shell-front-matter-navigation-preface')
+                    .attr('id', 'cc-shell-' + page_name + '-navigation-preface')
+                    .click({page_name: 'preface'}, present_page)
+                    .end()
 
-            .append('<h2></h2>')
-            .find('h2:last')
-            .text('Contents')
-            .click({page_name: 'contents'}, present_page)
-            .end()
+                    .find('#cc-shell-front-matter-navigation-introduction')
+                    .attr('id', 'cc-shell-' + page_name + '-navigation-introduction')
+                    .click({page_name: 'introduction'}, present_page)
+                    .end()
 
-            .append('<h3></h3>')
-            .find('h3:last')
-            .text('Preface')
-            .click({page_name: 'preface'}, present_page)
-            .end()
+                    .find('#cc-shell-front-matter-navigation-volume')
+                    .attr('id', 'cc-shell-' + page_name + '-navigation-volume')
+                    .click({page_name: 'volume'}, present_page)
+                    .end()
 
-            .append('<h3></h3>')
-            .find('h3:last')
-            .text('Introduction')
-            .click({page_name: 'introduction'}, present_page)
-            .end()
+                    .find('#cc-shell-front-matter-navigation-trust')
+                    .attr('id', 'cc-shell-' + page_name + '-navigation-trust')
+                    .click({page_name: 'trust'}, present_page)
+                    .end()
 
-            .append('<h3></h3>')
-            .find('h3:last')
-            .text('Perspectives')
-            .end()
+                    .find('#cc-shell-front-matter-navigation-topics')
+                    .attr('id', 'cc-shell-' + page_name + '-navigation-topics')
+                    .click({page_name: 'topics'}, present_page)
+                    .end()
 
-            .append('<h4></h4>')
-            .find('h4:last')
-            .addClass('contents indent-by-one')
-            .text('Volume')
-            .click({page_name: 'volume'}, present_page)
-            .end()
+                    .find('#cc-shell-front-matter-navigation-frequency')
+                    .attr('id', 'cc-shell-' + page_name + '-navigation-frequency')
+                    .click({page_name: 'frequency'}, present_page)
+                    .end()
 
-            .append('<h4></h4>')
-            .find('h4:last')
-            .addClass('contents indent-by-one')
-            .text('Trust')
-            .click({page_name: 'trust'}, present_page)
-            .end()
+                    .find('#cc-shell-front-matter-navigation-postscript')
+                    .attr('id', 'cc-shell-' + page_name + '-navigation-postscript')
+                    .click({page_name: 'postscript'}, present_page)
+                    .end()
 
-            .append('<h4></h4>')
-            .find('h4:last')
-            .addClass('contents indent-by-one')
-            .text('Topics')
-            .click({page_name: 'topics'}, present_page)
-            .end()
-
-            .append('<h4></h4>')
-            .find('h4:last')
-            .addClass('contents indent-by-one')
-            .text('Frequency')
-            .click({page_name: 'frequency'}, present_page)
-            .end()
-
-            .append('<h3></h3>')
-            .find('h3:last')
-            .text('Postscript')
-            .click({page_name: 'postscript'}, present_page)
-            .end()
-
-            .append('<h3></h3>')
-            .find('h3:last')
-            .text('Colophon')
-            .click({page_name: 'colophon'}, present_page)
-            .end()
-
-            .end();
-
+                    .find('#cc-shell-front-matter-navigation-colophon')
+                    .attr('id', 'cc-shell-' + page_name + '-navigation-colophon')
+                    .click({page_name: 'colophon'}, present_page)
+                    .end();
+            })
+            .end(); // div#cc-shell-page-name-column-right
     };
 
     create_body = function(jq_container, page_name) {
@@ -597,78 +379,70 @@ cc.shell = (function() {
 
             .append('<div></div>')
             .find('div:last')
-            .attr('id', 'cc-' + page_name + '-header')
+            .attr('id', 'cc-shell-' + page_name + '-header')
             .addClass('sixteen columns')
 
             .append('<div></div>')
             .find('div:last')
-            .attr('id', 'cc-' + page_name + '-logo')
-            .text('logo')
+            .attr('id', 'cc-shell-' + page_name + '-logo')
             .click({page_name: 'contents'}, present_page)
+            .text('logo')
             .end()
 
             .append('<div></div>')
             .find('div:last')
-            .attr('id', 'cc-' + page_name + '-author')
-            .text('Blue Peninsula')
+            .attr('id', 'cc-shell-' + page_name + '-author')
+            .load('html/cc-shell-body-author.html')
             .end()
 
-            .end() // div#cc-page-name-header
+            .end() // div#cc-shell-page-name-header
 
         // body
 
             .append('<div></div>')
             .find('div:last')
-            .attr('id', 'cc-' + page_name + '-body')
+            .attr('id', 'cc-shell-' + page_name + '-body')
             .addClass('sixteen columns')
+
+        // body title
 
             .append('<div></div>')
             .find('div:last')
-            .attr('id', 'cc-' + page_name + '-title')
-            .append('<h1>Japan</h1>')
-            .append('<h2>Explore the Collection</h2>')
+            .attr('id', 'cc-shell-' + page_name + '-title')
+            .load('html/cc-shell-body-title.html')
             .end()
 
         // body navigation
 
             .append('<div></div>')
             .find('div:last')
-            .attr('id', 'cc-' + page_name + '-nav')
+            .attr('id', 'cc-shell-' + page_name + '-navigation')
             .addClass('row')
+            .load('html/cc-shell-body-navigation.html', function() {
+                jq_container
+                    .find('div#cc-shell-body-navigation-volume')
+                    .attr('id', 'cc-shell-' + page_name + '-navigation-volume')
+                    .click({page_name: 'volume'}, present_page)
+                    .end()
 
-            .append('<div></div>')
-            .find('div:last')
-            .attr('id', 'cc-' + page_name + '-nav-volume')
-            .addClass('one column alpha')
-            .click({page_name: 'volume'}, present_page)
-            .text('volume')
-            .end()
+                    .find('div#cc-shell-body-navigation-trust')
+                    .attr('id', 'cc-shell-' + page_name + '-navigation-trust')
+                    .click({page_name: 'trust'}, present_page)
+                    .end()
 
-            .append('<div></div>')
-            .find('div:last')
-            .attr('id', 'cc-' + page_name + '-nav-trust')
-            .addClass('one column')
-            .click({page_name: 'trust'}, present_page)
-            .text('trust')
-            .end()
+                    .find('div#cc-shell-body-navigation-topics')
+                    .attr('id', 'cc-shell-' + page_name + '-navigation-topics')
+                    .click({page_name: 'topics'}, present_page)
+                    .end()
 
-            .append('<div></div>')
-            .find('div:last')
-            .attr('id', 'cc-' + page_name + '-nav-topics')
-            .addClass('one column')
-            .click({page_name: 'topics'}, present_page)
-            .text('topics')
-            .end()
+                    .find('div#cc-shell-body-navigation-frequency')
+                    .attr('id', 'cc-shell-' + page_name + '-navigation-frequency')
+                    .click({page_name: 'frequency'}, present_page)
+                    .end();
+            })
+            .end() // div#cc-shell-page-name-navigation
 
-            .append('<div></div>')
-            .find('div:last')
-            .attr('id', 'cc-' + page_name + '-nav-frequency')
-            .addClass('one column omega')
-            .click({page_name: 'frequency'}, present_page)
-            .text('frequency')
-            .end()
-
-            .end() // div#cc-page-name-nav
+        // body content
 
             .append('<div></div>')
             .find('div:last')
@@ -676,42 +450,40 @@ cc.shell = (function() {
 
             .append('<div></div>')
             .find('div:last')
-            .attr('id', 'cc-' + page_name + '-column-left')
+            .attr('id', 'cc-shell-' + page_name + '-column-left')
             .addClass('four columns alpha')
-            .text(page_name)
             .end()
 
             .append('<div></div>')
             .find('div:last')
-            .attr('id', 'cc-' + page_name + '-column-right')
+            .attr('id', 'cc-shell-' + page_name + '-column-right')
             .addClass('twelve columns omega')
-            .text('column right')
             .end()
 
             .end() // div.row
 
-            .end() // div#cc-page-name-body
+            .end() // div#cc-shell-page-name-body
 
         // footer
 
             .append('<div></div>')
             .find('div:last')
-            .attr('id', 'cc-' + page_name + '-footer')
+            .attr('id', 'cc-shell-' + page_name + '-footer')
             .addClass('sixteen columns')
 
             .append('<div></div>')
             .find('div:last')
-            .attr('id', 'cc-' + page_name + '-social')
-            .text('social')
+            .attr('id', 'cc-shell-' + page_name + '-social')
+            .load('html/cc-shell-body-social.html')
             .end()
 
             .append('<div></div>')
             .find('div:last')
-            .attr('id', 'cc-' + page_name + '-publisher')
-            .text('publisher---')
+            .attr('id', 'cc-shell-' + page_name + '-publisher')
+            .load('html/cc-shell-body-publisher.html')
             .end()
 
-            .end(); // div#cc-page-name-footer
+            .end(); // div#cc-shell-page-name-footer
 
     };
 
