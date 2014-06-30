@@ -46,7 +46,7 @@ cc.shell = (function() {
         moduleState.d3_containers.main = d3_container;
 
         moduleState.jq_containers.main
-            .addClass('container');
+            .addClass('container sixteen columns');
 
         cc.model.configModule({});
         cc.model.initModule(moduleConfig.input_file_name);
@@ -113,14 +113,14 @@ cc.shell = (function() {
                 .append('<div></div>')
                 .find('div:last')
                 .attr('id', 'cc-shell-cover-header')
-                .addClass('sixteen columns')
+                .addClass('centered')
 
                 .append('<div></div>')
                 .find('div:last')
                 .attr('id', 'cc-shell-cover-logo')
                 .click({page_name: 'contents'}, present_page)
                 .hover(to_red, to_black)
-                .text('logo')
+                .load('html/cc-shell-cover-logo.html')
                 .end()
 
                 .append('<div></div>')
@@ -136,7 +136,7 @@ cc.shell = (function() {
                 .append('<div></div>')
                 .find('div:last')
                 .attr('id', 'cc-shell-cover-body')
-                .addClass('sixteen columns')
+                .addClass('centered')
 
                 .append('<div></div>')
                 .find('div:last')
@@ -311,20 +311,23 @@ cc.shell = (function() {
 
             .append('<div></div>')
             .find('div:last')
+            .addClass('cc-shell-front-matter-header')
             .attr('id', 'cc-shell-' + page_name + '-header')
-            .addClass('sixteen columns')
 
             .append('<div></div>')
             .find('div:last')
+            .addClass('column cc-shell-front-matter-logo')
             .attr('id', 'cc-shell-' + page_name + '-logo')
             .click({page_name: 'contents'}, present_page)
             .hover(to_red, to_black)
-            .text('logo')
+            .load('html/cc-shell-front-matter-logo.html')
             .end()
 
             .append('<div></div>')
             .find('div:last')
+            .addClass('cc-shell-front-matter-title')
             .attr('id', 'cc-shell-' + page_name + '-title')
+            .click({page_name: 'contents'}, present_page)
             .load('html/cc-shell-front-matter-title.html')
             .end()
 
@@ -334,8 +337,8 @@ cc.shell = (function() {
 
             .append('<div></div>')
             .find('div:last')
+            .addClass('cc-shell-front-matter-body')
             .attr('id', 'cc-shell-' + page_name + '-body')
-            .addClass('sixteen columns')
 
             .append('<div></div>')
             .find('div:last')
@@ -343,12 +346,14 @@ cc.shell = (function() {
 
             .append('<div></div>')
             .find('div:last')
+            .addClass('cc-shell-front-matter-column-left')
             .attr('id', 'cc-shell-' + page_name + '-column-left')
             .addClass('eight columns alpha')
             .end()
 
             .append('<div></div>')
             .find('div:last')
+            .addClass('cc-shell-front-matter-column-right')
             .attr('id', 'cc-shell-' + page_name + '-column-right')
             .addClass('four columns omega')
             .end()
@@ -365,48 +370,56 @@ cc.shell = (function() {
             .load('html/cc-shell-front-matter-navigation.html', function() {
                 moduleState.jq_containers[page_name]
                     .find('#cc-shell-front-matter-navigation-preface')
+                    .addClass('cc-shell-front-matter-navigation-preface')
                     .attr('id', 'cc-shell-' + page_name + '-navigation-preface')
                     .click({page_name: 'preface'}, present_page)
                     .hover(to_red, to_black)
                     .end()
 
                     .find('#cc-shell-front-matter-navigation-introduction')
+                    .addClass('cc-shell-front-matter-navigation-introduction')
                     .attr('id', 'cc-shell-' + page_name + '-navigation-introduction')
                     .click({page_name: 'introduction'}, present_page)
                     .hover(to_red, to_black)
                     .end()
 
                     .find('#cc-shell-front-matter-navigation-volume')
+                    .addClass('cc-shell-front-matter-navigation-volume')
                     .attr('id', 'cc-shell-' + page_name + '-navigation-volume')
                     .click({page_name: 'volume'}, present_page)
                     .hover(to_red, to_black)
                     .end()
 
                     .find('#cc-shell-front-matter-navigation-trust')
+                    .addClass('cc-shell-front-matter-navigation-trust')
                     .attr('id', 'cc-shell-' + page_name + '-navigation-trust')
                     .click({page_name: 'trust'}, present_page)
                     .hover(to_red, to_black)
                     .end()
 
                     .find('#cc-shell-front-matter-navigation-topics')
+                    .addClass('cc-shell-front-matter-navigation-topics')
                     .attr('id', 'cc-shell-' + page_name + '-navigation-topics')
                     .click({page_name: 'topics'}, present_page)
                     .hover(to_red, to_black)
                     .end()
 
                     .find('#cc-shell-front-matter-navigation-frequency')
+                    .addClass('cc-shell-front-matter-navigation-frequency')
                     .attr('id', 'cc-shell-' + page_name + '-navigation-frequency')
                     .click({page_name: 'frequency'}, present_page)
                     .hover(to_red, to_black)
                     .end()
 
                     .find('#cc-shell-front-matter-navigation-postscript')
+                    .addClass('cc-shell-front-matter-navigation-postscript')
                     .attr('id', 'cc-shell-' + page_name + '-navigation-postscript')
                     .click({page_name: 'postscript'}, present_page)
                     .hover(to_red, to_black)
                     .end()
 
                     .find('#cc-shell-front-matter-navigation-colophon')
+                    .addClass('cc-shell-front-matter-navigation-colophon')
                     .attr('id', 'cc-shell-' + page_name + '-navigation-colophon')
                     .click({page_name: 'colophon'}, present_page)
                     .hover(to_red, to_black)
@@ -423,11 +436,12 @@ cc.shell = (function() {
 
             .append('<div></div>')
             .find('div:last')
+            .addClass('cc-shell-body-header')
             .attr('id', 'cc-shell-' + page_name + '-header')
-            .addClass('sixteen columns')
 
             .append('<div></div>')
             .find('div:last')
+            .addClass('cc-shell-body-logo')
             .attr('id', 'cc-shell-' + page_name + '-logo')
             .click({page_name: 'contents'}, present_page)
             .hover(to_red, to_black)
@@ -436,6 +450,7 @@ cc.shell = (function() {
 
             .append('<div></div>')
             .find('div:last')
+            .addClass('cc-shell-body-author')
             .attr('id', 'cc-shell-' + page_name + '-author')
             .load('html/cc-shell-body-author.html')
             .end()
@@ -446,13 +461,14 @@ cc.shell = (function() {
 
             .append('<div></div>')
             .find('div:last')
+            .addClass('cc-shell-body-body')
             .attr('id', 'cc-shell-' + page_name + '-body')
-            .addClass('sixteen columns')
 
         // body title
 
             .append('<div></div>')
             .find('div:last')
+            .addClass('cc-shell-body-title')
             .attr('id', 'cc-shell-' + page_name + '-title')
             .load('html/cc-shell-body-title.html')
             .end()
@@ -461,29 +477,34 @@ cc.shell = (function() {
 
             .append('<div></div>')
             .find('div:last')
+            .addClass('cc-shell-body-navigation')
             .attr('id', 'cc-shell-' + page_name + '-navigation')
             .addClass('row')
             .load('html/cc-shell-body-navigation.html', function() {
                 jq_container
                     .find('div#cc-shell-body-navigation-volume')
+                    .addClass('cc-shell-body-navigation-volume')
                     .attr('id', 'cc-shell-' + page_name + '-navigation-volume')
                     .click({page_name: 'volume'}, present_page)
                     .hover(to_red, to_black)
                     .end()
 
                     .find('div#cc-shell-body-navigation-trust')
+                    .addClass('cc-shell-body-navigation-trust')
                     .attr('id', 'cc-shell-' + page_name + '-navigation-trust')
                     .click({page_name: 'trust'}, present_page)
                     .hover(to_red, to_black)
                     .end()
 
                     .find('div#cc-shell-body-navigation-topics')
+                    .addClass('cc-shell-body-navigation-topics')
                     .attr('id', 'cc-shell-' + page_name + '-navigation-topics')
                     .click({page_name: 'topics'}, present_page)
                     .hover(to_red, to_black)
                     .end()
 
                     .find('div#cc-shell-body-navigation-frequency')
+                    .addClass('cc-shell-body-navigation-frequency')
                     .attr('id', 'cc-shell-' + page_name + '-navigation-frequency')
                     .click({page_name: 'frequency'}, present_page)
                     .hover(to_red, to_black)
@@ -499,12 +520,14 @@ cc.shell = (function() {
 
             .append('<div></div>')
             .find('div:last')
+            .addClass('cc-shell-body-column-left')
             .attr('id', 'cc-shell-' + page_name + '-column-left')
             .addClass('four columns alpha')
             .end()
 
             .append('<div></div>')
             .find('div:last')
+            .addClass('cc-shell-body-column-right')
             .attr('id', 'cc-shell-' + page_name + '-column-right')
             .addClass('eight columns omega')
             .end()
@@ -517,23 +540,24 @@ cc.shell = (function() {
 
             .append('<div></div>')
             .find('div:last')
+            .addClass('cc-shell-body-footer')
             .attr('id', 'cc-shell-' + page_name + '-footer')
-            .addClass('sixteen columns')
 
             .append('<div></div>')
             .find('div:last')
+            .addClass('cc-shell-body-social')
             .attr('id', 'cc-shell-' + page_name + '-social')
             .load('html/cc-shell-body-social.html')
             .end()
 
             .append('<div></div>')
             .find('div:last')
+            .addClass('cc-shell-body-publisher')
             .attr('id', 'cc-shell-' + page_name + '-publisher')
             .load('html/cc-shell-body-publisher.html')
             .end()
 
             .end(); // div#cc-shell-page-name-footer
-
     };
 
     create_back = function(jq_container, page_name) {

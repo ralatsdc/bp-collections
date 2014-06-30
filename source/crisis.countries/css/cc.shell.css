@@ -2,3 +2,15 @@
  * cc.shell.css
  * Styles the shell module presentation
  */
+
+.contents { margin: 0; }
+
+.indent-by-one { margin-left: 20px; }
+.indent-by-two { margin-left: 40px; }
+
+.centered {
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto
+}
