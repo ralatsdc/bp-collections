@@ -4,109 +4,119 @@
 
 /* global cc */
 
-cc.shell = (function() {
+cc.shell = (function () {
 
     'use strict';
 
     var
-    moduleConfig = {
+    configModule,
+    initModule,
+    getJqContainers,
+    getD3Containers;
+
+    var
+    module_Config = {
         input_file_name: 'json/car.json',
         init_page_name: 'cover',
         settable: {
             input_file_name: false
         }
     },
-    moduleState = {
+    module_State = {
         jq_containers: {},
         d3_containers: {},
         uri_anchor: {}
     },
-    configModule,
-    initModule;
+    present_Page,
+    dismiss_Page,
+    create_Page,
+    create_Front,
+    create_Body,
+    create_Back,
+    on_Hash_Change,
+    to_Red,
+    to_Black;
 
-    var
-    present_page,
-    dismiss_page,
-    create_page,
-    create_front,
-    create_body,
-    create_back,
-    on_hash_change,
-    to_red,
-    to_black;
-
-    configModule = function(input_config) {
-        cc.util.setConfig(input_config, moduleConfig);
+    configModule = function (input_config) {
+        cc.util.setConfig(input_config, module_Config);
         return true;
     };
 
-    initModule = function(jq_container, d3_container) {
+    initModule = function (jq_container, d3_container) {
 
-        moduleState.jq_containers.main = jq_container;
-        moduleState.d3_containers.main = d3_container;
+        module_State.jq_containers.main = jq_container;
+        module_State.d3_containers.main = d3_container;
 
-        moduleState.jq_containers.main
+        module_State.jq_containers.main
             .addClass('container sixteen columns');
 
         cc.model.configModule({});
-        cc.model.initModule(moduleConfig.input_file_name);
+        cc.model.initModule(module_Config.input_file_name);
 
-        var page_name = moduleConfig.init_page_name;
-        present_page({data: {page_name: page_name}});
+        var page_name = module_Config.init_page_name;
+        present_Page({data: {page_name: page_name}});
         $.uriAnchor.setAnchor({page_name: page_name}, null, true);
-        moduleState.uri_anchor = $.uriAnchor.makeAnchorMap();
+        module_State.uri_anchor = $.uriAnchor.makeAnchorMap();
 
-        $(window).bind('hashchange', on_hash_change);
+        $(window).bind('hashchange', on_Hash_Change);
     };
     
-    on_hash_change = function() {
+    getJqContainers = function () {
+        return module_State.jq_containers;
+    };
+
+    getD3Containers = function () {
+        return module_State.d3_containers;
+    };
+
+    on_Hash_Change = function () {
         var uri_anchor = $.uriAnchor.makeAnchorMap();
-        if (uri_anchor.page_name !== moduleState.uri_anchor.page_name) {
-            present_page({data: uri_anchor});
+        if (uri_anchor.page_name !== module_State.uri_anchor.page_name) {
+            present_Page({data: uri_anchor});
         }
     };
 
-    present_page = function(event) {
+    present_Page = function (event) {
         var page_name = event.data.page_name;
-        if (moduleState.jq_containers[page_name] === undefined) {
-            create_page(page_name);
+        if (module_State.jq_containers[page_name] === undefined) {
+            create_Page(page_name);
         }
-        dismiss_page(moduleState.uri_anchor.page_name);
-        moduleState.jq_containers[page_name].fadeIn('slow');
+        dismiss_Page(module_State.uri_anchor.page_name);
+        module_State.jq_containers[page_name].fadeIn('slow');
         $.uriAnchor.setAnchor({page_name: page_name});
-        moduleState.uri_anchor = $.uriAnchor.makeAnchorMap();
+        module_State.uri_anchor = $.uriAnchor.makeAnchorMap();
     };
 
-    dismiss_page = function(page_name) {
-        if (moduleState.jq_containers[page_name] !== undefined &&
-            moduleState.jq_containers[page_name].css('display') !== 'none') {
-            moduleState.jq_containers[page_name].css('display', 'none');
+    dismiss_Page = function (page_name) {
+        if (module_State.jq_containers[page_name] !== undefined &&
+            module_State.jq_containers[page_name].css('display') !== 'none') {
+            module_State.jq_containers[page_name].css('display', 'none');
         }
     };
 
-    to_red = function() {
+    to_Red = function () {
         $(this).animate({'color': '#ff0000'}, 100);
     };
 
-    to_black = function() {
+    to_Black = function () {
         $(this).animate({'color': '#444'}, 100);
     };
 
-    create_page = function(page_name) {
+    create_Page = function (page_name) {
 
         var page_id = 'cc-shell-' + page_name;
-        moduleState.jq_containers.main
+        module_State.jq_containers.main
             .append('<div></div>')
             .find('div:last')
             .attr('id', page_id)
             .css('display', 'none')
             .end();
-        moduleState.jq_containers[page_name] = $('#' + page_id);
+        module_State.jq_containers[page_name] = $('#' + page_id);
 
         switch (page_name) {
         case 'cover':
 
-            moduleState.jq_containers[page_name]
+            module_State.jq_containers[page_name]
 
             // header
 
@@ -118,8 +128,8 @@ cc.shell = (function() {
                 .append('<div></div>')
                 .find('div:last')
                 .attr('id', 'cc-shell-cover-logo')
-                .click({page_name: 'contents'}, present_page)
-                .hover(to_red, to_black)
+                .click({page_name: 'contents'}, present_Page)
+                .hover(to_Red, to_Black)
                 .load('html/cc-shell-cover-logo.html')
                 .end()
 
@@ -153,8 +163,8 @@ cc.shell = (function() {
                 .append('<div></div>')
                 .find('div:last')
                 .attr('id', 'cc-shell-cover-navigation')
-                .click({page_name: 'contents'}, present_page)
-                .hover(to_red, to_black)
+                .click({page_name: 'contents'}, present_Page)
+                .hover(to_Red, to_Black)
                 .load('html/cc-shell-cover-navigation.html')
                 .end()
 
@@ -163,16 +173,16 @@ cc.shell = (function() {
             break;
 
         case 'contents':
-            create_front(moduleState.jq_containers[page_name], page_name);
+            create_Front(module_State.jq_containers[page_name], page_name);
 
-            moduleState.jq_containers[page_name]
+            module_State.jq_containers[page_name]
                 .find('div#cc-shell-contents-column-left')
                 .addClass('contents')
-                .load('html/cc-shell-contents.html', function() {
-                    moduleState.jq_containers[page_name]
+                .load('html/cc-shell-contents.html', function () {
+                    module_State.jq_containers[page_name]
                         .find('#cc-shell-contents-preface')
                         .click({page_name: 'preface'}, present_page)
-                        .hover(to_red, to_black)
+                        .hover(to_Red, to_Black)
                         .end()
 
                         .find('#cc-shell-contents-introduction')
@@ -212,7 +222,7 @@ cc.shell = (function() {
                 })
                 .end(); // div#cc-shell-contents-column-left
 
-            moduleState.jq_containers[page_name]
+            module_State.jq_containers[page_name]
                 .find('div#cc-shell-contents-column-right')
                 .empty()
                 .load('html/cc-shell-epigraph.html');
@@ -220,80 +230,80 @@ cc.shell = (function() {
             break;
 
         case 'preface':
-            create_front(moduleState.jq_containers[page_name], page_name);
+            create_front(module_State.jq_containers[page_name], page_name);
 
-            moduleState.jq_containers[page_name]
+            module_State.jq_containers[page_name]
                 .find('div#cc-shell-preface-column-left')
                 .load('html/cc-shell-preface.html');
 
             break;
 
         case 'introduction':
-            create_front(moduleState.jq_containers[page_name], page_name);
+            create_front(module_State.jq_containers[page_name], page_name);
 
-            moduleState.jq_containers[page_name]
+            module_State.jq_containers[page_name]
                 .find('div#cc-shell-introduction-column-left')
                 .load('html/cc-shell-introduction.html');
 
             break;
 
         case 'volume':
-            create_body(moduleState.jq_containers[page_name], page_name);
+            create_Body(module_State.jq_containers[page_name], page_name);
 
-            moduleState.jq_containers[page_name]
+            module_State.jq_containers[page_name]
                 .find('div#cc-shell-volume-title')
                 .load('html/cc-shell-volume-description.html');
 
-            moduleState.jq_containers[page_name]
+            module_State.jq_containers[page_name]
                 .find('div#cc-shell-volume-column-left')
                 .load('html/cc-shell-volume-legend.html');
 
             break;
 
         case 'trust':
-            create_body(moduleState.jq_containers[page_name], page_name);
+            create_body(module_State.jq_containers[page_name], page_name);
 
-            moduleState.jq_containers[page_name]
+            module_State.jq_containers[page_name]
                 .find('div#cc-shell-trust-title')
                 .load('html/cc-shell-trust-description.html');
 
-            moduleState.jq_containers[page_name]
+            module_State.jq_containers[page_name]
                 .find('div#cc-shell-trust-column-left')
                 .load('html/cc-shell-trust-legend.html');
 
             break;
 
         case 'topics':
-            create_body(moduleState.jq_containers[page_name], page_name);
+            create_body(module_State.jq_containers[page_name], page_name);
 
-            moduleState.jq_containers[page_name]
+            module_State.jq_containers[page_name]
                 .find('div#cc-shell-topics-title')
                 .load('html/cc-shell-topics-description.html');
 
             break;
 
         case 'frequency':
-            create_body(moduleState.jq_containers[page_name], page_name);
+            create_body(module_State.jq_containers[page_name], page_name);
             
-            moduleState.jq_containers[page_name]
+            module_State.jq_containers[page_name]
                 .find('div#cc-shell-frequency-title')
                 .load('html/cc-shell-frequency-description.html');
 
             break;
 
         case 'postscript':
-            create_back(moduleState.jq_containers[page_name], page_name);
+            create_Back(module_State.jq_containers[page_name], page_name);
 
-            moduleState.jq_containers[page_name]
+            module_State.jq_containers[page_name]
                 .find('div#cc-shell-postscript-column-left')
                 .load('html/cc-shell-postscript.html');
 
             break;
 
         case 'colophon':
-            create_back(moduleState.jq_containers[page_name], page_name);
+            create_back(module_State.jq_containers[page_name], page_name);
 
-            moduleState.jq_containers[page_name]
+            module_State.jq_containers[page_name]
                 .find('div#cc-shell-colophon-column-left')
                 .load('html/cc-shell-colophon.html');
 
@@ -303,7 +313,7 @@ cc.shell = (function() {
         }
     };
 
-    create_front = function(jq_container, page_name) {
+    create_front = function (jq_container, page_name) {
 
         jq_container
 
@@ -364,11 +374,11 @@ cc.shell = (function() {
 
         // column right navigation
 
-        moduleState.jq_containers[page_name]
+        module_State.jq_containers[page_name]
             .find('div#cc-shell-' + page_name + '-column-right')
             .addClass('contents')
             .load('html/cc-shell-front-matter-navigation.html', function() {
-                moduleState.jq_containers[page_name]
+                module_State.jq_containers[page_name]
                     .find('#cc-shell-front-matter-navigation-preface')
                     .addClass('cc-shell-front-matter-navigation-preface')
                     .attr('id', 'cc-shell-' + page_name + '-navigation-preface')
@@ -566,7 +576,9 @@ cc.shell = (function() {
 
     return {
         configModule: configModule,
-        initModule: initModule
+        initModule: initModule,
+        getJqContainers: getJqContainers,
+        getD3Containers: getD3Containers
     };
 
 }());

@@ -4,7 +4,7 @@
 
 /* global cc */
 
-cc.util = (function() {
+cc.util = (function () {
     
     'use strict';
     
@@ -12,7 +12,7 @@ cc.util = (function() {
     makeError,
     setConfig;
     
-    makeError = function(name_text, msg_text, data) {
+    makeError = function (name_text, msg_text, data) {
         var error = new Error();
         error.name = name_text;
         error.message = msg_text;
@@ -22,7 +22,7 @@ cc.util = (function() {
         return error;
     };
     
-    setConfig = function(input_config, output_config) {
+    setConfig = function (input_config, output_config) {
         var key_name, error;
         for (key_name in input_config) {
             if (input_config.hasOwnProperty(key_name)) {
