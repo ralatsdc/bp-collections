@@ -86,18 +86,20 @@ svg
     .attr("width", width)
     .attr("height", height);
 
-d3.json("json/japan.json", function(abc) {
+d3.json("json/japan.json", function(json) {
+
+    node_values = json.sources;
 
     var fill = d3.scale.category10();
 
     var force = d3.layout.force()
-        .nodes(abc)
+        .nodes(node_values)
         .size([width, height])
         .on("tick", tick)
         .start();
 
     var node = svg.selectAll(".node")
-        .data(abc)
+        .data(node_values)
         .enter().append("circle")
         .attr("class", "node")
         .attr("cx", function(d) {return x(-d.age);})
@@ -115,18 +117,18 @@ d3.json("json/japan.json", function(abc) {
 
         // Push different nodes in different directions for clustering.
         var k = 6 * e.alpha;
-        abc.forEach(function(o, i) {
+        node_values.forEach(function(o, i) {
             o.y += i & 1 ? k : -k;
             o.x += i & 2 ? k : -k;
         });
 
-        abc
+        node_values
             .attr("cx", function(d) {return x(-d.age);})
             .attr("cy", function(d) {return y(-d.frequency);});
     }
 
     function mousedown() {
-        abc.forEach(function(o, i) {
+        node_values.forEach(function(o, i) {
             o.x += (Math.random() - .5) * 40;
             o.y += (Math.random() - .5) * 40;
         });

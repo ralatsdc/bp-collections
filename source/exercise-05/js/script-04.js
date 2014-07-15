@@ -1,4 +1,6 @@
-d3.json("json/japan.json", function(country) {
+d3.json("json/japan.json", function(json) {
+
+    var node_values = json.sources;
 
     var width = 500;
     var height = 500;
@@ -25,43 +27,43 @@ d3.json("json/japan.json", function(country) {
         .attr("height", height);
 
     var nodes = svg.selectAll(".node")
-        .data(country)
+        .data(node_values)
         .enter().append("circle")
         .attr("cx", function(d) {return x(-d.age);})
         .attr("cy", function(d) {return y(-d.frequency);})
         .attr("r", function(d) {return r(+d.volume);})
         .style("opacity", function(d) {return o(+d.engagement);})
         .attr("fill", function(d) {
-            if (d.service == "feed") {
-                if (d.engagement == 1) {
+            if (d.service === "feed") {
+                if (d.engagement === 1) {
                     return "#ff6200";
-                } else if (d.engagement == 0) {
+                } else if (d.engagement === 0) {
                     return "#ff8133";
-                } else if (d.engagement == -1) {
+                } else if (d.engagement === -1) {
                     return "#ffa166";
                 }
-            } else if (d.service == "flickr") {
-                if (d.engagement == 1) {
+            } else if (d.service === "flickr") {
+                if (d.engagement === 1) {
                     return "#ff0084";
-                } else if (d.engagement == 0) {
+                } else if (d.engagement === 0) {
                     return "#ff55ad";
-                } else if (d.engagement == -1) {
+                } else if (d.engagement === -1) {
                     return "#ff88c6";
                 }
-            } else if (d.service == "tumblr") {
-                if (d.engagement == 1) {
+            } else if (d.service === "tumblr") {
+                if (d.engagement === 1) {
                     return "#172533";
-                } else if (d.engagement == 0) {
+                } else if (d.engagement === 0) {
                     return "#2c4762";
-                } else if (d.engagement == -1) {
+                } else if (d.engagement === -1) {
                     return "#416991";
                 }
-            } else if (d.service == "twitter") {
-                if (d.engagement == 1) {
+            } else if (d.service === "twitter") {
+                if (d.engagement === 1) {
                     return "#4099ff";
-                } else if (d.engagement == 0) {
+                } else if (d.engagement === 0) {
                     return "#73b4ff";
-                } else if (d.engagement == -1) {
+                } else if (d.engagement === -1) {
                     return "#a6cfff";
                 }
             }
@@ -83,12 +85,15 @@ d3.json("json/japan.json", function(country) {
         o.y = y(-o.frequency);
     });
 
-    var force = d3.layout.force()
-        .nodes(nodes)
-        .size([width, height])
+    /*
         .gravity(0.1)
         .charge(-30)
         .friction(0.9)
+    */
+
+    var force = d3.layout.force()
+        .nodes(nodes)
+        .size([width, height])
         .on("tick", function() {
             nodes
                 .attr("cx", function(d) { return d.x; })

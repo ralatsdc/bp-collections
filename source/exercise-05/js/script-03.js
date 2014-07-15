@@ -30,9 +30,11 @@ svg
 
 d3.json("json/japan.json", function(json) {
       
+    var node_values = json.sources;
+
     svg
         .selectAll("circle")
-        .data(json)
+        .data(node_values)
         .enter()
         .append("circle")
         .style("opacity", function(d) {
@@ -48,36 +50,36 @@ d3.json("json/japan.json", function(json) {
             return r(0);
         })
         .attr("fill", function(d) {
-            if (d.service == "feed") {
-                if (d.engagement == 1) {
+            if (d.service === "feed") {
+                if (d.engagement === 1) {
                     return "#ff6200";
-                } else if (d.engagement == 0) {
+                } else if (d.engagement === 0) {
                     return "#ff8133";
-                } else if (d.engagement == -1) {
+                } else if (d.engagement === -1) {
                     return "#ffa166";
                 }
-            } else if (d.service == "flickr") {
-                if (d.engagement == 1) {
+            } else if (d.service === "flickr") {
+                if (d.engagement === 1) {
                     return "#ff0084";
-                } else if (d.engagement == 0) {
+                } else if (d.engagement === 0) {
                     return "#ff55ad";
-                } else if (d.engagement == -1) {
+                } else if (d.engagement === -1) {
                     return "#ff88c6";
                 }
-            } else if (d.service == "tumblr") {
-                if (d.engagement == 1) {
+            } else if (d.service === "tumblr") {
+                if (d.engagement === 1) {
                     return "#172533";
-                } else if (d.engagement == 0) {
+                } else if (d.engagement === 0) {
                     return "#2c4762";
-                } else if (d.engagement == -1) {
+                } else if (d.engagement === -1) {
                     return "#416991";
                 }
-            } else if (d.service == "twitter") {
-                if (d.engagement == 1) {
+            } else if (d.service === "twitter") {
+                if (d.engagement === 1) {
                     return "#4099ff";
-                } else if (d.engagement == 0) {
+                } else if (d.engagement === 0) {
                     return "#73b4ff";
-                } else if (d.engagement == -1) {
+                } else if (d.engagement === -1) {
                     return "#a6cfff";
                 }
             } else {

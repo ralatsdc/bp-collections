@@ -2,8 +2,9 @@ var width = 600;
 var height = 600;
 var margin = 30;
 
-d3.json("json/philippines.json", function(node_values) {
+d3.json("json/japan.json", function(json) {
 
+    var node_values = json.sources;
 
     var x = d3.scale.linear()
         .domain([-50, 50])
@@ -33,13 +34,13 @@ d3.json("json/philippines.json", function(node_values) {
         .size([width, height])
         .gravity(0.1 * 6.0)
         .charge(function(d) {
-            if (d.volume == 1) {
+            if (d.volume === 1) {
                 return -30 * 16;
             }
-            else if (d.volume == 0) {
+            else if (d.volume === 0) {
                 return -30 * 4;
             }
-            else if (d.volume == -1) {
+            else if (d.volume === -1) {
                 return -30 * 1;
             }
         })
@@ -72,67 +73,67 @@ d3.json("json/philippines.json", function(node_values) {
         .attr("cy", function(d) { return d.y; })
         // .attr("r", function(d) { return r(+d.volume); })
         .attr("r", function(d) {
-            if (d.volume == -1) {
+            if (d.volume === -1) {
                 return 5;
             }
-            if (d.volume == 0) {
+            if (d.volume === 0) {
                 return 5 * 2.2;
             }
-            if (d.volume == 1) {
+            if (d.volume === 1) {
                 return 5 * 2.2 * 2.2;
             }
         })
         .attr("opacity", function(d) { return o(+d.engagement); })
         .attr("fill", function(d) {
-            if (d.service == "feed") {
-                if (d.engagement == 1) {
+            if (d.service === "feed") {
+                if (d.engagement === 1) {
                     return "#ff6200";
-                } else if (d.engagement == 0) {
+                } else if (d.engagement === 0) {
                     return "#ff8133";
-                } else if (d.engagement == -1) {
+                } else if (d.engagement === -1) {
                     return "#ffa166";
                 }
-            } else if (d.service == "flickr") {
-                if (d.engagement == 1) {
+            } else if (d.service === "flickr") {
+                if (d.engagement === 1) {
                     return "#ff0084";
-                } else if (d.engagement == 0) {
+                } else if (d.engagement === 0) {
                     return "#ff55ad";
-                } else if (d.engagement == -1) {
+                } else if (d.engagement === -1) {
                     return "#ff88c6";
                 }
-            } else if (d.service == "tumblr") {
-                if (d.engagement == 1) {
+            } else if (d.service === "tumblr") {
+                if (d.engagement === 1) {
                     return "#172533";
-                } else if (d.engagement == 0) {
+                } else if (d.engagement === 0) {
                     return "#2c4762";
-                } else if (d.engagement == -1) {
+                } else if (d.engagement === -1) {
                     return "#416991";
                 }
-            } else if (d.service == "twitter") {
-                if (d.engagement == 1) {
+            } else if (d.service === "twitter") {
+                if (d.engagement === 1) {
                     return "#4099ff";
-                } else if (d.engagement == 0) {
+                } else if (d.engagement === 0) {
                     return "#73b4ff";
-                } else if (d.engagement == -1) {
+                } else if (d.engagement === -1) {
                     return "#a6cfff";
                 }
             }
         })
         .attr("stroke-width", function(d) {
-            if (d.type == "crisis") {
+            if (d.type === "crisis") {
                 return 3;
-            } else if (d.type == "common") {
+            } else if (d.type === "common") {
                 return 1;
             }
         })
         .attr("stroke", function(d) {
-            if (d.service == "feed") {
+            if (d.service === "feed") {
                 return "#ff6200";
-            } else if (d.service == "flickr") {
+            } else if (d.service === "flickr") {
                 return "#ff0084";
-            } else if (d.service == "tumblr") {
+            } else if (d.service === "tumblr") {
                 return "#172533";
-            } else if (d.service == "twitter") {
+            } else if (d.service === "twitter") {
                 return "#4099ff";
             }
         })
@@ -151,13 +152,13 @@ d3.json("json/philippines.json", function(node_values) {
                 target_x = 400;
             }
 
-            if (o.engagement == 1) {
+            if (o.engagement === 1) {
                 o.x += e.alpha * beta_x * (target_x - o.x);
                 o.y += e.alpha * beta_y * (50 - o.y);
-            } else if (o.engagement == 0) {
+            } else if (o.engagement === 0) {
                 o.x += e.alpha * beta_x * (target_x - o.x);
                 o.y += e.alpha * beta_y * (250 - o.y);
-            } else if (o.engagement == -1) {
+            } else if (o.engagement === -1) {
                 o.x += e.alpha * beta_x * (target_x - o.x);
                 o.y += e.alpha * beta_y * (450 - o.y);
             }

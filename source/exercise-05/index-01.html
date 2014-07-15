@@ -89,9 +89,11 @@
 
       d3.json("json/japan.json", function(json) {
       
+      node_values = json.sources;
+
       svg
       .selectAll("circle")
-      .data(json)
+      .data(node_values)
       .enter()
       .append("circle")
       .style("opacity", function(d) {
