@@ -10,13 +10,16 @@ cc.force = (function () {
 
     var
     configModule,
-    initModule;
+    initModule,
+    initForce,
+    presentForce;
 
     var
     module_Config = {
         width: 600,
         height: 600,
         margin: 30,
+        n_margin: 4.0,
         domain_x: [-50, 50],
         domain_y: [-50, 50],
         domain_o: [-1, 1],
@@ -29,6 +32,7 @@ cc.force = (function () {
             width: true,
             height: true,
             margin: true,
+            n_margin: true,
             domain_x: true,
             domain_y: true,
             domain_o: true,
@@ -40,10 +44,11 @@ cc.force = (function () {
         }
     },
     module_State = {
-        svg: null,
-        node_values: null,
-        node_elements: null,
-        force_layout: null
+        svgs: {},
+        layouts: {},
+        node_values: {},
+        node_elements: {},
+        page_name: undefined
     },
     scale_X,
     scale_Y,
@@ -53,8 +58,7 @@ cc.force = (function () {
     stroke_R,
     stroke_Width_R,
     charge_R,
-    on_Tick,
-    present_Volume;
+    on_Tick;
 
     configModule = function (input_config) {
         cc.util.setConfig(input_config, module_Config);
@@ -62,11 +66,6 @@ cc.force = (function () {
     };
 
     initModule = function () {
-
-        module_State.svg = d3.select('div#cc-shell-volume-column-right')
-            .append('svg')
-            .attr('width', module_Config.width)
-            .attr('height', module_Config.height);
 
         scale_X = d3.scale.linear()
             .domain(module_Config.domain_x)
@@ -80,24 +79,36 @@ cc.force = (function () {
             .domain(module_Config.domain_o)
             .range(module_Config.range_o);
 
-        module_State.node_values = cc.model.getSources();
+    };
 
-        module_State.node_values.forEach(function (o) {
+    initForce = function (page_name) {
+
+        module_State.page_name = page_name;
+
+        module_State.svgs[page_name] = d3.select('div#cc-shell-' + page_name + '-column-right')
+            .append('svg')
+            .attr('width', module_Config.width)
+            .attr('height', module_Config.height);
+
+        module_State.node_values[page_name] = cc.model.getSources();
+        // module_State.node_values[page_name] = $.extend({}, cc.model.getSources());
+        // module_State.node_values[page_name] = $.extend(true, {}, cc.model.getSources());
+
+        module_State.node_values[page_name].forEach(function (o) {
             o.x = scale_X(-o.age);
             o.y = scale_Y(-o.frequency);
         });
 
-        module_State.force_layout = d3.layout.force()
-            .nodes(module_State.node_values)
+        module_State.layouts[page_name] = d3.layout.force()
+            .nodes(module_State.node_values[page_name])
             .size([module_Config.width, module_Config.height])
             .gravity(module_Config.gravity)
             .charge(charge_R)
             .friction(module_Config.friction)
-            .on('tick', on_Tick)
-            .start();
+            .on('tick', on_Tick);
 
-        module_State.node_elements = module_State.svg.selectAll('.node')
-            .data(module_State.node_values)
+        module_State.node_elements[page_name] = module_State.svgs[page_name].selectAll('.node')
+            .data(module_State.node_values[page_name])
             .enter().append('circle')
             .attr('class', 'node')
             .attr('cx', function (d) { return d.x; })
@@ -107,10 +118,30 @@ cc.force = (function () {
             .attr('fill', fill_R)
             .attr('stroke', stroke_R)
             .attr('stroke-width', stroke_Width_R)
-            .on('mousedown', function () { d3.event.stopPropagation(); })
-            .call(module_State.force_layout.drag);
+            .on('mousedown', function () { d3.event.stopPropagation(); });
+
     };
     
+    presentForce = function (page_name) {
+
+        module_State.page_name = page_name;
+
+        module_State.layouts[page_name].stop();
+
+        /*
+        module_State.node_values[page_name].forEach(function (o) {
+            o.x = scale_X(-o.age);
+            o.y = scale_Y(-o.frequency);
+        });
+        */
+
+        module_State.layouts[page_name].start();
+
+        module_State.node_elements[page_name]
+            .call(module_State.layouts[page_name].drag);
+
+    };
+
     scale_R = function (d) {
         if (+d.volume === -1) {
             return 5;
@@ -124,63 +155,98 @@ cc.force = (function () {
     };
 
     fill_R = function (d) {
-        if (d.service === 'feed') {
+
+        var
+        color = '#FFFFFF',
+        page_name = module_State.page_name;
+
+        switch (page_name) {
+        case 'volume':
             if (d.engagement === 1) {
-                return '#ff6200';
+                color = '#494949';
             } else if (d.engagement === 0) {
-                return '#ff8133';
+                color = '#7D7D7D';
             } else if (d.engagement === -1) {
-                return '#ffa166';
-            } else {
-                return '#ffffff';
+                color = '#CBCBCB';
             }
-        } else if (d.service === 'flickr') {
-            if (d.engagement === 1) {
-                return '#ff0084';
-            } else if (d.engagement === 0) {
-                return '#ff55ad';
-            } else if (d.engagement === -1) {
-                return '#ff88c6';
-            } else {
-                return '#ffffff';
+            break;
+
+        case 'trust':
+        case 'topics':
+            if (d.service === 'feed') {
+                if (d.engagement === 1) {
+                    color = '#973E00';
+                } else if (d.engagement === 0) {
+                    color = '#CB5200';
+                } else if (d.engagement === -1) {
+                    color = '#FF6600';
+                }
+            } else if (d.service === 'flickr') {
+                if (d.engagement === 1) {
+                    color = '#7D0043';
+                } else if (d.engagement === 0) {
+                    color = '#B1005D';
+                } else if (d.engagement === -1) {
+                    color = '#FF0084';
+                }
+            } else if (d.service === 'tumblr') {
+                if (d.engagement === 1) {
+                    color = '#32506D';
+                } else if (d.engagement === 0) {
+                    color = '#71869A';
+                } else if (d.engagement === -1) {
+                    color = '#9BAAB8';
+                }
+            } else if (d.service === 'twitter') {
+                if (d.engagement === 1) {
+                    color = '#1AB6E5';
+                } else if (d.engagement === 0) {
+                    color = '#79DEFF';
+                } else if (d.engagement === -1) {
+                    color = '#BEEDFF';
+                }
             }
-        } else if (d.service === 'tumblr') {
-            if (d.engagement === 1) {
-                return '#172533';
-            } else if (d.engagement === 0) {
-                return '#2c4762';
-            } else if (d.engagement === -1) {
-                return '#416991';
-            } else {
-                return '#ffffff';
-            }
-        } else if (d.service === 'twitter') {
-            if (d.engagement === 1) {
-                return '#4099ff';
-            } else if (d.engagement === 0) {
-                return '#73b4ff';
-            } else if (d.engagement === -1) {
-                return '#a6cfff';
-            } else {
-                return '#ffffff';
-            }
-        } else {
-            return '#ffffff';
+            break;
+            
+        case 'frequency':
+            break;
+
+        default:
         }
+        return color;
     };
 
     stroke_R = function (d) {
-        if (d.service === 'feed') {
-            return '#ff6200';
-        } else if (d.service === 'flickr') {
-            return '#ff0084';
-        } else if (d.service === 'tumblr') {
-            return '#172533';
-        } else if (d.service === 'twitter') {
-            return '#4099ff';
-        } else {
-            return '#ffffff';
+
+        var
+        color = '',
+        page_name = module_State.page_name;
+
+        switch (page_name) {
+        case 'volume':
+        case 'trust':
+            break;
+
+        case 'topics':
+            if (d.service === 'feed') {
+                color = '#973E00';
+            } else if (d.service === 'flickr') {
+                color = '#7D0043';
+            } else if (d.service === 'tumblr') {
+                color = '#32506D';
+            } else if (d.service === 'twitter') {
+                color = '#1AB6E5';
+            } else {
+                color = '#FFFFFF';
+            }
+            break;
+
+        case 'frequency':
+            break;
+
+        default:
         }
+        return color;
     };
 
     stroke_Width_R = function (d) {
@@ -207,25 +273,40 @@ cc.force = (function () {
     };
 
     on_Tick = function (e) {
-        
+
         var
+        page_name = module_State.page_name,
         target_x,
         target_y;
 
-        module_State.node_values.forEach(function (o) {
+        module_State.node_values[page_name].forEach(function (o) {
 
-            if (o.type === 'crisis') {
-                target_x = 2.0 * module_Config.margin;
-            } else if (o.type === 'common') {
-                target_x = module_Config.width - 2.0 * module_Config.margin;
+            switch (page_name) {
+            case 'volume':
+            case 'trust':
+                target_x = module_Config.width / 2.0;
+                break;
+
+            case 'topics':
+                if (o.type === 'crisis') {
+                    target_x = module_Config.width / 2.0 - module_Config.n_margin * module_Config.margin;
+                } else if (o.type === 'common') {
+                    target_x = module_Config.width / 2.0 + module_Config.n_margin * module_Config.margin;
+                }
+                break;
+
+            case 'frequency':
+                break;
+
+            default:
             }
 
             if (o.engagement === 1) {
-                target_y = 2.0 * module_Config.margin;
+                target_y = module_Config.height / 2.0 - module_Config.n_margin * module_Config.margin;
             } else if (o.engagement === 0) {
                 target_y = module_Config.height / 2.0;
             } else if (o.engagement === -1) {
-                target_y = module_Config.height - 2.0 * module_Config.margin;
+                target_y = module_Config.height / 2.0 + module_Config.n_margin * module_Config.margin;
             }
 
             o.x += e.alpha * module_Config.beta_x * (target_x - o.x);
@@ -233,18 +314,16 @@ cc.force = (function () {
 
         });
         
-        module_State.node_elements
+        module_State.node_elements[page_name]
             .attr('cx', function (d) { return d.x; })
             .attr('cy', function (d) { return d.y; });
     };
 
-    present_Volume = function () {
-
-    };
-
     return {
         configModule: configModule,
-        initModule: initModule
+        initModule: initModule,
+        initForce: initForce,
+        presentForce: presentForce
     };
 
 }());

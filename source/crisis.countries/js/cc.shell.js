@@ -11,12 +11,11 @@ cc.shell = (function () {
     var
     configModule,
     initModule,
-    getJqContainers,
-    getD3Containers;
+    getJqContainers;
 
     var
     module_Config = {
-        input_file_name: 'json/car.json',
+        input_file_name: 'json/japan.json',
         init_page_name: 'cover',
         settable: {
             input_file_name: false
@@ -24,7 +23,6 @@ cc.shell = (function () {
     },
     module_State = {
         jq_containers: {},
-        d3_containers: {},
         uri_anchor: {}
     },
     present_Page,
@@ -42,19 +40,22 @@ cc.shell = (function () {
         return true;
     };
 
-    initModule = function (jq_container, d3_container) {
+    initModule = function (jq_container) {
+
+        cc.model.configModule({});
+        cc.force.configModule({});
+
+        cc.model.initModule(module_Config.input_file_name);
+        cc.force.initModule();
 
         module_State.jq_containers.main = jq_container;
-        module_State.d3_containers.main = d3_container;
 
         module_State.jq_containers.main
             .addClass('container sixteen columns');
 
-        cc.model.configModule({});
-        cc.model.initModule(module_Config.input_file_name);
-
         var page_name = module_Config.init_page_name;
         present_Page({data: {page_name: page_name}});
+
         $.uriAnchor.setAnchor({page_name: page_name}, null, true);
         module_State.uri_anchor = $.uriAnchor.makeAnchorMap();
 
@@ -63,10 +64,6 @@ cc.shell = (function () {
     
     getJqContainers = function () {
         return module_State.jq_containers;
-    };
-
-    getD3Containers = function () {
-        return module_State.d3_containers;
     };
 
     on_Hash_Change = function () {
@@ -81,10 +78,24 @@ cc.shell = (function () {
         if (module_State.jq_containers[page_name] === undefined) {
             create_Page(page_name);
         }
-        dismiss_Page(module_State.uri_anchor.page_name);
-        module_State.jq_containers[page_name].fadeIn('slow');
+        switch (page_name) {
+        case 'volume':
+        case 'trust':
+        case 'topics':
+            cc.force.presentForce(page_name);
+            break;
+
+        case 'frequency':
+            break;
+
+        default:
+        }
+        if (page_name !== module_State.uri_anchor.page_name) {
+            dismiss_Page(module_State.uri_anchor.page_name);
+        }
         $.uriAnchor.setAnchor({page_name: page_name});
         module_State.uri_anchor = $.uriAnchor.makeAnchorMap();
+        module_State.jq_containers[page_name].fadeIn('slow');
     };
 
     dismiss_Page = function (page_name) {
@@ -181,43 +192,43 @@ cc.shell = (function () {
                 .load('html/cc-shell-contents.html', function () {
                     module_State.jq_containers[page_name]
                         .find('#cc-shell-contents-preface')
-                        .click({page_name: 'preface'}, present_page)
+                        .click({page_name: 'preface'}, present_Page)
                         .hover(to_Red, to_Black)
                         .end()
 
                         .find('#cc-shell-contents-introduction')
-                        .click({page_name: 'introduction'}, present_page)
-                        .hover(to_red, to_black)
+                        .click({page_name: 'introduction'}, present_Page)
+                        .hover(to_Red, to_Black)
                         .end()
 
                         .find('#cc-shell-contents-volume')
-                        .click({page_name: 'volume'}, present_page)
-                        .hover(to_red, to_black)
+                        .click({page_name: 'volume'}, present_Page)
+                        .hover(to_Red, to_Black)
                         .end()
 
                         .find('#cc-shell-contents-trust')
-                        .click({page_name: 'trust'}, present_page)
-                        .hover(to_red, to_black)
+                        .click({page_name: 'trust'}, present_Page)
+                        .hover(to_Red, to_Black)
                         .end()
 
                         .find('#cc-shell-contents-topics')
-                        .click({page_name: 'topics'}, present_page)
-                        .hover(to_red, to_black)
+                        .click({page_name: 'topics'}, present_Page)
+                        .hover(to_Red, to_Black)
                         .end()
 
                         .find('#cc-shell-contents-frequency')
-                        .click({page_name: 'frequency'}, present_page)
-                        .hover(to_red, to_black)
+                        .click({page_name: 'frequency'}, present_Page)
+                        .hover(to_Red, to_Black)
                         .end()
 
                         .find('#cc-shell-contents-postscript')
-                        .click({page_name: 'postscript'}, present_page)
-                        .hover(to_red, to_black)
+                        .click({page_name: 'postscript'}, present_Page)
+                        .hover(to_Red, to_Black)
                         .end()
 
                         .find('#cc-shell-contents-colophon')
-                        .click({page_name: 'colophon'}, present_page)
-                        .hover(to_red, to_black)
+                        .click({page_name: 'colophon'}, present_Page)
+                        .hover(to_Red, to_Black)
                         .end();
                 })
                 .end(); // div#cc-shell-contents-column-left
@@ -230,7 +241,7 @@ cc.shell = (function () {
             break;
 
         case 'preface':
-            create_front(module_State.jq_containers[page_name], page_name);
+            create_Front(module_State.jq_containers[page_name], page_name);
 
             module_State.jq_containers[page_name]
                 .find('div#cc-shell-preface-column-left')
@@ -239,7 +250,7 @@ cc.shell = (function () {
             break;
 
         case 'introduction':
-            create_front(module_State.jq_containers[page_name], page_name);
+            create_Front(module_State.jq_containers[page_name], page_name);
 
             module_State.jq_containers[page_name]
                 .find('div#cc-shell-introduction-column-left')
@@ -258,10 +269,12 @@ cc.shell = (function () {
                 .find('div#cc-shell-volume-column-left')
                 .load('html/cc-shell-volume-legend.html');
 
+            cc.force.initForce(page_name);
+
             break;
 
         case 'trust':
-            create_body(module_State.jq_containers[page_name], page_name);
+            create_Body(module_State.jq_containers[page_name], page_name);
 
             module_State.jq_containers[page_name]
                 .find('div#cc-shell-trust-title')
@@ -271,19 +284,23 @@ cc.shell = (function () {
                 .find('div#cc-shell-trust-column-left')
                 .load('html/cc-shell-trust-legend.html');
 
+            cc.force.initForce(page_name);
+
             break;
 
         case 'topics':
-            create_body(module_State.jq_containers[page_name], page_name);
+            create_Body(module_State.jq_containers[page_name], page_name);
 
             module_State.jq_containers[page_name]
                 .find('div#cc-shell-topics-title')
                 .load('html/cc-shell-topics-description.html');
 
+            cc.force.initForce(page_name);
+
             break;
 
         case 'frequency':
-            create_body(module_State.jq_containers[page_name], page_name);
+            create_Body(module_State.jq_containers[page_name], page_name);
             
             module_State.jq_containers[page_name]
                 .find('div#cc-shell-frequency-title')
@@ -301,7 +318,7 @@ cc.shell = (function () {
             break;
 
         case 'colophon':
-            create_back(module_State.jq_containers[page_name], page_name);
+            create_Back(module_State.jq_containers[page_name], page_name);
 
             module_State.jq_containers[page_name]
                 .find('div#cc-shell-colophon-column-left')
@@ -313,7 +330,7 @@ cc.shell = (function () {
         }
     };
 
-    create_front = function (jq_container, page_name) {
+    create_Front = function (jq_container, page_name) {
 
         jq_container
 
@@ -328,8 +345,8 @@ cc.shell = (function () {
             .find('div:last')
             .addClass('column cc-shell-front-matter-logo')
             .attr('id', 'cc-shell-' + page_name + '-logo')
-            .click({page_name: 'contents'}, present_page)
-            .hover(to_red, to_black)
+            .click({page_name: 'contents'}, present_Page)
+            .hover(to_Red, to_Black)
             .load('html/cc-shell-front-matter-logo.html')
             .end()
 
@@ -337,7 +354,7 @@ cc.shell = (function () {
             .find('div:last')
             .addClass('cc-shell-front-matter-title')
             .attr('id', 'cc-shell-' + page_name + '-title')
-            .click({page_name: 'contents'}, present_page)
+            .click({page_name: 'contents'}, present_Page)
             .load('html/cc-shell-front-matter-title.html')
             .end()
 
@@ -382,63 +399,63 @@ cc.shell = (function () {
                     .find('#cc-shell-front-matter-navigation-preface')
                     .addClass('cc-shell-front-matter-navigation-preface')
                     .attr('id', 'cc-shell-' + page_name + '-navigation-preface')
-                    .click({page_name: 'preface'}, present_page)
-                    .hover(to_red, to_black)
+                    .click({page_name: 'preface'}, present_Page)
+                    .hover(to_Red, to_Black)
                     .end()
 
                     .find('#cc-shell-front-matter-navigation-introduction')
                     .addClass('cc-shell-front-matter-navigation-introduction')
                     .attr('id', 'cc-shell-' + page_name + '-navigation-introduction')
-                    .click({page_name: 'introduction'}, present_page)
-                    .hover(to_red, to_black)
+                    .click({page_name: 'introduction'}, present_Page)
+                    .hover(to_Red, to_Black)
                     .end()
 
                     .find('#cc-shell-front-matter-navigation-volume')
                     .addClass('cc-shell-front-matter-navigation-volume')
                     .attr('id', 'cc-shell-' + page_name + '-navigation-volume')
-                    .click({page_name: 'volume'}, present_page)
-                    .hover(to_red, to_black)
+                    .click({page_name: 'volume'}, present_Page)
+                    .hover(to_Red, to_Black)
                     .end()
 
                     .find('#cc-shell-front-matter-navigation-trust')
                     .addClass('cc-shell-front-matter-navigation-trust')
                     .attr('id', 'cc-shell-' + page_name + '-navigation-trust')
-                    .click({page_name: 'trust'}, present_page)
-                    .hover(to_red, to_black)
+                    .click({page_name: 'trust'}, present_Page)
+                    .hover(to_Red, to_Black)
                     .end()
 
                     .find('#cc-shell-front-matter-navigation-topics')
                     .addClass('cc-shell-front-matter-navigation-topics')
                     .attr('id', 'cc-shell-' + page_name + '-navigation-topics')
-                    .click({page_name: 'topics'}, present_page)
-                    .hover(to_red, to_black)
+                    .click({page_name: 'topics'}, present_Page)
+                    .hover(to_Red, to_Black)
                     .end()
 
                     .find('#cc-shell-front-matter-navigation-frequency')
                     .addClass('cc-shell-front-matter-navigation-frequency')
                     .attr('id', 'cc-shell-' + page_name + '-navigation-frequency')
-                    .click({page_name: 'frequency'}, present_page)
-                    .hover(to_red, to_black)
+                    .click({page_name: 'frequency'}, present_Page)
+                    .hover(to_Red, to_Black)
                     .end()
 
                     .find('#cc-shell-front-matter-navigation-postscript')
                     .addClass('cc-shell-front-matter-navigation-postscript')
                     .attr('id', 'cc-shell-' + page_name + '-navigation-postscript')
-                    .click({page_name: 'postscript'}, present_page)
-                    .hover(to_red, to_black)
+                    .click({page_name: 'postscript'}, present_Page)
+                    .hover(to_Red, to_Black)
                     .end()
 
                     .find('#cc-shell-front-matter-navigation-colophon')
                     .addClass('cc-shell-front-matter-navigation-colophon')
                     .attr('id', 'cc-shell-' + page_name + '-navigation-colophon')
-                    .click({page_name: 'colophon'}, present_page)
-                    .hover(to_red, to_black)
+                    .click({page_name: 'colophon'}, present_Page)
+                    .hover(to_Red, to_Black)
                     .end();
             })
             .end(); // div#cc-shell-page-name-column-right
     };
 
-    create_body = function(jq_container, page_name) {
+    create_Body = function(jq_container, page_name) {
 
         jq_container
 
@@ -453,8 +470,8 @@ cc.shell = (function () {
             .find('div:last')
             .addClass('cc-shell-body-logo')
             .attr('id', 'cc-shell-' + page_name + '-logo')
-            .click({page_name: 'contents'}, present_page)
-            .hover(to_red, to_black)
+            .click({page_name: 'contents'}, present_Page)
+            .hover(to_Red, to_Black)
             .load('html/cc-shell-body-logo.html')
             .end()
 
@@ -495,29 +512,29 @@ cc.shell = (function () {
                     .find('div#cc-shell-body-navigation-volume')
                     .addClass('cc-shell-body-navigation-volume')
                     .attr('id', 'cc-shell-' + page_name + '-navigation-volume')
-                    .click({page_name: 'volume'}, present_page)
-                    .hover(to_red, to_black)
+                    .click({page_name: 'volume'}, present_Page)
+                    .hover(to_Red, to_Black)
                     .end()
 
                     .find('div#cc-shell-body-navigation-trust')
                     .addClass('cc-shell-body-navigation-trust')
                     .attr('id', 'cc-shell-' + page_name + '-navigation-trust')
-                    .click({page_name: 'trust'}, present_page)
-                    .hover(to_red, to_black)
+                    .click({page_name: 'trust'}, present_Page)
+                    .hover(to_Red, to_Black)
                     .end()
 
                     .find('div#cc-shell-body-navigation-topics')
                     .addClass('cc-shell-body-navigation-topics')
                     .attr('id', 'cc-shell-' + page_name + '-navigation-topics')
-                    .click({page_name: 'topics'}, present_page)
-                    .hover(to_red, to_black)
+                    .click({page_name: 'topics'}, present_Page)
+                    .hover(to_Red, to_Black)
                     .end()
 
                     .find('div#cc-shell-body-navigation-frequency')
                     .addClass('cc-shell-body-navigation-frequency')
                     .attr('id', 'cc-shell-' + page_name + '-navigation-frequency')
-                    .click({page_name: 'frequency'}, present_page)
-                    .hover(to_red, to_black)
+                    .click({page_name: 'frequency'}, present_Page)
+                    .hover(to_Red, to_Black)
                     .end();
             })
             .end() // div#cc-shell-page-name-navigation
@@ -570,15 +587,14 @@ cc.shell = (function () {
             .end(); // div#cc-shell-page-name-footer
     };
 
-    create_back = function(jq_container, page_name) {
-        create_front(jq_container, page_name);
+    create_Back = function(jq_container, page_name) {
+        create_Front(jq_container, page_name);
     };
 
     return {
         configModule: configModule,
         initModule: initModule,
-        getJqContainers: getJqContainers,
-        getD3Containers: getD3Containers
+        getJqContainers: getJqContainers
     };
 
 }());

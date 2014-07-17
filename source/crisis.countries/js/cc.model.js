@@ -21,9 +21,9 @@ cc.model = (function () {
         }
     },
     module_State = {
-        country: undefined,
-        sources: undefined,
-        tags: undefined
+        country: null,
+        sources: null,
+        tags: null
     };
 
     configModule = function (input_config) {

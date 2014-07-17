@@ -9,8 +9,14 @@ var cc = (function () {
     var
     initModule;
     
-    initModule = function (jq_container, d3_container) {
-        cc.shell.initModule(jq_container, d3_container);
+    initModule = function () {
+
+        var jq_container = $('body')
+            .append('<div id="main"></div>')
+            .find('div#main');
+
+        cc.shell.initModule(jq_container);
+
     };
 
     return {initModule: initModule};
