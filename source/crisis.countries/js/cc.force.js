@@ -24,10 +24,10 @@ cc.force = (function () {
         domain_y: [-50, 50],
         domain_o: [-1, 1],
         range_o: [0.25, 0.75],
-        gravity: 0.60,
+        gravity: 1.00,
         friction: 0.90,
-        beta_x: 0.24,
-        beta_y: 0.12,
+        beta_x: 0.20,
+        beta_y: 0.10,
         settable: {
             width: true,
             height: true,
@@ -90,9 +90,7 @@ cc.force = (function () {
             .attr('width', module_Config.width)
             .attr('height', module_Config.height);
 
-        module_State.node_values[page_name] = cc.model.getSources();
-        // module_State.node_values[page_name] = $.extend({}, cc.model.getSources());
-        // module_State.node_values[page_name] = $.extend(true, {}, cc.model.getSources());
+        module_State.node_values[page_name] = $.extend(true, [], cc.model.getSources());
 
         module_State.node_values[page_name].forEach(function (o) {
             o.x = scale_X(-o.age);
@@ -148,9 +146,9 @@ cc.force = (function () {
         } else if (+d.volume === 0) {
             return 5 * 2.2;
         } else if (+d.volume === 1) {
-            return 5 * 2.2 * 2.2;
+            return 5 * Math.pow(2.2, 2);
         } else {
-            return 5 * 2.2 * 2.2 * 2.2;
+            return 5 * Math.pow(2.2, 3);
         }
     };
 
@@ -162,13 +160,7 @@ cc.force = (function () {
 
         switch (page_name) {
         case 'volume':
-            if (d.engagement === 1) {
-                color = '#494949';
-            } else if (d.engagement === 0) {
-                color = '#7D7D7D';
-            } else if (d.engagement === -1) {
-                color = '#CBCBCB';
-            }
+            color = '#979797';
             break;
 
         case 'trust':
@@ -260,15 +252,15 @@ cc.force = (function () {
     };
 
     charge_R = function (d) {
-        var default_charge = -30;
+        var default_charge = -200;
         if (d.volume === 1) {
-            return 16 * default_charge;
+            return 4.0 * default_charge;
         }
         else if (d.volume === 0) {
-            return 4 * default_charge;
+            return default_charge;
         }
         else { // if (d.volume === -1)
-            return default_charge;
+            return default_charge / 4.0;
         }
     };
 
@@ -301,12 +293,32 @@ cc.force = (function () {
             default:
             }
 
-            if (o.engagement === 1) {
-                target_y = module_Config.height / 2.0 - module_Config.n_margin * module_Config.margin;
-            } else if (o.engagement === 0) {
-                target_y = module_Config.height / 2.0;
-            } else if (o.engagement === -1) {
-                target_y = module_Config.height / 2.0 + module_Config.n_margin * module_Config.margin;
+            switch (page_name) {
+            case 'volume':
+                if (o.volume === 1) {
+                    target_y = module_Config.height / 2.0 - module_Config.n_margin * module_Config.margin;
+                } else if (o.volume === 0) {
+                    target_y = module_Config.height / 2.0;
+                } else if (o.volume === -1) {
+                    target_y = module_Config.height / 2.0 + module_Config.n_margin * module_Config.margin;
+                }
+                break;
+
+            case 'trust':
+            case 'topics':
+                if (o.engagement === 1) {
+                    target_y = module_Config.height / 2.0 - module_Config.n_margin * module_Config.margin;
+                } else if (o.engagement === 0) {
+                    target_y = module_Config.height / 2.0;
+                } else if (o.engagement === -1) {
+                    target_y = module_Config.height / 2.0 + module_Config.n_margin * module_Config.margin;
+                }
+                break;
+
+            case 'frequency':
+                break;
+
+            default:
             }
 
             o.x += e.alpha * module_Config.beta_x * (target_x - o.x);
