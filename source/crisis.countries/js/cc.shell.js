@@ -44,9 +44,11 @@ cc.shell = (function () {
 
         cc.model.configModule({});
         cc.force.configModule({});
+        cc.grid.configModule({});
 
         cc.model.initModule(module_Config.input_file_name);
         cc.force.initModule();
+        cc.grid.initModule();
 
         module_State.jq_containers.main = jq_container;
 
@@ -86,6 +88,7 @@ cc.shell = (function () {
             break;
 
         case 'frequency':
+            cc.grid.presentGrid(page_name);
             break;
 
         default:
@@ -305,6 +308,8 @@ cc.shell = (function () {
             module_State.jq_containers[page_name]
                 .find('div#cc-shell-frequency-title')
                 .load('html/cc-shell-frequency-description.html');
+
+            cc.grid.initGrid(page_name);
 
             break;
 
