@@ -22,8 +22,6 @@ cc.force = (function () {
         n_margin: 4.0,
         domain_x: [-50, 50],
         domain_y: [-50, 50],
-        domain_o: [-1, 1],
-        range_o: [0.25, 0.75],
         gravity: 1.00,
         friction: 0.90,
         beta_x: 0.20,
@@ -44,10 +42,11 @@ cc.force = (function () {
         }
     },
     module_State = {
-        svgs: {},
+        groups: {},
         layouts: {},
         node_values: {},
         node_elements: {},
+        node_description: {},
         page_name: undefined
     },
     scale_X,
@@ -58,7 +57,9 @@ cc.force = (function () {
     stroke_R,
     stroke_Width_R,
     charge_R,
-    on_Tick;
+    on_Tick,
+    present_Description,
+    dismiss_Description;
 
     configModule = function (input_config) {
         cc.util.setConfig(input_config, module_Config);
@@ -75,9 +76,11 @@ cc.force = (function () {
             .domain(module_Config.domain_y)
             .range([module_Config.height - module_Config.margin, module_Config.margin]);
 
+        /*
         scale_O = d3.scale.linear()
             .domain(module_Config.domain_o)
             .range(module_Config.range_o);
+        */
 
     };
 
@@ -85,10 +88,12 @@ cc.force = (function () {
 
         module_State.page_name = page_name;
 
-        module_State.svgs[page_name] = d3.select('div#cc-shell-' + page_name + '-column-right')
+        module_State.groups[page_name] = d3.select('div#cc-shell-' + page_name + '-column-right')
             .append('svg')
             .attr('width', module_Config.width)
-            .attr('height', module_Config.height);
+            .attr('height', module_Config.height)
+            .append('g')
+            .attr('class', 'graphic');
 
         module_State.node_values[page_name] = $.extend(true, [], cc.model.getSources());
 
@@ -105,10 +110,9 @@ cc.force = (function () {
             .friction(module_Config.friction)
             .on('tick', on_Tick);
 
-        module_State.node_elements[page_name] = module_State.svgs[page_name].selectAll('.node')
+        module_State.node_elements[page_name] = module_State.groups[page_name].selectAll('.node')
             .data(module_State.node_values[page_name])
             .enter().append('circle')
-            .attr('class', 'node')
             .attr('cx', function (d) { return d.x; })
             .attr('cy', function (d) { return d.y; })
             .attr('r', scale_R)
@@ -116,10 +120,36 @@ cc.force = (function () {
             .attr('fill', fill_R)
             .attr('stroke', stroke_R)
             .attr('stroke-width', stroke_Width_R)
-            .on('mousedown', function () { d3.event.stopPropagation(); });
+            .on('mousedown', function () { d3.event.stopPropagation(); })
+            .on('mouseover', present_Description)
+            .on('mouseout', dismiss_Description);
+
+        module_State.node_description[page_name] = {};
+
+        module_State.node_description[page_name].container = module_State.groups[page_name]
+            .append('foreignobject');
+                
+        module_State.node_description[page_name].title = module_State.node_description[page_name].container
+            .append('body')
+            .append('div')
+            .append('h4')
+            .text('howdy');
+
+        presentForce(page_name);
 
     };
-    
+
+    present_Description = function (d) {
+        var page_name = module_State.page_name;
+        module_State.node_description[page_name].title.text(d.name);
+        // module_State.node_description[page_name].title.style('visibility', 'visible');
+    };
+
+    dismiss_Description = function () {
+        var page_name = module_State.page_name;
+        // module_State.node_description[page_name].title.style('visibility', 'hidden');
+    };
+
     presentForce = function (page_name) {
 
         module_State.page_name = page_name;
@@ -150,6 +180,32 @@ cc.force = (function () {
         } else {
             return 5 * Math.pow(2.2, 3);
         }
+    };
+
+    scale_O = function (d) {
+
+        var
+        opacity = 0.75,
+        page_name = module_State.page_name;
+
+        switch (page_name) {
+        case 'volume':
+            break;
+
+        case 'trust':
+        case 'topics':
+        case 'frequency':
+            if (+d.engagement === -1) {
+                return 0.60;
+            } else if (+d.engagement === 0) {
+                return 0.75;
+            } else if (+d.engagement === 1) {
+                return 0.90;
+            }
+            break;
+        default:
+        }
+        return opacity;
     };
 
     fill_R = function (d) {
