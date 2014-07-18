@@ -46,7 +46,7 @@ cc.force = (function () {
         layouts: {},
         node_values: {},
         node_elements: {},
-        node_description: {},
+        node_descriptions: {},
         page_name: undefined
     },
     scale_X,
@@ -58,7 +58,9 @@ cc.force = (function () {
     stroke_Width_R,
     charge_R,
     on_Tick,
+    tooltip,
     present_Description,
+    move_Description,
     dismiss_Description;
 
     configModule = function (input_config) {
@@ -110,6 +112,15 @@ cc.force = (function () {
             .friction(module_Config.friction)
             .on('tick', on_Tick);
 
+        module_State.node_descriptions[page_name] = d3.select('body')
+            .append('div')
+            .style('position', 'absolute')
+            .style('z-index', '10')
+            .style('visibility', 'hidden');
+
+        module_State.node_descriptions[page_name]
+            .append('h4');
+
         module_State.node_elements[page_name] = module_State.groups[page_name].selectAll('.node')
             .data(module_State.node_values[page_name])
             .enter().append('circle')
@@ -122,32 +133,47 @@ cc.force = (function () {
             .attr('stroke-width', stroke_Width_R)
             .on('mousedown', function () { d3.event.stopPropagation(); })
             .on('mouseover', present_Description)
+            .on('mousemove', move_Description)
             .on('mouseout', dismiss_Description);
+            // .on('mouseover', function(){return tooltip.style('visibility', 'visible');})
+            // .on('mousemove', function(){return tooltip.style('top', (event.pageY-10)+'px').style('left',(event.pageX+10)+'px');})
+            // .on('mouseout', function(){return tooltip.style('visibility', 'hidden');});
+            // .on('mouseover', present_Description)
+            // .on('mouseout', dismiss_Description);
 
-        module_State.node_description[page_name] = {};
-
-        module_State.node_description[page_name].container = module_State.groups[page_name]
-            .append('foreignobject');
-                
-        module_State.node_description[page_name].title = module_State.node_description[page_name].container
+        /*
+        module_State.node_descriptions[page_name] = {};
+        module_State.node_descriptions[page_name].container = module_State.groups[page_name]
+            .append('foreignObject')
             .append('body')
             .append('div')
-            .append('h4')
-            .text('howdy');
-
-        presentForce(page_name);
+            .style('position', 'absolute')
+            .style('visibility', 'hidden');
+        module_State.node_descriptions[page_name].title = module_State.node_descriptions[page_name].container
+            .append('h4');
+        */
 
     };
 
     present_Description = function (d) {
         var page_name = module_State.page_name;
-        module_State.node_description[page_name].title.text(d.name);
-        // module_State.node_description[page_name].title.style('visibility', 'visible');
+        module_State.node_descriptions[page_name]
+            .select('h4')
+            .text(d.name);
+        module_State.node_descriptions[page_name]
+            .style('visibility', 'visible');
+    };
+
+    move_Description = function () {
+        var page_name = module_State.page_name;
+        module_State.node_descriptions[page_name]
+            .style('top', (event.pageY - 10) + 'px')
+            .style('left', (event.pageX + 10) + 'px');
     };
 
     dismiss_Description = function () {
         var page_name = module_State.page_name;
-        // module_State.node_description[page_name].title.style('visibility', 'hidden');
+        module_State.node_descriptions[page_name].style('visibility', 'hidden');
     };
 
     presentForce = function (page_name) {
