@@ -33,8 +33,6 @@ cc.force = (function () {
             n_margin: true,
             domain_x: true,
             domain_y: true,
-            domain_o: true,
-            range_o: true,
             gravity: true,
             friction: true,
             beta_x: true,
@@ -58,7 +56,6 @@ cc.force = (function () {
     stroke_Width_R,
     charge_R,
     on_Tick,
-    tooltip,
     present_Description,
     move_Description,
     dismiss_Description;
@@ -78,12 +75,6 @@ cc.force = (function () {
             .domain(module_Config.domain_y)
             .range([module_Config.height - module_Config.margin, module_Config.margin]);
 
-        /*
-        scale_O = d3.scale.linear()
-            .domain(module_Config.domain_o)
-            .range(module_Config.range_o);
-        */
-
     };
 
     initForce = function (page_name) {
@@ -102,6 +93,7 @@ cc.force = (function () {
         module_State.node_values[page_name].forEach(function (o) {
             o.x = scale_X(-o.age);
             o.y = scale_Y(-o.frequency);
+            o.r = scale_R(0);
         });
 
         module_State.layouts[page_name] = d3.layout.force()
@@ -135,23 +127,17 @@ cc.force = (function () {
             .on('mouseover', present_Description)
             .on('mousemove', move_Description)
             .on('mouseout', dismiss_Description);
-            // .on('mouseover', function(){return tooltip.style('visibility', 'visible');})
-            // .on('mousemove', function(){return tooltip.style('top', (event.pageY-10)+'px').style('left',(event.pageX+10)+'px');})
-            // .on('mouseout', function(){return tooltip.style('visibility', 'hidden');});
-            // .on('mouseover', present_Description)
-            // .on('mouseout', dismiss_Description);
 
-        /*
-        module_State.node_descriptions[page_name] = {};
-        module_State.node_descriptions[page_name].container = module_State.groups[page_name]
-            .append('foreignObject')
-            .append('body')
-            .append('div')
-            .style('position', 'absolute')
-            .style('visibility', 'hidden');
-        module_State.node_descriptions[page_name].title = module_State.node_descriptions[page_name].container
-            .append('h4');
-        */
+    };
+
+    presentForce = function (page_name) {
+
+        module_State.page_name = page_name;
+
+        module_State.layouts[page_name].start();
+
+        module_State.node_elements[page_name]
+            .call(module_State.layouts[page_name].drag);
 
     };
 
@@ -174,26 +160,6 @@ cc.force = (function () {
     dismiss_Description = function () {
         var page_name = module_State.page_name;
         module_State.node_descriptions[page_name].style('visibility', 'hidden');
-    };
-
-    presentForce = function (page_name) {
-
-        module_State.page_name = page_name;
-
-        module_State.layouts[page_name].stop();
-
-        /*
-        module_State.node_values[page_name].forEach(function (o) {
-            o.x = scale_X(-o.age);
-            o.y = scale_Y(-o.frequency);
-        });
-        */
-
-        module_State.layouts[page_name].start();
-
-        module_State.node_elements[page_name]
-            .call(module_State.layouts[page_name].drag);
-
     };
 
     scale_R = function (d) {
