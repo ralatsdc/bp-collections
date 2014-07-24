@@ -30,8 +30,8 @@ cc.shell = (function () {
     create_Page,
     create_Front,
     create_Body,
-    create_Body_Visual,
-    create_Body_Source,
+    create_Visual,
+    create_Source,
     create_Back,
     on_Hash_Change,
     to_Red,
@@ -199,56 +199,56 @@ cc.shell = (function () {
             create_Front(module_State.jq_containers[page_name], page_name);
 
             module_State.jq_containers[page_name]
-                .find('div#cc-shell-front-content-contents')
+                .find('div#cc-shell-front-contents')
                 .addClass('contents')
-                .load('html/cc-shell-front-content-contents.html', function () {
+                .load('html/cc-shell-front-contents.html', function () {
                     module_State.jq_containers[page_name]
-                        .find('#cc-shell-front-content-contents-nav-to-preface')
+                        .find('#cc-shell-front-contents-nav-to-preface')
                         .click({page_name: 'preface'}, present_Page)
                         .hover(to_Red, to_Black)
                         .end()
 
-                        .find('#cc-shell-front-content-contents-nav-to-introduction')
+                        .find('#cc-shell-front-contents-nav-to-introduction')
                         .click({page_name: 'introduction'}, present_Page)
                         .hover(to_Red, to_Black)
                         .end()
 
-                        .find('#cc-shell-front-content-contents-nav-to-volume')
+                        .find('#cc-shell-front-contents-nav-to-volume')
                         .click({page_name: 'volume'}, present_Page)
                         .hover(to_Red, to_Black)
                         .end()
 
-                        .find('#cc-shell-front-content-contents-nav-to-trust')
+                        .find('#cc-shell-front-contents-nav-to-trust')
                         .click({page_name: 'trust'}, present_Page)
                         .hover(to_Red, to_Black)
                         .end()
 
-                        .find('#cc-shell-front-content-contents-nav-to-topics')
+                        .find('#cc-shell-front-contents-nav-to-topics')
                         .click({page_name: 'topics'}, present_Page)
                         .hover(to_Red, to_Black)
                         .end()
 
-                        .find('#cc-shell-front-content-contents-nav-to-frequency')
+                        .find('#cc-shell-front-contents-nav-to-frequency')
                         .click({page_name: 'frequency'}, present_Page)
                         .hover(to_Red, to_Black)
                         .end()
 
-                        .find('#cc-shell-front-content-contents-nav-to-postscript')
+                        .find('#cc-shell-front-contents-nav-to-postscript')
                         .click({page_name: 'postscript'}, present_Page)
                         .hover(to_Red, to_Black)
                         .end()
 
-                        .find('#cc-shell-front-content-contents-nav-to-colophon')
+                        .find('#cc-shell-front-contents-nav-to-colophon')
                         .click({page_name: 'colophon'}, present_Page)
                         .hover(to_Red, to_Black)
                         .end();
                 })
-                .end(); // div#cc-shell-front-content-contents
+                .end(); // div#cc-shell-front-contents
 
             module_State.jq_containers[page_name]
                 .find('div#cc-shell-front-navigation-contents')
                 .empty()
-                .load('html/cc-shell-front-navigation-epigraph.html');
+                .load('html/cc-shell-front-epigraph.html');
 
             break;
 
@@ -256,8 +256,8 @@ cc.shell = (function () {
             create_Front(module_State.jq_containers[page_name], page_name);
 
             module_State.jq_containers[page_name]
-                .find('div#cc-shell-front-content-preface')
-                .load('html/cc-shell-front-content-preface.html');
+                .find('div#cc-shell-front-preface')
+                .load('html/cc-shell-front-preface.html');
 
             break;
 
@@ -265,8 +265,8 @@ cc.shell = (function () {
             create_Front(module_State.jq_containers[page_name], page_name);
 
             module_State.jq_containers[page_name]
-                .find('div#cc-shell-front-content-introduction')
-                .load('html/cc-shell-front-content-introduction.html');
+                .find('div#cc-shell-front-introduction')
+                .load('html/cc-shell-front-introduction.html');
 
             break;
 
@@ -274,12 +274,8 @@ cc.shell = (function () {
             create_Body(module_State.jq_containers[page_name], page_name);
 
             module_State.jq_containers[page_name]
-                .find('div#cc-shell-volume-title')
-                .load('html/cc-shell-volume-description.html');
-
-            module_State.jq_containers[page_name]
-                .find('div#cc-shell-volume-content')
-                .load('html/cc-shell-volume-legend.html');
+                .find('div#cc-shell-visual-volume')
+                .load('html/cc-shell-visual-volume.html');
 
             cc.force.initForce(page_name);
 
@@ -289,12 +285,8 @@ cc.shell = (function () {
             create_Body(module_State.jq_containers[page_name], page_name);
 
             module_State.jq_containers[page_name]
-                .find('div#cc-shell-trust-title')
-                .load('html/cc-shell-trust-description.html');
-
-            module_State.jq_containers[page_name]
-                .find('div#cc-shell-trust-content')
-                .load('html/cc-shell-trust-legend.html');
+                .find('div#cc-shell-visual-trust')
+                .load('html/cc-shell-visual-trust.html');
 
             cc.force.initForce(page_name);
 
@@ -304,8 +296,8 @@ cc.shell = (function () {
             create_Body(module_State.jq_containers[page_name], page_name);
 
             module_State.jq_containers[page_name]
-                .find('div#cc-shell-topics-title')
-                .load('html/cc-shell-topics-description.html');
+                .find('div#cc-shell-visual-topics')
+                .load('html/cc-shell-visual-topics.html');
 
             cc.force.initForce(page_name);
 
@@ -315,8 +307,8 @@ cc.shell = (function () {
             create_Body(module_State.jq_containers[page_name], page_name);
             
             module_State.jq_containers[page_name]
-                .find('div#cc-shell-frequency-title')
-                .load('html/cc-shell-frequency-description.html');
+                .find('div#cc-shell-visual-frequency')
+                .load('html/cc-shell-visual-frequency.html');
 
             cc.grid.initGrid(page_name);
 
@@ -326,8 +318,8 @@ cc.shell = (function () {
             create_Back(module_State.jq_containers[page_name], page_name);
 
             module_State.jq_containers[page_name]
-                .find('div#cc-shell-postscript-content')
-                .load('html/cc-shell-postscript.html');
+                .find('div#cc-shell-front-postscript')
+                .load('html/cc-shell-front-postscript.html');
 
             break;
 
@@ -335,8 +327,8 @@ cc.shell = (function () {
             create_Back(module_State.jq_containers[page_name], page_name);
 
             module_State.jq_containers[page_name]
-                .find('div#cc-shell-colophon-content')
-                .load('html/cc-shell-colophon.html');
+                .find('div#cc-shell-front-colophon')
+                .load('html/cc-shell-front-colophon.html');
 
             break;
 
@@ -387,7 +379,7 @@ cc.shell = (function () {
             .append('<div></div>')
             .find('div:last')
             .addClass('cc-shell-front-content')
-            .attr('id', 'cc-shell-front-content-' + page_name)
+            .attr('id', 'cc-shell-front-' + page_name)
             .addClass('eight columns alpha')
             .end()
 
@@ -465,7 +457,24 @@ cc.shell = (function () {
                     .hover(to_Red, to_Black)
                     .end();
             })
-            .end(); // div#cc-shell-front-navigation-page-name
+            .end() // div#cc-shell-front-navigation-page-name
+
+        // footer
+
+            .append('<div></div>')
+            .find('div:last')
+            .addClass('cc-shell-front-footer')
+            .attr('id', 'cc-shell-front-footer' + page_name)
+
+            .append('<div></div>')
+            .find('div:last')
+            .addClass('one-third column cc-shell-front-logo')
+            .attr('id', 'cc-shell-front-logo' + page_name)
+            .load('html/cc-shell-front-logo.html')
+            .end()
+
+            .end(); // div#cc-shell-front-footer-page-name
+
     };
 
     create_Body = function (jq_container, page_name) {
@@ -475,15 +484,15 @@ cc.shell = (function () {
         case 'trust':
         case 'topics':
         case 'frequency':
-            create_Body_Visual(jq_container, page_name);
+            create_Visual(jq_container, page_name);
             break;
 
         default:
-            create_Body_Source(jq_container, page_name);
+            create_Source(jq_container, page_name);
         }
     };
 
-    create_Body_Visual = function (jq_container, page_name) {
+    create_Visual = function (jq_container, page_name) {
 
         jq_container
 
@@ -491,81 +500,74 @@ cc.shell = (function () {
 
             .append('<div></div>')
             .find('div:last')
-            .addClass('cc-shell-body-header')
-            .attr('id', 'cc-shell-' + page_name + '-header')
+            .addClass('cc-shell-visual-header')
+            .attr('id', 'cc-shell-visual-header' + page_name)
 
             .append('<div></div>')
             .find('div:last')
-            .addClass('cc-shell-body-logo')
-            .attr('id', 'cc-shell-' + page_name + '-logo')
-            .click({page_name: 'contents'}, present_Page)
-            .hover(to_Red, to_Black)
-            .load('html/cc-shell-body-logo.html')
+            .addClass('one-third column cc-shell-visual-share')
+            .attr('id', 'cc-shell-visual-share' + page_name)
+            .load('html/cc-shell-visual-share.html')
             .end()
 
-            .append('<div></div>')
-            .find('div:last')
-            .addClass('cc-shell-body-author')
-            .attr('id', 'cc-shell-' + page_name + '-author')
-            .load('html/cc-shell-body-author.html')
-            .end()
-
-            .end() // div#cc-shell-page-name-header
+            .end() // div#cc-shell-visual-header-page-name
 
         // body
 
             .append('<div></div>')
             .find('div:last')
-            .addClass('cc-shell-body-body')
-            .attr('id', 'cc-shell-' + page_name + '-body')
+            .addClass('cc-shell-visual-body')
+            .attr('id', 'cc-shell-visual-body' + page_name)
 
         // body title
 
             .append('<div></div>')
             .find('div:last')
-            .addClass('cc-shell-body-title')
-            .attr('id', 'cc-shell-' + page_name + '-title')
-            .load('html/cc-shell-body-title.html')
+            .addClass('cc-shell-visual-title')
+            .attr('id', 'cc-shell-visual-title' + page_name)
+            .click({page_name: 'contents'}, present_Page)
+            .hover(to_Red, to_Black)
+            .load('html/cc-shell-visual-title.html')
             .end()
 
         // body navigation
 
             .append('<div></div>')
             .find('div:last')
-            .addClass('cc-shell-body-navigation')
-            .attr('id', 'cc-shell-' + page_name + '-navigation')
+            .addClass('cc-shell-visual-navigation')
+            .attr('id', 'cc-shell-visual-navigation' + page_name)
             .addClass('row')
-            .load('html/cc-shell-body-navigation.html', function () {
+            .load('html/cc-shell-visual-navigation.html', function () {
                 jq_container
-                    .find('div#cc-shell-body-navigation-volume')
-                    .addClass('cc-shell-body-navigation-volume')
-                    .attr('id', 'cc-shell-' + page_name + '-navigation-volume')
+                    .find('div#cc-shell-visual-nav-to-volume')
+                    .addClass('cc-shell-visual-nav-to-volume')
+                    .attr('id', 'cc-shell-visual-nav-to-volume' + page_name)
                     .click({page_name: 'volume'}, present_Page)
                     .hover(to_Red, to_Black)
                     .end()
 
-                    .find('div#cc-shell-body-navigation-trust')
-                    .addClass('cc-shell-body-navigation-trust')
-                    .attr('id', 'cc-shell-' + page_name + '-navigation-trust')
+                    .find('div#cc-shell-visual-nav-to-trust')
+                    .addClass('cc-shell-visual-nav-to-trust')
+                    .attr('id', 'cc-shell-visual-nav-to-trust' + page_name)
                     .click({page_name: 'trust'}, present_Page)
                     .hover(to_Red, to_Black)
                     .end()
 
-                    .find('div#cc-shell-body-navigation-topics')
-                    .addClass('cc-shell-body-navigation-topics')
-                    .attr('id', 'cc-shell-' + page_name + '-navigation-topics')
+                    .find('div#cc-shell-visual-nav-to-topics')
+                    .addClass('cc-shell-visual-nav-to-topics')
+                    .attr('id', 'cc-shell-visual-nav-to-topics' + page_name)
                     .click({page_name: 'topics'}, present_Page)
                     .hover(to_Red, to_Black)
                     .end()
 
-                    .find('div#cc-shell-body-navigation-frequency')
-                    .addClass('cc-shell-body-navigation-frequency')
-                    .attr('id', 'cc-shell-' + page_name + '-navigation-frequency')
+                    .find('div#cc-shell-visual-nav-to-frequency')
+                    .addClass('cc-shell-visual-nav-to-frequency')
+                    .attr('id', 'cc-shell-visual-nav-to-frequency' + page_name)
                     .click({page_name: 'frequency'}, present_Page)
                     .hover(to_Red, to_Black)
                     .end();
             })
-            .end() // div#cc-shell-page-name-navigation
+            .end() // div#cc-shell-visual-navigation-page-name
 
         // body content
 
@@ -575,47 +577,134 @@ cc.shell = (function () {
 
             .append('<div></div>')
             .find('div:last')
-            .addClass('cc-shell-body-content')
-            .attr('id', 'cc-shell-' + page_name + '-content')
+            .addClass('cc-shell-visual-content')
+            .attr('id', 'cc-shell-visual-content' + page_name)
             .addClass('four columns alpha')
             .end()
 
             .append('<div></div>')
             .find('div:last')
-            .addClass('cc-shell-body-navigation')
-            .attr('id', 'cc-shell-' + page_name + '-navigation')
+            .addClass('cc-shell-visual-navigation')
+            .attr('id', 'cc-shell-visual-navigation' + page_name)
             .addClass('eight columns omega')
             .end()
 
             .end() // div.row
 
-            .end() // div#cc-shell-page-name-body
+            .end() // div#cc-shell-visual-body-page-name
 
         // footer
 
             .append('<div></div>')
             .find('div:last')
-            .addClass('cc-shell-body-footer')
-            .attr('id', 'cc-shell-' + page_name + '-footer')
+            .addClass('cc-shell-visual-footer')
+            .attr('id', 'cc-shell-visual-footer' + page_name)
 
             .append('<div></div>')
             .find('div:last')
-            .addClass('cc-shell-body-social')
-            .attr('id', 'cc-shell-' + page_name + '-social')
-            .load('html/cc-shell-body-social.html')
+            .addClass('cc-shell-visual-logo')
+            .attr('id', 'cc-shell-visual-logo' + page_name)
+            .load('html/cc-shell-visual-logo.html')
             .end()
 
-            .append('<div></div>')
-            .find('div:last')
-            .addClass('cc-shell-body-publisher')
-            .attr('id', 'cc-shell-' + page_name + '-publisher')
-            .load('html/cc-shell-body-publisher.html')
-            .end()
-
-            .end(); // div#cc-shell-page-name-footer
+            .end(); // div#cc-shell-visual-footer-page-name
     };
 
-    create_Body_Source = function (jq_container, page_name) {
+    create_Source = function (jq_container, page_name) {
+
+        jq_container
+
+        // header
+
+            .append('<div></div>')
+            .find('div:last')
+            .addClass('cc-shell-source-header')
+            .attr('id', 'cc-shell-source-header' + page_name)
+
+            .append('<div></div>')
+            .find('div:last')
+            .addClass('two-thirds column cc-shell-source-title')
+            .attr('id', 'cc-shell-source-title-' + page_name)
+            .click({page_name: 'contents'}, present_Page)
+            .hover(to_Red, to_Black)
+            .load('html/cc-shell-source-title.html')
+            .end()
+
+            .append('<div></div>')
+            .find('div:last')
+            .addClass('one-third column cc-shell-source-share')
+            .attr('id', 'cc-shell-source-share' + page_name)
+            .load('html/cc-shell-source-share.html')
+            .end()
+
+            .end() // div#cc-shell-source-header-page-name
+
+        // body
+
+            .append('<div></div>')
+            .find('div:last')
+            .addClass('cc-shell-source-body')
+            .attr('id', 'cc-shell-source-body' + page_name)
+
+        // body author
+
+            .append('<div></div>')
+            .find('div:last')
+            .addClass('cc-shell-source-author')
+            .attr('id', 'cc-shell-source-author' + page_name)
+        // TODO: Navigate to external URL?
+            .click({page_name: 'contents'}, present_Page)
+            .hover(to_Red, to_Black)
+            .load('html/cc-shell-source-author.html')
+        // TODO: Set source author
+            .end()
+
+        // body content
+
+            .append('<div></div>')
+            .find('div:last')
+            .addClass('row')
+
+            .append('<div></div>')
+            .find('div:last')
+            .addClass('cc-shell-source-content')
+            .attr('id', 'cc-shell-source-content' + page_name)
+            .addClass('one-third column alpha')
+            .end()
+
+            .append('<div></div>')
+            .find('div:last')
+            .addClass('cc-shell-source-content')
+            .attr('id', 'cc-shell-source-content' + page_name)
+            .addClass('one-third column')
+            .end()
+
+            .append('<div></div>')
+            .find('div:last')
+            .addClass('cc-shell-source-content')
+            .attr('id', 'cc-shell-source-content' + page_name)
+            .addClass('one-third column omega')
+            .end()
+
+            .end() // div.row
+
+            .end() // div#cc-shell-source-body-page-name
+
+        // footer
+
+            .append('<div></div>')
+            .find('div:last')
+            .addClass('cc-shell-source-footer')
+            .attr('id', 'cc-shell-source-footer' + page_name)
+
+            .append('<div></div>')
+            .find('div:last')
+            .addClass('cc-shell-source-logo')
+            .attr('id', 'cc-shell-source-logo' + page_name)
+            .load('html/cc-shell-source-logo.html')
+            .end()
+
+            .end(); // div#cc-shell-source-footer-page-name
     };
 
     create_Back = function (jq_container, page_name) {

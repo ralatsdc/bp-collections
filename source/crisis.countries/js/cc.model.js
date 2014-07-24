@@ -13,7 +13,9 @@ cc.model = (function () {
     configModule,
     getCountry,
     getSources,
-    getTags;
+    getTags,
+    setSample,
+    getSample;
 
     var
     module_Config = {
@@ -23,7 +25,8 @@ cc.model = (function () {
     module_State = {
         country: null,
         sources: null,
-        tags: null
+        tags: null,
+        sample: null
     };
 
     configModule = function (input_config) {
@@ -49,6 +52,16 @@ cc.model = (function () {
 
     getTags = function () {
         return module_State.sources;
+    };
+
+    setSample = function (input_file_name) {
+        d3.json(input_file_name, function (input_json) {
+            module_State.sample = input_json;
+        });
+    };
+
+    getSample = function () {
+        return module_State.sample;
     };
 
     return {
