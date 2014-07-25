@@ -51,7 +51,7 @@ cc.model = (function () {
     };
 
     getTags = function () {
-        return module_State.sources;
+        return module_State.tags;
     };
 
     setSample = function (input_file_name) {

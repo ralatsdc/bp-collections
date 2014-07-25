@@ -4,11 +4,28 @@
  *
  */
 
-
 div#cc-shell-cover-header,
 div.cc-shell-front-header,
 div.cc-shell-visual-header {
     height: 150px;
+}
+
+#cc-shell-cover-logo svg {
+    height: 15%;
+    width: 15%;
+    viewBox: "none";
+}
+
+.cc-shell-front-logo svg {
+    height: 50%;
+    width: 50%;
+    viewBox: "none";
+}
+
+.cc-shell-visual-logo svg {
+    height: 50%;
+    width: 50%;
+    viewBox: "none";
 }
 
 #cc-shell-cover-title h1 {

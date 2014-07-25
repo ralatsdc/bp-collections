@@ -30,6 +30,7 @@ cc.grid = (function () {
         }
     },
     module_State = {
+        svgs: {},
         groups: {},
         node_values: {},
         node_elements: {},
@@ -68,14 +69,23 @@ cc.grid = (function () {
 
         module_State.page_name = page_name;
 
-        module_State.groups[page_name] = d3.select('div#cc-shell-visual-' + page_name + '-graphic')
+        module_State.svgs[page_name] = d3.select('div#cc-shell-visual-' + page_name + '-graphic')
             .append('svg')
             .attr('width', module_Config.width)
             .attr('height', module_Config.height)
-            .append('g')
             .attr('class', 'graphic');
 
-        module_State.node_values[page_name] = $.extend(true, [], cc.model.getSources());
+        module_State.groups[page_name] = module_State.svgs[page_name]
+            .append('g');
+
+        var sources = $.extend(true, [], cc.model.getSources());
+        for(var i_source = sources.length - 1; i_source >= 0; i_source -= 1) {
+            if(!sources[i_source].include) {
+                sources.splice(i_source, 1);
+            }
+        }
+
+        module_State.node_values[page_name] = sources;
 
         module_State.node_values[page_name].forEach(function (o) {
             o.x = scale_X(0);
@@ -119,6 +129,17 @@ cc.grid = (function () {
             .attr('stroke', stroke_R)
             .attr('stroke-width', stroke_Width_R);
 
+        var axis_X = d3.svg.axis().scale(scale_X);
+        var axis_Y = d3.svg.axis().scale(scale_Y).orient('right');
+
+        module_State.svgs[page_name]
+            .append('g')
+            .attr('transform', 'translate(0, ' + scale_X(0) + ')') 
+            .call(axis_X);
+
+        module_State.svgs[page_name]
+            .append('g')
+            .call(axis_Y);
     };
 
     present_Description = function (d) {

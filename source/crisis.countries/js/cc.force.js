@@ -16,10 +16,12 @@ cc.force = (function () {
 
     var
     module_Config = {
-        width: 600,
-        height: 600,
-        margin: 30,
+        width: 460,
+        height: 460,
+        margin: 23,
         n_margin: 4.0,
+        default_R: 4.0,
+        default_charge: -125,
         domain_x: [-50, 50],
         domain_y: [-50, 50],
         gravity: 1.00,
@@ -31,6 +33,8 @@ cc.force = (function () {
             height: true,
             margin: true,
             n_margin: true,
+            default_R: true,
+            default_charge: true,
             domain_x: true,
             domain_y: true,
             gravity: true,
@@ -164,13 +168,13 @@ cc.force = (function () {
 
     scale_R = function (d) {
         if (+d.volume === -1) {
-            return 5;
+            return module_Config.default_R;
         } else if (+d.volume === 0) {
-            return 5 * 2.2;
+            return module_Config.default_R * 2.2;
         } else if (+d.volume === 1) {
-            return 5 * Math.pow(2.2, 2);
+            return module_Config.default_R * Math.pow(2.2, 2);
         } else {
-            return 5 * Math.pow(2.2, 3);
+            return module_Config.default_R * Math.pow(2.2, 3);
         }
     };
 
@@ -300,15 +304,14 @@ cc.force = (function () {
     };
 
     charge_R = function (d) {
-        var default_charge = -200;
         if (d.volume === 1) {
-            return 4.0 * default_charge;
+            return 4.0 * module_Config.default_charge;
         }
         else if (d.volume === 0) {
-            return default_charge;
+            return module_Config.default_charge;
         }
         else { // if (d.volume === -1)
-            return default_charge / 4.0;
+            return module_Config.default_charge / 4.0;
         }
     };
 

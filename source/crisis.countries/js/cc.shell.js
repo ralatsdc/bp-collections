@@ -127,6 +127,8 @@ cc.shell = (function () {
 
     create_Page = function (page_name) {
 
+        var tags, i_tag, topics;
+
         var page_id = 'cc-shell-' + page_name;
         module_State.jq_containers.main
             .append('<div></div>')
@@ -153,13 +155,7 @@ cc.shell = (function () {
                 .attr('id', 'cc-shell-cover-logo')
                 .click({page_name: 'contents'}, present_Page)
                 .hover(to_Red, to_Black)
-                .load('html/cc-shell-cover-logo.html')
-                .end()
-
-                .append('<div></div>')
-                .find('div:last')
-                .attr('id', 'cc-shell-cover-author')
-                .load('html/cc-shell-cover-author.html')
+                .load('img/blu-pen-logo-two-color-text.svg')
                 .end()
 
                 .end() // div#cc-shell-cover-header
@@ -297,7 +293,7 @@ cc.shell = (function () {
                 .attr('id', 'cc-shell-visual-volume-graphic')
                 .end()
 
-                .end(); // #cc-shell-visual-content-volume
+                .end(); // div#cc-shell-visual-content-volume
 
             cc.force.initForce(page_name);
 
@@ -322,7 +318,7 @@ cc.shell = (function () {
                 .attr('id', 'cc-shell-visual-trust-graphic')
                 .end()
 
-                .end(); // #cc-shell-visual-content-trust
+                .end(); // div#cc-shell-visual-content-trust
 
             cc.force.initForce(page_name);
 
@@ -331,11 +327,65 @@ cc.shell = (function () {
         case 'topics':
             create_Body(module_State.jq_containers[page_name], page_name);
 
+            tags = cc.model.getTags();
+
             module_State.jq_containers[page_name]
-                .find('div#cc-shell-visual-topics')
-                .load('html/cc-shell-visual-topics.html');
+                .find('#cc-shell-visual-content-topics')
+
+                .append('<div></div>')
+                .find('div:last')
+                .addClass('four columns')
+                .attr('id', 'cc-shell-visual-topics-crisis')
+                .end()
+
+                .append('<div></div>')
+                .find('div:last')
+                .addClass('eight columns')
+                .attr('id', 'cc-shell-visual-topics-graphic')
+                .append('<h4>&nbsp;</h4>')
+                .end()
+
+                .append('<div></div>')
+                .find('div:last')
+                .addClass('four columns')
+                .attr('id', 'cc-shell-visual-topics-culture')
+                .end()
+            
+                .end(); // div#cc-shell-visual-content-topics
 
             cc.force.initForce(page_name);
+
+            module_State.jq_containers[page_name]
+                .find('#cc-shell-visual-topics-crisis')
+                .load('html/cc-shell-visual-topics-crisis.html', function () {
+                    topics = module_State.jq_containers[page_name]
+                        .find('#cc-shell-visual-topics-crisis');
+                    for (i_tag = 0; i_tag < tags.length; i_tag += 1) {
+                        if (tags[i_tag].type === 'crisis') {
+                            topics
+                                .append('<p></p>')
+                                .find('p:last')
+                                .text(tags[i_tag].tag)
+                                .end();
+                        }
+                    }
+                });
+
+            module_State.jq_containers[page_name]
+                .find('#cc-shell-visual-topics-culture')
+                .load('html/cc-shell-visual-topics-culture.html', function () {
+                    topics = module_State.jq_containers[page_name]
+                        .find('#cc-shell-visual-topics-culture');
+                    for (i_tag = 0; i_tag < tags.length; i_tag += 1) {
+                        if (tags[i_tag].type === 'common') {
+                            topics
+                                .append('<p></p>')
+                                .find('p:last')
+                                .text(tags[i_tag].tag)
+                                .end();
+                        }
+                    }
+                });
 
             break;
 
@@ -343,8 +393,41 @@ cc.shell = (function () {
             create_Body(module_State.jq_containers[page_name], page_name);
             
             module_State.jq_containers[page_name]
-                .find('div#cc-shell-visual-frequency')
-                .load('html/cc-shell-visual-frequency.html');
+                .find('#cc-shell-visual-content-frequency')
+
+                .append('<div></div>')
+                .find('div:last')
+                .addClass('row')
+
+                .append('<div></div>')
+                .find('div:last')
+                .addClass('one-third column')
+                .attr('id', 'cc-shell-visual-frequency-description-1')
+                .load('html/cc-shell-visual-frequency-description-1.html')
+                .end()
+
+                .append('<div></div>')
+                .find('div:last')
+                .addClass('one-third column')
+                .attr('id', 'cc-shell-visual-frequency-description-2')
+                .load('html/cc-shell-visual-frequency-description-2.html')
+                .end()
+
+                .append('<div></div>')
+                .find('div:last')
+                .addClass('one-third column')
+                .attr('id', 'cc-shell-visual-frequency-description-3')
+                .load('html/cc-shell-visual-frequency-description-3.html')
+                .end()
+
+                .end() // div.row
+
+                .append('<div></div>')
+                .find('div:last')
+                .attr('id', 'cc-shell-visual-frequency-graphic')
+                .end()
+
+                .end(); // div#cc-shell-visual-content-frequency
 
             cc.grid.initGrid(page_name);
 
@@ -424,7 +507,7 @@ cc.shell = (function () {
             .attr('id', 'cc-shell-front-' + page_name)
             .end()
 
-            .end() // two-thirds column
+            .end() // div.two-thirds column
 
             .append('<div></div>')
             .find('div:last')
@@ -521,7 +604,7 @@ cc.shell = (function () {
             .find('div:last')
             .addClass('one-third column cc-shell-front-logo')
             .attr('id', 'cc-shell-front-logo-' + page_name)
-            .load('html/cc-shell-front-logo.html')
+            .load('img/blu-pen-logo-two-color-text.svg')
             .end()
 
             .end() // div.row
@@ -674,9 +757,9 @@ cc.shell = (function () {
 
             .append('<div></div>')
             .find('div:last')
-            .addClass('cc-shell-visual-logo')
+            .addClass('one-third column cc-shell-visual-logo')
             .attr('id', 'cc-shell-visual-logo-' + page_name)
-            .load('html/cc-shell-visual-logo.html')
+            .load('img/blu-pen-logo-two-color-text.svg')
             .end()
 
             .end() // div.row
@@ -774,7 +857,7 @@ cc.shell = (function () {
             .find('div:last')
             .addClass('cc-shell-source-logo')
             .attr('id', 'cc-shell-source-logo-' + page_name)
-            .load('html/cc-shell-source-logo.html')
+            .load('img/blu-pen-logo-two-color-text.svg')
             .end()
 
             .end(); // div#cc-shell-source-footer-page-name
