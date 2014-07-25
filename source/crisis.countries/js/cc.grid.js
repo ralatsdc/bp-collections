@@ -68,7 +68,7 @@ cc.grid = (function () {
 
         module_State.page_name = page_name;
 
-        module_State.groups[page_name] = d3.select('div#cc-shell-' + page_name + '-column-right')
+        module_State.groups[page_name] = d3.select('div#cc-shell-visual-' + page_name + '-graphic')
             .append('svg')
             .attr('width', module_Config.width)
             .attr('height', module_Config.height)

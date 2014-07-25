@@ -164,6 +164,8 @@ cc.shell = (function () {
 
                 .end() // div#cc-shell-cover-header
 
+                .append('<hr>')
+
             // body
 
                 .append('<div></div>')
@@ -183,6 +185,8 @@ cc.shell = (function () {
                 .text('image')
                 .end()
 
+                .append('<hr>')
+
                 .append('<div></div>')
                 .find('div:last')
                 .attr('id', 'cc-shell-cover-navigation')
@@ -190,6 +194,8 @@ cc.shell = (function () {
                 .hover(to_Red, to_Black)
                 .load('html/cc-shell-cover-navigation.html')
                 .end()
+
+                .append('<hr>')
 
                 .end(); // div#cc-shell-cover-body
 
@@ -200,7 +206,8 @@ cc.shell = (function () {
 
             module_State.jq_containers[page_name]
                 .find('div#cc-shell-front-contents')
-                .addClass('contents')
+                .removeClass('eight columns alpha')
+                .addClass('sixteen columns')
                 .load('html/cc-shell-front-contents.html', function () {
                     module_State.jq_containers[page_name]
                         .find('#cc-shell-front-contents-nav-to-preface')
@@ -248,7 +255,8 @@ cc.shell = (function () {
             module_State.jq_containers[page_name]
                 .find('div#cc-shell-front-navigation-contents')
                 .empty()
-                .load('html/cc-shell-front-epigraph.html');
+            // TODO: Why is it necessary to load this empy file?
+                .load('html/cc-shell-front-empty.html');
 
             break;
 
@@ -274,8 +282,22 @@ cc.shell = (function () {
             create_Body(module_State.jq_containers[page_name], page_name);
 
             module_State.jq_containers[page_name]
-                .find('div#cc-shell-visual-volume')
-                .load('html/cc-shell-visual-volume.html');
+                .find('#cc-shell-visual-content-volume')
+
+                .append('<div></div>')
+                .find('div:last')
+                .addClass('one-third column')
+                .attr('id', 'cc-shell-visual-volume-description')
+                .load('html/cc-shell-visual-volume-description.html')
+                .end()
+
+                .append('<div></div>')
+                .find('div:last')
+                .addClass('two-thirds column')
+                .attr('id', 'cc-shell-visual-volume-graphic')
+                .end()
+
+                .end(); // #cc-shell-visual-content-volume
 
             cc.force.initForce(page_name);
 
@@ -285,8 +307,22 @@ cc.shell = (function () {
             create_Body(module_State.jq_containers[page_name], page_name);
 
             module_State.jq_containers[page_name]
-                .find('div#cc-shell-visual-trust')
-                .load('html/cc-shell-visual-trust.html');
+                .find('#cc-shell-visual-content-trust')
+
+                .append('<div></div>')
+                .find('div:last')
+                .addClass('one-third column')
+                .attr('id', 'cc-shell-visual-trust-description')
+                .load('html/cc-shell-visual-trust-description.html')
+                .end()
+
+                .append('<div></div>')
+                .find('div:last')
+                .addClass('two-thirds column')
+                .attr('id', 'cc-shell-visual-trust-graphic')
+                .end()
+
+                .end(); // #cc-shell-visual-content-trust
 
             cc.force.initForce(page_name);
 
@@ -365,6 +401,8 @@ cc.shell = (function () {
 
             .end() // div#cc-shell-page-name-header
 
+            .append('<hr>')
+
         // body
 
             .append('<div></div>')
@@ -378,16 +416,20 @@ cc.shell = (function () {
 
             .append('<div></div>')
             .find('div:last')
-            .addClass('cc-shell-front-content')
-            .attr('id', 'cc-shell-front-' + page_name)
-            .addClass('eight columns alpha')
-            .end()
+            .addClass('two-thirds column')
 
             .append('<div></div>')
             .find('div:last')
-            .addClass('cc-shell-front-navigation')
+            .addClass('eight columns alpha cc-shell-front-content')
+            .attr('id', 'cc-shell-front-' + page_name)
+            .end()
+
+            .end() // two-thirds column
+
+            .append('<div></div>')
+            .find('div:last')
+            .addClass('four columns omega cc-shell-front-navigation')
             .attr('id', 'cc-shell-front-navigation-' + page_name)
-            .addClass('four columns omega')
             .end()
 
             .end() // div.row
@@ -398,61 +440,60 @@ cc.shell = (function () {
 
         module_State.jq_containers[page_name]
             .find('div#cc-shell-front-navigation-' + page_name)
-            .addClass('contents')
             .load('html/cc-shell-front-navigation.html', function () {
                 module_State.jq_containers[page_name]
                     .find('#cc-shell-front-nav-to-preface')
                     .addClass('cc-shell-front-nav-to-preface')
-                    .attr('id', 'cc-shell-front-nav-to-preface' + page_name)
+                    .attr('id', 'cc-shell-front-nav-to-preface-' + page_name)
                     .click({page_name: 'preface'}, present_Page)
                     .hover(to_Red, to_Black)
                     .end()
 
                     .find('#cc-shell-front-nav-to-introduction')
                     .addClass('cc-shell-front-nav-to-introduction')
-                    .attr('id', 'cc-shell-front-nav-to-introduction' + page_name)
+                    .attr('id', 'cc-shell-front-nav-to-introduction-' + page_name)
                     .click({page_name: 'introduction'}, present_Page)
                     .hover(to_Red, to_Black)
                     .end()
 
                     .find('#cc-shell-front-nav-to-volume')
                     .addClass('cc-shell-front-nav-to-volume')
-                    .attr('id', 'cc-shell-front-nav-to-volume' + page_name)
+                    .attr('id', 'cc-shell-front-nav-to-volume-' + page_name)
                     .click({page_name: 'volume'}, present_Page)
                     .hover(to_Red, to_Black)
                     .end()
 
                     .find('#cc-shell-front-nav-to-trust')
                     .addClass('cc-shell-front-nav-to-trust')
-                    .attr('id', 'cc-shell-front-nav-to-trust' + page_name)
+                    .attr('id', 'cc-shell-front-nav-to-trust-' + page_name)
                     .click({page_name: 'trust'}, present_Page)
                     .hover(to_Red, to_Black)
                     .end()
 
                     .find('#cc-shell-front-nav-to-topics')
                     .addClass('cc-shell-front-nav-to-topics')
-                    .attr('id', 'cc-shell-front-nav-to-topics' + page_name)
+                    .attr('id', 'cc-shell-front-nav-to-topics-' + page_name)
                     .click({page_name: 'topics'}, present_Page)
                     .hover(to_Red, to_Black)
                     .end()
 
                     .find('#cc-shell-front-nav-to-frequency')
                     .addClass('cc-shell-front-nav-to-frequency')
-                    .attr('id', 'cc-shell-front-nav-to-frequency' + page_name)
+                    .attr('id', 'cc-shell-front-nav-to-frequency-' + page_name)
                     .click({page_name: 'frequency'}, present_Page)
                     .hover(to_Red, to_Black)
                     .end()
 
                     .find('#cc-shell-front-nav-to-postscript')
                     .addClass('cc-shell-front-nav-to-postscript')
-                    .attr('id', 'cc-shell-front-nav-to-postscript' + page_name)
+                    .attr('id', 'cc-shell-front-nav-to-postscript-' + page_name)
                     .click({page_name: 'postscript'}, present_Page)
                     .hover(to_Red, to_Black)
                     .end()
 
                     .find('#cc-shell-front-nav-to-colophon')
                     .addClass('cc-shell-front-nav-to-colophon')
-                    .attr('id', 'cc-shell-front-nav-to-colophon' + page_name)
+                    .attr('id', 'cc-shell-front-nav-to-colophon-' + page_name)
                     .click({page_name: 'colophon'}, present_Page)
                     .hover(to_Red, to_Black)
                     .end();
@@ -464,17 +505,28 @@ cc.shell = (function () {
             .append('<div></div>')
             .find('div:last')
             .addClass('cc-shell-front-footer')
-            .attr('id', 'cc-shell-front-footer' + page_name)
+            .attr('id', 'cc-shell-front-footer-' + page_name)
+
+            .append('<div></div>')
+            .find('div:last')
+            .addClass('row')
+
+            .append('<div></div>')
+            .find('div:last')
+            .addClass('two-thirds column')
+            .load('html/cc-shell-front-empty.html')
+            .end()
 
             .append('<div></div>')
             .find('div:last')
             .addClass('one-third column cc-shell-front-logo')
-            .attr('id', 'cc-shell-front-logo' + page_name)
+            .attr('id', 'cc-shell-front-logo-' + page_name)
             .load('html/cc-shell-front-logo.html')
             .end()
 
-            .end(); // div#cc-shell-front-footer-page-name
+            .end() // div.row
 
+            .end(); // div#cc-shell-front-footer-page-name
     };
 
     create_Body = function (jq_container, page_name) {
@@ -501,68 +553,92 @@ cc.shell = (function () {
             .append('<div></div>')
             .find('div:last')
             .addClass('cc-shell-visual-header')
-            .attr('id', 'cc-shell-visual-header' + page_name)
+            .attr('id', 'cc-shell-visual-header-' + page_name)
+
+            .append('<div></div>')
+            .find('div:last')
+            .addClass('row')
+
+            .append('<div></div>')
+            .find('div:last')
+            .addClass('two-thirds column')
+            .load('html/cc-shell-front-empty.html')
+            .end()
 
             .append('<div></div>')
             .find('div:last')
             .addClass('one-third column cc-shell-visual-share')
-            .attr('id', 'cc-shell-visual-share' + page_name)
+            .attr('id', 'cc-shell-visual-share-' + page_name)
             .load('html/cc-shell-visual-share.html')
             .end()
 
+            .end() // div.row
+
+        // header title
+
+            .append('<div></div>')
+            .find('div:last')
+            .addClass('cc-shell-visual-header-title')
+            .attr('id', 'cc-shell-visual-header-title-' + page_name)
+            .click({page_name: 'contents'}, present_Page)
+            .hover(to_Red, to_Black)
+            .load('html/cc-shell-visual-header-title.html')
+            .end()
+
             .end() // div#cc-shell-visual-header-page-name
+
+            .append('<hr>')
 
         // body
 
             .append('<div></div>')
             .find('div:last')
             .addClass('cc-shell-visual-body')
-            .attr('id', 'cc-shell-visual-body' + page_name)
+            .attr('id', 'cc-shell-visual-body-' + page_name)
 
         // body title
 
             .append('<div></div>')
             .find('div:last')
-            .addClass('cc-shell-visual-title')
-            .attr('id', 'cc-shell-visual-title' + page_name)
+            .addClass('cc-shell-visual-body-title')
+            .attr('id', 'cc-shell-visual-body-title-' + page_name)
             .click({page_name: 'contents'}, present_Page)
             .hover(to_Red, to_Black)
-            .load('html/cc-shell-visual-title.html')
+            .load('html/cc-shell-visual-body-title.html')
             .end()
 
         // body navigation
 
             .append('<div></div>')
             .find('div:last')
-            .addClass('cc-shell-visual-navigation')
-            .attr('id', 'cc-shell-visual-navigation' + page_name)
-            .addClass('row')
+            .addClass('row cc-shell-visual-navigation')
+            .attr('id', 'cc-shell-visual-navigation-' + page_name)
             .load('html/cc-shell-visual-navigation.html', function () {
                 jq_container
-                    .find('div#cc-shell-visual-nav-to-volume')
+                    .find('#cc-shell-visual-nav-to-volume')
                     .addClass('cc-shell-visual-nav-to-volume')
-                    .attr('id', 'cc-shell-visual-nav-to-volume' + page_name)
+                    .attr('id', 'cc-shell-visual-nav-to-volume-' + page_name)
                     .click({page_name: 'volume'}, present_Page)
                     .hover(to_Red, to_Black)
                     .end()
 
-                    .find('div#cc-shell-visual-nav-to-trust')
+                    .find('#cc-shell-visual-nav-to-trust')
                     .addClass('cc-shell-visual-nav-to-trust')
-                    .attr('id', 'cc-shell-visual-nav-to-trust' + page_name)
+                    .attr('id', 'cc-shell-visual-nav-to-trust-' + page_name)
                     .click({page_name: 'trust'}, present_Page)
                     .hover(to_Red, to_Black)
                     .end()
 
-                    .find('div#cc-shell-visual-nav-to-topics')
+                    .find('#cc-shell-visual-nav-to-topics')
                     .addClass('cc-shell-visual-nav-to-topics')
-                    .attr('id', 'cc-shell-visual-nav-to-topics' + page_name)
+                    .attr('id', 'cc-shell-visual-nav-to-topics-' + page_name)
                     .click({page_name: 'topics'}, present_Page)
                     .hover(to_Red, to_Black)
                     .end()
 
-                    .find('div#cc-shell-visual-nav-to-frequency')
+                    .find('#cc-shell-visual-nav-to-frequency')
                     .addClass('cc-shell-visual-nav-to-frequency')
-                    .attr('id', 'cc-shell-visual-nav-to-frequency' + page_name)
+                    .attr('id', 'cc-shell-visual-nav-to-frequency-' + page_name)
                     .click({page_name: 'frequency'}, present_Page)
                     .hover(to_Red, to_Black)
                     .end();
@@ -573,23 +649,9 @@ cc.shell = (function () {
 
             .append('<div></div>')
             .find('div:last')
-            .addClass('row')
-
-            .append('<div></div>')
-            .find('div:last')
-            .addClass('cc-shell-visual-content')
-            .attr('id', 'cc-shell-visual-content' + page_name)
-            .addClass('four columns alpha')
+            .addClass('cc-shell-visual-content row')
+            .attr('id', 'cc-shell-visual-content-' + page_name)
             .end()
-
-            .append('<div></div>')
-            .find('div:last')
-            .addClass('cc-shell-visual-navigation')
-            .attr('id', 'cc-shell-visual-navigation' + page_name)
-            .addClass('eight columns omega')
-            .end()
-
-            .end() // div.row
 
             .end() // div#cc-shell-visual-body-page-name
 
@@ -598,14 +660,26 @@ cc.shell = (function () {
             .append('<div></div>')
             .find('div:last')
             .addClass('cc-shell-visual-footer')
-            .attr('id', 'cc-shell-visual-footer' + page_name)
+            .attr('id', 'cc-shell-visual-footer-' + page_name)
+
+            .append('<div></div>')
+            .find('div:last')
+            .addClass('row')
+
+            .append('<div></div>')
+            .find('div:last')
+            .addClass('two-thirds column')
+            .load('html/cc-shell-front-empty.html')
+            .end()
 
             .append('<div></div>')
             .find('div:last')
             .addClass('cc-shell-visual-logo')
-            .attr('id', 'cc-shell-visual-logo' + page_name)
+            .attr('id', 'cc-shell-visual-logo-' + page_name)
             .load('html/cc-shell-visual-logo.html')
             .end()
+
+            .end() // div.row
 
             .end(); // div#cc-shell-visual-footer-page-name
     };
@@ -619,7 +693,7 @@ cc.shell = (function () {
             .append('<div></div>')
             .find('div:last')
             .addClass('cc-shell-source-header')
-            .attr('id', 'cc-shell-source-header' + page_name)
+            .attr('id', 'cc-shell-source-header-' + page_name)
 
             .append('<div></div>')
             .find('div:last')
@@ -633,25 +707,27 @@ cc.shell = (function () {
             .append('<div></div>')
             .find('div:last')
             .addClass('one-third column cc-shell-source-share')
-            .attr('id', 'cc-shell-source-share' + page_name)
+            .attr('id', 'cc-shell-source-share-' + page_name)
             .load('html/cc-shell-source-share.html')
             .end()
 
             .end() // div#cc-shell-source-header-page-name
+
+            .append('<hr>')
 
         // body
 
             .append('<div></div>')
             .find('div:last')
             .addClass('cc-shell-source-body')
-            .attr('id', 'cc-shell-source-body' + page_name)
+            .attr('id', 'cc-shell-source-body-' + page_name)
 
         // body author
 
             .append('<div></div>')
             .find('div:last')
             .addClass('cc-shell-source-author')
-            .attr('id', 'cc-shell-source-author' + page_name)
+            .attr('id', 'cc-shell-source-author-' + page_name)
         // TODO: Navigate to external URL?
             .click({page_name: 'contents'}, present_Page)
             .hover(to_Red, to_Black)
@@ -667,23 +743,20 @@ cc.shell = (function () {
 
             .append('<div></div>')
             .find('div:last')
-            .addClass('cc-shell-source-content')
-            .attr('id', 'cc-shell-source-content' + page_name)
-            .addClass('one-third column alpha')
+            .addClass('one-third column alpha cc-shell-source-content')
+            .attr('id', 'cc-shell-source-content-' + page_name)
             .end()
 
             .append('<div></div>')
             .find('div:last')
-            .addClass('cc-shell-source-content')
-            .attr('id', 'cc-shell-source-content' + page_name)
-            .addClass('one-third column')
+            .addClass('one-third column cc-shell-source-content')
+            .attr('id', 'cc-shell-source-content-' + page_name)
             .end()
 
             .append('<div></div>')
             .find('div:last')
-            .addClass('cc-shell-source-content')
-            .attr('id', 'cc-shell-source-content' + page_name)
-            .addClass('one-third column omega')
+            .addClass('one-third column omega cc-shell-source-content')
+            .attr('id', 'cc-shell-source-content-' + page_name)
             .end()
 
             .end() // div.row
@@ -695,12 +768,12 @@ cc.shell = (function () {
             .append('<div></div>')
             .find('div:last')
             .addClass('cc-shell-source-footer')
-            .attr('id', 'cc-shell-source-footer' + page_name)
+            .attr('id', 'cc-shell-source-footer-' + page_name)
 
             .append('<div></div>')
             .find('div:last')
             .addClass('cc-shell-source-logo')
-            .attr('id', 'cc-shell-source-logo' + page_name)
+            .attr('id', 'cc-shell-source-logo-' + page_name)
             .load('html/cc-shell-source-logo.html')
             .end()
 

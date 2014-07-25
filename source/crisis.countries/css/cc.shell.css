@@ -4,10 +4,73 @@
  *
  */
 
-.contents { margin: 0; }
 
-.indent-by-one { margin-left: 20px; }
-.indent-by-two { margin-left: 40px; }
+div#cc-shell-cover-header,
+div.cc-shell-front-header,
+div.cc-shell-visual-header {
+    height: 150px;
+}
+
+#cc-shell-cover-title h1 {
+    font-family: "OswaldBold", sans-serif;
+    font-size: 92px;
+    line-height: 92px;
+    margin-bottom: 0px;
+}
+
+#cc-shell-cover-title h2 {
+    font-family: "OswaldLight", sans-serif;
+}
+
+.cc-shell-front-title h4 {
+    font-family: "OswaldBold", sans-serif;
+    font-size: 21px;
+    line-height: 30px;
+    margin-bottom: 4px;
+}
+
+.cc-shell-front-title h5 {
+    font-family: "OswaldLight", sans-serif;
+    font-size: 17px;
+    line-height: 24px;
+}
+
+.cc-shell-visual-header-title h1 {
+    font-family: "OswaldBold", sans-serif;
+}
+
+.cc-shell-visual-body-title h2 {
+    font-family: "OswaldLight", sans-serif;
+}
+
+.contents-for-visual {
+    float: left;
+    display: inline;
+    padding-right: 20px;
+}
+
+.navigation-for-visual hr {
+    margin: 0px;
+}
+
+.navigation-for-visual h4 {
+    float: left;
+    display: inline;
+}
+
+.border {
+    border-left: 1px solid #ddd;
+}
+
+.bold {
+    font-family: "OpenSansBold", sans-serif;
+}
+.semibold {
+    font-family: "OpenSansSemiBold", sans-serif;
+}
+.lightitalic {
+    font-family: "OpenSansLightItalic", sans-serif;
+}
 
 .centered {
     text-align: center;
