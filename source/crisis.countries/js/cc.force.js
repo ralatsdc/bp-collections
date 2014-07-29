@@ -212,6 +212,7 @@ function () {
         var page_name = module_State.page_name;
         module_State.node_descriptions[page_name]
             .select('h4')
+            .attr('class', 'extrabold')
             .text(d.name);
         module_State.node_descriptions[page_name]
             .style('visibility', 'visible');
