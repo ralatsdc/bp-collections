@@ -84,11 +84,11 @@ cc.shell = (function () {
     };
 
     to_Red = function () {
-        $(this).animate({'color': '#ff0000'}, 100);
+        $(this).animate({'color': '#B10000'}, 100);
     };
 
     to_Black = function () {
-        $(this).animate({'color': '#444'}, 100);
+        $(this).animate({'color': '#000000'}, 100);
     };
 
     present_Page = function (event) {

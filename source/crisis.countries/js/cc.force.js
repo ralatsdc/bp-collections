@@ -355,6 +355,7 @@ function () {
 
         case 'topics':
         case 'frequency':
+            /*
             if (d.service === 'feed') {
                 color = '#973E00';
             } else if (d.service === 'flickr') {
@@ -366,6 +367,11 @@ function () {
             } else {
                 color = '#FFFFFF';
             }
+            */
+            color = '#CF0000';
+            color = '#802B06';
+            color = '#979797';
+            color = '#B10000';
             break;
 
         default:
@@ -377,7 +383,7 @@ function () {
         if (d.type === 'crisis') {
             return 3;
         } else if (d.type === 'common') {
-            return 1;
+            return 0;
         } else {
             return 0;
         }
