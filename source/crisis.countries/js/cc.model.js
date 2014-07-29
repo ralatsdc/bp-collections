@@ -14,8 +14,10 @@ cc.model = (function () {
     getCountry,
     getSources,
     getTags,
-    setSample,
-    getSample;
+    setCurrentSource,
+    getCurrentSource,
+    setSourcePage,
+    getSourcePage;
 
     var
     module_Config = {
@@ -26,7 +28,9 @@ cc.model = (function () {
         country: null,
         sources: null,
         tags: null,
-        sample: null
+        current_source: null,
+        source_number: 0,
+        source_page: {}
     };
 
     configModule = function (input_config) {
@@ -34,11 +38,11 @@ cc.model = (function () {
         return true;
     };
 
-    initModule = function (input_file_name) {
-        d3.json(input_file_name, function (input_json) {
-            module_State.country = input_json.country;
-            module_State.sources = input_json.sources;
-            module_State.tags = input_json.tags;
+    initModule = function (country_file_name) {
+        d3.json(country_file_name, function (country_json) {
+            module_State.country = country_json.country;
+            module_State.sources = country_json.sources;
+            module_State.tags = country_json.tags;
         });
     };
     
@@ -54,14 +58,26 @@ cc.model = (function () {
         return module_State.tags;
     };
 
-    setSample = function (input_file_name) {
-        d3.json(input_file_name, function (input_json) {
-            module_State.sample = input_json;
+    setCurrentSource = function (sample_file_name, data_json, callback) {
+        d3.json(sample_file_name, function (sample_json) {
+            module_State.current_source = {data: data_json, sample: sample_json};
+            if (typeof data_json === 'object' && typeof callback === 'function') {
+                callback(data_json);
+            }
         });
     };
 
-    getSample = function () {
-        return module_State.sample;
+    getCurrentSource = function () {
+        return module_State.current_source;
+    };
+
+    setSourcePage = function (name) {
+        module_State.source_number += 1;
+        module_State.source_page[name] = 'source-' + module_State.source_number;
+    };
+
+    getSourcePage = function () {
+        return module_State.source_page;
     };
 
     return {
@@ -69,7 +85,11 @@ cc.model = (function () {
         initModule: initModule,
         getCountry: getCountry,
         getSources: getSources,
-        getTags: getTags
+        getTags: getTags,
+        setCurrentSource: setCurrentSource,
+        getCurrentSource: getCurrentSource,
+        setSourcePage: setSourcePage,
+        getSourcePage: getSourcePage
     };
     
 }());
