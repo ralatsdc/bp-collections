@@ -16,9 +16,9 @@ cc.grid = (function () {
 
     var
     module_Config = {
-        width: 600,
-        height: 600,
-        margin: 30,
+        width: 960,
+        height: 960,
+        margin: 48,
         domain_x: [-50, 50],
         domain_y: [-50, 50],
         settable: {
@@ -46,7 +46,8 @@ cc.grid = (function () {
     stroke_Width_R,
     present_Description,
     move_Description,
-    dismiss_Description;
+    dismiss_Description,
+    present_Source;
 
     configModule = function (input_config) {
         cc.util.setConfig(input_config, module_Config);
@@ -110,8 +111,8 @@ cc.grid = (function () {
             .attr('r', function (d) { return d.r; })
             .on('mouseover', present_Description)
             .on('mousemove', move_Description)
-            .on('mouseout', dismiss_Description);
-
+            .on('mouseout', dismiss_Description)
+            .on('click', present_Source);
     };
     
     presentGrid = function (page_name) {
@@ -161,6 +162,15 @@ cc.grid = (function () {
     dismiss_Description = function () {
         var page_name = module_State.page_name;
         module_State.node_descriptions[page_name].style('visibility', 'hidden');
+    };
+
+    present_Source = function (d) {
+        if (!(d.name in cc.model.getSourcePage())) {
+            cc.model.setSourcePage(d.name);
+            cc.model.setCurrentSource(d.json, d, present_Source);
+        } else {
+            cc.shell.delegatePage({data: {page_name: cc.model.getSourcePage()[d.name]}});
+        }
     };
 
     scale_R = function (d) {
