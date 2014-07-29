@@ -186,20 +186,20 @@ cc.shell = (function () {
                 .append('<div></div>')
                 .find('div:last')
                 .attr('id', 'cc-shell-cover-image')
-                // .load('img/cc-shell-visual-frequency-japan.svg')
-                .end() // #cc-shell-cover-image
+                .addClass('offset-by-three square')
+                .load('img/cc-shell-visual-frequency-japan.svg')
+                .end()
 
-                .append('<hr>')
-                
                 .append('<div></div>')
                 .find('div:last')
                 .attr('id', 'cc-shell-cover-navigation')
-                .click({page_name: 'contents'}, present_Page)
-                .hover(to_Red, to_Black)
-                .load('html/cc-shell-cover-navigation.html')
+                .load('html/cc-shell-cover-navigation.html', function () {
+                    $('#cc-shell-cover-navigation')
+                        .find('h1')
+                        .click({page_name: 'contents'}, present_Page)
+                        .hover(to_Red, to_Black);
+                })
                 .end()
-                
-                .append('<hr>')
 
                 .end(); // div#cc-shell-cover-body
 

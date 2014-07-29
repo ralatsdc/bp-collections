@@ -190,17 +190,18 @@ function () {
             break;
 
         case 'frequency':
-            /*
-            var axis_X = d3.svg.axis().scale(scale_X);
-            var axis_Y = d3.svg.axis().scale(scale_Y).orient('right');
+            var axis_X = d3.svg.axis().scale(scale_X).orient('bottom');
+            var axis_Y = d3.svg.axis().scale(scale_Y).orient('left');
             module_State.svgs[page_name]
                 .append('g')
-                .attr('transform', 'translate(0, ' + scale_X(0) + ')') 
+                .attr('class', 'x axis')
+                .attr('transform', 'translate(0, ' + scale_X(0.0) + ')') 
                 .call(axis_X);
             module_State.svgs[page_name]
                 .append('g')
+                .attr('class', 'y axis')
+                .attr('transform', 'translate(' + scale_X(-50.0) + ', 0)')
                 .call(axis_Y);
-            */
             break;
 
         default:
@@ -295,12 +296,12 @@ function () {
 
         switch (page_name) {
         case 'volume':
-        case 'frequency':
             color = '#979797';
             break;
 
         case 'trust':
         case 'topics':
+        case 'frequency':
             if (d.service === 'feed') {
                 if (d.engagement === 1) {
                     color = '#973E00';
@@ -350,10 +351,10 @@ function () {
         switch (page_name) {
         case 'volume':
         case 'trust':
-        case 'frequency':
             break;
 
         case 'topics':
+        case 'frequency':
             if (d.service === 'feed') {
                 color = '#973E00';
             } else if (d.service === 'flickr') {

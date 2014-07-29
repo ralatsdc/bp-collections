@@ -4,3 +4,26 @@
  *
  */
 
+.axis {
+    shape-rendering: crispEdges;
+}
+
+.x.axis line,
+.x.axis path {
+    fill: none;
+    stroke: #000;
+}
+
+.x.axis text {
+    font-family: "OpenSansExtraBold", sans-serif;
+}
+
+.y.axis line,
+.y.axis path {
+    fill: none;
+    stroke: #000;
+}
+
+.y.axis text {
+    font-family: "OpenSansExtraBold", sans-serif;
+}
