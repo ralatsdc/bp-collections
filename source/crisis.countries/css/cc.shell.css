@@ -6,7 +6,8 @@
 
 div#cc-shell-cover-header,
 div.cc-shell-front-header,
-div.cc-shell-visual-header {
+div.cc-shell-visual-header,
+div.cc-shell-source-header {
     height: 100px;
 }
 
@@ -17,9 +18,15 @@ div.cc-shell-visual-header {
     viewBox: "none";
 }
 
+.cc-shell-front-logo svg,
+.cc-shell-visual-logo svg,
+.cc-shell-source-logo svg {
+    height: 34px;
+    width: auto;
+    viewBox: "none";
+}
+
 #cc-shell-cover-image svg {
-    /* left: 160px; */
-    /* top: 320px; */
     z-index: -1;
 }
 
@@ -29,69 +36,21 @@ div.cc-shell-visual-header {
     width: 100%;
 }
 
-.cc-shell-front-header div {
+div.cc-shell-front-header,
+div.cc-shell-visual-header,
+div.cc-shell-source-header {
     margin-top: 18px;
 }
 
-.cc-shell-front-title h5 {
-    margin-top: -8px;
-}
-
-.cc-shell-front-share {
+.cc-shell-front-share,
+.cc-shell-visual-share,
+.cc-shell-source-share {
     padding-top: 5px;
-}
-
-.cc-shell-front-logo svg {
-    height: 34px;
-    width: auto;
-    viewBox: "none";
-}
-
-.cc-shell-visual-header div {
-    margin-top: 18px;
 }
 
 .cc-shell-visual-title h3 {
     margin-top: -16px;
 }
-
-.cc-shell-visual-share {
-    padding-top: 5px;
-}
-
-.cc-shell-visual-logo svg {
-    height: 34px;
-    width: auto;
-    viewBox: "none";
-}
-
-.cc-shell-source-logo svg {
-    height: 34px;
-    width: auto;
-    viewBox: "none";
-}
-
-/*
-#cc-shell-visual-volume-description svg {
-    height: 100%;
-    width: 100%;
-    viewBox: "none";
-}
-*/
-
-/*
-.cc-shell-visual-content p {
-    margin-top: 20px;
-}
-*/
-
-/*
-.visual svg {
-    height: 100%;
-    width: 100%;
-    viewBox: "none";
-}
-*/
 
 #cc-shell-cover-title h1 {
     font-family: "OswaldBold", sans-serif;
@@ -104,17 +63,24 @@ div.cc-shell-visual-header {
     font-family: "OswaldLight", sans-serif;
 }
 
-.cc-shell-front-title h4 {
+.cc-shell-front-title h4,
+.cc-shell-source-title h4 {
     font-family: "OswaldBold", sans-serif;
     font-size: 21px;
     line-height: 30px;
     margin-bottom: 4px;
 }
 
-.cc-shell-front-title h5 {
+.cc-shell-front-title h5,
+.cc-shell-source-title h5 {
     font-family: "OswaldLight", sans-serif;
     font-size: 17px;
     line-height: 24px;
+    margin-top: -8px;
+}
+
+.cc-shell-front-body ul {
+    list-style: disc;
 }
 
 .cc-shell-visual-title h1 {
@@ -128,12 +94,6 @@ div.cc-shell-visual-header {
 .cc-shell-source-content img {
     max-width: 100%;
     max-height: 100%;
-}
-
-.contents-for-visual {
-    float: left;
-    display: inline;
-    padding-right: 20px;
 }
 
 #cc-shell-contents hr,
@@ -155,28 +115,10 @@ div.cc-shell-visual-header {
     margin-top: 22px;
 }
 
-.cc-shell-front-body ul {
-    list-style: disc;
-}
-
-/*
-#cc-shell-cover-image svg {
-    position: absolute;
-    left: 160px;
-    top: 320px;
-    z-index: -1;
-}
-*/
-
-/*
-.navigation-for-visual h4 {
+.contents-for-visual {
     float: left;
     display: inline;
-}
-*/
-
-.border {
-    border-left: 1px solid #ddd;
+    padding-right: 20px;
 }
 
 .extrabold {

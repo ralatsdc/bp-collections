@@ -507,7 +507,7 @@ cc.shell = (function () {
             .load('html/cc-shell-front-share.html')
             .end()
 
-            .end() // div#cc-shell-page-name-header
+            .end() // div#cc-shell-front-header-page-name
 
             .append('<hr>')
 
@@ -789,19 +789,20 @@ cc.shell = (function () {
 
             .append('<div></div>')
             .find('div:last')
-            .addClass('two-thirds column cc-shell-source-title')
+            .addClass('two-thirds column alpha cc-shell-source-title')
             .attr('id', 'cc-shell-source-title-' + page_name)
             .load('html/cc-shell-source-title.html', function () {
-                var country = cc.model.getCountry().toLowerCase();
                 $('div#cc-shell-source-title-' + page_name)
                     .find('h4')
-                    .text(country.charAt(0).toUpperCase() + country.slice(1));
+                    .click({page_name: 'contents'}, present_Page)
+                    .hover(to_Red, to_Black)
+                    .text(cc.model.getCountry().toUpperCase());
             })
             .end()
 
             .append('<div></div>')
             .find('div:last')
-            .addClass('one-third column cc-shell-source-share')
+            .addClass('one-third column omega cc-shell-source-share')
             .attr('id', 'cc-shell-source-share-' + page_name)
             .load('html/cc-shell-source-share.html')
             .end()
@@ -831,8 +832,7 @@ cc.shell = (function () {
             .append('<div></div>')
             .find('div:last')
             .addClass('cc-shell-source-body')
-            .attr('id', 'cc-shell-source-body-' + page_name)
-            .end();
+            .attr('id', 'cc-shell-source-body-' + page_name);
 
         // body content
 
