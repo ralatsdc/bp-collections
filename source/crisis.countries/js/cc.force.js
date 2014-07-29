@@ -4,7 +4,8 @@
 
 /* global cc, d3 */
 
-cc.force = (function () {
+cc.force = (
+function () {
 
     'use strict';
 
@@ -16,12 +17,14 @@ cc.force = (function () {
 
     var
     module_Config = {
-        width: 460,
-        height: 460,
-        margin: 23,
-        n_margin: 4.0,
-        default_R: 4.0,
-        default_charge: -125,
+        width: 620,
+        height: 620,
+        margin: 31,
+        n_margin: 10.0,
+        nominal_R: 10.0,
+        default_R: 10.0,
+        nominal_C: -125,
+        default_C: -125,
         domain_x: [-50, 50],
         domain_y: [-50, 50],
         gravity: 1.00,
@@ -33,8 +36,10 @@ cc.force = (function () {
             height: true,
             margin: true,
             n_margin: true,
+            nominal_R: true,
             default_R: true,
-            default_charge: true,
+            nominal_C: true,
+            default_C: true,
             domain_x: true,
             domain_y: true,
             gravity: true,
@@ -62,7 +67,8 @@ cc.force = (function () {
     on_Tick,
     present_Description,
     move_Description,
-    dismiss_Description;
+    dismiss_Description,
+    present_Source;
 
     configModule = function (input_config) {
         cc.util.setConfig(input_config, module_Config);
@@ -70,6 +76,21 @@ cc.force = (function () {
     };
 
     initModule = function () {
+    };
+
+    initForce = function (page_name, svg_size) {
+
+        module_State.page_name = page_name;
+
+        if (svg_size !== undefined && typeof svg_size === 'object') {
+            if ('width' in svg_size) {
+                module_Config.width = svg_size.width;
+            }
+            if ('height' in svg_size) {
+                module_Config.height = svg_size.height;
+            }
+            module_Config.margin = (module_Config.width + module_Config.height) / 40;
+        }
 
         scale_X = d3.scale.linear()
             .domain(module_Config.domain_x)
@@ -79,12 +100,6 @@ cc.force = (function () {
             .domain(module_Config.domain_y)
             .range([module_Config.height - module_Config.margin, module_Config.margin]);
 
-    };
-
-    initForce = function (page_name) {
-
-        module_State.page_name = page_name;
-
         module_State.groups[page_name] = d3.select('div#cc-shell-visual-' + page_name + '-graphic')
             .append('svg')
             .attr('width', module_Config.width)
@@ -93,6 +108,11 @@ cc.force = (function () {
             .attr('class', 'graphic');
 
         module_State.node_values[page_name] = $.extend(true, [], cc.model.getSources());
+
+        module_Config.nominal_R =
+            Math.sqrt((module_Config.width * module_Config.height) / (10 * cc.model.getSources().length));
+        module_Config.nominal_C =
+            module_Config.default_C * Math.pow(module_Config.nominal_R / module_Config.default_R, 2);
 
         module_State.node_values[page_name].forEach(function (o) {
             o.x = scale_X(-o.age);
@@ -130,8 +150,8 @@ cc.force = (function () {
             .on('mousedown', function () { d3.event.stopPropagation(); })
             .on('mouseover', present_Description)
             .on('mousemove', move_Description)
-            .on('mouseout', dismiss_Description);
-
+            .on('mouseout', dismiss_Description)
+            .on('click', present_Source);
     };
 
     presentForce = function (page_name) {
@@ -166,15 +186,34 @@ cc.force = (function () {
         module_State.node_descriptions[page_name].style('visibility', 'hidden');
     };
 
+    present_Source = function (d) {
+        if (!(d.name in cc.model.getSourcePage())) {
+            cc.model.setSourcePage(d.name);
+            cc.model.setCurrentSource(d.json, d, present_Source);
+        } else {
+            cc.shell.delegatePage({data: {page_name: cc.model.getSourcePage()[d.name]}});
+        }
+    };
+
     scale_R = function (d) {
         if (+d.volume === -1) {
-            return module_Config.default_R;
+            return module_Config.nominal_R / 2;
         } else if (+d.volume === 0) {
-            return module_Config.default_R * 2.2;
-        } else if (+d.volume === 1) {
-            return module_Config.default_R * Math.pow(2.2, 2);
-        } else {
-            return module_Config.default_R * Math.pow(2.2, 3);
+            return module_Config.nominal_R;
+        } else { // if (+d.volume === 1)
+            return module_Config.nominal_R * 2;
+        }
+    };
+
+    charge_R = function (d) {
+        if (d.volume === -1) {
+            return module_Config.nominal_C / 4;
+        }
+        else if (d.volume === 0) {
+            return module_Config.nominal_C;
+        }
+        else { // if (d.volume === 1)
+            return module_Config.nominal_C * 4;
         }
     };
 
@@ -302,20 +341,75 @@ cc.force = (function () {
             return 0;
         }
     };
-
-    charge_R = function (d) {
-        if (d.volume === 1) {
-            return 4.0 * module_Config.default_charge;
-        }
-        else if (d.volume === 0) {
-            return module_Config.default_charge;
-        }
-        else { // if (d.volume === -1)
-            return module_Config.default_charge / 4.0;
-        }
-    };
-
+    
     on_Tick = function (e) {
+
+        var
+        page_name = module_State.page_name,
+        target_x,
+        target_y;
+
+        module_State.node_values[page_name].forEach(function (o) {
+
+            switch (page_name) {
+            case 'volume':
+            case 'trust':
+                target_y = module_Config.height / 2.0;
+                break;
+
+            case 'topics':
+                if (o.type === 'crisis') {
+                    target_y = module_Config.height / 2.0 - module_Config.n_margin * module_Config.margin;
+                } else if (o.type === 'common') {
+                    target_y = module_Config.height / 2.0 + module_Config.n_margin * module_Config.margin;
+                }
+                break;
+
+            case 'frequency':
+                break;
+
+            default:
+            }
+
+            switch (page_name) {
+            case 'volume':
+                if (o.volume === 1) {
+                    target_x = module_Config.width / 2.0 + module_Config.n_margin * module_Config.margin / 2.0;
+                } else if (o.volume === 0) {
+                    target_x = module_Config.width / 2.0;
+                } else if (o.volume === -1) {
+                    target_x = module_Config.width / 2.0 - module_Config.n_margin * module_Config.margin / 2.0;
+                }
+                break;
+
+            case 'trust':
+            case 'topics':
+                if (o.engagement === 1) {
+                    target_x = module_Config.width / 2.0 + module_Config.n_margin * module_Config.margin / 2.0;
+                } else if (o.engagement === 0) {
+                    target_x = module_Config.width / 2.0;
+                } else if (o.engagement === -1) {
+                    target_x = module_Config.width / 2.0 - module_Config.n_margin * module_Config.margin / 2.0;
+                }
+                break;
+
+            case 'frequency':
+                break;
+
+            default:
+            }
+
+            o.x += e.alpha * module_Config.beta_x * (target_x - o.x);
+            o.y += e.alpha * module_Config.beta_y * (target_y - o.y);
+
+        });
+
+        module_State.node_elements[page_name]
+            .attr('cx', function (d) { return d.x; })
+            .attr('cy', function (d) { return d.y; });
+    };
+        
+    var on_Tick_A = function (e) {
 
         var
         page_name = module_State.page_name,
@@ -347,22 +441,22 @@ cc.force = (function () {
             switch (page_name) {
             case 'volume':
                 if (o.volume === 1) {
-                    target_y = module_Config.height / 2.0 - module_Config.n_margin * module_Config.margin;
+                    target_x = module_Config.width / 2.0 - module_Config.n_margin * module_Config.margin;
                 } else if (o.volume === 0) {
-                    target_y = module_Config.height / 2.0;
+                    target_x = module_Config.width / 2.0;
                 } else if (o.volume === -1) {
-                    target_y = module_Config.height / 2.0 + module_Config.n_margin * module_Config.margin;
+                    target_x = module_Config.width / 2.0 + module_Config.n_margin * module_Config.margin;
                 }
                 break;
 
             case 'trust':
             case 'topics':
                 if (o.engagement === 1) {
-                    target_y = module_Config.height / 2.0 - module_Config.n_margin * module_Config.margin;
+                    target_x = module_Config.width / 2.0 - module_Config.n_margin * module_Config.margin;
                 } else if (o.engagement === 0) {
-                    target_y = module_Config.height / 2.0;
+                    target_x = module_Config.width / 2.0;
                 } else if (o.engagement === -1) {
-                    target_y = module_Config.height / 2.0 + module_Config.n_margin * module_Config.margin;
+                    target_x = module_Config.width / 2.0 + module_Config.n_margin * module_Config.margin;
                 }
                 break;
 
