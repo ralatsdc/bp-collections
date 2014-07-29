@@ -47,6 +47,7 @@ function () {
         nominal_R: undefined,
         nominal_C: {},
         nominal_G: {},
+        svgs: {},
         groups: {},
         layouts: {},
         node_values: {},
@@ -95,10 +96,12 @@ function () {
             .domain(module_Config.domain_y)
             .range([module_Config.height - module_Config.margin, module_Config.margin]);
 
-        module_State.groups[page_name] = d3.select('div#cc-shell-visual-' + page_name + '-graphic')
+        module_State.svgs[page_name] = d3.select('div#cc-shell-visual-' + page_name + '-graphic')
             .attr('class', 'square')
             .append('svg')
-            .attr('class', 'two-thirds column')
+            .attr('class', 'two-thirds column');
+
+        module_State.groups[page_name] = module_State.svgs[page_name]
             .append('g')
             .attr('class', 'graphic');
 
@@ -181,6 +184,26 @@ function () {
         module_State.node_elements[page_name]
             .call(module_State.layouts[page_name].drag);
 
+        switch (page_name) {
+        case 'volume':
+        case 'trust':
+        case 'topics':
+            break;
+
+        case 'frequency':
+            var axis_X = d3.svg.axis().scale(scale_X);
+            var axis_Y = d3.svg.axis().scale(scale_Y).orient('right');
+            module_State.svgs[page_name]
+                .append('g')
+                .attr('transform', 'translate(0, ' + scale_X(0) + ')') 
+                .call(axis_X);
+            module_State.svgs[page_name]
+                .append('g')
+                .call(axis_Y);
+            break;
+
+        default:
+        }
     };
 
     present_Description = function (d) {
