@@ -48,11 +48,10 @@ cc.shell = (function () {
 
         cc.model.configModule({});
         cc.force.configModule({});
-        cc.grid.configModule({});
+        // cc.grid.configModule({});
 
         cc.model.initModule(module_Config.country_file_name);
-        cc.force.initModule();
-        cc.grid.initModule();
+        // cc.grid.initModule();
 
         module_State.jq_containers.main = jq_container;
 
@@ -108,7 +107,8 @@ cc.shell = (function () {
             break;
 
         case 'frequency':
-            cc.grid.presentGrid(page_name);
+            // cc.grid.presentGrid(page_name);
+            cc.force.presentForce(page_name);
             break;
 
         default:
@@ -309,7 +309,7 @@ cc.shell = (function () {
 
                 .end(); // div#cc-shell-visual-content-volume
 
-            cc.force.initForce(page_name);
+            cc.force.initModule(page_name);
 
             break;
 
@@ -340,7 +340,7 @@ cc.shell = (function () {
 
                 .end(); // div#cc-shell-visual-content-trust
 
-            cc.force.initForce(page_name);
+            cc.force.initModule(page_name);
 
             break;
 
@@ -388,7 +388,7 @@ cc.shell = (function () {
 
                 .end(); // div#cc-shell-visual-content-topics
 
-            cc.force.initForce(page_name);
+            cc.force.initModule(page_name);
 
             module_State.jq_containers[page_name]
                 .find('#cc-shell-visual-topics-crisis')
@@ -430,18 +430,27 @@ cc.shell = (function () {
 
                 .append('<div></div>')
                 .find('div:last')
+                .attr('id', 'cc-shell-visual-frequency-title')
+                .load('html/cc-shell-visual-frequency-title.html')
+                .end()
+
+                .append('<div></div>')
+                .find('div:last')
+                .addClass('one-third column alpha')
                 .attr('id', 'cc-shell-visual-frequency-description')
                 .load('html/cc-shell-visual-frequency-description.html')
                 .end()
 
                 .append('<div></div>')
                 .find('div:last')
+                .addClass('two-thirds column omega')
                 .attr('id', 'cc-shell-visual-frequency-graphic')
                 .end()
 
                 .end(); // div#cc-shell-visual-content-frequency
 
-            cc.grid.initGrid(page_name);
+            // cc.grid.initGrid(page_name);
+            cc.force.initModule(page_name);
 
             break;
 
