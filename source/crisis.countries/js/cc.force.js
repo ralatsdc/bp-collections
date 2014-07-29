@@ -97,9 +97,8 @@ function () {
             .range([module_Config.height - module_Config.margin, module_Config.margin]);
 
         module_State.svgs[page_name] = d3.select('div#cc-shell-visual-' + page_name + '-graphic')
-            .attr('class', 'square')
             .append('svg')
-            .attr('class', 'two-thirds column');
+            .attr('class', 'two-thirds column square');
 
         module_State.groups[page_name] = module_State.svgs[page_name]
             .append('g')

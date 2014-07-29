@@ -396,13 +396,13 @@ cc.shell = (function () {
                     var crisis_tags = '';
                     for (i_tag = 0; i_tag < tags.length; i_tag += 1) {
                         if (tags[i_tag].type === 'crisis') {
-                            crisis_tags += tags[i_tag].tag + ' ';
+                            crisis_tags += tags[i_tag].tag + ' &centerdot; ';
                         }
                     }
                     module_State.jq_containers[page_name]
                         .find('#cc-shell-visual-topics-crisis')
-                        .find('p:last')
-                        .text(crisis_tags);
+                        .find('h5:last')
+                        .html(crisis_tags.slice(0, crisis_tags.length - 13));
                 });
 
             module_State.jq_containers[page_name]
@@ -411,13 +411,13 @@ cc.shell = (function () {
                     var culture_tags = '';
                     for (i_tag = 0; i_tag < tags.length; i_tag += 1) {
                         if (tags[i_tag].type === 'common') {
-                            culture_tags += tags[i_tag].tag + ' ';
+                            culture_tags += tags[i_tag].tag + ' &centerdot; ';
                         }
                     }
                     module_State.jq_containers[page_name]
                         .find('#cc-shell-visual-topics-culture')
-                        .find('p:last')
-                        .text(culture_tags);
+                        .find('h5:last')
+                        .html(culture_tags.slice(0, culture_tags.length - 13));
                 });
 
             break;
