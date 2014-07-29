@@ -12,22 +12,19 @@ function () {
     var
     configModule,
     initModule,
-    initForce,
     presentForce;
 
     var
     module_Config = {
-        width: 620,
+        width: 620, // Needs to be consistent with column spec
         height: 620,
         margin: 31,
         n_margin: 10.0,
-        nominal_R: 10.0,
         default_R: 10.0,
-        nominal_C: -125,
-        default_C: -125,
         domain_x: [-50, 50],
         domain_y: [-50, 50],
-        gravity: 1.00,
+        default_C: -125,
+        default_G: 1.00,
         friction: 0.90,
         beta_x: 0.20,
         beta_y: 0.10,
@@ -36,19 +33,20 @@ function () {
             height: true,
             margin: true,
             n_margin: true,
-            nominal_R: true,
             default_R: true,
-            nominal_C: true,
-            default_C: true,
             domain_x: true,
             domain_y: true,
-            gravity: true,
+            default_C: true,
+            default_G: true,
             friction: true,
             beta_x: true,
             beta_y: true
         }
     },
     module_State = {
+        nominal_R: undefined,
+        nominal_C: {},
+        nominal_G: {},
         groups: {},
         layouts: {},
         node_values: {},
@@ -75,10 +73,7 @@ function () {
         return true;
     };
 
-    initModule = function () {
-    };
-
-    initForce = function (page_name, svg_size) {
+    initModule = function (page_name, svg_size) {
 
         module_State.page_name = page_name;
 
@@ -101,29 +96,52 @@ function () {
             .range([module_Config.height - module_Config.margin, module_Config.margin]);
 
         module_State.groups[page_name] = d3.select('div#cc-shell-visual-' + page_name + '-graphic')
+            .attr('class', 'square')
             .append('svg')
-            .attr('width', module_Config.width)
-            .attr('height', module_Config.height)
+            .attr('class', 'two-thirds column')
             .append('g')
             .attr('class', 'graphic');
 
-        module_State.node_values[page_name] = $.extend(true, [], cc.model.getSources());
-
-        module_Config.nominal_R =
+        module_State.nominal_R =
             Math.sqrt((module_Config.width * module_Config.height) / (10 * cc.model.getSources().length));
-        module_Config.nominal_C =
-            module_Config.default_C * Math.pow(module_Config.nominal_R / module_Config.default_R, 2);
+
+        var sources = $.extend(true, [], cc.model.getSources());
+        switch (page_name) {
+        case 'volume':
+        case 'trust':
+        case 'topics':
+            module_State.nominal_G[page_name] = module_Config.default_G;
+            module_State.nominal_C[page_name] =
+                module_Config.default_C * Math.pow(module_State.nominal_R / module_Config.default_R, 2);
+            break;
+
+        case 'frequency':
+            for(var i_source = sources.length - 1; i_source >= 0; i_source -= 1) {
+                if(!sources[i_source].include) {
+                    sources.splice(i_source, 1);
+                }
+            }
+            module_State.nominal_G[page_name] = module_Config.default_G / 10.0;
+            module_State.nominal_C[page_name] =
+                module_Config.default_C * Math.pow(module_State.nominal_R / module_Config.default_R, 2) / 5.0;
+            break;
+
+        default:
+        }
+        module_State.node_values[page_name] = sources;
 
         module_State.node_values[page_name].forEach(function (o) {
             o.x = scale_X(-o.age);
             o.y = scale_Y(-o.frequency);
             o.r = scale_R(0);
+            o.x_0 = scale_X(-o.age);
+            o.y_0 = scale_Y(-o.frequency);
         });
 
         module_State.layouts[page_name] = d3.layout.force()
             .nodes(module_State.node_values[page_name])
             .size([module_Config.width, module_Config.height])
-            .gravity(module_Config.gravity)
+            .gravity(module_State.nominal_G[page_name])
             .charge(charge_R)
             .friction(module_Config.friction)
             .on('tick', on_Tick);
@@ -197,23 +215,24 @@ function () {
 
     scale_R = function (d) {
         if (+d.volume === -1) {
-            return module_Config.nominal_R / 2;
+            return module_State.nominal_R / 2;
         } else if (+d.volume === 0) {
-            return module_Config.nominal_R;
+            return module_State.nominal_R;
         } else { // if (+d.volume === 1)
-            return module_Config.nominal_R * 2;
+            return module_State.nominal_R * 2;
         }
     };
 
     charge_R = function (d) {
+        var page_name = module_State.page_name;
         if (d.volume === -1) {
-            return module_Config.nominal_C / 4;
+            return module_State.nominal_C[page_name] / 4;
         }
         else if (d.volume === 0) {
-            return module_Config.nominal_C;
+            return module_State.nominal_C[page_name];
         }
         else { // if (d.volume === 1)
-            return module_Config.nominal_C * 4;
+            return module_State.nominal_C[page_name] * 4;
         }
     };
 
@@ -238,6 +257,7 @@ function () {
                 return 0.90;
             }
             break;
+
         default:
         }
         return opacity;
@@ -256,6 +276,7 @@ function () {
 
         case 'trust':
         case 'topics':
+        case 'frequency':
             if (d.service === 'feed') {
                 if (d.engagement === 1) {
                     color = '#973E00';
@@ -291,9 +312,6 @@ function () {
             }
             break;
             
-        case 'frequency':
-            break;
-
         default:
         }
         return color;
@@ -311,6 +329,7 @@ function () {
             break;
 
         case 'topics':
+        case 'frequency':
             if (d.service === 'feed') {
                 color = '#973E00';
             } else if (d.service === 'flickr') {
@@ -322,9 +341,6 @@ function () {
             } else {
                 color = '#FFFFFF';
             }
-            break;
-
-        case 'frequency':
             break;
 
         default:
@@ -366,6 +382,7 @@ function () {
                 break;
 
             case 'frequency':
+                target_y = o.y_0;
                 break;
 
             default:
@@ -394,6 +411,7 @@ function () {
                 break;
 
             case 'frequency':
+                target_x = o.x_0;
                 break;
 
             default:
@@ -409,77 +427,9 @@ function () {
             .attr('cy', function (d) { return d.y; });
     };
         
-    var on_Tick_A = function (e) {
-
-        var
-        page_name = module_State.page_name,
-        target_x,
-        target_y;
-
-        module_State.node_values[page_name].forEach(function (o) {
-
-            switch (page_name) {
-            case 'volume':
-            case 'trust':
-                target_x = module_Config.width / 2.0;
-                break;
-
-            case 'topics':
-                if (o.type === 'crisis') {
-                    target_x = module_Config.width / 2.0 - module_Config.n_margin * module_Config.margin;
-                } else if (o.type === 'common') {
-                    target_x = module_Config.width / 2.0 + module_Config.n_margin * module_Config.margin;
-                }
-                break;
-
-            case 'frequency':
-                break;
-
-            default:
-            }
-
-            switch (page_name) {
-            case 'volume':
-                if (o.volume === 1) {
-                    target_x = module_Config.width / 2.0 - module_Config.n_margin * module_Config.margin;
-                } else if (o.volume === 0) {
-                    target_x = module_Config.width / 2.0;
-                } else if (o.volume === -1) {
-                    target_x = module_Config.width / 2.0 + module_Config.n_margin * module_Config.margin;
-                }
-                break;
-
-            case 'trust':
-            case 'topics':
-                if (o.engagement === 1) {
-                    target_x = module_Config.width / 2.0 - module_Config.n_margin * module_Config.margin;
-                } else if (o.engagement === 0) {
-                    target_x = module_Config.width / 2.0;
-                } else if (o.engagement === -1) {
-                    target_x = module_Config.width / 2.0 + module_Config.n_margin * module_Config.margin;
-                }
-                break;
-
-            case 'frequency':
-                break;
-
-            default:
-            }
-
-            o.x += e.alpha * module_Config.beta_x * (target_x - o.x);
-            o.y += e.alpha * module_Config.beta_y * (target_y - o.y);
-
-        });
-        
-        module_State.node_elements[page_name]
-            .attr('cx', function (d) { return d.x; })
-            .attr('cy', function (d) { return d.y; });
-    };
-
     return {
         configModule: configModule,
         initModule: initModule,
-        initForce: initForce,
         presentForce: presentForce
     };
 

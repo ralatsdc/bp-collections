@@ -16,9 +16,9 @@ cc.grid = (function () {
 
     var
     module_Config = {
-        width: 960,
-        height: 960,
-        margin: 48,
+        width: 620,
+        height: 620,
+        margin: 31,
         domain_x: [-50, 50],
         domain_y: [-50, 50],
         settable: {
