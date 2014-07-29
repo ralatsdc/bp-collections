@@ -11,14 +11,16 @@ cc.shell = (function () {
     var
     configModule,
     initModule,
-    getJqContainers;
+    getJqContainers,
+    delegatePage;
 
     var
     module_Config = {
-        input_file_name: 'json/japan.json',
+        country_file_name: 'json/collection/japan.json',
         init_page_name: 'cover',
         settable: {
-            input_file_name: false
+            country_file_name: false,
+            init_page_name: false
         }
     },
     module_State = {
@@ -48,7 +50,7 @@ cc.shell = (function () {
         cc.force.configModule({});
         cc.grid.configModule({});
 
-        cc.model.initModule(module_Config.input_file_name);
+        cc.model.initModule(module_Config.country_file_name);
         cc.force.initModule();
         cc.grid.initModule();
 
@@ -69,6 +71,10 @@ cc.shell = (function () {
     
     getJqContainers = function () {
         return module_State.jq_containers;
+    };
+
+    delegatePage = function (event) {
+        present_Page(event);
     };
 
     on_Hash_Change = function () {
@@ -153,8 +159,6 @@ cc.shell = (function () {
                 .append('<div></div>')
                 .find('div:last')
                 .attr('id', 'cc-shell-cover-logo')
-                .click({page_name: 'contents'}, present_Page)
-                .hover(to_Red, to_Black)
                 .load('img/blu-pen-logo-two-color-text.svg')
                 .end()
 
@@ -172,13 +176,18 @@ cc.shell = (function () {
                 .append('<div></div>')
                 .find('div:last')
                 .attr('id', 'cc-shell-cover-title')
-                .load('html/cc-shell-cover-title.html')
+                .load('html/cc-shell-cover-title.html', function () {
+                    $('div#cc-shell-cover-title')
+                        .find('h1')
+                        .text(cc.model.getCountry().toUpperCase());
+                })
                 .end()
 
                 .append('<div></div>')
                 .find('div:last')
                 .attr('id', 'cc-shell-cover-image')
-                .text('image')
+                .text('An Image')
+                // .load('img/blu-pen-cover-topics-japan.svg')
                 .end()
 
                 .append('<hr>')
@@ -203,7 +212,6 @@ cc.shell = (function () {
             module_State.jq_containers[page_name]
                 .find('div#cc-shell-front-contents')
                 .removeClass('eight columns alpha')
-                .addClass('sixteen columns')
                 .load('html/cc-shell-front-contents.html', function () {
                     module_State.jq_containers[page_name]
                         .find('#cc-shell-front-contents-nav-to-preface')
@@ -282,14 +290,20 @@ cc.shell = (function () {
 
                 .append('<div></div>')
                 .find('div:last')
-                .addClass('one-third column')
+                .attr('id', 'cc-shell-visual-volume-title')
+                .load('html/cc-shell-visual-volume-title.html')
+                .end()
+
+                .append('<div></div>')
+                .find('div:last')
+                .addClass('one-third column alpha')
                 .attr('id', 'cc-shell-visual-volume-description')
                 .load('html/cc-shell-visual-volume-description.html')
                 .end()
 
                 .append('<div></div>')
                 .find('div:last')
-                .addClass('two-thirds column')
+                .addClass('two-thirds column omega')
                 .attr('id', 'cc-shell-visual-volume-graphic')
                 .end()
 
@@ -307,14 +321,20 @@ cc.shell = (function () {
 
                 .append('<div></div>')
                 .find('div:last')
-                .addClass('one-third column')
+                .attr('id', 'cc-shell-visual-trust-title')
+                .load('html/cc-shell-visual-trust-title.html')
+                .end()
+
+                .append('<div></div>')
+                .find('div:last')
+                .addClass('one-third column alpha')
                 .attr('id', 'cc-shell-visual-trust-description')
                 .load('html/cc-shell-visual-trust-description.html')
                 .end()
 
                 .append('<div></div>')
                 .find('div:last')
-                .addClass('two-thirds column')
+                .addClass('two-thirds column omega')
                 .attr('id', 'cc-shell-visual-trust-graphic')
                 .end()
 
@@ -334,23 +354,38 @@ cc.shell = (function () {
 
                 .append('<div></div>')
                 .find('div:last')
-                .addClass('four columns')
+                .attr('id', 'cc-shell-visual-topics-title')
+                .load('html/cc-shell-visual-topics-title.html')
+                .end()
+
+                .append('<div></div>')
+                .find('div:last')
+                .addClass('one-third column alpha')
+                .attr('id', 'cc-shell-visual-topics-description')
+                .load('html/cc-shell-visual-topics-description.html')
+                .end()
+
+                .append('<div></div>')
+                .find('div:last')
+                .addClass('two-thirds column omega')
+
+                .append('<div></div>')
+                .find('div:last')
                 .attr('id', 'cc-shell-visual-topics-crisis')
                 .end()
 
                 .append('<div></div>')
                 .find('div:last')
-                .addClass('eight columns')
                 .attr('id', 'cc-shell-visual-topics-graphic')
-                .append('<h4>&nbsp;</h4>')
                 .end()
 
                 .append('<div></div>')
                 .find('div:last')
-                .addClass('four columns')
                 .attr('id', 'cc-shell-visual-topics-culture')
                 .end()
-            
+
+                .end() // div#two-thirds column omega
+
                 .end(); // div#cc-shell-visual-content-topics
 
             cc.force.initForce(page_name);
@@ -358,33 +393,31 @@ cc.shell = (function () {
             module_State.jq_containers[page_name]
                 .find('#cc-shell-visual-topics-crisis')
                 .load('html/cc-shell-visual-topics-crisis.html', function () {
-                    topics = module_State.jq_containers[page_name]
-                        .find('#cc-shell-visual-topics-crisis');
+                    var crisis_tags = '';
                     for (i_tag = 0; i_tag < tags.length; i_tag += 1) {
                         if (tags[i_tag].type === 'crisis') {
-                            topics
-                                .append('<p></p>')
-                                .find('p:last')
-                                .text(tags[i_tag].tag)
-                                .end();
+                            crisis_tags += tags[i_tag].tag + ' ';
                         }
                     }
+                    module_State.jq_containers[page_name]
+                        .find('#cc-shell-visual-topics-crisis')
+                        .find('p:last')
+                        .text(crisis_tags);
                 });
 
             module_State.jq_containers[page_name]
                 .find('#cc-shell-visual-topics-culture')
                 .load('html/cc-shell-visual-topics-culture.html', function () {
-                    topics = module_State.jq_containers[page_name]
-                        .find('#cc-shell-visual-topics-culture');
+                    var culture_tags = '';
                     for (i_tag = 0; i_tag < tags.length; i_tag += 1) {
                         if (tags[i_tag].type === 'common') {
-                            topics
-                                .append('<p></p>')
-                                .find('p:last')
-                                .text(tags[i_tag].tag)
-                                .end();
+                            culture_tags += tags[i_tag].tag + ' ';
                         }
                     }
+                    module_State.jq_containers[page_name]
+                        .find('#cc-shell-visual-topics-culture')
+                        .find('p:last')
+                        .text(culture_tags);
                 });
 
             break;
@@ -397,30 +430,9 @@ cc.shell = (function () {
 
                 .append('<div></div>')
                 .find('div:last')
-                .addClass('row')
-
-                .append('<div></div>')
-                .find('div:last')
-                .addClass('one-third column')
-                .attr('id', 'cc-shell-visual-frequency-description-1')
-                .load('html/cc-shell-visual-frequency-description-1.html')
+                .attr('id', 'cc-shell-visual-frequency-description')
+                .load('html/cc-shell-visual-frequency-description.html')
                 .end()
-
-                .append('<div></div>')
-                .find('div:last')
-                .addClass('one-third column')
-                .attr('id', 'cc-shell-visual-frequency-description-2')
-                .load('html/cc-shell-visual-frequency-description-2.html')
-                .end()
-
-                .append('<div></div>')
-                .find('div:last')
-                .addClass('one-third column')
-                .attr('id', 'cc-shell-visual-frequency-description-3')
-                .load('html/cc-shell-visual-frequency-description-3.html')
-                .end()
-
-                .end() // div.row
 
                 .append('<div></div>')
                 .find('div:last')
@@ -452,6 +464,7 @@ cc.shell = (function () {
             break;
 
         default:
+            create_Source(module_State.jq_containers[page_name], page_name);
         }
     };
 
@@ -468,16 +481,20 @@ cc.shell = (function () {
 
             .append('<div></div>')
             .find('div:last')
-            .addClass('two-thirds column cc-shell-front-title')
+            .addClass('two-thirds column alpha cc-shell-front-title')
             .attr('id', 'cc-shell-front-title-' + page_name)
-            .click({page_name: 'contents'}, present_Page)
-            .hover(to_Red, to_Black)
-            .load('html/cc-shell-front-title.html')
+            .load('html/cc-shell-front-title.html', function () {
+                $('div#cc-shell-front-title-' + page_name)
+                    .find('h4')
+                    .click({page_name: 'contents'}, present_Page)
+                    .hover(to_Red, to_Black)
+                    .text(cc.model.getCountry().toUpperCase());
+            })
             .end()
 
             .append('<div></div>')
             .find('div:last')
-            .addClass('one-third column cc-shell-front-share')
+            .addClass('one-third column omega cc-shell-front-share')
             .attr('id', 'cc-shell-front-share-' + page_name)
             .load('html/cc-shell-front-share.html')
             .end()
@@ -499,7 +516,7 @@ cc.shell = (function () {
 
             .append('<div></div>')
             .find('div:last')
-            .addClass('two-thirds column')
+            .addClass('two-thirds column alpha')
 
             .append('<div></div>')
             .find('div:last')
@@ -511,7 +528,7 @@ cc.shell = (function () {
 
             .append('<div></div>')
             .find('div:last')
-            .addClass('four columns omega cc-shell-front-navigation')
+            .addClass('one-third column omega cc-shell-front-navigation')
             .attr('id', 'cc-shell-front-navigation-' + page_name)
             .end()
 
@@ -596,13 +613,13 @@ cc.shell = (function () {
 
             .append('<div></div>')
             .find('div:last')
-            .addClass('two-thirds column')
+            .addClass('two-thirds column alpha')
             .load('html/cc-shell-front-empty.html')
             .end()
 
             .append('<div></div>')
             .find('div:last')
-            .addClass('one-third column cc-shell-front-logo')
+            .addClass('one-third column omega cc-shell-front-logo')
             .attr('id', 'cc-shell-front-logo-' + page_name)
             .load('img/blu-pen-logo-two-color-text.svg')
             .end()
@@ -623,7 +640,6 @@ cc.shell = (function () {
             break;
 
         default:
-            create_Source(jq_container, page_name);
         }
     };
 
@@ -640,32 +656,22 @@ cc.shell = (function () {
 
             .append('<div></div>')
             .find('div:last')
-            .addClass('row')
-
-            .append('<div></div>')
-            .find('div:last')
-            .addClass('two-thirds column')
-            .load('html/cc-shell-front-empty.html')
+            .addClass('two-thirds column alpha cc-shell-visual-title')
+            .attr('id', 'cc-shell-visual-title-' + page_name)
+            .load('html/cc-shell-visual-title.html', function () {
+                $('div#cc-shell-visual-title-' + page_name)
+                    .find('h1')
+                    .click({page_name: 'contents'}, present_Page)
+                    .hover(to_Red, to_Black)
+                    .text(cc.model.getCountry().toUpperCase());
+            })
             .end()
 
             .append('<div></div>')
             .find('div:last')
-            .addClass('one-third column cc-shell-visual-share')
+            .addClass('one-third column omega cc-shell-visual-share')
             .attr('id', 'cc-shell-visual-share-' + page_name)
             .load('html/cc-shell-visual-share.html')
-            .end()
-
-            .end() // div.row
-
-        // header title
-
-            .append('<div></div>')
-            .find('div:last')
-            .addClass('cc-shell-visual-header-title')
-            .attr('id', 'cc-shell-visual-header-title-' + page_name)
-            .click({page_name: 'contents'}, present_Page)
-            .hover(to_Red, to_Black)
-            .load('html/cc-shell-visual-header-title.html')
             .end()
 
             .end() // div#cc-shell-visual-header-page-name
@@ -678,17 +684,6 @@ cc.shell = (function () {
             .find('div:last')
             .addClass('cc-shell-visual-body')
             .attr('id', 'cc-shell-visual-body-' + page_name)
-
-        // body title
-
-            .append('<div></div>')
-            .find('div:last')
-            .addClass('cc-shell-visual-body-title')
-            .attr('id', 'cc-shell-visual-body-title-' + page_name)
-            .click({page_name: 'contents'}, present_Page)
-            .hover(to_Red, to_Black)
-            .load('html/cc-shell-visual-body-title.html')
-            .end()
 
         // body navigation
 
@@ -751,13 +746,13 @@ cc.shell = (function () {
 
             .append('<div></div>')
             .find('div:last')
-            .addClass('two-thirds column')
+            .addClass('two-thirds column alpha')
             .load('html/cc-shell-front-empty.html')
             .end()
 
             .append('<div></div>')
             .find('div:last')
-            .addClass('one-third column cc-shell-visual-logo')
+            .addClass('one-third column omega cc-shell-visual-logo')
             .attr('id', 'cc-shell-visual-logo-' + page_name)
             .load('img/blu-pen-logo-two-color-text.svg')
             .end()
@@ -768,6 +763,8 @@ cc.shell = (function () {
     };
 
     create_Source = function (jq_container, page_name) {
+
+        var current_source = cc.model.getCurrentSource();
 
         jq_container
 
@@ -780,11 +777,18 @@ cc.shell = (function () {
 
             .append('<div></div>')
             .find('div:last')
+            .addClass('row')
+
+            .append('<div></div>')
+            .find('div:last')
             .addClass('two-thirds column cc-shell-source-title')
             .attr('id', 'cc-shell-source-title-' + page_name)
-            .click({page_name: 'contents'}, present_Page)
-            .hover(to_Red, to_Black)
-            .load('html/cc-shell-source-title.html')
+            .load('html/cc-shell-source-title.html', function () {
+                var country = cc.model.getCountry().toLowerCase();
+                $('div#cc-shell-source-title-' + page_name)
+                    .find('h4')
+                    .text(country.charAt(0).toUpperCase() + country.slice(1));
+            })
             .end()
 
             .append('<div></div>')
@@ -793,6 +797,22 @@ cc.shell = (function () {
             .attr('id', 'cc-shell-source-share-' + page_name)
             .load('html/cc-shell-source-share.html')
             .end()
+
+            .end() // div.row
+
+        // header author
+
+            .append('<div></div>')
+            .find('div:last')
+            .addClass('cc-shell-source-author')
+            .attr('id', 'cc-shell-source-author-' + page_name)
+            .load('html/cc-shell-source-author.html', function () {
+                $('div#cc-shell-source-author-' + page_name)
+                    .find('h2')
+                    .text(current_source.data.name)
+                    .end();
+            })
+            .end() 
 
             .end() // div#cc-shell-source-header-page-name
 
@@ -804,50 +824,84 @@ cc.shell = (function () {
             .find('div:last')
             .addClass('cc-shell-source-body')
             .attr('id', 'cc-shell-source-body-' + page_name)
-
-        // body author
-
-            .append('<div></div>')
-            .find('div:last')
-            .addClass('cc-shell-source-author')
-            .attr('id', 'cc-shell-source-author-' + page_name)
-        // TODO: Navigate to external URL?
-            .click({page_name: 'contents'}, present_Page)
-            .hover(to_Red, to_Black)
-            .load('html/cc-shell-source-author.html')
-        // TODO: Set source author
-            .end()
+            .end();
 
         // body content
 
-            .append('<div></div>')
-            .find('div:last')
-            .addClass('row')
+        var n_row = 3, n_col = 3, n_smp = n_row * n_col, i_smp = -1, content;
 
-            .append('<div></div>')
-            .find('div:last')
-            .addClass('one-third column alpha cc-shell-source-content')
-            .attr('id', 'cc-shell-source-content-' + page_name)
-            .end()
+        for (var i_row = 0; i_row < n_row; i_row += 1) {
 
-            .append('<div></div>')
-            .find('div:last')
-            .addClass('one-third column cc-shell-source-content')
-            .attr('id', 'cc-shell-source-content-' + page_name)
-            .end()
+            i_smp += 1;
+            if (i_smp < current_source.sample.length && i_smp < n_smp) {
 
-            .append('<div></div>')
-            .find('div:last')
-            .addClass('one-third column omega cc-shell-source-content')
-            .attr('id', 'cc-shell-source-content-' + page_name)
-            .end()
+                if (current_source.sample[i_smp].type === 'text') {
+                    content = current_source.sample[i_smp].value;
+                } else { // type === 'photo'
+                    content = '<img src="' + current_source.sample[i_smp].value + '">';
+                }
 
-            .end() // div.row
+                jq_container.find('div#cc-shell-source-body-' + page_name)
+                    .append('<div></div>')
+                    .find('div:last')
+                    .addClass('row')
 
-            .end() // div#cc-shell-source-body-page-name
+                    .append('<div></div>')
+                    .find('div:last')
+                    .addClass('one-third column alpha cc-shell-source-content')
+                    .attr('id', 'cc-shell-source-content-' + page_name)
+                    .html(content)
+                    .end()
+
+                    .end(); // div.row
+            } else {
+                break;
+            }
+
+            i_smp += 1;
+            if (i_smp < current_source.sample.length && i_smp < n_smp) {
+
+                if (current_source.sample[i_smp].type === 'text') {
+                    content = current_source.sample[i_smp].value;
+                } else { // type === 'photo'
+                    content = '<img src="' + current_source.sample[i_smp].value + '">';
+                }
+
+                jq_container.find('div.row:last')
+                    .append('<div></div>')
+                    .find('div:last')
+                    .addClass('one-third column cc-shell-source-content')
+                    .attr('id', 'cc-shell-source-content-' + page_name)
+                    .html(content)
+                    .end();
+            } else {
+                break;
+            }
+
+            i_smp += 1;
+            if (i_smp < current_source.sample.length && i_smp < n_smp) {
+
+                if (current_source.sample[i_smp].type === 'text') {
+                    content = current_source.sample[i_smp].value;
+                } else { // type === 'photo'
+                    content = '<img src="' + current_source.sample[i_smp].value + '">';
+                }
+
+                jq_container.find('div.row:last')
+                    .append('<div></div>')
+                    .find('div:last')
+                    .addClass('one-third column omega cc-shell-source-content')
+                    .attr('id', 'cc-shell-source-content-' + page_name)
+                    .html(content)
+                    .end();
+            } else {
+                break;
+            }
+        }
 
         // footer
 
+        jq_container.find('div#cc-shell-source-body-' + page_name)
             .append('<div></div>')
             .find('div:last')
             .addClass('cc-shell-source-footer')
@@ -855,7 +909,13 @@ cc.shell = (function () {
 
             .append('<div></div>')
             .find('div:last')
-            .addClass('cc-shell-source-logo')
+            .addClass('two-thirds column alpha')
+            .load('html/cc-shell-front-empty.html')
+            .end()
+
+            .append('<div></div>')
+            .find('div:last')
+            .addClass('one-third column omega cc-shell-source-logo')
             .attr('id', 'cc-shell-source-logo-' + page_name)
             .load('img/blu-pen-logo-two-color-text.svg')
             .end()
@@ -870,7 +930,8 @@ cc.shell = (function () {
     return {
         configModule: configModule,
         initModule: initModule,
-        getJqContainers: getJqContainers
+        getJqContainers: getJqContainers,
+        delegatePage: delegatePage
     };
 
 }());
