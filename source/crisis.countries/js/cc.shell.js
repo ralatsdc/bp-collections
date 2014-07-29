@@ -186,12 +186,11 @@ cc.shell = (function () {
                 .append('<div></div>')
                 .find('div:last')
                 .attr('id', 'cc-shell-cover-image')
-                .text('An Image')
-                // .load('img/blu-pen-cover-topics-japan.svg')
-                .end()
+                // .load('img/cc-shell-visual-frequency-japan.svg')
+                .end() // #cc-shell-cover-image
 
                 .append('<hr>')
-
+                
                 .append('<div></div>')
                 .find('div:last')
                 .attr('id', 'cc-shell-cover-navigation')
@@ -199,7 +198,7 @@ cc.shell = (function () {
                 .hover(to_Red, to_Black)
                 .load('html/cc-shell-cover-navigation.html')
                 .end()
-
+                
                 .append('<hr>')
 
                 .end(); // div#cc-shell-cover-body
@@ -303,7 +302,7 @@ cc.shell = (function () {
 
                 .append('<div></div>')
                 .find('div:last')
-                .addClass('two-thirds column omega')
+                .addClass('two-thirds column omega square')
                 .attr('id', 'cc-shell-visual-volume-graphic')
                 .end()
 
@@ -334,7 +333,7 @@ cc.shell = (function () {
 
                 .append('<div></div>')
                 .find('div:last')
-                .addClass('two-thirds column omega')
+                .addClass('two-thirds column omega square')
                 .attr('id', 'cc-shell-visual-trust-graphic')
                 .end()
 
@@ -367,7 +366,7 @@ cc.shell = (function () {
 
                 .append('<div></div>')
                 .find('div:last')
-                .addClass('two-thirds column omega')
+                .addClass('two-thirds column omega square')
 
                 .append('<div></div>')
                 .find('div:last')
@@ -443,7 +442,7 @@ cc.shell = (function () {
 
                 .append('<div></div>')
                 .find('div:last')
-                .addClass('two-thirds column omega')
+                .addClass('two-thirds column omega square')
                 .attr('id', 'cc-shell-visual-frequency-graphic')
                 .end()
 

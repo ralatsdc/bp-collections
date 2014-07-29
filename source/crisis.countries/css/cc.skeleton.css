@@ -14,29 +14,36 @@
 /* #Base 960 Grid
    ================================================== */
 
-.square                    { position: relative; height: 960px; margin: 0 auto; padding: 0; }
+.square                       { position: relative; width: 960px; margin: 0 auto; padding: 0; }
+.square .column,
+.square .columns              { float: left; display: inline; margin-left: 10px; margin-right: 10px; }
+.row                          { margin-bottom: 20px; }
+
+/* Nested Column Classes */
+.column.alpha, .columns.alpha { margin-left: 0; }
+.column.omega, .columns.omega { margin-right: 0; }
 
 /* Base Grid */
 .square .one.column,
-.square .one.columns       { height: 40px;  }
-.square .two.columns       { height: 100px; }
-.square .three.columns     { height: 160px; }
-.square .four.columns      { height: 220px; }
-.square .five.columns      { height: 280px; }
-.square .six.columns       { height: 340px; }
-.square .seven.columns     { height: 400px; }
-.square .eight.columns     { height: 460px; }
-.square .nine.columns      { height: 520px; }
-.square .ten.columns       { height: 580px; }
-.square .eleven.columns    { height: 640px; }
-.square .twelve.columns    { height: 700px; }
-.square .thirteen.columns  { height: 760px; }
-.square .fourteen.columns  { height: 820px; }
-.square .fifteen.columns   { height: 880px; }
-.square .sixteen.columns   { height: 940px; }
+.square .one.columns          { height: 40px;  }
+.square .two.columns          { height: 100px; }
+.square .three.columns        { height: 160px; }
+.square .four.columns         { height: 220px; }
+.square .five.columns         { height: 280px; }
+.square .six.columns          { height: 340px; }
+.square .seven.columns        { height: 400px; }
+.square .eight.columns        { height: 460px; }
+.square .nine.columns         { height: 520px; }
+.square .ten.columns          { height: 580px; }
+.square .eleven.columns       { height: 640px; }
+.square .twelve.columns       { height: 700px; }
+.square .thirteen.columns     { height: 760px; }
+.square .fourteen.columns     { height: 820px; }
+.square .fifteen.columns      { height: 880px; }
+.square .sixteen.columns      { height: 940px; }
 
-.square .one-third.column  { height: 300px; }
-.square .two-thirds.column { height: 620px; }
+.square .one-third.column     { height: 300px; }
+.square .two-thirds.column    { height: 620px; }
 
 .graphic {
     -webkit-transform: scale(1.0);
@@ -52,28 +59,33 @@
 /* Note: Design for a width of 768px */
 
 @media only screen and (min-width: 768px) and (max-width: 959px) {
-    .square                    { height: 768px; }
-    
+    .square                       { width: 768px; }
+    .square .column,
+    .square .columns              { margin-left: 10px; margin-right: 10px;  }
+    .column.alpha, .columns.alpha { margin-left: 0; margin-right: 10px; }
+    .column.omega, .columns.omega { margin-right: 0; margin-left: 10px; }
+    .alpha.omega                  { margin-left: 0; margin-right: 0; }
+
     .square .one.column,
-    .square .one.columns       { height: 28px; }
-    .square .two.columns       { height: 76px; }
-    .square .three.columns     { height: 124px; }
-    .square .four.columns      { height: 172px; }
-    .square .five.columns      { height: 220px; }
-    .square .six.columns       { height: 268px; }
-    .square .seven.columns     { height: 316px; }
-    .square .eight.columns     { height: 364px; }
-    .square .nine.columns      { height: 412px; }
-    .square .ten.columns       { height: 460px; }
-    .square .eleven.columns    { height: 508px; }
-    .square .twelve.columns    { height: 556px; }
-    .square .thirteen.columns  { height: 604px; }
-    .square .fourteen.columns  { height: 652px; }
-    .square .fifteen.columns   { height: 700px; }
-    .square .sixteen.columns   { height: 748px; }
+    .square .one.columns          { height: 28px; }
+    .square .two.columns          { height: 76px; }
+    .square .three.columns        { height: 124px; }
+    .square .four.columns         { height: 172px; }
+    .square .five.columns         { height: 220px; }
+    .square .six.columns          { height: 268px; }
+    .square .seven.columns        { height: 316px; }
+    .square .eight.columns        { height: 364px; }
+    .square .nine.columns         { height: 412px; }
+    .square .ten.columns          { height: 460px; }
+    .square .eleven.columns       { height: 508px; }
+    .square .twelve.columns       { height: 556px; }
+    .square .thirteen.columns     { height: 604px; }
+    .square .fourteen.columns     { height: 652px; }
+    .square .fifteen.columns      { height: 700px; }
+    .square .sixteen.columns      { height: 748px; }
     
-    .square .one-third.column  { height: 236px; }
-    .square .two-thirds.column { height: 492px; }
+    .square .one-third.column     { height: 236px; }
+    .square .two-thirds.column    { height: 492px; }
 
     .graphic {
         -webkit-transform: scale(0.8);
@@ -91,7 +103,9 @@
 /* Note: Design for a width of 320px */
 
 @media only screen and (max-width: 767px) {
-    .square                    { height: 300px; }
+    .square                    { width: 300px; }
+    .square .columns,
+    .square .column            { margin: 0; }
     
     .square .one.column,
     .square .one.columns,
@@ -129,7 +143,9 @@
 /* Note: Design for a width of 480px */
 
 @media only screen and (min-width: 480px) and (max-width: 767px) {
-    .square                    { height: 420px; }
+    .square                    { width: 420px; }
+    .square .columns,
+    .square .column            { margin: 0; }
     
     .square .one.column,
     .square .one.columns,

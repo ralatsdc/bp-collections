@@ -59,11 +59,13 @@ div.cc-shell-visual-header {
     viewBox: "none";
 }
 
+/*
 #cc-shell-visual-volume-description svg {
     height: 100%;
     width: 100%;
     viewBox: "none";
 }
+*/
 
 /*
 .cc-shell-visual-content p {
@@ -71,11 +73,13 @@ div.cc-shell-visual-header {
 }
 */
 
+/*
 .visual svg {
     height: 100%;
     width: 100%;
     viewBox: "none";
 }
+*/
 
 #cc-shell-cover-title h1 {
     font-family: "OswaldBold", sans-serif;
@@ -142,6 +146,15 @@ div.cc-shell-visual-header {
 .cc-shell-front-body ul {
     list-style: disc;
 }
+
+/*
+#cc-shell-cover-image svg {
+    position: absolute;
+    left: 160px;
+    top: 320px;
+    z-index: -1;
+}
+*/
 
 /*
 .navigation-for-visual h4 {
