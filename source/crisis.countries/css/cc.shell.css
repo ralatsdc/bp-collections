@@ -64,9 +64,12 @@ div.cc-shell-visual-header {
     width: 100%;
     viewBox: "none";
 }
+
+/*
 .cc-shell-visual-content p {
     margin-top: 20px;
 }
+*/
 
 .visual svg {
     height: 100%;
@@ -117,11 +120,27 @@ div.cc-shell-visual-header {
     padding-right: 20px;
 }
 
+#cc-shell-contents hr,
+#cc-shell-preface hr,
+#cc-shell-introduction hr,
+#cc-shell-postscript hr,
+#cc-shell-colophone hr {
+    margin-bottom: 42px;
+}
+
 #cc-shell-volume hr,
 #cc-shell-trust hr,
 #cc-shell-topics hr,
 #cc-shell-frequency hr {
     margin-bottom: 0px;
+}
+
+.title-for-visual {
+    margin-top: 22px;
+}
+
+.cc-shell-front-body ul {
+    list-style: disc;
 }
 
 /*
