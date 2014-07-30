@@ -58,11 +58,11 @@ cc.model = (function () {
         return module_State.tags;
     };
 
-    setCurrentSource = function (sample_file_name, data_json, callback) {
-        d3.json(sample_file_name, function (sample_json) {
-            module_State.current_source = {data: data_json, sample: sample_json};
-            if (typeof data_json === 'object' && typeof callback === 'function') {
-                callback(data_json);
+    setCurrentSource = function (d, callback) {
+        d3.json(d.json, function (s) {
+            module_State.current_source = {data: d, sample: s};
+            if (typeof d === 'object' && typeof callback === 'function') {
+                callback(d);
             }
         });
     };

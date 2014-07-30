@@ -233,7 +233,7 @@ function () {
     present_Source = function (d) {
         if (!(d.name in cc.model.getSourcePage())) {
             cc.model.setSourcePage(d.name);
-            cc.model.setCurrentSource(d.json, d, present_Source);
+            cc.model.setCurrentSource(d, present_Source);
         } else {
             cc.shell.delegatePage({data: {page_name: cc.model.getSourcePage()[d.name]}});
         }
