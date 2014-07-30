@@ -46,26 +46,35 @@ cc.shell = (function () {
 
     initModule = function (jq_container) {
 
-        cc.model.configModule({});
-        cc.force.configModule({});
-        // cc.grid.configModule({});
-
-        cc.model.initModule(module_Config.country_file_name);
-        // cc.grid.initModule();
-
-        module_State.jq_containers.main = jq_container;
-
-        module_State.jq_containers.main
+        module_State.jq_containers.main = jq_container
             .addClass('container sixteen columns');
 
-        var page_name = module_Config.init_page_name;
-
-        present_Page({data: {page_name: page_name}});
-
-        $.uriAnchor.setAnchor({page_name: page_name}, null, true);
-        module_State.uri_anchor = $.uriAnchor.makeAnchorMap();
-
         $(window).bind('hashchange', on_Hash_Change);
+
+        cc.model.configModule({});
+        cc.force.configModule({});
+
+        var uri_anchor = $.uriAnchor.makeAnchorMap();
+
+        var page_name;
+        if ('page_name' in uri_anchor) {
+            page_name = uri_anchor.page_name;
+        } else {
+            page_name = module_Config.init_page_name;
+        }
+
+        switch (page_name) {
+        case 'volume':
+        case 'trust':
+        case 'topics':
+        case 'frequency':
+            cc.model.initModule(module_Config.country_file_name, {page_name: page_name});
+            break;
+
+        default:
+            cc.model.initModule(module_Config.country_file_name);
+            present_Page({data: {page_name: page_name}});
+        }
     };
     
     getJqContainers = function () {
@@ -103,11 +112,7 @@ cc.shell = (function () {
         case 'volume':
         case 'trust':
         case 'topics':
-            cc.force.presentForce(page_name);
-            break;
-
         case 'frequency':
-            // cc.grid.presentGrid(page_name);
             cc.force.presentForce(page_name);
             break;
 
@@ -117,11 +122,13 @@ cc.shell = (function () {
         if (page_name !== module_State.uri_anchor.page_name) {
             dismiss_Page(module_State.uri_anchor.page_name);
         }
-
-        $.uriAnchor.setAnchor({page_name: page_name});
-        module_State.uri_anchor = $.uriAnchor.makeAnchorMap();
-
         module_State.jq_containers[page_name].fadeIn('slow');
+
+        var uri_anchor = $.uriAnchor.makeAnchorMap();
+        uri_anchor.page_name = page_name;
+        $.uriAnchor.setAnchor(uri_anchor);
+        module_State.uri_anchor = uri_anchor;
+
     };
 
     dismiss_Page = function (page_name) {
@@ -732,6 +739,10 @@ cc.shell = (function () {
                     .attr('id', 'cc-shell-visual-nav-to-frequency-' + page_name)
                     .click({page_name: 'frequency'}, present_Page)
                     .hover(hover_In, hover_Out)
+                    .end()
+                
+                    .find('div#next')
+                    .load('img/grey_arrow.svg')
                     .end();
             })
             .end() // div#cc-shell-visual-navigation-page-name

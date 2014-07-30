@@ -74,16 +74,16 @@ function () {
         return true;
     };
 
-    initModule = function (page_name, svg_size) {
+    initModule = function (page_name, options) {
 
         module_State.page_name = page_name;
 
-        if (svg_size !== undefined && typeof svg_size === 'object') {
-            if ('width' in svg_size) {
-                module_Config.width = svg_size.width;
+        if (options !== undefined && typeof options === 'object') {
+            if ('width' in options) {
+                module_Config.width = options.width;
             }
-            if ('height' in svg_size) {
-                module_Config.height = svg_size.height;
+            if ('height' in options) {
+                module_Config.height = options.height;
             }
             module_Config.margin = (module_Config.width + module_Config.height) / 40;
         }
@@ -231,12 +231,15 @@ function () {
     };
 
     present_Source = function (d) {
+        window.open('http://localhost:8080/crisis.countries/#!page_name=contents');
+        /*
         if (!(d.name in cc.model.getSourcePage())) {
             cc.model.setSourcePage(d.name);
             cc.model.setCurrentSource(d, present_Source);
         } else {
             cc.shell.delegatePage({data: {page_name: cc.model.getSourcePage()[d.name]}});
         }
+        */
     };
 
     scale_R = function (d) {

@@ -38,11 +38,18 @@ cc.model = (function () {
         return true;
     };
 
-    initModule = function (country_file_name) {
+    initModule = function (country_file_name, options) {
         d3.json(country_file_name, function (country_json) {
+
             module_State.country = country_json.country;
             module_State.sources = country_json.sources;
             module_State.tags = country_json.tags;
+
+            if (options !== undefined && typeof options === 'object') {
+                if ('page_name' in options) {
+                    cc.shell.delegatePage({data: options});
+                }
+            }
         });
     };
     
