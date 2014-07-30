@@ -204,6 +204,6 @@
 	   c-0.508-0.529-0.926-1.018-1.03-1.217c-0.073-0.131-0.047-0.184,0.198-0.475c0.151-0.186,0.303-0.331,0.336-0.331
 	   c0.027,0,0.523-0.463,1.091-1.024c0.569-0.562,1.086-1.025,1.151-1.025C168.119,40.986,168.224,41.059,168.296,41.15z"/>
   <text transform="matrix(1 0 0 1 0 51.7656)" font-family="ComfortaaRegular" font-size="60">B L U</text>
-  <rect x="241.376" y="9.271" fill="none" width="148" height="71"/>
+  <!--rect x="241.376" y="9.271" fill="none" width="148" height="71"/-->
   <text transform="matrix(1 0 0 1 241.376 51.2109)" font-family="ComfortaaRegular" font-size="60">P E N</text>
 </svg>
