@@ -26,6 +26,18 @@ div.cc-shell-source-header {
     viewBox: "none";
 }
 
+#cc-shell-cover-logo svg:hover text,
+.cc-shell-front-logo svg:hover text,
+.cc-shell-visual-logo svg:hover text,
+.cc-shell-source-logo svg:hover text {
+    stroke: #1AB6E5;
+    fill: #1AB6E5;
+}
+
+a:hover {
+    color: #1AB6E5;
+}
+
 #cc-shell-cover-image svg {
     z-index: -1;
 }

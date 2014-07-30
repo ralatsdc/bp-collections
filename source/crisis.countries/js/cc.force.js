@@ -343,7 +343,7 @@ function () {
         return color;
     };
 
-    stroke_R = function (d) {
+    stroke_R = function () {
 
         var
         color = '',
@@ -356,22 +356,8 @@ function () {
 
         case 'topics':
         case 'frequency':
-            /*
-            if (d.service === 'feed') {
-                color = '#973E00';
-            } else if (d.service === 'flickr') {
-                color = '#7D0043';
-            } else if (d.service === 'tumblr') {
-                color = '#32506D';
-            } else if (d.service === 'twitter') {
-                color = '#1AB6E5';
-            } else {
-                color = '#FFFFFF';
-            }
-            */
-            color = '#CF0000';
-            color = '#802B06';
-            color = '#979797';
+            color = '#79DEFF';
+            color = '#1AB6E5';
             color = '#B10000';
             break;
 

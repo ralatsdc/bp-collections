@@ -36,8 +36,8 @@ cc.shell = (function () {
     create_Source,
     create_Back,
     on_Hash_Change,
-    to_Red,
-    to_Black;
+    hover_In,
+    hover_Out;
 
     configModule = function (input_config) {
         cc.util.setConfig(input_config, module_Config);
@@ -83,11 +83,11 @@ cc.shell = (function () {
         }
     };
 
-    to_Red = function () {
-        $(this).animate({'color': '#B10000'}, 100);
+    hover_In = function () {
+        $(this).animate({'color': '#1AB6E5'}, 100);
     };
 
-    to_Black = function () {
+    hover_Out = function () {
         $(this).animate({'color': '#000000'}, 100);
     };
 
@@ -159,6 +159,9 @@ cc.shell = (function () {
                 .append('<div></div>')
                 .find('div:last')
                 .attr('id', 'cc-shell-cover-logo')
+                .click(function () {
+                    window.open('http://www.blu-pen.com');
+                })
                 .load('img/blu-pen-logo-two-color-text.svg')
                 .end()
 
@@ -197,7 +200,7 @@ cc.shell = (function () {
                     $('#cc-shell-cover-navigation')
                         .find('h1')
                         .click({page_name: 'contents'}, present_Page)
-                        .hover(to_Red, to_Black);
+                        .hover(hover_In, hover_Out);
                 })
                 .end()
 
@@ -215,42 +218,42 @@ cc.shell = (function () {
                     module_State.jq_containers[page_name]
                         .find('#cc-shell-front-contents-nav-to-preface')
                         .click({page_name: 'preface'}, present_Page)
-                        .hover(to_Red, to_Black)
+                        .hover(hover_In, hover_Out)
                         .end()
 
                         .find('#cc-shell-front-contents-nav-to-introduction')
                         .click({page_name: 'introduction'}, present_Page)
-                        .hover(to_Red, to_Black)
+                        .hover(hover_In, hover_Out)
                         .end()
 
                         .find('#cc-shell-front-contents-nav-to-volume')
                         .click({page_name: 'volume'}, present_Page)
-                        .hover(to_Red, to_Black)
+                        .hover(hover_In, hover_Out)
                         .end()
 
                         .find('#cc-shell-front-contents-nav-to-trust')
                         .click({page_name: 'trust'}, present_Page)
-                        .hover(to_Red, to_Black)
+                        .hover(hover_In, hover_Out)
                         .end()
 
                         .find('#cc-shell-front-contents-nav-to-topics')
                         .click({page_name: 'topics'}, present_Page)
-                        .hover(to_Red, to_Black)
+                        .hover(hover_In, hover_Out)
                         .end()
 
                         .find('#cc-shell-front-contents-nav-to-frequency')
                         .click({page_name: 'frequency'}, present_Page)
-                        .hover(to_Red, to_Black)
+                        .hover(hover_In, hover_Out)
                         .end()
 
                         .find('#cc-shell-front-contents-nav-to-postscript')
                         .click({page_name: 'postscript'}, present_Page)
-                        .hover(to_Red, to_Black)
+                        .hover(hover_In, hover_Out)
                         .end()
 
                         .find('#cc-shell-front-contents-nav-to-colophon')
                         .click({page_name: 'colophon'}, present_Page)
-                        .hover(to_Red, to_Black)
+                        .hover(hover_In, hover_Out)
                         .end();
                 })
                 .end(); // div#cc-shell-front-contents
@@ -258,8 +261,7 @@ cc.shell = (function () {
             module_State.jq_containers[page_name]
                 .find('div#cc-shell-front-navigation-contents')
                 .empty()
-            // TODO: Why is it necessary to load this empy file?
-                .load('html/cc-shell-front-empty.html');
+                .load('html/cc-shell-empty.html');
 
             break;
 
@@ -495,7 +497,7 @@ cc.shell = (function () {
                 $('div#cc-shell-front-title-' + page_name)
                     .find('h4')
                     .click({page_name: 'contents'}, present_Page)
-                    .hover(to_Red, to_Black)
+                    .hover(hover_In, hover_Out)
                     .text(cc.model.getCountry().toUpperCase());
             })
             .end()
@@ -554,56 +556,56 @@ cc.shell = (function () {
                     .addClass('cc-shell-front-nav-to-preface')
                     .attr('id', 'cc-shell-front-nav-to-preface-' + page_name)
                     .click({page_name: 'preface'}, present_Page)
-                    .hover(to_Red, to_Black)
+                    .hover(hover_In, hover_Out)
                     .end()
 
                     .find('#cc-shell-front-nav-to-introduction')
                     .addClass('cc-shell-front-nav-to-introduction')
                     .attr('id', 'cc-shell-front-nav-to-introduction-' + page_name)
                     .click({page_name: 'introduction'}, present_Page)
-                    .hover(to_Red, to_Black)
+                    .hover(hover_In, hover_Out)
                     .end()
 
                     .find('#cc-shell-front-nav-to-volume')
                     .addClass('cc-shell-front-nav-to-volume')
                     .attr('id', 'cc-shell-front-nav-to-volume-' + page_name)
                     .click({page_name: 'volume'}, present_Page)
-                    .hover(to_Red, to_Black)
+                    .hover(hover_In, hover_Out)
                     .end()
 
                     .find('#cc-shell-front-nav-to-trust')
                     .addClass('cc-shell-front-nav-to-trust')
                     .attr('id', 'cc-shell-front-nav-to-trust-' + page_name)
                     .click({page_name: 'trust'}, present_Page)
-                    .hover(to_Red, to_Black)
+                    .hover(hover_In, hover_Out)
                     .end()
 
                     .find('#cc-shell-front-nav-to-topics')
                     .addClass('cc-shell-front-nav-to-topics')
                     .attr('id', 'cc-shell-front-nav-to-topics-' + page_name)
                     .click({page_name: 'topics'}, present_Page)
-                    .hover(to_Red, to_Black)
+                    .hover(hover_In, hover_Out)
                     .end()
 
                     .find('#cc-shell-front-nav-to-frequency')
                     .addClass('cc-shell-front-nav-to-frequency')
                     .attr('id', 'cc-shell-front-nav-to-frequency-' + page_name)
                     .click({page_name: 'frequency'}, present_Page)
-                    .hover(to_Red, to_Black)
+                    .hover(hover_In, hover_Out)
                     .end()
 
                     .find('#cc-shell-front-nav-to-postscript')
                     .addClass('cc-shell-front-nav-to-postscript')
                     .attr('id', 'cc-shell-front-nav-to-postscript-' + page_name)
                     .click({page_name: 'postscript'}, present_Page)
-                    .hover(to_Red, to_Black)
+                    .hover(hover_In, hover_Out)
                     .end()
 
                     .find('#cc-shell-front-nav-to-colophon')
                     .addClass('cc-shell-front-nav-to-colophon')
                     .attr('id', 'cc-shell-front-nav-to-colophon-' + page_name)
                     .click({page_name: 'colophon'}, present_Page)
-                    .hover(to_Red, to_Black)
+                    .hover(hover_In, hover_Out)
                     .end();
             })
             .end() // div#cc-shell-front-navigation-page-name
@@ -622,13 +624,16 @@ cc.shell = (function () {
             .append('<div></div>')
             .find('div:last')
             .addClass('two-thirds column alpha')
-            .load('html/cc-shell-front-empty.html')
+            .load('html/cc-shell-empty.html')
             .end()
 
             .append('<div></div>')
             .find('div:last')
             .addClass('one-third column omega cc-shell-front-logo')
             .attr('id', 'cc-shell-front-logo-' + page_name)
+            .click(function () {
+                window.open('http://www.blu-pen.com');
+            })
             .load('img/blu-pen-logo-two-color-text.svg')
             .end()
 
@@ -670,7 +675,7 @@ cc.shell = (function () {
                 $('div#cc-shell-visual-title-' + page_name)
                     .find('h1')
                     .click({page_name: 'contents'}, present_Page)
-                    .hover(to_Red, to_Black)
+                    .hover(hover_In, hover_Out)
                     .text(cc.model.getCountry().toUpperCase());
             })
             .end()
@@ -705,28 +710,28 @@ cc.shell = (function () {
                     .addClass('cc-shell-visual-nav-to-volume')
                     .attr('id', 'cc-shell-visual-nav-to-volume-' + page_name)
                     .click({page_name: 'volume'}, present_Page)
-                    .hover(to_Red, to_Black)
+                    .hover(hover_In, hover_Out)
                     .end()
 
                     .find('#cc-shell-visual-nav-to-trust')
                     .addClass('cc-shell-visual-nav-to-trust')
                     .attr('id', 'cc-shell-visual-nav-to-trust-' + page_name)
                     .click({page_name: 'trust'}, present_Page)
-                    .hover(to_Red, to_Black)
+                    .hover(hover_In, hover_Out)
                     .end()
 
                     .find('#cc-shell-visual-nav-to-topics')
                     .addClass('cc-shell-visual-nav-to-topics')
                     .attr('id', 'cc-shell-visual-nav-to-topics-' + page_name)
                     .click({page_name: 'topics'}, present_Page)
-                    .hover(to_Red, to_Black)
+                    .hover(hover_In, hover_Out)
                     .end()
 
                     .find('#cc-shell-visual-nav-to-frequency')
                     .addClass('cc-shell-visual-nav-to-frequency')
                     .attr('id', 'cc-shell-visual-nav-to-frequency-' + page_name)
                     .click({page_name: 'frequency'}, present_Page)
-                    .hover(to_Red, to_Black)
+                    .hover(hover_In, hover_Out)
                     .end();
             })
             .end() // div#cc-shell-visual-navigation-page-name
@@ -755,13 +760,16 @@ cc.shell = (function () {
             .append('<div></div>')
             .find('div:last')
             .addClass('two-thirds column alpha')
-            .load('html/cc-shell-front-empty.html')
+            .load('html/cc-shell-empty.html')
             .end()
 
             .append('<div></div>')
             .find('div:last')
             .addClass('one-third column omega cc-shell-visual-logo')
             .attr('id', 'cc-shell-visual-logo-' + page_name)
+            .click(function () {
+                window.open('http://www.blu-pen.com');
+            })
             .load('img/blu-pen-logo-two-color-text.svg')
             .end()
 
@@ -795,7 +803,7 @@ cc.shell = (function () {
                 $('div#cc-shell-source-title-' + page_name)
                     .find('h4')
                     .click({page_name: 'contents'}, present_Page)
-                    .hover(to_Red, to_Black)
+                    .hover(hover_In, hover_Out)
                     .text(cc.model.getCountry().toUpperCase());
             })
             .end()
@@ -918,13 +926,16 @@ cc.shell = (function () {
             .append('<div></div>')
             .find('div:last')
             .addClass('two-thirds column alpha')
-            .load('html/cc-shell-front-empty.html')
+            .load('html/cc-shell-empty.html')
             .end()
 
             .append('<div></div>')
             .find('div:last')
             .addClass('one-third column omega cc-shell-source-logo')
             .attr('id', 'cc-shell-source-logo-' + page_name)
+            .click(function () {
+                window.open('http://www.blu-pen.com');
+            })
             .load('img/blu-pen-logo-two-color-text.svg')
             .end()
 
