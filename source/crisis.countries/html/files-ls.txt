@@ -1,5 +1,6 @@
 cc-shell-cover-navigation.html
 cc-shell-cover-title.html
+cc-shell-empty.html
 cc-shell-front-colophon.html
 cc-shell-front-contents.html
 cc-shell-front-empty.html
@@ -13,8 +14,8 @@ cc-shell-front-title.html
 cc-shell-source-author.html
 cc-shell-source-share.html
 cc-shell-source-title.html
-cc-shell-visual-body-title.html
 cc-shell-visual-frequency-description.html
+cc-shell-visual-frequency-title.html
 cc-shell-visual-navigation.html
 cc-shell-visual-share.html
 cc-shell-visual-title.html
