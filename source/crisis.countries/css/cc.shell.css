@@ -26,6 +26,13 @@ div.cc-shell-source-header {
     viewBox: "none";
 }
 
+.circle-arrow svg {
+    height: 24px;
+    width: 24;
+    viewBox: "none";
+    margin-top: 2px;
+}
+
 #cc-shell-cover-logo svg:hover path,
 #cc-shell-cover-logo svg:hover text,
 .cc-shell-front-logo svg:hover path,
@@ -37,9 +44,8 @@ div.cc-shell-source-header {
     stroke: #1AB6E5;
     fill: #1AB6E5;
 }
-
-a:hover {
-    color: #1AB6E5;
+.circle-arrow svg:hover polyline {
+    stroke: #1AB6E5;
 }
 
 #cc-shell-cover-image svg {
