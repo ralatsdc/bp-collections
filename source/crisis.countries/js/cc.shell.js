@@ -49,8 +49,6 @@ cc.shell = (function () {
         module_State.jq_containers.main = jq_container
             .addClass('container sixteen columns');
 
-        $(window).bind('hashchange', on_Hash_Change);
-
         cc.model.configModule({});
         cc.force.configModule({});
 
@@ -64,19 +62,33 @@ cc.shell = (function () {
         }
 
         switch (page_name) {
+        case 'cover':
+        case 'contents':
+        case 'preface':
+        case 'introduction':
         case 'volume':
         case 'trust':
         case 'topics':
         case 'frequency':
-            cc.model.initModule(module_Config.country_file_name, {page_name: page_name});
+        case 'postscript':
+        case 'colophon':
+            cc.model.initModule(module_Config.country_file_name,
+                                {page_name: page_name});
             break;
 
+        case 'source':
+            if ('source_index' in uri_anchor) {
+                cc.model.initModule(module_Config.country_file_name,
+                                    {source_index: uri_anchor.source_index});
+            }
+            break;
+            
         default:
-            cc.model.initModule(module_Config.country_file_name);
-            present_Page({data: {page_name: page_name}});
         }
+
+        $(window).bind('hashchange', on_Hash_Change);
     };
-    
+
     getJqContainers = function () {
         return module_State.jq_containers;
     };
@@ -140,7 +152,7 @@ cc.shell = (function () {
 
     create_Page = function (page_name) {
 
-        var tags, i_tag, topics;
+        var tags, i_tag;
 
         var page_id = 'cc-shell-' + page_name;
         module_State.jq_containers.main
@@ -713,6 +725,10 @@ cc.shell = (function () {
             .attr('id', 'cc-shell-visual-navigation-' + page_name)
             .load('html/cc-shell-visual-navigation.html', function () {
                 jq_container
+                    .find('div.circle-arrow:first')
+                    .load('img/circle-arrow-left.svg')
+                    .end()
+
                     .find('#cc-shell-visual-nav-to-volume')
                     .addClass('cc-shell-visual-nav-to-volume')
                     .attr('id', 'cc-shell-visual-nav-to-volume-' + page_name)
@@ -741,8 +757,8 @@ cc.shell = (function () {
                     .hover(hover_In, hover_Out)
                     .end()
                 
-                    .find('div#next')
-                    .load('img/grey_arrow.svg')
+                    .find('div.circle-arrow:last')
+                    .load('img/circle-arrow-right.svg')
                     .end();
             })
             .end() // div#cc-shell-visual-navigation-page-name
@@ -791,7 +807,7 @@ cc.shell = (function () {
 
     create_Source = function (jq_container, page_name) {
 
-        var current_source = cc.model.getCurrentSource();
+        var source_object = cc.model.getSourceObject();
 
         jq_container
 
@@ -837,7 +853,7 @@ cc.shell = (function () {
             .load('html/cc-shell-source-author.html', function () {
                 $('div#cc-shell-source-author-' + page_name)
                     .find('h2')
-                    .text(current_source.data.name)
+                    .text(source_object.data.name)
                     .end();
             })
             .end() 
@@ -860,12 +876,12 @@ cc.shell = (function () {
         for (var i_row = 0; i_row < n_row; i_row += 1) {
 
             i_smp += 1;
-            if (i_smp < current_source.sample.length && i_smp < n_smp) {
+            if (i_smp < source_object.sample.length && i_smp < n_smp) {
 
-                if (current_source.sample[i_smp].type === 'text') {
-                    content = current_source.sample[i_smp].value;
+                if (source_object.sample[i_smp].type === 'text') {
+                    content = source_object.sample[i_smp].value;
                 } else { // type === 'photo'
-                    content = '<img src="' + current_source.sample[i_smp].value + '">';
+                    content = '<img src="' + source_object.sample[i_smp].value + '">';
                 }
 
                 jq_container.find('div#cc-shell-source-body-' + page_name)
@@ -886,12 +902,12 @@ cc.shell = (function () {
             }
 
             i_smp += 1;
-            if (i_smp < current_source.sample.length && i_smp < n_smp) {
+            if (i_smp < source_object.sample.length && i_smp < n_smp) {
 
-                if (current_source.sample[i_smp].type === 'text') {
-                    content = current_source.sample[i_smp].value;
+                if (source_object.sample[i_smp].type === 'text') {
+                    content = source_object.sample[i_smp].value;
                 } else { // type === 'photo'
-                    content = '<img src="' + current_source.sample[i_smp].value + '">';
+                    content = '<img src="' + source_object.sample[i_smp].value + '">';
                 }
 
                 jq_container.find('div.row:last')
@@ -906,12 +922,12 @@ cc.shell = (function () {
             }
 
             i_smp += 1;
-            if (i_smp < current_source.sample.length && i_smp < n_smp) {
+            if (i_smp < source_object.sample.length && i_smp < n_smp) {
 
-                if (current_source.sample[i_smp].type === 'text') {
-                    content = current_source.sample[i_smp].value;
+                if (source_object.sample[i_smp].type === 'text') {
+                    content = source_object.sample[i_smp].value;
                 } else { // type === 'photo'
-                    content = '<img src="' + current_source.sample[i_smp].value + '">';
+                    content = '<img src="' + source_object.sample[i_smp].value + '">';
                 }
 
                 jq_container.find('div.row:last')

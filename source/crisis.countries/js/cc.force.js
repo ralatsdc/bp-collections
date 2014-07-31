@@ -214,6 +214,7 @@ function () {
             .select('h4')
             .attr('class', 'extrabold')
             .text(d.name);
+
         module_State.node_descriptions[page_name]
             .style('visibility', 'visible');
     };
@@ -230,16 +231,8 @@ function () {
         module_State.node_descriptions[page_name].style('visibility', 'hidden');
     };
 
-    present_Source = function (d) {
-        window.open('http://localhost:8080/crisis.countries/#!page_name=contents');
-        /*
-        if (!(d.name in cc.model.getSourcePage())) {
-            cc.model.setSourcePage(d.name);
-            cc.model.setCurrentSource(d, present_Source);
-        } else {
-            cc.shell.delegatePage({data: {page_name: cc.model.getSourcePage()[d.name]}});
-        }
-        */
+    present_Source = function (d, i) {
+        window.open('http://localhost:8080/crisis.countries/#!page_name=source&source_index=' + i);
     };
 
     scale_R = function (d) {
@@ -359,8 +352,6 @@ function () {
 
         case 'topics':
         case 'frequency':
-            color = '#79DEFF';
-            color = '#1AB6E5';
             color = '#B10000';
             break;
 
