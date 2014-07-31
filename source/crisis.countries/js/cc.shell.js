@@ -722,6 +722,20 @@ cc.shell = (function () {
 
     create_Visual = function (jq_container, page_name) {
 
+        var
+        back = {
+            volume: 'introduction',
+            trust: 'volume',
+            topics: 'trust',
+            frequency: 'topics'
+        },
+        next = {
+            volume: 'trust',
+            trust: 'topics',
+            topics: 'frequency',
+            frequency: 'postscript'
+        };
+
         jq_container
 
         // header
@@ -771,6 +785,7 @@ cc.shell = (function () {
             .load('html/cc-shell-visual-navigation.html', function () {
                 jq_container
                     .find('div.circle-arrow:first')
+                    .click({page_name: back[page_name]}, present_Page)
                     .load('img/circle-arrow-left.svg')
                     .end()
 
@@ -803,6 +818,7 @@ cc.shell = (function () {
                     .end()
                 
                     .find('div.circle-arrow:last')
+                    .click({page_name: next[page_name]}, present_Page)
                     .load('img/circle-arrow-right.svg')
                     .end();
             })
