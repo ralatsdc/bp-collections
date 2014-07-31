@@ -53,6 +53,7 @@ function () {
         node_values: {},
         node_elements: {},
         node_descriptions: {},
+        legends: {},
         page_name: undefined
     },
     scale_X,
@@ -64,6 +65,7 @@ function () {
     stroke_Width_R,
     charge_R,
     on_Tick,
+    append_Circle,
     present_Description,
     move_Description,
     dismiss_Description,
@@ -172,6 +174,21 @@ function () {
             .on('mousemove', move_Description)
             .on('mouseout', dismiss_Description)
             .on('click', present_Source);
+
+        switch (page_name) {
+        case 'volume':
+            append_Circle('volume', 'div#cc-shell-visual-volume-large-circle', '+1');
+            append_Circle('volume', 'div#cc-shell-visual-volume-medium-circle', '0');
+            append_Circle('volume', 'div#cc-shell-visual-volume-small-circle', '-1');
+            break;
+
+        case 'trust':
+        case 'topics':
+        case 'frequency':
+            break;
+
+        default:
+        }
     };
 
     presentForce = function (page_name) {
@@ -206,6 +223,25 @@ function () {
 
         default:
         }
+    };
+
+    append_Circle = function (page_name, selector, volume) {
+
+        var width = 2.0 * scale_R({volume: volume});
+        var height = 2.0 * scale_R({volume: volume});
+
+        module_State.legends[page_name] = d3.select(selector)
+            .append('svg')
+            .attr('width', width)
+            .attr('height', height)
+            .append('g')
+            .attr('class', 'graphic')
+            .append('circle')
+            .attr('cx', scale_R({volume: volume}))
+            .attr('cy', scale_R({volume: volume}))
+            .attr('r', scale_R({volume: volume}))
+            .attr('opacity', scale_O({engagement: '0'}))
+            .attr('fill', fill_R({engagement: '0'}));
     };
 
     present_Description = function (d) {

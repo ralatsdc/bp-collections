@@ -113,6 +113,10 @@ div.cc-shell-source-header {
     font-family: "OswaldLight", sans-serif;
 }
 
+div.cc-shell-visual-description p {
+    margin-top: 20px;
+}
+
 .cc-shell-source-content img {
     max-width: 100%;
     max-height: 100%;

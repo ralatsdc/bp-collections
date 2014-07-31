@@ -317,9 +317,49 @@ cc.shell = (function () {
                 .append('<div></div>')
                 .find('div:last')
                 .addClass('one-third column alpha')
+
+                .append('<div></div>')
+                .find('div:last')
                 .attr('id', 'cc-shell-visual-volume-description')
-                .load('html/cc-shell-visual-volume-description.html')
                 .end()
+
+                .append('<div></div>')
+                .find('div:last')
+                .attr('id', 'cc-shell-visual-volume-small-title')
+                .addClass('cc-shell-visual-description')
+                .load('html/cc-shell-visual-volume-small-title.html')
+                .end()
+
+                .append('<div></div>')
+                .find('div:last')
+                .attr('id', 'cc-shell-visual-volume-small-circle')
+                .end()
+
+                .append('<div></div>')
+                .find('div:last')
+                .attr('id', 'cc-shell-visual-volume-medium-title')
+                .addClass('cc-shell-visual-description')
+                .load('html/cc-shell-visual-volume-medium-title.html')
+                .end()
+
+                .append('<div></div>')
+                .find('div:last')
+                .attr('id', 'cc-shell-visual-volume-medium-circle')
+                .end()
+
+                .append('<div></div>')
+                .find('div:last')
+                .attr('id', 'cc-shell-visual-volume-large-title')
+                .addClass('cc-shell-visual-description')
+                .load('html/cc-shell-visual-volume-large-title.html')
+                .end()
+
+                .append('<div></div>')
+                .find('div:last')
+                .attr('id', 'cc-shell-visual-volume-large-circle')
+                .end()
+
+                .end() // div.one-third.column.alpha
 
                 .append('<div></div>')
                 .find('div:last')
@@ -330,6 +370,11 @@ cc.shell = (function () {
                 .end(); // div#cc-shell-visual-content-volume
 
             cc.force.initModule(page_name);
+
+            module_State.jq_containers[page_name]
+                .find('div#cc-shell-visual-volume-description')
+                .load('html/cc-shell-visual-volume-description.html')
+                .end();
 
             break;
 
