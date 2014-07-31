@@ -24,4 +24,7 @@ cc-shell-visual-topics-title.html
 cc-shell-visual-trust-description.html
 cc-shell-visual-trust-title.html
 cc-shell-visual-volume-description.html
+cc-shell-visual-volume-large-title.html
+cc-shell-visual-volume-medium-title.html
+cc-shell-visual-volume-small-title.html
 cc-shell-visual-volume-title.html
