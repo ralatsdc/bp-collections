@@ -258,8 +258,8 @@ function () {
     move_Description = function () {
         var page_name = module_State.page_name;
         module_State.node_descriptions[page_name]
-            .style('top', (event.pageY - 10) + 'px')
-            .style('left', (event.pageX + 10) + 'px');
+            .style('top', (d3.event.pageY - 10) + 'px')
+            .style('left', (d3.event.pageX + 10) + 'px');
     };
 
     dismiss_Description = function () {
