@@ -267,8 +267,15 @@ function () {
         module_State.node_descriptions[page_name].style('visibility', 'hidden');
     };
 
-    present_Source = function (d, i) {
-        window.open('http://localhost:8080/crisis.countries/#!page_name=source&source_index=' + i);
+    present_Source = function (d) {
+        var sources = cc.model.getSources();
+        for (var i_src = 1; i_src < sources.length; i_src += 1) {
+            if (d.name === sources[i_src].name &&
+                d.json === sources[i_src].json) {
+                break;
+            }
+        }
+        window.open('http://localhost:8080/crisis.countries/#!page_name=source&source_index=' + i_src);
     };
 
     scale_R = function (d) {
