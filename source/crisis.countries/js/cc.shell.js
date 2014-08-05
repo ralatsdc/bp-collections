@@ -560,7 +560,7 @@ cc.shell = (function () {
             .load('html/cc-shell-front-title.html', function () {
                 $('div#cc-shell-front-title-' + page_name)
                     .find('h4')
-                    .click({page_name: 'contents'}, present_Page)
+                    .click({page_name: 'cover'}, present_Page)
                     .hover(hover_In, hover_Out)
                     .text(cc.model.getCountry().toUpperCase());
             })
@@ -752,7 +752,7 @@ cc.shell = (function () {
             .load('html/cc-shell-visual-title.html', function () {
                 $('div#cc-shell-visual-title-' + page_name)
                     .find('h1')
-                    .click({page_name: 'contents'}, present_Page)
+                    .click({page_name: 'cover'}, present_Page)
                     .hover(hover_In, hover_Out)
                     .text(cc.model.getCountry().toUpperCase());
             })
@@ -890,7 +890,7 @@ cc.shell = (function () {
             .load('html/cc-shell-source-title.html', function () {
                 $('div#cc-shell-source-title-' + page_name)
                     .find('h4')
-                    .click({page_name: 'contents'}, present_Page)
+                    .click({page_name: 'cover'}, present_Page)
                     .hover(hover_In, hover_Out)
                     .text(cc.model.getCountry().toUpperCase());
             })
@@ -942,7 +942,7 @@ cc.shell = (function () {
                 if (source_object.sample[i_smp].type === 'text') {
                     content = source_object.sample[i_smp].value;
                 } else { // type === 'photo'
-                    content = '<img src="' + source_object.sample[i_smp].value + '">';
+                    content = '<img src="' + source_object.sample[i_smp].url + '">';
                 }
 
                 jq_container.find('div#cc-shell-source-body-' + page_name)
@@ -968,7 +968,7 @@ cc.shell = (function () {
                 if (source_object.sample[i_smp].type === 'text') {
                     content = source_object.sample[i_smp].value;
                 } else { // type === 'photo'
-                    content = '<img src="' + source_object.sample[i_smp].value + '">';
+                    content = '<img src="' + source_object.sample[i_smp].url + '">';
                 }
 
                 jq_container.find('div.row:last')
@@ -988,7 +988,7 @@ cc.shell = (function () {
                 if (source_object.sample[i_smp].type === 'text') {
                     content = source_object.sample[i_smp].value;
                 } else { // type === 'photo'
-                    content = '<img src="' + source_object.sample[i_smp].value + '">';
+                    content = '<img src="' + source_object.sample[i_smp].url + '">';
                 }
 
                 jq_container.find('div.row:last')
