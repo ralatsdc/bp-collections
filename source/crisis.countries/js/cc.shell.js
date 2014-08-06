@@ -915,6 +915,10 @@ cc.shell = (function () {
                 $('div#cc-shell-source-author-' + page_name)
                     .find('h2')
                     .text(source_object.data.name)
+                    .click(function () {
+                        window.open(source_object.data.url);
+                    })
+                    .hover(hover_In, hover_Out)
                     .end();
             })
             .end() 
