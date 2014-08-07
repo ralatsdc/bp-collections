@@ -15,7 +15,8 @@ function () {
     presentForce,
     resizeVolumeLegend,
     resizeTrustLegend,
-    resizeTopicsLegend;
+    resizeTopicsLegend,
+    resizeFrequencyAxes;
 
     var
     module_Config = {
@@ -104,7 +105,8 @@ function () {
 
         module_State.svgs[page_name] = d3.select('div#cc-shell-visual-' + page_name + '-graphic')
             .append('svg')
-            .attr('viewBox', '0 0 ' + module_Config.width + ' ' + module_Config.height);
+            .attr('viewBox', '0 0 ' + module_Config.width + ' ' + module_Config.height)
+            .attr('overflow', 'visible');
 
         module_State.groups[page_name] = module_State.svgs[page_name]
             .append('g');
@@ -188,18 +190,18 @@ function () {
             break;
 
         case 'trust':
-            resizeTrustLegend();
             d3.select(window)
                 .on('resize', resizeTrustLegend);
             break;
 
         case 'topics':
-            resizeTopicsLegend();
             d3.select(window)
                 .on('resize', resizeTopicsLegend);
             break;
 
         case 'frequency':
+            d3.select(window)
+                .on('resize', resizeFrequencyAxes);
             break;
 
         default:
@@ -217,8 +219,15 @@ function () {
 
         switch (page_name) {
         case 'volume':
+            resizeVolumeLegend();
+            break;
+
         case 'trust':
+            resizeTrustLegend();
+            break;
+
         case 'topics':
+            resizeTopicsLegend();
             break;
 
         case 'frequency':
@@ -234,6 +243,7 @@ function () {
                 .attr('class', 'y axis')
                 .attr('transform', 'translate(' + scale_X(-50.0) + ', 0)')
                 .call(axis_Y);
+            resizeFrequencyAxes();
             break;
 
         default:
@@ -290,7 +300,7 @@ function () {
         scale = get_Scale() + 0.05,
         height = 20 * scale;
 
-        d3.select('div#cc-shell-visual-trust-description svg')
+        d3.selectAll('div#cc-shell-visual-trust-description svg')
             .attr('height', height);
     };
 
@@ -301,9 +311,30 @@ function () {
         width = 44 * scale,
         height = 44 * scale;
 
-        d3.select('div#cc-shell-visual-topics-description svg')
+        d3.selectAll('div#cc-shell-visual-topics-description svg')
             .attr('width', width)
             .attr('height', height);
+    };
+
+    resizeFrequencyAxes = function () {
+
+        var
+        scale = get_Scale(),
+        font_size = 14 / scale,
+        text_anchor = 'end';
+
+        // <text y="9" x="0" dy=".71em" style="text-anchor: middle;">0</text>
+
+        d3.selectAll('div#cc-shell-visual-frequency-graphic g.x.axis text')
+            .attr('style', 'font-size: ' + font_size + 'px; text-anchor: middle;');
+
+        // <text x="-9" y="0" dy=".32em" style="text-anchor: end;">0</text>
+
+        if (scale === 0.4838) {
+            text_anchor = 'start';
+        }
+        d3.selectAll('div#cc-shell-visual-frequency-graphic g.y.axis text')
+            .attr('style', 'font-size: ' + font_size + 'px; text-anchor: ' + text_anchor + ';');
     };
 
     get_Scale = function () {
@@ -576,7 +607,8 @@ function () {
         presentForce: presentForce,
         resizeVolumeLegend: resizeVolumeLegend,
         resizeTrustLegend: resizeTrustLegend,
-        resizeTopicsLegend: resizeTopicsLegend
+        resizeTopicsLegend: resizeTopicsLegend,
+        resizeFrequencyAxes: resizeFrequencyAxes
     };
 
 }());
