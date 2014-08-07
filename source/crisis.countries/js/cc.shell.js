@@ -208,7 +208,7 @@ cc.shell = (function () {
                 .append('<div></div>')
                 .find('div:last')
                 .attr('id', 'cc-shell-cover-image')
-                .addClass('offset-by-three square')
+                .addClass('offset-by-three ten columns')
                 .load('img/cc-shell-visual-frequency-japan.svg')
                 .end()
 
@@ -363,7 +363,7 @@ cc.shell = (function () {
 
                 .append('<div></div>')
                 .find('div:last')
-                .addClass('two-thirds column omega square')
+                .addClass('two-thirds column omega')
                 .attr('id', 'cc-shell-visual-volume-graphic')
                 .end()
 
@@ -394,12 +394,14 @@ cc.shell = (function () {
                 .find('div:last')
                 .addClass('one-third column alpha')
                 .attr('id', 'cc-shell-visual-trust-description')
-                .load('html/cc-shell-visual-trust-description.html')
+                .load('html/cc-shell-visual-trust-description.html', function () {
+                    cc.force.resizeTrustLegend();
+                })
                 .end()
 
                 .append('<div></div>')
                 .find('div:last')
-                .addClass('two-thirds column omega square')
+                .addClass('two-thirds column omega')
                 .attr('id', 'cc-shell-visual-trust-graphic')
                 .end()
 
@@ -427,12 +429,14 @@ cc.shell = (function () {
                 .find('div:last')
                 .addClass('one-third column alpha')
                 .attr('id', 'cc-shell-visual-topics-description')
-                .load('html/cc-shell-visual-topics-description.html')
+                .load('html/cc-shell-visual-topics-description.html', function () {
+                    cc.force.resizeTopicsLegend();
+                })
                 .end()
 
                 .append('<div></div>')
                 .find('div:last')
-                .addClass('two-thirds column omega square')
+                .addClass('two-thirds column omega')
 
                 .append('<div></div>')
                 .find('div:last')
@@ -508,13 +512,12 @@ cc.shell = (function () {
 
                 .append('<div></div>')
                 .find('div:last')
-                .addClass('two-thirds column omega square')
+                .addClass('two-thirds column omega')
                 .attr('id', 'cc-shell-visual-frequency-graphic')
                 .end()
 
                 .end(); // div#cc-shell-visual-content-frequency
 
-            // cc.grid.initGrid(page_name);
             cc.force.initModule(page_name);
 
             break;

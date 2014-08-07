@@ -12,11 +12,14 @@ function () {
     var
     configModule,
     initModule,
-    presentForce;
+    presentForce,
+    resizeVolumeLegend,
+    resizeTrustLegend,
+    resizeTopicsLegend;
 
     var
     module_Config = {
-        width: 620, // Needs to be consistent with column spec
+        width: 620,
         height: 620,
         margin: 31,
         n_margin: 10.0,
@@ -66,6 +69,7 @@ function () {
     charge_R,
     on_Tick,
     append_Circle,
+    get_Scale,
     present_Description,
     move_Description,
     dismiss_Description,
@@ -100,11 +104,10 @@ function () {
 
         module_State.svgs[page_name] = d3.select('div#cc-shell-visual-' + page_name + '-graphic')
             .append('svg')
-            .attr('class', 'two-thirds column');
+            .attr('viewBox', '0 0 ' + module_Config.width + ' ' + module_Config.height);
 
         module_State.groups[page_name] = module_State.svgs[page_name]
-            .append('g')
-            .attr('class', 'graphic');
+            .append('g');
 
         module_State.nominal_R =
             Math.sqrt((module_Config.width * module_Config.height) / (10 * cc.model.getSources().length));
@@ -180,10 +183,22 @@ function () {
             append_Circle('volume', 'div#cc-shell-visual-volume-large-circle', '+1');
             append_Circle('volume', 'div#cc-shell-visual-volume-medium-circle', '0');
             append_Circle('volume', 'div#cc-shell-visual-volume-small-circle', '-1');
+            d3.select(window)
+                .on('resize', resizeVolumeLegend);
             break;
 
         case 'trust':
+            resizeTrustLegend();
+            d3.select(window)
+                .on('resize', resizeTrustLegend);
+            break;
+
         case 'topics':
+            resizeTopicsLegend();
+            d3.select(window)
+                .on('resize', resizeTopicsLegend);
+            break;
+
         case 'frequency':
             break;
 
@@ -226,9 +241,12 @@ function () {
     };
 
     append_Circle = function (page_name, selector, volume) {
-
-        var width = 2.0 * scale_R({volume: volume});
-        var height = 2.0 * scale_R({volume: volume});
+        
+        var
+        scale = get_Scale(),
+        R = scale_R({volume: volume}),
+        width = 2.0 * R * scale,
+        height = 2.0 * R * scale;
 
         module_State.legends[page_name] = d3.select(selector)
             .append('svg')
@@ -242,6 +260,76 @@ function () {
             .attr('r', scale_R({volume: volume}))
             .attr('opacity', scale_O({engagement: '0'}))
             .attr('fill', fill_R({engagement: '0'}));
+    };
+
+    resizeVolumeLegend = function () {
+
+        var
+        volume = [-1, 0, 1],
+        size = ['small', 'medium', 'large'],
+        scale = get_Scale(),
+        R,
+        width,
+        height;
+
+        for (var i_crcl = 0; i_crcl < size.length; i_crcl += 1) {
+            
+            R = scale_R({volume: volume[i_crcl]});
+            width = 2.05 * R * scale;
+            height = 2.05 * R * scale;
+        
+            d3.select('div#cc-shell-visual-volume-' + size[i_crcl] + '-circle svg')
+                .attr('width',  width)
+                .attr('height', height);
+        }
+    };
+
+    resizeTrustLegend = function () {
+
+        var
+        scale = get_Scale() + 0.05,
+        height = 20 * scale;
+
+        d3.select('div#cc-shell-visual-trust-description svg')
+            .attr('height', height);
+    };
+
+    resizeTopicsLegend = function () {
+
+        var
+        scale = get_Scale() + 0.05,
+        width = 44 * scale,
+        height = 44 * scale;
+
+        d3.select('div#cc-shell-visual-topics-description svg')
+            .attr('width', width)
+            .attr('height', height);
+    };
+
+    get_Scale = function () {
+
+        var
+        w = window,
+        d = document,
+        e = d.documentElement,
+        g = d.getElementsByTagName('body')[0],
+        x = w.innerWidth || e.clientWidth || g.clientWidth,
+        // y = w.innerHeight|| e.clientHeight|| g.clientHeight,
+        scale = 1.0;
+
+        // @media only screen and (min-width: 768px) and (max-width: 959px)
+        if (768 < x && x < 959) {
+            scale = 0.7935;
+        }
+        // @media only screen and (max-width: 767px)
+        if (x < 767) {
+            scale = 0.4838;
+        }
+        // @media only screen and (min-width: 480px) and (max-width: 767px)
+        if (480 < x && x < 767) {
+            scale = 0.6774;
+        }
+        return scale;
     };
 
     present_Description = function (d) {
@@ -485,7 +573,10 @@ function () {
     return {
         configModule: configModule,
         initModule: initModule,
-        presentForce: presentForce
+        presentForce: presentForce,
+        resizeVolumeLegend: resizeVolumeLegend,
+        resizeTrustLegend: resizeTrustLegend,
+        resizeTopicsLegend: resizeTopicsLegend
     };
 
 }());

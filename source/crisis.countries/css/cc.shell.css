@@ -28,7 +28,7 @@ div.cc-shell-source-header {
 
 .circle-arrow svg {
     height: 24px;
-    width: 24;
+    width: auto;
     viewBox: "none";
     margin-top: 2px;
 }
