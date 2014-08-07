@@ -138,13 +138,18 @@ div.cc-shell-visual-description p {
 }
 
 .title-for-visual {
-    margin-top: 22px;
+    margin-top: 32px;
 }
 
-.contents-for-visual {
-    float: left;
-    display: inline;
-    padding-right: 20px;
+.title-for-visual h2 {
+    margin-top: -16px;
+}
+
+#cc-shell-visual-volume-graphic,
+#cc-shell-visual-trust-graphic,
+#cc-shell-visual-topics-graphic,
+#cc-shell-visual-frequency-graphic {
+    margin-top: 32px;
 }
 
 .extrabold {
