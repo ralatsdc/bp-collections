@@ -1,0 +1,70 @@
+/* 
+ * bp.skeleton.css
+ * Overrides skeleton/skeleton.css
+ *
+ */
+
+/* Table of Contents
+   ==================================================
+   #Base 960 Grid
+   #Tablet (Portrait)
+   #Mobile (Portrait)
+   #Mobile (Landscape)*/
+
+/* #Base 960 Grid
+   ================================================== */
+
+.graphic {
+    -webkit-transform: scale(1.0);
+    -moz-transform: scale(1.0);
+    -o-transform: scale(1.0);
+    -ms-transform: scale(1.0);
+    transform: scale(1.0);
+}
+
+/* #Tablet (Portrait)
+   ================================================== */
+
+/* Note: Design for a width of 768px */
+
+@media only screen and (min-width: 768px) and (max-width: 959px) {
+    .graphic {
+        -webkit-transform: scale(0.7935);
+        -moz-transform: scale(0.7935);
+        -o-transform: scale(0.7935);
+        -ms-transform: scale(0.7935);
+        transform: scale(0.7935);
+    }
+}
+
+
+/*  #Mobile (Portrait)
+    ================================================== */
+
+/* Note: Design for a width of 320px */
+
+@media only screen and (max-width: 767px) {
+    .graphic {
+        -webkit-transform: scale(0.4838);
+        -moz-transform: scale(0.4838);
+        -o-transform: scale(0.4838);
+        -ms-transform: scale(0.4838);
+        transform: scale(0.4838);
+    }
+}
+
+
+/* #Mobile (Landscape)
+   ================================================== */
+
+/* Note: Design for a width of 480px */
+
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+    .graphic {
+        -webkit-transform: scale(0.6774);
+        -moz-transform: scale(0.6774);
+        -o-transform: scale(0.6774);
+        -ms-transform: scale(0.6774);
+        transform: scale(0.6774);
+    }
+}

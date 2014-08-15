@@ -1,0 +1,42 @@
+/* 
+ * bp.base.css
+ * Overrides skeleton/base.css
+ *
+ */
+
+/* Table of Content
+   ==================================================
+   #Basic Styles
+   #Typography
+   #Links
+   #Images */
+
+/* #Basic Styles
+   ================================================== */
+
+body {
+    font: 14px/21px "OpenSansRegular", Helvetica, Arial, sans-serif;
+    color: #292929;
+}
+
+/* #Typography
+   ================================================== */
+
+h1, h2, h3, h4, h5, h6 {
+    color: #212121;
+    font-family: "OpenSansRegular", Helvetica, Arial, sans-serif;
+}
+
+/* #Links
+   ================================================== */
+
+a, a:visited { color: #B10000; text-decoration: none; outline: 0; }
+a:hover, a:focus { color: #1AB6E5; }
+
+/* #Images
+   ================================================== */
+
+svg.scale-with-grid {
+    max-width: 100%;
+    max-height: 100%;
+}

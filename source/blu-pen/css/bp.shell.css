@@ -1,0 +1,28 @@
+/*
+ * bp.shell.css
+ * Styles the shell module presentation
+ *
+ */
+
+.extrabold {
+    font-family: "OpenSansExtraBold", sans-serif;
+}
+
+.bold {
+    font-family: "OpenSansBold", sans-serif;
+}
+
+.semibold {
+    font-family: "OpenSansSemiBold", sans-serif;
+}
+
+.lightitalic {
+    font-family: "OpenSansLightItalic", sans-serif;
+}
+
+.centered {
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto
+}

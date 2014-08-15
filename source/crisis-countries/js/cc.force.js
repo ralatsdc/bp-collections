@@ -394,7 +394,7 @@ function () {
                 break;
             }
         }
-        window.open('http://localhost:8080/crisis.countries/#!page_name=source&source_index=' + i_src);
+        window.open('http://localhost:8080/crisis-countries/#!page_name=source&source_index=' + i_src);
     };
 
     scale_R = function (d) {
