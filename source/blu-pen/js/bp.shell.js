@@ -186,15 +186,55 @@ bp.shell = (function () {
     };
 
     create_Text = function (jq_container, page_name) {
+
+        switch (page_name) {
+        case 'number':
+        case 'outwit':
+        case 'browse':
+        case 'news':
+            break;
+
+        default:
+        }
+
     };
 
     create_Image = function (jq_container, page_name) {
+
+        switch (page_name) {
+        case 'bones':
+        case 'frames':
+        case 'vases':
+        case 'window':
+            break;
+
+        default:
+        }
+
     };
 
     create_Text_Left = function (jq_container, page_name) {
+
+        switch (page_name) {
+        case 'less':
+        case 'eliminate':
+            break;
+
+        default:
+        }
+
     };
 
     create_Text_Right = function (jq_container, page_name) {
+
+        switch (page_name) {
+        case 'tame':
+        case 'connect':
+            break;
+
+        default:
+        }
+
     };
 
     on_Hash_Change = function () {
