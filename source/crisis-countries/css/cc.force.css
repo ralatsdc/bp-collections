@@ -4,26 +4,28 @@
  *
  */
 
-.axis {
+/* Axis line and font */
+
+.cc-force-axis {
     shape-rendering: crispEdges;
 }
 
-.x.axis line,
-.x.axis path {
+.x.cc-force-axis line,
+.x.cc-force-axis path {
     fill: none;
     stroke: #000;
 }
 
-.x.axis text {
+.x.cc-force-axis text {
     font-family: "OpenSansExtraBold", sans-serif;
 }
 
-.y.axis line,
-.y.axis path {
+.y.cc-force-axis line,
+.y.cc-force-axis path {
     fill: none;
     stroke: #000;
 }
 
-.y.axis text {
+.y.cc-force-axis text {
     font-family: "OpenSansExtraBold", sans-serif;
 }

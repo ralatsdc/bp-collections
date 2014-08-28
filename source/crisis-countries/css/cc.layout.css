@@ -4,6 +4,8 @@
  *
  */
 
+/* Comfortaa */
+
 @font-face {
     font-family: 'ComfortaaBold';
     src: url('../fonts/comfortaa/comfortaa_bold-webfont.eot');
@@ -36,6 +38,8 @@
     font-weight: normal;
     font-style: normal;
 }
+
+/* OpenSans */
 
 @font-face {
     font-family: 'OpenSansBold';
@@ -146,6 +150,8 @@
     font-weight: normal;
     font-style: normal;
 }
+
+/* Oswald */
 
 @font-face {
     font-family: 'OswaldBold';

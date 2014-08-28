@@ -4,12 +4,7 @@
  *
  */
 
-div#cc-shell-cover-header,
-div.cc-shell-front-header,
-div.cc-shell-visual-header,
-div.cc-shell-source-header {
-    height: 100px;
-}
+/* SVG logos */
 
 #cc-shell-cover-logo svg {
     margin-top: 36px;
@@ -26,13 +21,6 @@ div.cc-shell-source-header {
     viewBox: "none";
 }
 
-.circle-arrow svg {
-    height: 24px;
-    width: auto;
-    viewBox: "none";
-    margin-top: 2px;
-}
-
 #cc-shell-cover-logo svg:hover path,
 #cc-shell-cover-logo svg:hover text,
 .cc-shell-front-logo svg:hover path,
@@ -44,7 +32,17 @@ div.cc-shell-source-header {
     stroke: #1AB6E5;
     fill: #1AB6E5;
 }
-.circle-arrow svg:hover polyline {
+
+/* SVG navigation */
+
+.cc-shell-circle-arrow svg {
+    height: 24px;
+    width: auto;
+    viewBox: "none";
+    margin-top: 2px;
+}
+
+.cc-shell-circle-arrow svg:hover polyline {
     stroke: #1AB6E5;
 }
 
@@ -52,10 +50,13 @@ div.cc-shell-source-header {
     z-index: -1;
 }
 
-#cc-shell-cover-navigation {
-    position: absolute;
-    top: 50%;
-    width: 100%;
+/* Header */
+
+div#cc-shell-cover-header,
+div.cc-shell-front-header,
+div.cc-shell-visual-header,
+div.cc-shell-source-header {
+    height: 100px;
 }
 
 div.cc-shell-front-header,
@@ -70,9 +71,22 @@ div.cc-shell-source-header {
     padding-top: 5px;
 }
 
-.cc-shell-visual-title h3 {
-    margin-top: -16px;
+#cc-shell-contents hr,
+#cc-shell-preface hr,
+#cc-shell-introduction hr,
+#cc-shell-postscript hr,
+#cc-shell-colophone hr {
+    margin-bottom: 42px;
 }
+
+#cc-shell-volume hr,
+#cc-shell-trust hr,
+#cc-shell-topics hr,
+#cc-shell-frequency hr {
+    margin-bottom: 0px;
+}
+
+/* Body titles */
 
 #cc-shell-cover-title h1 {
     font-family: "OswaldBold", sans-serif;
@@ -83,6 +97,23 @@ div.cc-shell-source-header {
 
 #cc-shell-cover-title h2 {
     font-family: "OswaldLight", sans-serif;
+}
+
+.cc-shell-visual-title h1 {
+    font-family: "OswaldBold", sans-serif;
+}
+
+.cc-shell-visual-title h3 {
+    font-family: "OswaldLight", sans-serif;
+    margin-top: -16px;
+}
+
+.cc-shell-title-for-visual {
+    margin-top: 32px;
+}
+
+.cc-shell-title-for-visual h2 {
+    margin-top: -16px;
 }
 
 .cc-shell-front-title h4,
@@ -101,48 +132,40 @@ div.cc-shell-source-header {
     margin-top: -8px;
 }
 
+/* Body navigation */
+
+#cc-shell-cover-navigation {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+}
+
+/* Body font */
+
+.cc-shell-extrabold {
+    font-family: "OpenSansExtraBold", sans-serif;
+}
+
+.cc-shell-bold {
+    font-family: "OpenSansBold", sans-serif;
+}
+
+.cc-shell-semibold {
+    font-family: "OpenSansSemiBold", sans-serif;
+}
+
+.cc-shell-lightitalic {
+    font-family: "OpenSansLightItalic", sans-serif;
+}
+
+/* Body miscellaneous */
+
 .cc-shell-front-body ul {
     list-style: disc;
 }
 
-.cc-shell-visual-title h1 {
-    font-family: "OswaldBold", sans-serif;
-}
-
-.cc-shell-visual-title h3 {
-    font-family: "OswaldLight", sans-serif;
-}
-
 div.cc-shell-visual-description p {
     margin-top: 20px;
-}
-
-.cc-shell-source-content img {
-    max-width: 100%;
-    max-height: 100%;
-}
-
-#cc-shell-contents hr,
-#cc-shell-preface hr,
-#cc-shell-introduction hr,
-#cc-shell-postscript hr,
-#cc-shell-colophone hr {
-    margin-bottom: 42px;
-}
-
-#cc-shell-volume hr,
-#cc-shell-trust hr,
-#cc-shell-topics hr,
-#cc-shell-frequency hr {
-    margin-bottom: 0px;
-}
-
-.title-for-visual {
-    margin-top: 32px;
-}
-
-.title-for-visual h2 {
-    margin-top: -16px;
 }
 
 #cc-shell-visual-volume-graphic,
@@ -152,20 +175,12 @@ div.cc-shell-visual-description p {
     margin-top: 32px;
 }
 
-.extrabold {
-    font-family: "OpenSansExtraBold", sans-serif;
-}
-.bold {
-    font-family: "OpenSansBold", sans-serif;
-}
-.semibold {
-    font-family: "OpenSansSemiBold", sans-serif;
-}
-.lightitalic {
-    font-family: "OpenSansLightItalic", sans-serif;
+.cc-shell-source-content img {
+    max-width: 100%;
+    max-height: 100%;
 }
 
-.centered {
+.cc-shell-centered {
     text-align: center;
     display: block;
     margin-left: auto;

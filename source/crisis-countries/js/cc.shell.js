@@ -173,7 +173,7 @@ cc.shell = (function () {
                 .append('<div></div>')
                 .find('div:last')
                 .attr('id', 'cc-shell-cover-header')
-                .addClass('centered')
+                .addClass('cc-shell-centered')
 
                 .append('<div></div>')
                 .find('div:last')
@@ -181,7 +181,7 @@ cc.shell = (function () {
                 .click(function () {
                     window.open('http://www.blu-pen.com');
                 })
-                .load('img/blu-pen-logo-two-color-text.svg')
+                .load('img/bp-logo-two-color-text.svg')
                 .end()
 
                 .end() // div#cc-shell-cover-header
@@ -193,7 +193,7 @@ cc.shell = (function () {
                 .append('<div></div>')
                 .find('div:last')
                 .attr('id', 'cc-shell-cover-body')
-                .addClass('centered')
+                .addClass('cc-shell-centered')
 
                 .append('<div></div>')
                 .find('div:last')
@@ -209,7 +209,7 @@ cc.shell = (function () {
                 .find('div:last')
                 .attr('id', 'cc-shell-cover-image')
                 .addClass('offset-by-three ten columns')
-                .load('img/cc-shell-visual-frequency-japan.svg')
+                .load('img/cc-visual-frequency-japan.svg')
                 .end()
 
                 .append('<div></div>')
@@ -701,7 +701,7 @@ cc.shell = (function () {
             .click(function () {
                 window.open('http://www.blu-pen.com');
             })
-            .load('img/blu-pen-logo-two-color-text.svg')
+            .load('img/bp-logo-two-color-text.svg')
             .end()
 
             .end() // div.row
@@ -787,9 +787,9 @@ cc.shell = (function () {
             .attr('id', 'cc-shell-visual-navigation-' + page_name)
             .load('html/cc-shell-visual-navigation.html', function () {
                 jq_container
-                    .find('div.circle-arrow:first')
+                    .find('div.cc-shell-circle-arrow:first')
                     .click({page_name: back[page_name]}, present_Page)
-                    .load('img/circle-arrow-left.svg')
+                    .load('img/cc-circle-arrow-left.svg')
                     .end()
 
                     .find('#cc-shell-visual-nav-to-volume')
@@ -820,9 +820,9 @@ cc.shell = (function () {
                     .hover(hover_In, hover_Out)
                     .end()
                 
-                    .find('div.circle-arrow:last')
+                    .find('div.cc-shell-circle-arrow:last')
                     .click({page_name: next[page_name]}, present_Page)
-                    .load('img/circle-arrow-right.svg')
+                    .load('img/cc-circle-arrow-right.svg')
                     .end();
             })
             .end() // div#cc-shell-visual-navigation-page-name
@@ -861,7 +861,7 @@ cc.shell = (function () {
             .click(function () {
                 window.open('http://www.blu-pen.com');
             })
-            .load('img/blu-pen-logo-two-color-text.svg')
+            .load('img/bp-logo-two-color-text.svg')
             .end()
 
             .end() // div.row
@@ -1031,7 +1031,7 @@ cc.shell = (function () {
             .click(function () {
                 window.open('http://www.blu-pen.com');
             })
-            .load('img/blu-pen-logo-two-color-text.svg')
+            .load('img/bp-logo-two-color-text.svg')
             .end()
 
             .end(); // div#cc-shell-source-footer-page-name

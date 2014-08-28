@@ -235,12 +235,12 @@ function () {
             var axis_Y = d3.svg.axis().scale(scale_Y).orient('left');
             module_State.svgs[page_name]
                 .append('g')
-                .attr('class', 'x axis')
+                .attr('class', 'x cc-force-axis')
                 .attr('transform', 'translate(0, ' + scale_X(0.0) + ')') 
                 .call(axis_X);
             module_State.svgs[page_name]
                 .append('g')
-                .attr('class', 'y axis')
+                .attr('class', 'y cc-force-axis')
                 .attr('transform', 'translate(' + scale_X(-50.0) + ', 0)')
                 .call(axis_Y);
             resizeFrequencyAxes();
@@ -325,7 +325,7 @@ function () {
 
         // <text y="9" x="0" dy=".71em" style="text-anchor: middle;">0</text>
 
-        d3.selectAll('div#cc-shell-visual-frequency-graphic g.x.axis text')
+        d3.selectAll('div#cc-shell-visual-frequency-graphic g.x.cc-force-axis text')
             .attr('style', 'font-size: ' + font_size + 'px; text-anchor: middle;');
 
         // <text x="-9" y="0" dy=".32em" style="text-anchor: end;">0</text>
@@ -333,7 +333,7 @@ function () {
         if (scale === 0.4838) {
             text_anchor = 'start';
         }
-        d3.selectAll('div#cc-shell-visual-frequency-graphic g.y.axis text')
+        d3.selectAll('div#cc-shell-visual-frequency-graphic g.y.cc-force-axis text')
             .attr('style', 'font-size: ' + font_size + 'px; text-anchor: ' + text_anchor + ';');
     };
 
@@ -367,7 +367,7 @@ function () {
         var page_name = module_State.page_name;
         module_State.node_descriptions[page_name]
             .select('h4')
-            .attr('class', 'extrabold')
+            .attr('class', 'cc-shell-extrabold')
             .text(d.name);
 
         module_State.node_descriptions[page_name]
