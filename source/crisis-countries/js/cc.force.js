@@ -1,13 +1,13 @@
-/*
- * cc.force.js
+/**
+ * Creates the force layout for all body pages.
  */
-
 /* global cc, d3 */
-
 cc.force = (
 function () {
 
     'use strict';
+
+    /* == Public variables == */
 
     var
     configModule,
@@ -17,6 +17,8 @@ function () {
     resizeTrustLegend,
     resizeTopicsLegend,
     resizeFrequencyAxes;
+
+    /* == Private variables == */
 
     var
     module_Config = {
@@ -76,15 +78,45 @@ function () {
     dismiss_Description,
     present_Source;
 
+    /* == Public functions ==*/
+
+    /**
+     * Sets the configuration key value pairs for this module.
+     *
+     * @param {Object} input_config configuration key value pairs to
+     *     set, if permitted
+     *
+     * @return {boolean|undefined} true if successful, undefined
+     *     otherwise
+     */
     configModule = function (input_config) {
         cc.util.setConfig(input_config, module_Config);
         return true;
     };
 
+    /**
+     * Create the body page force layout by using source data as node
+     * values and data in order to append a circle at each node, set
+     * circle position, size, and display attributes, and attach mouse
+     * and click event handlers for source description presentation.
+     *
+     * An svg element with a viewbox attribute and a g element are
+     * used for scaling. The resize event is handled in order to
+     * resize body page force layout legends. Excluded sources are
+     * deleted for the frequency page force layout. The configured
+     * width and height can be overridden. All values are retained as
+     * state by page name.
+     * 
+     * @param {string} page_name the body page name
+     * @param {Object} options contains width or height
+     *
+     * @return {undefined}
+     */
     initModule = function (page_name, options) {
 
         module_State.page_name = page_name;
 
+        // Allow the configured width and height to be overridden
         if (options !== undefined && typeof options === 'object') {
             if ('width' in options) {
                 module_Config.width = options.width;
@@ -95,25 +127,30 @@ function () {
             module_Config.margin = (module_Config.width + module_Config.height) / 40;
         }
 
+        // Establish the x and y scale
         scale_X = d3.scale.linear()
             .domain(module_Config.domain_x)
             .range([module_Config.margin, module_Config.width - module_Config.margin]);
-
         scale_Y = d3.scale.linear()
             .domain(module_Config.domain_y)
             .range([module_Config.height - module_Config.margin, module_Config.margin]);
-
+        
+        // Append an svg and g element, setting the viewbox attribute
+        // for later scaling
         module_State.svgs[page_name] = d3.select('div#cc-shell-visual-' + page_name + '-graphic')
             .append('svg')
             .attr('viewBox', '0 0 ' + module_Config.width + ' ' + module_Config.height)
             .attr('overflow', 'visible');
-
         module_State.groups[page_name] = module_State.svgs[page_name]
             .append('g');
 
+        // Compute a nominal radius based on the number of sources in
+        // order to fill the presented area
         module_State.nominal_R =
             Math.sqrt((module_Config.width * module_Config.height) / (10 * cc.model.getSources().length));
 
+        // Compute a nominal gravity and charge based on page name.
+        // For the frequency page also delete excluded sources.
         var sources = $.extend(true, [], cc.model.getSources());
         switch (page_name) {
         case 'volume':
@@ -125,20 +162,22 @@ function () {
             break;
 
         case 'frequency':
+            module_State.nominal_G[page_name] = module_Config.default_G / 10.0;
+            module_State.nominal_C[page_name] =
+                module_Config.default_C * Math.pow(module_State.nominal_R / module_Config.default_R, 2) / 5.0;
             for(var i_source = sources.length - 1; i_source >= 0; i_source -= 1) {
                 if(!sources[i_source].include) {
                     sources.splice(i_source, 1);
                 }
             }
-            module_State.nominal_G[page_name] = module_Config.default_G / 10.0;
-            module_State.nominal_C[page_name] =
-                module_Config.default_C * Math.pow(module_State.nominal_R / module_Config.default_R, 2) / 5.0;
             break;
 
         default:
         }
-        module_State.node_values[page_name] = sources;
 
+        // Use source data as node values and append position and size
+        // attributes
+        module_State.node_values[page_name] = sources;
         module_State.node_values[page_name].forEach(function (o) {
             o.x = scale_X(-o.age);
             o.y = scale_Y(-o.frequency);
@@ -147,6 +186,9 @@ function () {
             o.y_0 = scale_Y(-o.frequency);
         });
 
+        // Create the force layout by assigning node values to nodes
+        // and setting the size, gravity, charge, and friction values,
+        // and the tick function
         module_State.layouts[page_name] = d3.layout.force()
             .nodes(module_State.node_values[page_name])
             .size([module_Config.width, module_Config.height])
@@ -155,15 +197,20 @@ function () {
             .friction(module_Config.friction)
             .on('tick', on_Tick);
 
+        // Create the source description container
         module_State.node_descriptions[page_name] = d3.select('body')
             .append('div')
             .style('position', 'absolute')
             .style('z-index', '10')
             .style('visibility', 'hidden');
-
         module_State.node_descriptions[page_name]
             .append('h4');
 
+        // Populate the force layout by assigning node values as node
+        // data in order to append a circle at each node, set circle
+        // position, size, and display attributes, and attach mouse
+        // and click event handlers for source description
+        // presentation
         module_State.node_elements[page_name] = module_State.groups[page_name].selectAll('.node')
             .data(module_State.node_values[page_name])
             .enter().append('circle')
@@ -180,6 +227,8 @@ function () {
             .on('mouseout', dismiss_Description)
             .on('click', present_Source);
 
+        // Create the body page force layout descriptions, and attach
+        // resize handlers
         switch (page_name) {
         case 'volume':
             append_Circle('volume', 'div#cc-shell-visual-volume-large-circle', '+1');
@@ -208,15 +257,25 @@ function () {
         }
     };
 
+    /**
+     * Starts the body page force layout simulation, and then resizes
+     * the body page force layout legends.
+     *
+     * @param {string} page_name the body page name
+     *
+     * @return {undefined}
+     */
     presentForce = function (page_name) {
 
         module_State.page_name = page_name;
 
+        // Start the body page force layout simulation
         module_State.layouts[page_name].start();
-
         module_State.node_elements[page_name]
             .call(module_State.layouts[page_name].drag);
 
+        // Resize the body page force layout legend. For the frequency
+        // page force layout, create axes
         switch (page_name) {
         case 'volume':
             resizeVolumeLegend();
@@ -250,6 +309,17 @@ function () {
         }
     };
 
+    /* == Private functions == */
+
+    /**
+     * Appends circles for the volume page force layout legend.
+     *
+     * @param {string} page_name only 'volume' expected
+     * @param {string} selector for creating a D3 selection
+     * @param {number} volume the value used in selecting radius
+     *
+     * @return {undefined}
+     */
     append_Circle = function (page_name, selector, volume) {
         
         var
@@ -272,6 +342,11 @@ function () {
             .attr('fill', fill_R({engagement: '0'}));
     };
 
+    /**
+     * Resizes the volume page force layout legend.
+     *
+     * @return {undefined}
+     */
     resizeVolumeLegend = function () {
 
         var
@@ -294,6 +369,11 @@ function () {
         }
     };
 
+    /**
+     * Resizes the trust page force layout legend.
+     *
+     * @return {undefined}
+     */
     resizeTrustLegend = function () {
 
         var
@@ -304,6 +384,11 @@ function () {
             .attr('height', height);
     };
 
+    /**
+     * Resizes the topics page force layout legend.
+     *
+     * @return {undefined}
+     */
     resizeTopicsLegend = function () {
 
         var
@@ -316,6 +401,11 @@ function () {
             .attr('height', height);
     };
 
+    /**
+     * Resizes the frequency page force layout axes.
+     *
+     * @return {undefined}
+     */
     resizeFrequencyAxes = function () {
 
         var
@@ -337,6 +427,12 @@ function () {
             .attr('style', 'font-size: ' + font_size + 'px; text-anchor: ' + text_anchor + ';');
     };
 
+    /**
+     * Selects a scaling value corresponding to the Skeleton media
+     * queries.
+     *
+     * @return {number} the scaling value
+     */
     get_Scale = function () {
 
         var
@@ -363,17 +459,31 @@ function () {
         return scale;
     };
 
+    /**
+     * Presents the description corresponding to a given circle using
+     * data name attribute and the description element 'visibility'
+     * style.
+     *
+     * @param {object} d the data corresponding to a given circle
+     *
+     * @return {undefined}
+     */
     present_Description = function (d) {
         var page_name = module_State.page_name;
         module_State.node_descriptions[page_name]
             .select('h4')
             .attr('class', 'cc-shell-extrabold')
             .text(d.name);
-
         module_State.node_descriptions[page_name]
             .style('visibility', 'visible');
     };
 
+    /**
+     * Moves the description corresponding to a given circle using the
+     * D3 event page coordinates.
+     *
+     * @return {undefined}
+     */
     move_Description = function () {
         var page_name = module_State.page_name;
         module_State.node_descriptions[page_name]
@@ -381,11 +491,29 @@ function () {
             .style('left', (d3.event.pageX + 10) + 'px');
     };
 
+    /**
+     * Presents the description corresponding to a given circle using
+     * the description element 'visibility' style.
+     *
+     * @return {undefined}
+     */
     dismiss_Description = function () {
         var page_name = module_State.page_name;
         module_State.node_descriptions[page_name].style('visibility', 'hidden');
     };
 
+    /**
+     * Finds a source by name and data, then opens the source sample
+     * page by setting the source index in the URI anchor. The shell
+     * module passes the source index to the model on
+     * initialization. The model module uses the source index to set
+     * the source object and delegate presentation of the source
+     * sample page to the shell module on initialization.
+     *
+     * @param {object} d the data corresponding to a given circle
+     *
+     * @return {undefined}
+     */
     present_Source = function (d) {
         var sources = cc.model.getSources();
         for (var i_src = 1; i_src < sources.length; i_src += 1) {
@@ -397,6 +525,13 @@ function () {
         window.open('http://localhost:8080/crisis-countries/#!page_name=source&source_index=' + i_src);
     };
 
+    /**
+     * Computes circle radius based on volume.
+     *
+     * @param {object} d the data corresponding to a given circle
+     *
+     * return {number} the radius
+     */       
     scale_R = function (d) {
         if (+d.volume === -1) {
             return module_State.nominal_R / 2;
@@ -407,6 +542,13 @@ function () {
         }
     };
 
+    /**
+     * Computes circle charge based on volume and page name.
+     *
+     * @param {object} d the data corresponding to a given circle
+     *
+     * return {number} the charge
+     */       
     charge_R = function (d) {
         var page_name = module_State.page_name;
         if (d.volume === -1) {
@@ -420,6 +562,13 @@ function () {
         }
     };
 
+    /**
+     * Computes circle opacity based on engagement and page name.
+     *
+     * @param {object} d the data corresponding to a given circle
+     *
+     * return {number} the opacity
+     */       
     scale_O = function (d) {
 
         var
@@ -447,6 +596,14 @@ function () {
         return opacity;
     };
 
+    /**
+     * Computes circle fill based on service, engagement, and page
+     * name.
+     *
+     * @param {object} d the data corresponding to a given circle
+     *
+     * return {string} the fill hex triplet
+     */       
     fill_R = function (d) {
 
         var
@@ -501,6 +658,11 @@ function () {
         return color;
     };
 
+    /**
+     * Computes circle stroke based on page name.
+     *
+     * return {string} the stroke hex triplet
+     */       
     stroke_R = function () {
 
         var
@@ -522,6 +684,14 @@ function () {
         return color;
     };
 
+    /**
+     * Computes circle stroke width based on data type ('crisis' or
+     * 'common').
+     *
+     * @param {object} d the data corresponding to a given circle
+     *
+     * return {number} the stroke width
+     */       
     stroke_Width_R = function (d) {
         if (d.type === 'crisis') {
             return 3;
@@ -532,6 +702,14 @@ function () {
         }
     };
     
+    /**
+     * Sets target x and y position for each node value by page name,
+     * data type, volume, and engagement.
+     *
+     * @param {Object} e the simulate event
+     *
+     * @return {undefined}
+     */
     on_Tick = function (e) {
 
         var
@@ -539,58 +717,63 @@ function () {
         target_x,
         target_y;
 
+        // Set the target x and y for each node value
         module_State.node_values[page_name].forEach(function (o) {
 
             switch (page_name) {
             case 'volume':
-            case 'trust':
+            case 'trust': // Middle
                 target_y = module_Config.height / 2.0;
                 break;
 
             case 'topics':
-                if (o.type === 'crisis') {
+                if (o.type === 'crisis') { // Top
                     target_y = module_Config.height / 2.0 - module_Config.n_margin * module_Config.margin;
-                } else if (o.type === 'common') {
+                } else if (o.type === 'common') { // Bottom
                     target_y = module_Config.height / 2.0 + module_Config.n_margin * module_Config.margin;
                 }
                 break;
 
             case 'frequency':
-                target_y = o.y_0;
+                target_y = o.y_0; // Initial position
                 break;
 
             default:
             }
 
             switch (page_name) {
-            case 'volume':
-                if (o.volume === 1) {
+            case 'volume': // Use volume
+                if (o.volume === 1) { // Right
                     target_x = module_Config.width / 2.0 + module_Config.n_margin * module_Config.margin / 2.0;
-                } else if (o.volume === 0) {
+                } else if (o.volume === 0) { // Center
                     target_x = module_Config.width / 2.0;
-                } else if (o.volume === -1) {
+                } else if (o.volume === -1) { // Left
                     target_x = module_Config.width / 2.0 - module_Config.n_margin * module_Config.margin / 2.0;
                 }
                 break;
 
             case 'trust':
-            case 'topics':
-                if (o.engagement === 1) {
+            case 'topics': // Use engagement
+                if (o.engagement === 1) { // Right
                     target_x = module_Config.width / 2.0 + module_Config.n_margin * module_Config.margin / 2.0;
-                } else if (o.engagement === 0) {
+                } else if (o.engagement === 0) { // Center
                     target_x = module_Config.width / 2.0;
-                } else if (o.engagement === -1) {
+                } else if (o.engagement === -1) { // Left
                     target_x = module_Config.width / 2.0 - module_Config.n_margin * module_Config.margin / 2.0;
                 }
                 break;
 
             case 'frequency':
-                target_x = o.x_0;
+                target_x = o.x_0; // Initial position
                 break;
 
             default:
             }
 
+            // Add a constant fraction of the position difference to
+            // the current position scaled by alpha, which is set by
+            // the simulation from near one to near zero as the
+            // simulation runs
             o.x += e.alpha * module_Config.beta_x * (target_x - o.x);
             o.y += e.alpha * module_Config.beta_y * (target_y - o.y);
 

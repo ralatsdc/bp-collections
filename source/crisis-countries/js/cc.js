@@ -1,14 +1,23 @@
-/*
- * cc.js
+/**
+ * Provides the top-level name-space.
  */
-
 var cc = (function () {
 
     'use strict';
 
+    /* == Public variables == */
+
     var
     initModule;
     
+    /* == Public functions == */
+
+    /**
+     * Appends the main div as a container for all other content using
+     * jQuery, then initializes the shell.
+     *
+     * @return {undefined}
+     */
     initModule = function () {
 
         var jq_container = $('body')

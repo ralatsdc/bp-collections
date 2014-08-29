@@ -1,9 +1,7 @@
-/*
+/**
  * cc.grid.js
  */
-
 /* global cc, d3 */
-
 cc.grid = (function () {
 
     'use strict';

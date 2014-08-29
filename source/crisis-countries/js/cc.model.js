@@ -1,12 +1,12 @@
-/*
- * cc.model.js
+/**
+ * Loads source description and sample data.
  */
-
- /* global cc, d3 */
-
+/* global cc, d3 */
 cc.model = (function () {
     
     'use strict';
+
+    /* == Public variables == */
 
     var
     initModule,
@@ -15,6 +15,8 @@ cc.model = (function () {
     getSources,
     getTags,
     getSourceObject;
+
+    /* == Private variables == */
 
     var
     module_Config = {
@@ -31,11 +33,33 @@ cc.model = (function () {
     },
     set_Source_Object;
 
+    /* == Public functions == */
+
+    /**
+     * Sets the configuration key value pairs for this module.
+     *
+     * @param {Object} input_config configuration key value pairs to
+     *     set, if permitted
+     *
+     * @return {boolean|undefined} true if successful, undefined
+     *     otherwise
+     */
     configModule = function (input_config) {
         cc.util.setConfig(input_config, module_Config);
         return true;
     };
 
+    /**
+     * Loads the country JSON document and sets the result as module
+     * state. Optionally delegates page presentation or sets the source
+     * object.
+     * 
+     * @param {string} country_file_name the name of the file
+     *     containing the country JSON document
+     * @param {Object} options contains a page name or source index
+     *
+     * @return {undefined}
+     */
     initModule = function (country_file_name, options) {
         d3.json(country_file_name, function (country_json) {
 
@@ -53,18 +77,52 @@ cc.model = (function () {
         });
     };
     
+    /**
+     * Returns the country name.
+     *
+     * @return {Object}
+     */
     getCountry = function () {
         return module_State.country;
     };
 
+    /**
+     * Returns data for each source.
+     *
+     * @return {Object}
+     */
     getSources = function () {
         return module_State.sources;
     };
 
+    /**
+     * Returns selected tags.
+     *
+     * @return {Object}
+     */
     getTags = function () {
         return module_State.tags;
     };
 
+    /**
+     * Returns source sample data.
+     *
+     * @return {Object}
+     */
+    getSourceObject = function () {
+        return module_State.source_object;
+    };
+
+    /* == Private functions == */
+
+    /**
+     * Loads the source sample JSON document and sets the result as
+     * module state. Delegates source page presentation
+     *
+     * @param {Object} o a source data object
+     *
+     * @return {undefined}
+     */
     set_Source_Object = function (o) {
         var d = module_State.sources[o.source_index];
         d3.json(d.json, function (s) {
@@ -73,10 +131,6 @@ cc.model = (function () {
             module_State.source_page = 'source-' + o.source_index;
             cc.shell.delegatePage({data: {page_name: module_State.source_page}});
         });
-    };
-
-    getSourceObject = function () {
-        return module_State.source_object;
     };
 
     return {

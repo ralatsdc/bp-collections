@@ -1,18 +1,20 @@
-/*
- * cc.shell.js
+/**
+ * Creates, presents, and dismisses all pages.
  */
-
 /* global cc */
-
 cc.shell = (function () {
 
     'use strict';
+
+    /* == Public variables == */
 
     var
     configModule,
     initModule,
     getJqContainers,
     delegatePage;
+
+    /* == Private variables == */
 
     var
     module_Config = {
@@ -32,28 +34,51 @@ cc.shell = (function () {
     create_Page,
     create_Front,
     create_Body,
-    create_Visual,
     create_Source,
     create_Back,
     on_Hash_Change,
     hover_In,
     hover_Out;
 
+    /* == Public functions ==*/
+
+    /**
+     * Sets the configuration key value pairs for this module.
+     *
+     * @param {Object} input_config configuration key value pairs to
+     *     set, if permitted
+     *
+     * @return {boolean|undefined} true if successful, undefined
+     *     otherwise
+     */
     configModule = function (input_config) {
         cc.util.setConfig(input_config, module_Config);
         return true;
     };
 
+    /**
+     * Configures and initializes all required modules. Selects the
+     * initial page, from the URI anchor, or module configuration.
+     * Presents the initial page using the model module which
+     * delegates presentation to this module. Binds the hash change
+     * event.
+     * 
+     * @param {Object} jq_container a jQuery selection
+     *
+     * @return {undefined}
+     */
     initModule = function (jq_container) {
 
+        // Sets the container class on the main div
         module_State.jq_containers.main = jq_container
             .addClass('container sixteen columns');
 
         cc.model.configModule({});
         cc.force.configModule({});
 
+        // Assigns the initial page from the anchor, if present, or
+        // configuration, if not
         var uri_anchor = $.uriAnchor.makeAnchorMap();
-
         var page_name;
         if ('page_name' in uri_anchor) {
             page_name = uri_anchor.page_name;
@@ -61,6 +86,8 @@ cc.shell = (function () {
             page_name = module_Config.init_page_name;
         }
 
+        // Presents the initial page indirectly through the model
+        // module
         switch (page_name) {
         case 'cover':
         case 'contents':
@@ -85,18 +112,37 @@ cc.shell = (function () {
             
         default:
         }
-
         $(window).bind('hashchange', on_Hash_Change);
     };
 
+    /**
+     * Returns all jQuery selections.
+     *
+     * return {Array.Object}
+     */
     getJqContainers = function () {
         return module_State.jq_containers;
     };
 
+    /**
+     * Present a page at the request of another module.
+     *
+     * @param {Object} event contains a data element which contains a
+     *     page_name element
+     *
+     * @return {undefined}
+     */
     delegatePage = function (event) {
         present_Page(event);
     };
 
+    /* == Private functions ==*/
+
+    /**
+     * Presents the page contained in the URI anchor.
+     *
+     * @return {undefined}
+     */
     on_Hash_Change = function () {
         var uri_anchor = $.uriAnchor.makeAnchorMap();
         if (uri_anchor.page_name !== module_State.uri_anchor.page_name) {
@@ -104,22 +150,44 @@ cc.shell = (function () {
         }
     };
 
+    /**
+     * Animates color change to indicate hover in.
+     *
+     * @return {undefined}
+     */
     hover_In = function () {
         $(this).animate({'color': '#1AB6E5'}, 100);
     };
 
+    /**
+     * Animates color change to indicate hover out.
+     *
+     * @return {undefined}
+     */
     hover_Out = function () {
         $(this).animate({'color': '#000000'}, 100);
     };
 
+    /**
+     * Creates the page to present as needed, presents force layout
+     * for visual pages, dismisses page if different from URI anchor,
+     * then animates page presentation and sets URI anchor.
+     *
+     * @param {Object} event contains a data element which contains a
+     *     page_name element
+     *
+     * @return {undefined}
+     */
     present_Page = function (event) {
 
         var page_name = event.data.page_name;
 
+        // Create page as needed
         if (module_State.jq_containers[page_name] === undefined) {
             create_Page(page_name);
         }
 
+        // Present force layout for visual pages
         switch (page_name) {
         case 'volume':
         case 'trust':
@@ -131,18 +199,29 @@ cc.shell = (function () {
         default:
         }
 
+        // Dismiss page if different from URI anchor
         if (page_name !== module_State.uri_anchor.page_name) {
             dismiss_Page(module_State.uri_anchor.page_name);
         }
+
+        // Animate page presentation
         module_State.jq_containers[page_name].fadeIn('slow');
 
+        // Set URI anchor
         var uri_anchor = $.uriAnchor.makeAnchorMap();
         uri_anchor.page_name = page_name;
         $.uriAnchor.setAnchor(uri_anchor);
         module_State.uri_anchor = uri_anchor;
-
     };
 
+    /**
+     * Dismisses page if defined and displayed by setting 'display'
+     * style to 'none'.
+     *
+     * @param {string} page_name the page name
+     *
+     * @return {undefined}
+     */
     dismiss_Page = function (page_name) {
         if (module_State.jq_containers[page_name] !== undefined &&
             module_State.jq_containers[page_name].css('display') !== 'none') {
@@ -150,10 +229,21 @@ cc.shell = (function () {
         }
     };
 
+    /**
+     * Creates front matter, body, and back matter pages by name,
+     * loading content, populating elements, and attaching click and
+     * hover callbacks as needed. Content is external to facilitate
+     * internationalization.
+     *
+     * @param {string} page_name the page name
+     *
+     * @return {undefined}
+     */
     create_Page = function (page_name) {
 
         var tags, i_tag;
 
+        // Create and assign the page container
         var page_id = 'cc-shell-' + page_name;
         module_State.jq_containers.main
             .append('<div></div>')
@@ -163,12 +253,13 @@ cc.shell = (function () {
             .end();
         module_State.jq_containers[page_name] = $('#' + page_id);
 
+        // Create page content by name
         switch (page_name) {
         case 'cover':
 
             module_State.jq_containers[page_name]
 
-            // header
+            // Create cover page header
 
                 .append('<div></div>')
                 .find('div:last')
@@ -188,7 +279,7 @@ cc.shell = (function () {
 
                 .append('<hr>')
 
-            // body
+            // Create cover page body
 
                 .append('<div></div>')
                 .find('div:last')
@@ -228,8 +319,11 @@ cc.shell = (function () {
             break;
 
         case 'contents':
+
+            // Create default front matter page
             create_Front(module_State.jq_containers[page_name], page_name);
 
+            // Create content page navigation
             module_State.jq_containers[page_name]
                 .find('div#cc-shell-front-contents')
                 .removeClass('eight columns alpha')
@@ -277,6 +371,7 @@ cc.shell = (function () {
                 })
                 .end(); // div#cc-shell-front-contents
 
+            // Destroy front matter page navigation
             module_State.jq_containers[page_name]
                 .find('div#cc-shell-front-navigation-contents')
                 .empty()
@@ -285,8 +380,11 @@ cc.shell = (function () {
             break;
 
         case 'preface':
+
+            // Create default front matter page
             create_Front(module_State.jq_containers[page_name], page_name);
 
+            // Load preface page content
             module_State.jq_containers[page_name]
                 .find('div#cc-shell-front-preface')
                 .load('html/cc-shell-front-preface.html');
@@ -294,8 +392,11 @@ cc.shell = (function () {
             break;
 
         case 'introduction':
+
+            // Create default front matter page
             create_Front(module_State.jq_containers[page_name], page_name);
 
+            // Load introduction page content
             module_State.jq_containers[page_name]
                 .find('div#cc-shell-front-introduction')
                 .load('html/cc-shell-front-introduction.html');
@@ -303,8 +404,11 @@ cc.shell = (function () {
             break;
 
         case 'volume':
+
+            // Create default body page
             create_Body(module_State.jq_containers[page_name], page_name);
 
+            // Load volume page content
             module_State.jq_containers[page_name]
                 .find('#cc-shell-visual-content-volume')
 
@@ -369,8 +473,10 @@ cc.shell = (function () {
 
                 .end(); // div#cc-shell-visual-content-volume
 
+            // Initialize volume force layout
             cc.force.initModule(page_name);
 
+            // Load volume page force layout description
             module_State.jq_containers[page_name]
                 .find('div#cc-shell-visual-volume-description')
                 .load('html/cc-shell-visual-volume-description.html')
@@ -379,8 +485,11 @@ cc.shell = (function () {
             break;
 
         case 'trust':
+
+            // Create default body page
             create_Body(module_State.jq_containers[page_name], page_name);
 
+            // Load trust page content
             module_State.jq_containers[page_name]
                 .find('#cc-shell-visual-content-trust')
 
@@ -406,16 +515,21 @@ cc.shell = (function () {
                 .end()
 
                 .end(); // div#cc-shell-visual-content-trust
-
+            
+            // Initialize trust force layout
             cc.force.initModule(page_name);
 
             break;
 
         case 'topics':
+
+            // Create default body page
             create_Body(module_State.jq_containers[page_name], page_name);
 
+            // Get tags for display
             tags = cc.model.getTags();
 
+            // Load topics page content
             module_State.jq_containers[page_name]
                 .find('#cc-shell-visual-content-topics')
 
@@ -457,8 +571,10 @@ cc.shell = (function () {
 
                 .end(); // div#cc-shell-visual-content-topics
 
+            // Initialize topics force layout
             cc.force.initModule(page_name);
 
+            // Load crisis tag content and populate crisis tag element
             module_State.jq_containers[page_name]
                 .find('#cc-shell-visual-topics-crisis')
                 .load('html/cc-shell-visual-topics-crisis.html', function () {
@@ -474,6 +590,7 @@ cc.shell = (function () {
                         .html(crisis_tags.slice(0, crisis_tags.length - 13));
                 });
 
+            // Load culture tag content and populate culture tag element
             module_State.jq_containers[page_name]
                 .find('#cc-shell-visual-topics-culture')
                 .load('html/cc-shell-visual-topics-culture.html', function () {
@@ -492,8 +609,11 @@ cc.shell = (function () {
             break;
 
         case 'frequency':
+
+            // Create default body page
             create_Body(module_State.jq_containers[page_name], page_name);
             
+            // Load frequency page content
             module_State.jq_containers[page_name]
                 .find('#cc-shell-visual-content-frequency')
 
@@ -518,13 +638,17 @@ cc.shell = (function () {
 
                 .end(); // div#cc-shell-visual-content-frequency
 
+            // Initialize frequency force layout
             cc.force.initModule(page_name);
 
             break;
 
         case 'postscript':
+
+            // Create default back matter page
             create_Back(module_State.jq_containers[page_name], page_name);
 
+            // Load postscript page content
             module_State.jq_containers[page_name]
                 .find('div#cc-shell-front-postscript')
                 .load('html/cc-shell-front-postscript.html');
@@ -532,8 +656,11 @@ cc.shell = (function () {
             break;
 
         case 'colophon':
+
+            // Create default back matter page
             create_Back(module_State.jq_containers[page_name], page_name);
 
+            // Load colophon page content
             module_State.jq_containers[page_name]
                 .find('div#cc-shell-front-colophon')
                 .load('html/cc-shell-front-colophon.html');
@@ -541,15 +668,32 @@ cc.shell = (function () {
             break;
 
         default:
+
+            /* Note that the source page name cannot be known in
+               advance, since it depends on the crisis country
+               data. The source pages are the only pages with this
+               characteristic, which is why creation of source pages
+               is the switch default. */
+
+            // Create default source page
             create_Source(module_State.jq_containers[page_name], page_name);
         }
     };
 
+    /**
+     * Creates default front matter pages.
+     *
+     * @param {Object} jq_container the jQuery container to which the
+     *     page will be appended
+     * @param {string} page_name the page name to create
+     *
+     * @return {undefined}
+     */
     create_Front = function (jq_container, page_name) {
 
         jq_container
 
-        // header
+        // Create front matter header
 
             .append('<div></div>')
             .find('div:last')
@@ -580,7 +724,7 @@ cc.shell = (function () {
 
             .append('<hr>')
 
-        // body
+        // Create front matter page body
 
             .append('<div></div>')
             .find('div:last')
@@ -613,7 +757,7 @@ cc.shell = (function () {
 
             .end(); // div#cc-shell-front-body-page-name
 
-        // column right navigation
+        // Create front matter page column right navigation
 
         module_State.jq_containers[page_name]
             .find('div#cc-shell-front-navigation-' + page_name)
@@ -677,7 +821,7 @@ cc.shell = (function () {
             })
             .end() // div#cc-shell-front-navigation-page-name
 
-        // footer
+        // Create front matter page footer
 
             .append('<div></div>')
             .find('div:last')
@@ -709,22 +853,18 @@ cc.shell = (function () {
             .end(); // div#cc-shell-front-footer-page-name
     };
 
+    /**
+     * Creates default body pages.
+     *
+     * @param {Object} jq_container the jQuery container to which the
+     *     page will be appended
+     * @param {string} page_name the page name to create
+     *
+     * @return {undefined}
+     */
     create_Body = function (jq_container, page_name) {
 
-        switch (page_name) {
-        case 'volume':
-        case 'trust':
-        case 'topics':
-        case 'frequency':
-            create_Visual(jq_container, page_name);
-            break;
-
-        default:
-        }
-    };
-
-    create_Visual = function (jq_container, page_name) {
-
+        // Assign navigation sequence for body pages
         var
         back = {
             volume: 'introduction',
@@ -741,7 +881,7 @@ cc.shell = (function () {
 
         jq_container
 
-        // header
+        // Create body page header
 
             .append('<div></div>')
             .find('div:last')
@@ -772,14 +912,14 @@ cc.shell = (function () {
 
             .append('<hr>')
 
-        // body
+        // Create body page body
 
             .append('<div></div>')
             .find('div:last')
             .addClass('cc-shell-visual-body')
             .attr('id', 'cc-shell-visual-body-' + page_name)
 
-        // body navigation
+        // Create body page navigation
 
             .append('<div></div>')
             .find('div:last')
@@ -827,7 +967,7 @@ cc.shell = (function () {
             })
             .end() // div#cc-shell-visual-navigation-page-name
 
-        // body content
+        // Create body page content
 
             .append('<div></div>')
             .find('div:last')
@@ -837,7 +977,7 @@ cc.shell = (function () {
 
             .end() // div#cc-shell-visual-body-page-name
 
-        // footer
+        // Create body page footer
 
             .append('<div></div>')
             .find('div:last')
@@ -869,13 +1009,23 @@ cc.shell = (function () {
             .end(); // div#cc-shell-visual-footer-page-name
     };
 
+    /**
+     * Creates default source pages.
+     *
+     * @param {Object} jq_container the jQuery container to which the
+     *     page will be appended
+     * @param {string} page_name the page name to create
+     *
+     * @return {undefined}
+     */
     create_Source = function (jq_container, page_name) {
 
+        // Get source sample
         var source_object = cc.model.getSourceObject();
 
         jq_container
 
-        // header
+        // Create source page header
 
             .append('<div></div>')
             .find('div:last')
@@ -908,7 +1058,7 @@ cc.shell = (function () {
 
             .end() // div.row
 
-        // header author
+        // Create source page header author
 
             .append('<div></div>')
             .find('div:last')
@@ -930,19 +1080,22 @@ cc.shell = (function () {
 
             .append('<hr>')
 
-        // body
+        // Create source page body
 
             .append('<div></div>')
             .find('div:last')
             .addClass('cc-shell-source-body')
             .attr('id', 'cc-shell-source-body-' + page_name);
 
-        // body content
+        // Create source page body content by placing text or photo
+        // samples in a grid
 
         var n_row = 3, n_col = 3, n_smp = n_row * n_col, i_smp = -1, content;
 
+        // Fill each row
         for (var i_row = 0; i_row < n_row; i_row += 1) {
 
+            // Fill column one
             i_smp += 1;
             if (i_smp < source_object.sample.length && i_smp < n_smp) {
 
@@ -969,6 +1122,7 @@ cc.shell = (function () {
                 break;
             }
 
+            // Fill column two
             i_smp += 1;
             if (i_smp < source_object.sample.length && i_smp < n_smp) {
 
@@ -989,6 +1143,7 @@ cc.shell = (function () {
                 break;
             }
 
+            // Fill column three
             i_smp += 1;
             if (i_smp < source_object.sample.length && i_smp < n_smp) {
 
@@ -1010,7 +1165,7 @@ cc.shell = (function () {
             }
         }
 
-        // footer
+        // Create source page footer
 
         jq_container.find('div#cc-shell-source-body-' + page_name)
             .append('<div></div>')
@@ -1037,6 +1192,16 @@ cc.shell = (function () {
             .end(); // div#cc-shell-source-footer-page-name
     };
 
+    /**
+     * Creates default back matter pages precisely by creating a
+     * default front matter page.
+     *
+     * @param {Object} jq_container the jQuery container to which the
+     *     page will be appended
+     * @param {string} page_name the page name to create
+     *
+     * @return {undefined}
+     */
     create_Back = function (jq_container, page_name) {
         create_Front(jq_container, page_name);
     };
