@@ -14,6 +14,7 @@
 /* #Base 960 Grid
    ================================================== */
 
+.room { position: fixed; width: 960px; margin: 0 auto; padding: 0; left: 50%; margin-left: -480px; z-index: 10; }
 .graphic {
     -webkit-transform: scale(1.0);
     -moz-transform: scale(1.0);
@@ -28,6 +29,7 @@
 /* Note: Design for a width of 768px */
 
 @media only screen and (min-width: 768px) and (max-width: 959px) {
+    .room { width: 768px; left: 50%; margin-left: -384px;}
     .graphic {
         -webkit-transform: scale(0.7935);
         -moz-transform: scale(0.7935);
@@ -44,6 +46,7 @@
 /* Note: Design for a width of 320px */
 
 @media only screen and (max-width: 767px) {
+    .room { width: 300px; left: 50%; margin-left: -150px;}
     .graphic {
         -webkit-transform: scale(0.4838);
         -moz-transform: scale(0.4838);
@@ -60,6 +63,7 @@
 /* Note: Design for a width of 480px */
 
 @media only screen and (min-width: 480px) and (max-width: 767px) {
+    .room { width: 420px; left: 50%; margin-left: -210px;}
     .graphic {
         -webkit-transform: scale(0.6774);
         -moz-transform: scale(0.6774);
