@@ -20,12 +20,12 @@ bp.shell = (function () {
         init_page_name: 'number',
         nav_page_names: ['number',
                          'outwit',
-                         'bones', 
+                         'bones',
                          'less',
-                         'frames', 
+                         'frames',
                          'tame',
                          'vases',
-                         'eliminate', 
+                         'eliminate',
                          'window'],
         settable: {
             country_file_name: false,
@@ -47,30 +47,24 @@ bp.shell = (function () {
     init_Header,
     init_Footer,
     init_Body,
-
     set_Window_Height,
     set_Header_Height,
     set_Footer_Height,
     set_Body_Height,
-
     set_Footer_Top,
-
     create_Body,
     create_Text,
     create_Image,
     create_Text_Left,
     create_Text_Right,
-
     on_Scroll,
-    disable_scrolling,
-    enable_scrolling,
+    scroll_Page,
     scroll_Down,
     scroll_Up,
-    compute_Scroll_Target,
-
+    disable_scrolling,
+    enable_scrolling,
     present_Page,
     dismiss_Page,
-
     hover_In,
     hover_Out,
     on_Hash_Change,
@@ -91,9 +85,10 @@ bp.shell = (function () {
 
         cc.model.initModule(module_Config.country_file_name);
 
-        var
-        uri_anchor = $.uriAnchor.makeAnchorMap(),
-        page_name;
+        /*
+        var uri_anchor, page_name;
+
+        uri_anchor = $.uriAnchor.makeAnchorMap();
 
         if ('page_name' in uri_anchor) {
             page_name = uri_anchor.page_name;
@@ -104,6 +99,7 @@ bp.shell = (function () {
         uri_anchor.page_name = page_name;
         $.uriAnchor.setAnchor(uri_anchor);
         module_State.uri_anchor = uri_anchor;
+        */
 
         init_Header();
     };
@@ -419,7 +415,7 @@ bp.shell = (function () {
 
     on_Scroll = function () {
 
-        var scroll_top, i_pg;
+        var scroll_top; // , i_pg;
 
         scroll_top = $('body').scrollTop();
 
@@ -430,6 +426,9 @@ bp.shell = (function () {
             module_State.scroll_delta = scroll_top - module_State.scroll_top;
             module_State.scroll_top = scroll_top;
 
+            scroll_Page(module_State.scroll_delta);
+
+            /*
             disable_scrolling();
 
             i_pg = module_Config.nav_page_names.indexOf(module_State.uri_anchor.page_name);
@@ -456,22 +455,115 @@ bp.shell = (function () {
             uri_anchor.page_name = module_Config.nav_page_names[i_pg];
             $.uriAnchor.setAnchor(uri_anchor);
             module_State.uri_anchor = uri_anchor;
+            */
 
         } else {
             module_State.scroll_delta = scroll_top - module_State.scroll_top;
             module_State.scroll_top = scroll_top;
         }
 
+        /* For debugging.
         $('#bp-shell-header-nav-to-browse').text(module_State.scroll_top);
         $('#bp-shell-header-nav-to-connect').text(module_State.scroll_delta);
         $('#bp-shell-header-nav-to-news').text(module_State.scroll_target);
         $('#bp-shell-header-nav-to-share').text(module_State.body_height);
-
-        /*
-        $('html, body').animate({scrollTop: module_State.scroll_target}, 600,
-                                enable_scrolling);
         */
     };
+
+    scroll_Page = function (scroll_delta) {
+
+        var i_pg;
+
+        disable_scrolling();
+
+        i_pg = module_Config.nav_page_names.indexOf(module_State.uri_anchor.page_name);
+
+        if (scroll_delta > 0) {
+            i_pg += 1;
+            if (i_pg === module_Config.nav_page_names.length) {
+                i_pg -= 1;
+            }
+        } else {
+            i_pg -= 1;
+            if (i_pg === -1) {
+                i_pg += 1;
+            }
+        }
+
+        module_State.scroll_target = i_pg * module_State.body_height;
+
+        $('html, body').animate({scrollTop: module_State.scroll_target}, 600);
+
+        enable_scrolling();
+
+        var uri_anchor = $.uriAnchor.makeAnchorMap();
+        uri_anchor.page_name = module_Config.nav_page_names[i_pg];
+        $.uriAnchor.setAnchor(uri_anchor);
+        module_State.uri_anchor = uri_anchor;
+
+    };
+
+    scroll_Down = function () {
+        scroll_Page(+1);
+    };
+
+    scroll_Up = function () {
+        scroll_Page(-1);
+    };
+
+    /*
+    scroll_Down = function () {
+
+        var i_pg;
+
+        disable_scrolling();
+
+        i_pg = module_Config.nav_page_names.indexOf(module_State.uri_anchor.page_name);
+
+        i_pg += 1;
+        if (i_pg === module_Config.nav_page_names.length) {
+            i_pg -= 1;
+        }
+
+        module_State.scroll_target = i_pg * module_State.body_height;
+
+        $('html, body').animate({scrollTop: module_State.scroll_target}, 600);
+
+        enable_scrolling();
+
+        var uri_anchor = $.uriAnchor.makeAnchorMap();
+        uri_anchor.page_name = module_Config.nav_page_names[i_pg];
+        $.uriAnchor.setAnchor(uri_anchor);
+        module_State.uri_anchor = uri_anchor;
+
+    };
+
+    scroll_Up = function () {
+
+        var i_pg;
+
+        disable_scrolling();
+
+        i_pg = module_Config.nav_page_names.indexOf(module_State.uri_anchor.page_name);
+
+        i_pg -= 1;
+        if (i_pg === -1) {
+            i_pg += 1;
+        }
+
+        module_State.scroll_target = i_pg * module_State.body_height;
+
+        $('html, body').animate({scrollTop: module_State.scroll_target}, 600);
+
+        enable_scrolling();
+
+        var uri_anchor = $.uriAnchor.makeAnchorMap();
+        uri_anchor.page_name = module_Config.nav_page_names[i_pg];
+        $.uriAnchor.setAnchor(uri_anchor);
+        module_State.uri_anchor = uri_anchor;
+
+    };
+    */
 
     disable_scrolling = function () {
         $('html, body').css('overflow', 'hidden');
@@ -485,68 +577,6 @@ bp.shell = (function () {
             $('html, body').css('overflow', 'auto');
             $(window).bind('scroll', on_Scroll);
         }, 1200);
-    };
-
-    compute_Scroll_Target = function (scroll_delta) {
-        var
-        page_name,
-        i_pg = module_Config.nav_page_names.indexOf(module_State.uri_anchor.page_name);
-
-        if (scroll_delta > 1) {
-            i_pg += 1;
-            if (i_pg === module_Config.nav_page_names.length) {
-                i_pg = 0;
-            }
-        } else {
-            i_pg -= 1;
-            if (i_pg === -1) {
-                i_pg = module_Config.nav_page_names.length - 1;
-            }
-        }
-        page_name = module_Config.nav_page_names[i_pg];
-
-        var uri_anchor = $.uriAnchor.makeAnchorMap();
-        uri_anchor.page_name = page_name;
-        $.uriAnchor.setAnchor(uri_anchor);
-        module_State.uri_anchor = uri_anchor;
-
-        return i_pg * module_State.body_height;
-    };
-
-    scroll_Down = function () {
-        var
-        page_name,
-        i_pg = module_Config.nav_page_names.indexOf(module_State.uri_anchor.page_name) + 1;
-        if (i_pg === module_Config.nav_page_names.length) {
-            i_pg = 0;
-        }
-        page_name = module_Config.nav_page_names[i_pg];
-
-        var uri_anchor = $.uriAnchor.makeAnchorMap();
-        uri_anchor.page_name = page_name;
-        $.uriAnchor.setAnchor(uri_anchor);
-        module_State.uri_anchor = uri_anchor;
-
-        $('html, body').animate({scrollTop: i_pg * module_State.body_height}, 250);
-        // enable_scrolling);
-    };
-
-    scroll_Up = function () {
-        var
-        page_name,
-        i_pg = module_Config.nav_page_names.indexOf(module_State.uri_anchor.page_name) - 1;
-        if (i_pg === -1) {
-            i_pg = module_Config.nav_page_names.length - 1;
-        }
-        page_name = module_Config.nav_page_names[i_pg];
-
-        var uri_anchor = $.uriAnchor.makeAnchorMap();
-        uri_anchor.page_name = page_name;
-        $.uriAnchor.setAnchor(uri_anchor);
-        module_State.uri_anchor = uri_anchor;
-
-        $('html, body').animate({scrollTop: i_pg * module_State.body_height}, 250,
-                                enable_scrolling);
     };
 
     present_Page = function (event) {
