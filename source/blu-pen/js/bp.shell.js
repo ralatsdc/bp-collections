@@ -38,34 +38,43 @@ bp.shell = (function () {
         uri_anchor: {},
         window_height: undefined,
         header_height: undefined,
-        body_height: undefined,
         footer_height: undefined,
-        scroll_top: -1
+        body_height: undefined,
+        scroll_top: undefined,
+        scroll_delta: undefined,
+        scroll_target: undefined
     },
     init_Header,
-    init_Body,
     init_Footer,
+    init_Body,
+
     set_Window_Height,
     set_Header_Height,
-    set_Body_Height,
-    get_Body_Height,
-    set_Body_Top,
     set_Footer_Height,
+    set_Body_Height,
+
     set_Footer_Top,
-    present_Page,
-    dismiss_Page,
+
     create_Body,
     create_Text,
     create_Image,
     create_Text_Left,
     create_Text_Right,
-    page_Down,
-    page_Up,
-    on_Hash_Change,
-    on_Resize,
+
     on_Scroll,
+    disable_scrolling,
+    enable_scrolling,
+    scroll_Down,
+    scroll_Up,
+    compute_Scroll_Target,
+
+    present_Page,
+    dismiss_Page,
+
     hover_In,
-    hover_Out;
+    hover_Out,
+    on_Hash_Change,
+    on_Resize;
 
     configModule = function (input_config) {
         bp.util.setConfig(input_config, module_Config);
@@ -91,6 +100,11 @@ bp.shell = (function () {
         } else {
             page_name = module_Config.init_page_name;
         }
+
+        uri_anchor.page_name = page_name;
+        $.uriAnchor.setAnchor(uri_anchor);
+        module_State.uri_anchor = uri_anchor;
+
         init_Header();
     };
 
@@ -153,31 +167,13 @@ bp.shell = (function () {
                             .click({page_name: 'share'}, present_Page)
                             .hover(hover_In, hover_Out)
                             .end();
+
                         set_Header_Height();
                         init_Footer();
                     })
                     .end();
             })
             .end();
-    };
-
-    init_Body = function () {
-
-        module_State.jq_containers.body =
-            module_State.jq_containers.main
-            .append('<div></div>')
-            .find('div:last')
-            .attr('id', 'bp-shell-body-skeleton')
-            .addClass('container row sixteen columns');
-
-        for (var i_pg = 0; i_pg < module_Config.nav_page_names.length; i_pg += 1) {
-            create_Body(module_Config.nav_page_names[i_pg]);
-        }
-        set_Body_Top(0);
-
-        $(window).bind('hashchange', on_Hash_Change);
-        $(window).bind('resize', on_Resize);
-        $(window).bind('scroll', on_Scroll);
     };
 
     init_Footer = function () {
@@ -207,14 +203,15 @@ bp.shell = (function () {
                     .load('html/bp-shell-footer-navigation.html', function () {
                         module_State.jq_containers.footer
                             .find('#bp-shell-footer-nav-down')
-                            .click(page_Down)
+                            .click(scroll_Down)
                             .hover(hover_In, hover_Out)
                             .end()
 
                             .find('#bp-shell-footer-nav-up')
-                            .click(page_Up)
+                            .click(scroll_Up)
                             .hover(hover_In, hover_Out)
                             .end();
+
                         set_Footer_Height();
                         set_Footer_Top();
                         init_Body();
@@ -224,34 +221,55 @@ bp.shell = (function () {
             .end();
     };
 
-    present_Page = function (event) {
+    init_Body = function () {
 
-        var page_name = event.data.page_name;
+        set_Body_Height();
 
-        if (module_State.jq_containers[page_name] === undefined) {
-            create_Body(page_name);
+        module_State.jq_containers.body =
+            module_State.jq_containers.main
+            .append('<div></div>')
+            .find('div:last')
+            .attr('id', 'bp-shell-body-skeleton')
+            .addClass('container row sixteen columns');
+
+        for (var i_pg = 0; i_pg < module_Config.nav_page_names.length; i_pg += 1) {
+            create_Body(module_Config.nav_page_names[i_pg]);
         }
 
-        if (page_name === 'something') {
-            bp.force.presentForce(page_name);
-        }
+        $(window).bind('hashchange', on_Hash_Change);
+        $(window).bind('resize', on_Resize);
+        $(window).bind('scroll', on_Scroll);
 
-        if (page_name !== module_State.uri_anchor.page_name) {
-            dismiss_Page(module_State.uri_anchor.page_name);
-        }
-        module_State.jq_containers[page_name].fadeIn('slow');
-
-        var uri_anchor = $.uriAnchor.makeAnchorMap();
-        uri_anchor.page_name = page_name;
-        $.uriAnchor.setAnchor(uri_anchor);
-        module_State.uri_anchor = uri_anchor;
     };
 
-    dismiss_Page = function (page_name) {
-        if (module_State.jq_containers[page_name] !== undefined &&
-            module_State.jq_containers[page_name].css('display') !== 'none') {
-            module_State.jq_containers[page_name].slideUp('slow');
-        }
+    set_Window_Height = function () {
+        var
+        w = window,
+        d = document,
+        e = d.documentElement,
+        g = d.getElementsByTagName('body')[0];
+        // width = w.innerWidth || e.clientWidth || g.clientWidth;
+        module_State.window_height = w.innerHeight|| e.clientHeight|| g.clientHeight;
+    };
+
+    set_Header_Height = function () {
+        module_State.header_height = parseInt(module_State.jq_containers.header.css('height'));
+    };
+
+    set_Footer_Height = function () {
+        module_State.footer_height = parseInt(module_State.jq_containers.footer.css('height'));
+    };
+
+    set_Body_Height = function () {
+        module_State.body_height = module_State.window_height - module_State.header_height - module_State.footer_height;
+    };
+
+    set_Footer_Top = function () {
+        var top = 
+            module_State.window_height -
+            module_State.footer_height;
+        module_State.jq_containers.footer
+            .css('top', top + 'px');
     };
 
     create_Body = function (page_name) {
@@ -303,13 +321,13 @@ bp.shell = (function () {
         case 'news':
             jq_container
                 .load('html/bp-shell-' + page_name + '.html', function () {
-                    set_Body_Height(page_name);
+                    module_State.jq_containers[page_name]
+                        .css('height', module_State.body_height + 'px');
                 });
             break;
 
         default:
         }
-
     };
 
     create_Image = function (jq_container, page_name) {
@@ -330,7 +348,8 @@ bp.shell = (function () {
                         .find('div:last')
                         .addClass('two-thirds column')
                         .load('html/bp-shell-' + page_name + '.html', function () {
-                            set_Body_Height(page_name);
+                            module_State.jq_containers[page_name]
+                                .css('height', module_State.body_height + 'px');
                         })
                         .end();
                 })
@@ -358,7 +377,8 @@ bp.shell = (function () {
                         .attr('id', 'bp-shell-' + page_name + '-navigation')
                         .addClass('one-third column')
                         .load('html/bp-shell-' + page_name + '-navigation.html', function () {
-                            set_Body_Height(page_name);
+                            module_State.jq_containers[page_name]
+                                .css('height', module_State.body_height + 'px');
                         })
                         .end();
                 })
@@ -387,7 +407,8 @@ bp.shell = (function () {
                         .addClass('two-thirds column')
                         .load('html/bp-shell-' + page_name + '-content.html')
                         .end();
-                    set_Body_Height(page_name);
+                    module_State.jq_containers[page_name]
+                        .css('height', module_State.body_height + 'px');
                 })
                 .end();
             break;
@@ -396,52 +417,103 @@ bp.shell = (function () {
         }
     };
 
-    set_Window_Height = function () {
+    on_Scroll = function () {
+
+        var scroll_top, i_pg;
+
+        scroll_top = $('body').scrollTop();
+
+        if (module_State.scroll_top === undefined) {
+            module_State.scroll_top = scroll_top;
+
+        } else if (module_State.scroll_delta === undefined) {
+            module_State.scroll_delta = scroll_top - module_State.scroll_top;
+            module_State.scroll_top = scroll_top;
+
+            disable_scrolling();
+
+            i_pg = module_Config.nav_page_names.indexOf(module_State.uri_anchor.page_name);
+
+            if (module_State.scroll_delta > 0) {
+                i_pg += 1;
+                if (i_pg === module_Config.nav_page_names.length) {
+                    i_pg -= 1;
+                }
+            } else {
+                i_pg -= 1;
+                if (i_pg === -1) {
+                    i_pg += 1;
+                }
+            }
+
+            module_State.scroll_target = i_pg * module_State.body_height;
+
+            $('html, body').animate({scrollTop: module_State.scroll_target}, 600);
+
+            enable_scrolling();
+
+            var uri_anchor = $.uriAnchor.makeAnchorMap();
+            uri_anchor.page_name = module_Config.nav_page_names[i_pg];
+            $.uriAnchor.setAnchor(uri_anchor);
+            module_State.uri_anchor = uri_anchor;
+
+        } else {
+            module_State.scroll_delta = scroll_top - module_State.scroll_top;
+            module_State.scroll_top = scroll_top;
+        }
+
+        $('#bp-shell-header-nav-to-browse').text(module_State.scroll_top);
+        $('#bp-shell-header-nav-to-connect').text(module_State.scroll_delta);
+        $('#bp-shell-header-nav-to-news').text(module_State.scroll_target);
+        $('#bp-shell-header-nav-to-share').text(module_State.body_height);
+
+        /*
+        $('html, body').animate({scrollTop: module_State.scroll_target}, 600,
+                                enable_scrolling);
+        */
+    };
+
+    disable_scrolling = function () {
+        $('html, body').css('overflow', 'hidden');
+        $(window).unbind('scroll');
+    };
+
+    enable_scrolling = function () {
+        window.setTimeout(function () {
+            module_State.scroll_top = undefined;
+            module_State.scroll_delta = undefined;
+            $('html, body').css('overflow', 'auto');
+            $(window).bind('scroll', on_Scroll);
+        }, 1200);
+    };
+
+    compute_Scroll_Target = function (scroll_delta) {
         var
-        w = window,
-        d = document,
-        e = d.documentElement,
-        g = d.getElementsByTagName('body')[0];
-        // width = w.innerWidth || e.clientWidth || g.clientWidth;
-        module_State.window_height = w.innerHeight|| e.clientHeight|| g.clientHeight;
+        page_name,
+        i_pg = module_Config.nav_page_names.indexOf(module_State.uri_anchor.page_name);
+
+        if (scroll_delta > 1) {
+            i_pg += 1;
+            if (i_pg === module_Config.nav_page_names.length) {
+                i_pg = 0;
+            }
+        } else {
+            i_pg -= 1;
+            if (i_pg === -1) {
+                i_pg = module_Config.nav_page_names.length - 1;
+            }
+        }
+        page_name = module_Config.nav_page_names[i_pg];
+
+        var uri_anchor = $.uriAnchor.makeAnchorMap();
+        uri_anchor.page_name = page_name;
+        $.uriAnchor.setAnchor(uri_anchor);
+        module_State.uri_anchor = uri_anchor;
+
+        return i_pg * module_State.body_height;
     };
 
-    set_Header_Height = function () {
-        module_State.header_height = parseInt(module_State.jq_containers.header.css('height'));
-    };
-
-    get_Body_Height = function () {
-        return module_State.window_height - 
-            module_State.header_height - 
-            module_State.footer_height;
-    };
-
-    set_Body_Height = function (page_name) {
-        module_State.jq_containers[page_name]
-            .css('height', get_Body_Height() + 'px');
-    };
-
-    set_Body_Top = function (i_pg) {
-        var top = 
-            module_State.header_height -
-            get_Body_Height() * i_pg;
-        module_State.jq_containers.body
-            .css('top', top + 'px');
-    };
-
-    set_Footer_Height = function () {
-        module_State.footer_height = parseInt(module_State.jq_containers.footer.css('height'));
-    };
-
-    set_Footer_Top = function () {
-        var top = 
-            module_State.window_height -
-            module_State.footer_height;
-        module_State.jq_containers.footer
-            .css('top', top + 'px');
-    };
-
-    page_Down = function () {
+    scroll_Down = function () {
         var
         page_name,
         i_pg = module_Config.nav_page_names.indexOf(module_State.uri_anchor.page_name) + 1;
@@ -455,10 +527,11 @@ bp.shell = (function () {
         $.uriAnchor.setAnchor(uri_anchor);
         module_State.uri_anchor = uri_anchor;
 
-        set_Body_Top(i_pg);
+        $('html, body').animate({scrollTop: i_pg * module_State.body_height}, 250);
+        // enable_scrolling);
     };
 
-    page_Up = function () {
+    scroll_Up = function () {
         var
         page_name,
         i_pg = module_Config.nav_page_names.indexOf(module_State.uri_anchor.page_name) - 1;
@@ -472,7 +545,46 @@ bp.shell = (function () {
         $.uriAnchor.setAnchor(uri_anchor);
         module_State.uri_anchor = uri_anchor;
 
-        set_Body_Top(i_pg);
+        $('html, body').animate({scrollTop: i_pg * module_State.body_height}, 250,
+                                enable_scrolling);
+    };
+
+    present_Page = function (event) {
+
+        var page_name = event.data.page_name;
+
+        if (module_State.jq_containers[page_name] === undefined) {
+            create_Body(page_name);
+        }
+
+        if (page_name === 'something') {
+            bp.force.presentForce(page_name);
+        }
+
+        if (page_name !== module_State.uri_anchor.page_name) {
+            dismiss_Page(module_State.uri_anchor.page_name);
+        }
+        module_State.jq_containers[page_name].fadeIn('slow');
+
+        var uri_anchor = $.uriAnchor.makeAnchorMap();
+        uri_anchor.page_name = page_name;
+        $.uriAnchor.setAnchor(uri_anchor);
+        module_State.uri_anchor = uri_anchor;
+    };
+
+    dismiss_Page = function (page_name) {
+        if (module_State.jq_containers[page_name] !== undefined &&
+            module_State.jq_containers[page_name].css('display') !== 'none') {
+            module_State.jq_containers[page_name].slideUp('slow');
+        }
+    };
+
+    hover_In = function () {
+        $(this).animate({'color': '#1AB6E5'}, 100);
+    };
+
+    hover_Out = function () {
+        $(this).animate({'color': '#000000'}, 100);
     };
 
     on_Hash_Change = function () {
@@ -488,26 +600,9 @@ bp.shell = (function () {
         set_Footer_Height();
         set_Footer_Top();
         for (var i_pg = 0; i_pg < module_Config.nav_page_names.length; i_pg += 1) {
-            set_Body_Height(module_Config.nav_page_names[i_pg]);
+            module_State.jq_containers[module_Config.nav_page_names[i_pg]]
+                .css('height', module_State.body_height + 'px');
         }
-    };
-
-    on_Scroll = function () {
-        var scroll_top = $('div#bp-shell-body-skeleton').scrollTop();
-        if (scroll_top < module_State.scroll_top) {
-            page_Down();
-        } else {
-            page_Up();
-        }
-        module_State.scroll_top = scroll_top;
-    };
-
-    hover_In = function () {
-        $(this).animate({'color': '#1AB6E5'}, 100);
-    };
-
-    hover_Out = function () {
-        $(this).animate({'color': '#000000'}, 100);
     };
 
     return {
