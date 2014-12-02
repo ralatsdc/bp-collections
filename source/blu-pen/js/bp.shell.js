@@ -224,7 +224,6 @@ bp.shell = (function () {
         }
 
         $(window).bind('hashchange', on_Hash_Change);
-
         $(window).bind('resize', on_Resize);
     };
 
@@ -363,7 +362,6 @@ bp.shell = (function () {
 
         switch (page_name) {
         case 'less':
-        case 'eliminate':
             jq_container
                 .append('<div></div>')
                 .find('div:last')
@@ -379,6 +377,39 @@ bp.shell = (function () {
                             module_State.jq_containers[page_name]
                                 .css('height', module_State.body_height + 'px');
                         })
+                        .end();
+                })
+                .end();
+            break;
+
+        case 'eliminate':
+            jq_container
+                .append('<div></div>')
+                .find('div:last')
+                .attr('id', 'bp-shell-' + page_name + '-content')
+                .addClass('two-thirds column')
+                .load('html/bp-shell-' + page_name + '-content.html', function () {
+                    jq_container
+                        .append('<div></div>')
+                        .find('div:last')
+                        .addClass('one-third column')
+
+                        .append('<div></div>')
+                        .find('div:last')
+                        .attr('id', 'cc-shell-visual-trust-graphic')
+                        .end()
+
+                        .append('<div></div>')
+                        .find('div:last')
+                        .attr('id', 'bp-shell-' + page_name + '-navigation')
+                        .load('html/bp-shell-' + page_name + '-navigation.html', function () {
+                            module_State.jq_containers[page_name]
+                                .css('height', module_State.body_height + 'px');
+                            cc.force.initModule('trust');
+                            cc.force.presentForce('trust');
+                        })
+                        .end()
+
                         .end();
                 })
                 .end();
