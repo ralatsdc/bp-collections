@@ -4,6 +4,10 @@
  *
  */
 
+.bp-shell-body {
+    margin: 0;
+}
+
 .extrabold {
     font-family: "OpenSansExtraBold", sans-serif;
 }

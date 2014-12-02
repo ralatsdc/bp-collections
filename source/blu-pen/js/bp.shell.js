@@ -39,10 +39,7 @@ bp.shell = (function () {
         window_height: undefined,
         header_height: undefined,
         footer_height: undefined,
-        body_height: undefined,
-        scroll_top: undefined,
-        scroll_delta: undefined,
-        scroll_target: undefined
+        body_height: undefined
     },
     init_Header,
     init_Footer,
@@ -57,7 +54,6 @@ bp.shell = (function () {
     create_Image,
     create_Text_Left,
     create_Text_Right,
-    on_Scroll,
     scroll_Page,
     scroll_Down,
     scroll_Up,
@@ -85,22 +81,6 @@ bp.shell = (function () {
 
         cc.model.initModule(module_Config.country_file_name);
 
-        /*
-        var uri_anchor, page_name;
-
-        uri_anchor = $.uriAnchor.makeAnchorMap();
-
-        if ('page_name' in uri_anchor) {
-            page_name = uri_anchor.page_name;
-        } else {
-            page_name = module_Config.init_page_name;
-        }
-
-        uri_anchor.page_name = page_name;
-        $.uriAnchor.setAnchor(uri_anchor);
-        module_State.uri_anchor = uri_anchor;
-        */
-
         init_Header();
     };
 
@@ -122,6 +102,7 @@ bp.shell = (function () {
             .find('div:last')
             .attr('id', 'bp-shell-header-fixed')
             .addClass('room')
+            .css('z-index', 4)
 
             .append('<div></div>')
             .find('div:last')
@@ -165,6 +146,7 @@ bp.shell = (function () {
                             .end();
 
                         set_Header_Height();
+
                         init_Footer();
                     })
                     .end();
@@ -180,6 +162,7 @@ bp.shell = (function () {
             .find('div:last')
             .attr('id', 'bp-shell-footer-fixed')
             .addClass('room')
+            .css('z-index', 2)
         
             .append('<div></div>')
             .find('div:last')
@@ -209,7 +192,9 @@ bp.shell = (function () {
                             .end();
 
                         set_Footer_Height();
+
                         set_Footer_Top();
+
                         init_Body();
                     })
                     .end();
@@ -226,16 +211,21 @@ bp.shell = (function () {
             .append('<div></div>')
             .find('div:last')
             .attr('id', 'bp-shell-body-skeleton')
-            .addClass('container row sixteen columns');
+            .addClass('container row sixteen columns')
+
+            .append('<div></div>')
+            .find('div:last')
+            .attr('id', 'bp-shell-body-spacer')
+            .css('height', module_State.header_height + 'px')
+            .end();
 
         for (var i_pg = 0; i_pg < module_Config.nav_page_names.length; i_pg += 1) {
             create_Body(module_Config.nav_page_names[i_pg]);
         }
 
         $(window).bind('hashchange', on_Hash_Change);
-        $(window).bind('resize', on_Resize);
-        $(window).bind('scroll', on_Scroll);
 
+        $(window).bind('resize', on_Resize);
     };
 
     set_Window_Height = function () {
@@ -249,11 +239,17 @@ bp.shell = (function () {
     };
 
     set_Header_Height = function () {
-        module_State.header_height = parseInt(module_State.jq_containers.header.css('height'));
+        module_State.header_height = 
+            parseInt(module_State.jq_containers.header.css('height')) +
+            parseInt(module_State.jq_containers.header.css('margin-top')) +
+            parseInt(module_State.jq_containers.header.css('margin-bottom'));
     };
 
     set_Footer_Height = function () {
-        module_State.footer_height = parseInt(module_State.jq_containers.footer.css('height'));
+        module_State.footer_height = 
+            parseInt(module_State.jq_containers.footer.css('height')) +
+            parseInt(module_State.jq_containers.footer.css('margin-top')) +
+            parseInt(module_State.jq_containers.footer.css('margin-bottom'));
     };
 
     set_Body_Height = function () {
@@ -277,38 +273,40 @@ bp.shell = (function () {
             .append('<div></div>')
             .find('div:last')
             .attr('id', page_id)
-            .addClass('row');
+            .addClass('row bp-shell-body');
 
         switch (page_name) {
         case 'number':
         case 'outwit':
         case 'browse':
         case 'news':
-            create_Text(module_State.jq_containers[page_name], page_name);
+            create_Text(page_name);
             break;
 
         case 'bones':
         case 'frames':
         case 'vases':
         case 'window':
-            create_Image(module_State.jq_containers[page_name], page_name);
+            create_Image(page_name);
             break;
 
         case 'less':
         case 'eliminate':
-            create_Text_Left(module_State.jq_containers[page_name], page_name);
+            create_Text_Left(page_name);
             break;
 
         case 'tame':
         case 'connect':
-            create_Text_Right(module_State.jq_containers[page_name], page_name);
+            create_Text_Right(page_name);
             break;
 
         default:
         }
     };
 
-    create_Text = function (jq_container, page_name) {
+    create_Text = function (page_name) {
+
+        var jq_container = module_State.jq_containers[page_name];
 
         switch (page_name) {
         case 'number':
@@ -326,7 +324,9 @@ bp.shell = (function () {
         }
     };
 
-    create_Image = function (jq_container, page_name) {
+    create_Image = function (page_name) {
+
+        var jq_container = module_State.jq_containers[page_name];
 
         switch (page_name) {
         case 'bones':
@@ -334,7 +334,8 @@ bp.shell = (function () {
         case 'vases':
         case 'window':
             jq_container
-                .css('background', 'url(img/bp-' + page_name + '.jpg)')
+                .css({'background': 'url(img/bp-' + page_name + '.jpg)',
+                      'background-size': 'cover'})
                 .append('<div></div>')
                 .find('div:last')
                 .addClass('one-third column')
@@ -356,7 +357,9 @@ bp.shell = (function () {
         }
     };
 
-    create_Text_Left = function (jq_container, page_name) {
+    create_Text_Left = function (page_name) {
+
+        var jq_container = module_State.jq_containers[page_name];
 
         switch (page_name) {
         case 'less':
@@ -385,7 +388,9 @@ bp.shell = (function () {
         }
     };
 
-    create_Text_Right = function (jq_container, page_name) {
+    create_Text_Right = function (page_name) {
+
+        var jq_container = module_State.jq_containers[page_name];
 
         switch (page_name) {
         case 'tame':
@@ -413,70 +418,18 @@ bp.shell = (function () {
         }
     };
 
-    on_Scroll = function () {
-
-        var scroll_top; // , i_pg;
-
-        scroll_top = $('body').scrollTop();
-
-        if (module_State.scroll_top === undefined) {
-            module_State.scroll_top = scroll_top;
-
-        } else if (module_State.scroll_delta === undefined) {
-            module_State.scroll_delta = scroll_top - module_State.scroll_top;
-            module_State.scroll_top = scroll_top;
-
-            scroll_Page(module_State.scroll_delta);
-
-            /*
-            disable_scrolling();
-
-            i_pg = module_Config.nav_page_names.indexOf(module_State.uri_anchor.page_name);
-
-            if (module_State.scroll_delta > 0) {
-                i_pg += 1;
-                if (i_pg === module_Config.nav_page_names.length) {
-                    i_pg -= 1;
-                }
-            } else {
-                i_pg -= 1;
-                if (i_pg === -1) {
-                    i_pg += 1;
-                }
-            }
-
-            module_State.scroll_target = i_pg * module_State.body_height;
-
-            $('html, body').animate({scrollTop: module_State.scroll_target}, 600);
-
-            enable_scrolling();
-
-            var uri_anchor = $.uriAnchor.makeAnchorMap();
-            uri_anchor.page_name = module_Config.nav_page_names[i_pg];
-            $.uriAnchor.setAnchor(uri_anchor);
-            module_State.uri_anchor = uri_anchor;
-            */
-
-        } else {
-            module_State.scroll_delta = scroll_top - module_State.scroll_top;
-            module_State.scroll_top = scroll_top;
-        }
-
-        /* For debugging.
-        $('#bp-shell-header-nav-to-browse').text(module_State.scroll_top);
-        $('#bp-shell-header-nav-to-connect').text(module_State.scroll_delta);
-        $('#bp-shell-header-nav-to-news').text(module_State.scroll_target);
-        $('#bp-shell-header-nav-to-share').text(module_State.body_height);
-        */
-    };
-
     scroll_Page = function (scroll_delta) {
 
-        var i_pg;
+        var i_pg, scroll_target;
 
         disable_scrolling();
 
         i_pg = module_Config.nav_page_names.indexOf(module_State.uri_anchor.page_name);
+
+        $('#bp-shell-header-nav-to-browse').text(Math.round($('body').scrollTop() / module_State.body_height));
+        $('#bp-shell-header-nav-to-connect').text(i_pg);
+
+        i_pg = Math.round($('body').scrollTop() / module_State.body_height);
 
         if (scroll_delta > 0) {
             i_pg += 1;
@@ -490,9 +443,9 @@ bp.shell = (function () {
             }
         }
 
-        module_State.scroll_target = i_pg * module_State.body_height;
+        scroll_target = i_pg * module_State.body_height;
 
-        $('html, body').animate({scrollTop: module_State.scroll_target}, 600);
+        $('html, body').animate({scrollTop: scroll_target}, 1200);
 
         enable_scrolling();
 
@@ -511,63 +464,8 @@ bp.shell = (function () {
         scroll_Page(-1);
     };
 
-    /*
-    scroll_Down = function () {
-
-        var i_pg;
-
-        disable_scrolling();
-
-        i_pg = module_Config.nav_page_names.indexOf(module_State.uri_anchor.page_name);
-
-        i_pg += 1;
-        if (i_pg === module_Config.nav_page_names.length) {
-            i_pg -= 1;
-        }
-
-        module_State.scroll_target = i_pg * module_State.body_height;
-
-        $('html, body').animate({scrollTop: module_State.scroll_target}, 600);
-
-        enable_scrolling();
-
-        var uri_anchor = $.uriAnchor.makeAnchorMap();
-        uri_anchor.page_name = module_Config.nav_page_names[i_pg];
-        $.uriAnchor.setAnchor(uri_anchor);
-        module_State.uri_anchor = uri_anchor;
-
-    };
-
-    scroll_Up = function () {
-
-        var i_pg;
-
-        disable_scrolling();
-
-        i_pg = module_Config.nav_page_names.indexOf(module_State.uri_anchor.page_name);
-
-        i_pg -= 1;
-        if (i_pg === -1) {
-            i_pg += 1;
-        }
-
-        module_State.scroll_target = i_pg * module_State.body_height;
-
-        $('html, body').animate({scrollTop: module_State.scroll_target}, 600);
-
-        enable_scrolling();
-
-        var uri_anchor = $.uriAnchor.makeAnchorMap();
-        uri_anchor.page_name = module_Config.nav_page_names[i_pg];
-        $.uriAnchor.setAnchor(uri_anchor);
-        module_State.uri_anchor = uri_anchor;
-
-    };
-    */
-
     disable_scrolling = function () {
         $('html, body').css('overflow', 'hidden');
-        $(window).unbind('scroll');
     };
 
     enable_scrolling = function () {
@@ -575,7 +473,6 @@ bp.shell = (function () {
             module_State.scroll_top = undefined;
             module_State.scroll_delta = undefined;
             $('html, body').css('overflow', 'auto');
-            $(window).bind('scroll', on_Scroll);
         }, 1200);
     };
 

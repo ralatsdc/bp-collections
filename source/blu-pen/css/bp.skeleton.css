@@ -14,7 +14,7 @@
 /* #Base 960 Grid
    ================================================== */
 
-.room { position: fixed; width: 960px; margin: 0 auto; padding: 0; left: 50%; margin-left: -480px; z-index: 10; }
+.room { position: fixed; width: 960px; margin: 0 auto; padding: 0; left: 50%; margin-left: -480px; }
 .graphic {
     -webkit-transform: scale(1.0);
     -moz-transform: scale(1.0);
