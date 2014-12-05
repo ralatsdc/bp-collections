@@ -18,19 +18,23 @@ bp.shell = (function () {
     module_Config = {
         country_file_name: '../crisis-countries/json/collection/car.json',
         init_page_name: 'number',
-        nav_page_names: ['number',
-                         'outwit',
-                         'bones',
-                         'less',
-                         'frames',
-                         'tame',
-                         'vases',
-                         'eliminate',
-                         'window'],
+        scrolling_page_names: ['number',
+                               'outwit',
+                               'bones',
+                               'less',
+                               'frames',
+                               'tame',
+                               'vases',
+                               'eliminate',
+                               'window'],
+        fixed_page_names: ['browse',
+                           'connect',
+                           'news'],
         settable: {
             country_file_name: false,
             init_page_name: false,
-            nav_page_names: false
+            scrolling_page_names: false,
+            fixed_page_names: false
         }
     },
     module_State = {
@@ -54,7 +58,7 @@ bp.shell = (function () {
     create_Image,
     create_Text_Left,
     create_Text_Right,
-    scroll_Page,
+    scroll_To_Page,
     scroll_Down,
     scroll_Up,
     disable_scrolling,
@@ -114,9 +118,7 @@ bp.shell = (function () {
             .find('div:last')
             .attr('id', 'bp-shell-header-logo')
             .addClass('one-third column')
-            .click(function () {
-                window.open('http://www.blu-pen.com');
-            })
+            .click({page_name: 'number'}, present_Page)
             .load('img/bp-logo-two-color-text.svg', function () {
                 module_State.jq_containers.header
                     .append('<div></div>')
@@ -204,13 +206,15 @@ bp.shell = (function () {
 
     init_Body = function () {
 
+        var i_pg;
+
         set_Body_Height();
 
-        module_State.jq_containers.body =
+        module_State.jq_containers.scrolling_body =
             module_State.jq_containers.main
             .append('<div></div>')
             .find('div:last')
-            .attr('id', 'bp-shell-body-skeleton')
+            .attr('id', 'bp-shell-body-scrolling')
             .addClass('container row sixteen columns')
 
             .append('<div></div>')
@@ -219,9 +223,31 @@ bp.shell = (function () {
             .css('height', module_State.header_height + 'px')
             .end();
 
-        for (var i_pg = 0; i_pg < module_Config.nav_page_names.length; i_pg += 1) {
-            create_Body(module_Config.nav_page_names[i_pg]);
+        for (i_pg = 0; i_pg < module_Config.scrolling_page_names.length; i_pg += 1) {
+            create_Body(module_Config.scrolling_page_names[i_pg]);
         }
+
+        module_State.jq_containers.fixed_body =
+            module_State.jq_containers.main
+            .append('<div></div>')
+            .find('div:last')
+            .attr('id', 'bp-shell-body-fixed')
+            .addClass('container row sixteen columns')
+
+            .append('<div></div>')
+            .find('div:last')
+            .attr('id', 'bp-shell-body-spacer')
+            .css('height', module_State.header_height + 'px')
+            .end();
+
+        for (i_pg = 0; i_pg < module_Config.fixed_page_names.length; i_pg += 1) {
+            create_Body(module_Config.fixed_page_names[i_pg]);
+        }
+
+        var uri_anchor = $.uriAnchor.makeAnchorMap();
+        uri_anchor.page_name = module_Config.scrolling_page_names[0];
+        $.uriAnchor.setAnchor(uri_anchor);
+        module_State.uri_anchor = uri_anchor;
 
         $(window).bind('hashchange', on_Hash_Change);
         $(window).bind('resize', on_Resize);
@@ -267,12 +293,37 @@ bp.shell = (function () {
 
         var page_id = 'bp-shell-' + page_name;
 
-        module_State.jq_containers[page_name] =
-            module_State.jq_containers.body
-            .append('<div></div>')
-            .find('div:last')
-            .attr('id', page_id)
-            .addClass('row bp-shell-body');
+        switch (page_name) {
+        case 'number':
+        case 'outwit':
+        case 'bones':
+        case 'less':
+        case 'frames':
+        case 'tame':
+        case 'vases':
+        case 'eliminate':
+        case 'window':
+            module_State.jq_containers[page_name] =
+                module_State.jq_containers.scrolling_body
+                .append('<div></div>')
+                .find('div:last')
+                .attr('id', page_id)
+                .addClass('row bp-shell-body');
+            break;
+
+        case 'browse':
+        case 'connect':
+        case 'news':
+            module_State.jq_containers[page_name] =
+                module_State.jq_containers.fixed_body
+                .append('<div></div>')
+                .find('div:last')
+                .attr('id', page_id)
+                .addClass('row bp-shell-body');
+            break;
+
+        default:
+        }
 
         switch (page_name) {
         case 'number':
@@ -449,50 +500,37 @@ bp.shell = (function () {
         }
     };
 
-    scroll_Page = function (scroll_delta) {
-
-        var i_pg, scroll_target;
-
-        disable_scrolling();
-
-        i_pg = module_Config.nav_page_names.indexOf(module_State.uri_anchor.page_name);
-
-        $('#bp-shell-header-nav-to-browse').text(Math.round($('body').scrollTop() / module_State.body_height));
-        $('#bp-shell-header-nav-to-connect').text(i_pg);
-
-        i_pg = Math.round($('body').scrollTop() / module_State.body_height);
-
-        if (scroll_delta > 0) {
-            i_pg += 1;
-            if (i_pg === module_Config.nav_page_names.length) {
-                i_pg -= 1;
-            }
-        } else {
-            i_pg -= 1;
-            if (i_pg === -1) {
-                i_pg += 1;
-            }
-        }
-
-        scroll_target = i_pg * module_State.body_height;
-
-        $('html, body').animate({scrollTop: scroll_target}, 1200);
-
-        enable_scrolling();
-
-        var uri_anchor = $.uriAnchor.makeAnchorMap();
-        uri_anchor.page_name = module_Config.nav_page_names[i_pg];
-        $.uriAnchor.setAnchor(uri_anchor);
-        module_State.uri_anchor = uri_anchor;
-
-    };
-
     scroll_Down = function () {
-        scroll_Page(+1);
+        var i_pg = module_Config.scrolling_page_names.indexOf(module_State.uri_anchor.page_name);
+        if (0 < i_pg) {
+            i_pg -= 1;
+            scroll_To_Page(module_Config.scrolling_page_names[i_pg]);
+        }
     };
 
     scroll_Up = function () {
-        scroll_Page(-1);
+        var i_pg = module_Config.scrolling_page_names.indexOf(module_State.uri_anchor.page_name);
+        if (-1 < i_pg && i_pg < module_Config.scrolling_page_names.length - 1) {
+            i_pg += 1;
+            scroll_To_Page(module_Config.scrolling_page_names[i_pg]);
+        }
+    };
+
+    scroll_To_Page = function (page_name) {
+
+        var i_pg, scroll_target;
+
+        i_pg = module_Config.scrolling_page_names.indexOf(page_name);
+        scroll_target = i_pg * module_State.body_height;
+
+        disable_scrolling();
+        $('html, body').animate({scrollTop: scroll_target}, 1200);
+        enable_scrolling();
+
+        var uri_anchor = $.uriAnchor.makeAnchorMap();
+        uri_anchor.page_name = module_Config.scrolling_page_names[i_pg];
+        $.uriAnchor.setAnchor(uri_anchor);
+        module_State.uri_anchor = uri_anchor;
     };
 
     disable_scrolling = function () {
@@ -507,33 +545,60 @@ bp.shell = (function () {
         }, 1200);
     };
 
-    present_Page = function (event) {
+    present_Page = function (event, callback) {
 
-        var page_name = event.data.page_name;
+        var
+        page_to_display = event.data.page_name,
+        page_displayed = module_State.uri_anchor.page_name,
+        jq_container;
 
-        if (module_State.jq_containers[page_name] === undefined) {
-            create_Body(page_name);
-        }
-
-        if (page_name === 'something') {
-            bp.force.presentForce(page_name);
-        }
-
-        if (page_name !== module_State.uri_anchor.page_name) {
-            dismiss_Page(module_State.uri_anchor.page_name);
-        }
-        module_State.jq_containers[page_name].fadeIn('slow');
+        dismiss_Page(event, function () {
+            if (module_Config.scrolling_page_names.indexOf(page_to_display) !== -1) {
+                // Page to display is scrolling
+                if (module_Config.fixed_page_names.indexOf(page_displayed) !== -1) {
+                    // Page displayed is fixed, so present the scrolling body
+                    jq_container = module_State.jq_containers.scrolling_body;
+                }
+            } else {
+                // Page to display is fixed, so present it
+                jq_container = module_State.jq_containers[page_to_display];
+            }
+            jq_container.fadeIn('slow', function () {
+                if (callback !== undefined && typeof callback === 'function') {
+                    callback();
+                }
+            });
+        });
 
         var uri_anchor = $.uriAnchor.makeAnchorMap();
-        uri_anchor.page_name = page_name;
+        uri_anchor.page_name = page_to_display;
         $.uriAnchor.setAnchor(uri_anchor);
         module_State.uri_anchor = uri_anchor;
     };
 
-    dismiss_Page = function (page_name) {
-        if (module_State.jq_containers[page_name] !== undefined &&
-            module_State.jq_containers[page_name].css('display') !== 'none') {
-            module_State.jq_containers[page_name].slideUp('slow');
+    dismiss_Page = function (event, callback) {
+
+        var
+        page_to_display = event.data.page_name,
+        page_displayed = module_State.uri_anchor.page_name,
+        jq_container;
+
+        if (module_Config.scrolling_page_names.indexOf(page_displayed) !== -1) {
+            // Page displayed is scrolling
+            if (module_Config.fixed_page_names.indexOf(page_to_display) !== -1) {
+                // Page to display is fixed, so dismiss the scrolling body
+                jq_container = module_State.jq_containers.scrolling_body;
+            }
+        } else {
+            // Page displayed is fixed, so dismiss it
+            jq_container = module_State.jq_containers[page_displayed];
+        }
+        if (jq_container !== undefined && jq_container.css('display') !== 'none') {
+            jq_container.fadeOut('slow', function () {
+                if (callback !== undefined && typeof callback === 'function') {
+                    callback();
+                }
+            });
         }
     };
 
@@ -553,12 +618,17 @@ bp.shell = (function () {
     };
 
     on_Resize = function () {
+        var i_pg;
         set_Window_Height();
         set_Header_Height();
         set_Footer_Height();
         set_Footer_Top();
-        for (var i_pg = 0; i_pg < module_Config.nav_page_names.length; i_pg += 1) {
-            module_State.jq_containers[module_Config.nav_page_names[i_pg]]
+        for (i_pg = 0; i_pg < module_Config.scrolling_page_names.length; i_pg += 1) {
+            module_State.jq_containers[module_Config.scrolling_page_names[i_pg]]
+                .css('height', module_State.body_height + 'px');
+        }
+        for (i_pg = 0; i_pg < module_Config.fixed_page_names.length; i_pg += 1) {
+            module_State.jq_containers[module_Config.fixed_page_names[i_pg]]
                 .css('height', module_State.body_height + 'px');
         }
     };
