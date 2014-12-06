@@ -232,7 +232,7 @@ bp.shell = (function () {
             .append('<div></div>')
             .find('div:last')
             .attr('id', 'bp-shell-body-fixed')
-            .addClass('container row sixteen columns')
+            .addClass('room container row sixteen columns')
 
             .append('<div></div>')
             .find('div:last')
@@ -501,15 +501,15 @@ bp.shell = (function () {
     };
 
     scroll_Down = function () {
-        var i_pg = module_Config.scrolling_page_names.indexOf(module_State.uri_anchor.page_name);
-        if (0 < i_pg) {
+        var i_pg = Math.round($('body').scrollTop() / module_State.body_height);
+        if (0 < i_pg && i_pg < module_Config.scrolling_page_names.length) {
             i_pg -= 1;
             scroll_To_Page(module_Config.scrolling_page_names[i_pg]);
         }
     };
 
     scroll_Up = function () {
-        var i_pg = module_Config.scrolling_page_names.indexOf(module_State.uri_anchor.page_name);
+        var i_pg = Math.round($('body').scrollTop() / module_State.body_height);
         if (-1 < i_pg && i_pg < module_Config.scrolling_page_names.length - 1) {
             i_pg += 1;
             scroll_To_Page(module_Config.scrolling_page_names[i_pg]);
@@ -563,11 +563,11 @@ bp.shell = (function () {
                 // Page to display is fixed, so present it
                 jq_container = module_State.jq_containers[page_to_display];
             }
-            jq_container.fadeIn('slow', function () {
-                if (callback !== undefined && typeof callback === 'function') {
-                    callback();
-                }
-            });
+            if (callback !== undefined && typeof callback === 'function') {
+                jq_container.fadeIn('slow', callback);
+            } else {
+                jq_container.fadeIn('slow');
+            }
         });
 
         var uri_anchor = $.uriAnchor.makeAnchorMap();
@@ -594,11 +594,11 @@ bp.shell = (function () {
             jq_container = module_State.jq_containers[page_displayed];
         }
         if (jq_container !== undefined && jq_container.css('display') !== 'none') {
-            jq_container.fadeOut('slow', function () {
-                if (callback !== undefined && typeof callback === 'function') {
-                    callback();
-                }
-            });
+            if (callback !== undefined && typeof callback === 'function') {
+                jq_container.fadeOut('slow', callback);
+            } else {
+                jq_container.fadeOut('slow');
+            }
         }
     };
 
