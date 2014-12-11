@@ -80,6 +80,10 @@ bp.shell = (function () {
         module_State.jq_containers.main =
             jq_container;
 
+        bp.model.configModule({});
+
+        bp.model.initModule({});
+
         cc.model.configModule({});
         cc.force.configModule({});
 
