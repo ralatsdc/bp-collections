@@ -35,18 +35,21 @@ bp.model = (function () {
         return true;
     };
 
-    initModule = function () {
+    initModule = function (event, callback) {
         var
         url = [module_Config.base_url, module_Config.base_hostname, 'posts?callback=?'].join('/'),
         data = {
             api_key: module_Config.api_key,
             limit: 10
         };
-        $.getJSON(url, data).then(function (posts) {
-            module_State.posts = posts;
+        $.getJSON(url, data).then(function (json) {
+            module_State.posts = json.response.posts;
+            if (callback !== undefined && typeof callback === 'function') {
+                callback(event);
+            }
         });
     };
-    
+
     getPosts = function () {
         return module_State.posts;
     };

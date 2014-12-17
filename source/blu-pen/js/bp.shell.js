@@ -29,7 +29,8 @@ bp.shell = (function () {
                                'window'],
         fixed_page_names: ['browse',
                            'connect',
-                           'news'],
+                           'news',
+                           'share'],
         settable: {
             country_file_name: false,
             init_page_name: false,
@@ -82,12 +83,13 @@ bp.shell = (function () {
 
         bp.model.configModule({});
 
-        bp.model.initModule({});
+        bp.tumblr.configModule({});
+        bp.tumblr.initModule({});
 
         cc.model.configModule({});
-        cc.force.configModule({});
-
         cc.model.initModule(module_Config.country_file_name);
+
+        cc.force.configModule({});
 
         init_Header();
     };
@@ -110,14 +112,14 @@ bp.shell = (function () {
             .find('div:last')
             .attr('id', 'bp-shell-header-fixed')
             .addClass('room')
-            .css('z-index', 4)
+            .css('z-index', 4);
 
+        module_State.jq_containers.header
             .append('<div></div>')
             .find('div:last')
             .attr('id', 'bp-shell-header-skeleton')
-            .addClass('container row sixteen columns');
+            .addClass('container row sixteen columns')
 
-        module_State.jq_containers.header
             .append('<div></div>')
             .find('div:last')
             .attr('id', 'bp-shell-header-logo')
@@ -318,6 +320,7 @@ bp.shell = (function () {
         case 'browse':
         case 'connect':
         case 'news':
+        case 'share':
             module_State.jq_containers[page_name] =
                 module_State.jq_containers.fixed_body
                 .append('<div></div>')
@@ -333,8 +336,12 @@ bp.shell = (function () {
         case 'number':
         case 'outwit':
         case 'browse':
-        case 'news':
+        case 'share':
             create_Text(page_name);
+            break;
+
+        case 'news':
+            bp.tumblr.createNews(module_State.jq_containers[page_name]);
             break;
 
         case 'bones':
@@ -366,10 +373,10 @@ bp.shell = (function () {
         case 'number':
         case 'outwit':
         case 'browse':
-        case 'news':
+        case 'share':
             jq_container
                 .load('html/bp-shell-' + page_name + '.html', function () {
-                    module_State.jq_containers[page_name]
+                    jq_container
                         .css('height', module_State.body_height + 'px');
                 });
             break;
@@ -399,7 +406,7 @@ bp.shell = (function () {
                         .find('div:last')
                         .addClass('two-thirds column')
                         .load('html/bp-shell-' + page_name + '.html', function () {
-                            module_State.jq_containers[page_name]
+                            jq_container
                                 .css('height', module_State.body_height + 'px');
                         })
                         .end();
@@ -429,7 +436,7 @@ bp.shell = (function () {
                         .attr('id', 'bp-shell-' + page_name + '-navigation')
                         .addClass('one-third column')
                         .load('html/bp-shell-' + page_name + '-navigation.html', function () {
-                            module_State.jq_containers[page_name]
+                            jq_container
                                 .css('height', module_State.body_height + 'px');
                         })
                         .end();
@@ -458,7 +465,7 @@ bp.shell = (function () {
                         .find('div:last')
                         .attr('id', 'bp-shell-' + page_name + '-navigation')
                         .load('html/bp-shell-' + page_name + '-navigation.html', function () {
-                            module_State.jq_containers[page_name]
+                            jq_container
                                 .css('height', module_State.body_height + 'px');
                             cc.force.initModule('trust');
                             cc.force.presentForce('trust');
@@ -494,7 +501,7 @@ bp.shell = (function () {
                         .addClass('two-thirds column')
                         .load('html/bp-shell-' + page_name + '-content.html')
                         .end();
-                    module_State.jq_containers[page_name]
+                    jq_container
                         .css('height', module_State.body_height + 'px');
                 })
                 .end();
@@ -626,6 +633,7 @@ bp.shell = (function () {
         set_Window_Height();
         set_Header_Height();
         set_Footer_Height();
+        set_Body_Height();
         set_Footer_Top();
         for (i_pg = 0; i_pg < module_Config.scrolling_page_names.length; i_pg += 1) {
             module_State.jq_containers[module_Config.scrolling_page_names[i_pg]]
