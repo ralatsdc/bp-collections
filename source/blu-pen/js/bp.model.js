@@ -35,7 +35,7 @@ bp.model = (function () {
         return true;
     };
 
-    initModule = function (event, callback) {
+    initModule = function (callback, data) {
         var
         url = [module_Config.base_url, module_Config.base_hostname, 'posts?callback=?'].join('/'),
         data = {
@@ -45,7 +45,11 @@ bp.model = (function () {
         $.getJSON(url, data).then(function (json) {
             module_State.posts = json.response.posts;
             if (callback !== undefined && typeof callback === 'function') {
-                callback(event);
+                if (data !== undefined) {
+                    callback({data: data});
+                } else {
+                    callback();
+                }
             }
         });
     };

@@ -30,13 +30,19 @@ bp.tumblr = (function () {
     initModule = function () {
     };
     
-    createNews = function (jq_container) {
+    createNews = function (event) {
         
+        var
+        page_name = event.data.page_name,
+        section_name = event.data.section_name,
+        jq_container = bp.shell.getJqContainers()[page_name + '-' + section_name];
+
         module_State.jq_container = jq_container;
         
         var posts = bp.model.getPosts();
         if (posts === null) {
-            bp.model.initModule(jq_container, createNews);
+            bp.model.initModule(jq_container, createNews,
+                                {page_name: page_name, section_name: section_name});
             return;
         }
         for (var i_post = 0; i_post < posts.length; i_post += 1) {
