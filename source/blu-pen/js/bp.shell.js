@@ -20,19 +20,20 @@ bp.shell = (function () {
             'home',
             'browse',
             'connect',
-            'news',
-            'share'
+            'news'
         ],
         section_names: {
             home: [
                 'number',
                 'outwit',
+                'zebras',
+                'tame',
+                'clothes',
+                'eliminate',
+                'buildings',
+                'preserve',
                 'bones',
                 'less',
-                'frames',
-                'tame',
-                'vases',
-                'eliminate',
                 'window'
             ],
             browse: [
@@ -43,9 +44,6 @@ bp.shell = (function () {
             ],
             news: [
                 'news'
-            ],
-            share: [
-                'share'
             ]
         },
         init_page_name: 'home',
@@ -172,11 +170,6 @@ bp.shell = (function () {
 
                             .find('#bp-shell-header-nav-to-news')
                             .click({page_name: 'news'}, present_Page)
-                            .hover(hover_In, hover_Out)
-                            .end()
-
-                            .find('#bp-shell-header-nav-to-share')
-                            .click({page_name: 'share'}, present_Page)
                             .hover(hover_In, hover_Out)
                             .end();
 
@@ -332,7 +325,6 @@ bp.shell = (function () {
             case 'number':
             case 'outwit':
             case 'browse':
-            case 'share':
                 create_Text(page_name, section_name);
                 break;
 
@@ -341,8 +333,6 @@ bp.shell = (function () {
                 break;
 
             case 'bones':
-            case 'frames':
-            case 'vases':
                 create_Image(page_name, section_name);
                 break;
 
@@ -387,7 +377,6 @@ bp.shell = (function () {
             break;
 
         case 'browse':
-        case 'share':
             jq_container
                 .load('html/bp-shell-' + section_name + '.html');
             break;
@@ -402,8 +391,6 @@ bp.shell = (function () {
 
         switch (section_name) {
         case 'bones':
-        case 'frames':
-        case 'vases':
         case 'window':
             jq_container
                 .css({'background': 'url(img/bp-' + section_name + '.jpg)',
@@ -697,7 +684,6 @@ bp.shell = (function () {
         case 'browse':
         case 'connect':
         case 'news':
-        case 'share':
             break;
 
         default:
