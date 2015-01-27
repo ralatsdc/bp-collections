@@ -35,18 +35,18 @@ bp.model = (function () {
         return true;
     };
 
-    initModule = function (callback, data) {
+    initModule = function (callback, cb_data) {
         var
         url = [module_Config.base_url, module_Config.base_hostname, 'posts?callback=?'].join('/'),
-        data = {
+        gj_data = {
             api_key: module_Config.api_key,
             limit: 10
         };
-        $.getJSON(url, data).then(function (json) {
+        $.getJSON(url, gj_data).then(function (json) {
             module_State.posts = json.response.posts;
             if (callback !== undefined && typeof callback === 'function') {
-                if (data !== undefined) {
-                    callback({data: data});
+                if (cb_data !== undefined) {
+                    callback({data: cb_data});
                 } else {
                     callback();
                 }

@@ -1,6 +1,7 @@
 /* 
  * bp.skeleton.css
  * Overrides skeleton/skeleton.css
+ * Contains media queries
  *
  */
 
@@ -39,7 +40,6 @@
     }
 }
 
-
 /*  #Mobile (Portrait)
     ================================================== */
 
@@ -55,7 +55,6 @@
         transform: scale(0.4838);
     }
 }
-
 
 /* #Mobile (Landscape)
    ================================================== */

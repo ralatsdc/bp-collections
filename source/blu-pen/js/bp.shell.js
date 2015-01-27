@@ -151,7 +151,7 @@ bp.shell = (function () {
             .find('div:last')
             .attr('id', 'bp-shell-header-logo')
             .addClass('one-third column')
-            .click({page_name: 'number'}, present_Page)
+            .click({page_name: 'home'}, present_Page)
             .load('img/bp-logo-two-color-text.svg', function () {
                 module_State.jq_containers.header
                     .append('<div></div>')
@@ -259,11 +259,9 @@ bp.shell = (function () {
             .end();
 
         page_names = module_Config.page_names;
-        for (i_p = 0; i_p < page_names.length - 1; i_p += 1) {
+        for (i_p = 0; i_p < page_names.length; i_p += 1) {
             create_Body(page_names[i_p]);
         }
-        create_Body(page_names[i_p],
-                    {data: {page_name: module_Config.init_page_name}}, present_Page);
 
         $(window).bind('hashchange', on_Hash_Change);
         $(window).bind('resize', on_Resize);
@@ -305,7 +303,7 @@ bp.shell = (function () {
             .css('top', top + 'px');
     };
 
-    create_Body = function (page_name, callback, data) {
+    create_Body = function (page_name) {
 
         var
         page_id = 'bp-shell-' + page_name,
@@ -316,7 +314,8 @@ bp.shell = (function () {
             .append('<div></div>')
             .find('div:last')
             .attr('id', page_id)
-            .addClass('row bp-shell-body');
+            .addClass('row bp-shell-body')
+            .css('display', 'none');
 
         for (var i_s = 0; i_s < section_names.length; i_s += 1) {
             var
@@ -348,7 +347,7 @@ bp.shell = (function () {
                 break;
 
             case 'window':
-                create_Image(page_name, section_name, callback, data);
+                create_Image(page_name, section_name, present_Page, {page_name: 'home'});
                 break;
 
             case 'less':
@@ -589,6 +588,8 @@ bp.shell = (function () {
             jq_container = module_State.jq_containers[page_name];
 
             jq_container.fadeIn('slow');
+
+            $('html, body').animate({scrollTop: 0}, 1200);
 
             uri_anchor = $.uriAnchor.makeAnchorMap();
             uri_anchor.page_name = page_name;
