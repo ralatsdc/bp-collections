@@ -370,7 +370,7 @@ bp.shell = (function () {
         case 'browse':
             jq_container
                 .load('html/bp-shell-' + section_name + '.html', function () {
-                    if (['browse'].indexOf(section_name) !== -1) {
+                    if (['browse'].indexOf(section_name) === -1) {
                         jq_container
                             .css('height', module_State.section_height + 'px');
                     }
@@ -448,7 +448,7 @@ bp.shell = (function () {
                         .attr('id', 'bp-shell-' + section_name + '-navigation')
                         .addClass('one-third column')
                         .load('html/bp-shell-' + section_name + '-navigation.html', function () {
-                            if (['connect'].indexOf(section_name) !== -1) {
+                            if (['connect'].indexOf(section_name) === -1) {
                                 jq_container
                                     .css('height', module_State.section_height + 'px');
                             }
@@ -561,8 +561,6 @@ bp.shell = (function () {
 
             jq_container.fadeIn('slow');
 
-            $('html, body').animate({scrollTop: 0}, 1200);
-
             uri_anchor = $.uriAnchor.makeAnchorMap();
             uri_anchor.page_name = page_name;
             $.uriAnchor.setAnchor(uri_anchor);
@@ -616,8 +614,7 @@ bp.shell = (function () {
         scroll_target = i_s * module_State.section_height;
 
         disable_scrolling();
-        $('html, body').animate({scrollTop: scroll_target}, 1200);
-        enable_scrolling();
+        $('html, body').animate({scrollTop: scroll_target}, 1200, enable_scrolling);
     };
 
     disable_scrolling = function () {
@@ -625,11 +622,7 @@ bp.shell = (function () {
     };
 
     enable_scrolling = function () {
-        window.setTimeout(function () {
-            module_State.scroll_top = undefined;
-            module_State.scroll_delta = undefined;
-            $('html, body').css('overflow', 'auto');
-        }, 1200);
+        $('html, body').css('overflow', 'auto');
     };
 
     hover_In = function () {
