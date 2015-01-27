@@ -28,7 +28,7 @@ bp.shell = (function () {
                 'outwit',
                 'zebras',
                 'tame',
-                'clothes',
+                'fashion',
                 'eliminate',
                 'buildings',
                 'preserve',
@@ -328,25 +328,30 @@ bp.shell = (function () {
                 create_Text(page_name, section_name);
                 break;
 
-            case 'news':
-                bp.tumblr.createNews({data: {page_name: page_name, section_name: section_name}});
-                break;
-
+            case 'zebras':
+            case 'fashion':
+            case 'buildings':
             case 'bones':
                 create_Image(page_name, section_name);
                 break;
 
             case 'window':
+                // TODO: Understand why this is here
                 create_Image(page_name, section_name, present_Page, {page_name: 'home'});
                 break;
 
-            case 'less':
             case 'eliminate':
+            case 'less':
+            case 'connect':
                 create_Text_Left(page_name, section_name);
                 break;
 
+            case 'news':
+                bp.tumblr.createNews({data: {page_name: page_name, section_name: section_name}});
+                break;
+
             case 'tame':
-            case 'connect':
+            case 'preserve':
                 create_Text_Right(page_name, section_name);
                 break;
                 
@@ -362,10 +367,13 @@ bp.shell = (function () {
         switch (section_name) {
         case 'number':
         case 'outwit':
+        case 'browse':
             jq_container
                 .load('html/bp-shell-' + section_name + '.html', function () {
-                    jq_container
-                        .css('height', module_State.section_height + 'px');
+                    if (['browse'].indexOf(section_name) !== -1) {
+                        jq_container
+                            .css('height', module_State.section_height + 'px');
+                    }
                     if (callback !== undefined && typeof callback === 'function') {
                         if (data !== undefined) {
                             callback({data: data});
@@ -374,11 +382,6 @@ bp.shell = (function () {
                         }
                     }
                 });
-            break;
-
-        case 'browse':
-            jq_container
-                .load('html/bp-shell-' + section_name + '.html');
             break;
 
         default:
@@ -390,6 +393,9 @@ bp.shell = (function () {
         var jq_container = module_State.jq_containers[page_name + '-' + section_name];
 
         switch (section_name) {
+        case 'zebras':
+        case 'fashion':
+        case 'buildings':
         case 'bones':
         case 'window':
             jq_container
@@ -429,6 +435,7 @@ bp.shell = (function () {
 
         switch (section_name) {
         case 'less':
+        case 'connect':
             jq_container
                 .append('<div></div>')
                 .find('div:last')
@@ -441,8 +448,10 @@ bp.shell = (function () {
                         .attr('id', 'bp-shell-' + section_name + '-navigation')
                         .addClass('one-third column')
                         .load('html/bp-shell-' + section_name + '-navigation.html', function () {
-                            jq_container
-                                .css('height', module_State.section_height + 'px');
+                            if (['connect'].indexOf(section_name) !== -1) {
+                                jq_container
+                                    .css('height', module_State.section_height + 'px');
+                            }
                             if (callback !== undefined && typeof callback === 'function') {
                                 if (data !== undefined) {
                                     callback({data: data});
@@ -505,6 +514,7 @@ bp.shell = (function () {
 
         switch (section_name) {
         case 'tame':
+        case 'preserve':
             jq_container
                 .append('<div></div>')
                 .find('div:last')
@@ -520,31 +530,6 @@ bp.shell = (function () {
                         .end();
                     jq_container
                         .css('height', module_State.section_height + 'px');
-                    if (callback !== undefined && typeof callback === 'function') {
-                        if (data !== undefined) {
-                            callback({data: data});
-                        } else {
-                            callback();
-                        }
-                    }
-                })
-                .end();
-            break;
-
-        case 'connect':
-            jq_container
-                .append('<div></div>')
-                .find('div:last')
-                .attr('id', 'bp-shell-' + section_name + '-navigation')
-                .addClass('one-third column')
-                .load('html/bp-shell-' + section_name + '-navigation.html', function () {
-                    jq_container
-                        .append('<div></div>')
-                        .find('div:last')
-                        .attr('id', 'bp-shell-' + section_name + '-content')
-                        .addClass('two-thirds column')
-                        .load('html/bp-shell-' + section_name + '-content.html')
-                        .end();
                     if (callback !== undefined && typeof callback === 'function') {
                         if (data !== undefined) {
                             callback({data: data});
