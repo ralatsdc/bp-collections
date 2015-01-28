@@ -10,6 +10,12 @@
     background-color: white;
 }
 
+#bp-shell-header-logo svg {
+    height: 34px;
+    width: auto;
+    viewBox: "none";
+}
+
 .bp-shell-body {
     margin: 0;
 }
