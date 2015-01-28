@@ -41,7 +41,7 @@ bp.tumblr = (function () {
         
         var posts = bp.model.getPosts();
         if (posts === null) {
-            bp.model.initModule(jq_container, createNews,
+            bp.model.initModule(createNews,
                                 {page_name: page_name, section_name: section_name});
             return;
         }

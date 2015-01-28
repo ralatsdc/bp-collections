@@ -660,7 +660,7 @@ bp.shell = (function () {
         set_Footer_Top();
         set_Section_Height();
         $('.section').css('height', module_State.section_height + 'px');
-        $('.caption').css('margin-top', 0.60 * module_State.section_height + 'px');
+        $('.caption').css('margin-top', 0.618 * module_State.section_height + 'px');
     };
 
     return {
