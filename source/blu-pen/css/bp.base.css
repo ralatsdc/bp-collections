@@ -25,7 +25,17 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
     color: #212121;
-    font-family: "OpenSansRegular", Helvetica, Arial, sans-serif;
+    font-family: "ComfortaaBold", Helvetica, Arial, sans-serif;
+}
+
+.navigation h1, .navigation h2, .navigation h3, .navigation h4, .navigation h5, .navigation h6 {
+    color: #212121;
+    font-family: "OpenSansBold", Helvetica, Arial, sans-serif;
+}
+
+.image h1, .image h2, .image h3, .image h4, .image h5, .image h6 {
+    color: #212121;
+    font-family: "OswaldBold", Helvetica, Arial, sans-serif;
 }
 
 /* #Links

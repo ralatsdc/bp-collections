@@ -1,33 +1,17 @@
 /*
  * bp.shell.css
  * Styles the shell module presentation
- * Contains classes and identifiers
+ * Contains identifiers and classes
  *
  */
 
 #bp-shell-header-fixed,
 #bp-shell-footer-fixed {
-    background-color: rgb(256, 256, 256);
+    background-color: white;
 }
 
 .bp-shell-body {
     margin: 0;
-}
-
-.extrabold {
-    font-family: "OpenSansExtraBold", sans-serif;
-}
-
-.bold {
-    font-family: "OpenSansBold", sans-serif;
-}
-
-.semibold {
-    font-family: "OpenSansSemiBold", sans-serif;
-}
-
-.lightitalic {
-    font-family: "OpenSansLightItalic", sans-serif;
 }
 
 .centered {

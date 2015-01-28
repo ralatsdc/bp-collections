@@ -157,7 +157,7 @@ bp.shell = (function () {
                     .append('<div></div>')
                     .find('div:last')
                     .attr('id', 'bp-shell-header-navigation')
-                    .addClass('two-thirds column')
+                    .addClass('two-thirds column navigation')
                     .load('html/bp-shell-header-navigation.html', function () {
                         module_State.jq_containers.header_skeleton
                             .find('#bp-shell-header-nav-to-browse')
@@ -211,7 +211,7 @@ bp.shell = (function () {
                     .append('<div></div>')
                     .find('div:last')
                     .attr('id', 'bp-shell-footer-navigation')
-                    .addClass('two-thirds column')
+                    .addClass('two-thirds column navigation')
                     .load('html/bp-shell-footer-navigation.html', function () {
                         module_State.jq_containers.footer_skeleton
                             .find('#bp-shell-footer-nav-down')
@@ -412,7 +412,7 @@ bp.shell = (function () {
                     jq_container
                         .append('<div></div>')
                         .find('div:last')
-                        .addClass('two-thirds column')
+                        .addClass('two-thirds column image')
                         .load('html/bp-shell-' + section_name + '.html', function () {
                             jq_container
                                 .css('height', module_State.section_height + 'px');
