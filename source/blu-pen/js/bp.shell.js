@@ -380,7 +380,7 @@ bp.shell = (function () {
                 .load('html/bp-shell-' + section_name + '.html', function () {
                     if (['browse'].indexOf(section_name) === -1) {
                         jq_container
-                            .addClass('section');
+                            .addClass('bp-shell-section');
                         on_Resize();
                     }
                     if (callback !== undefined && typeof callback === 'function') {
@@ -420,7 +420,7 @@ bp.shell = (function () {
                         .addClass('two-thirds column caption')
                         .load('html/bp-shell-' + section_name + '.html', function () {
                             jq_container
-                                .addClass('section');
+                                .addClass('bp-shell-section');
                             on_Resize();
                             if (callback !== undefined && typeof callback === 'function') {
                                 if (data !== undefined) {
@@ -459,7 +459,7 @@ bp.shell = (function () {
                         .addClass('one-third column')
                         .load('html/bp-shell-' + section_name + '-navigation.html', function () {
                             jq_container
-                                .addClass('section');
+                                .addClass('bp-shell-section');
                             on_Resize();
                             if (callback !== undefined && typeof callback === 'function') {
                                 if (data !== undefined) {
@@ -498,6 +498,7 @@ bp.shell = (function () {
                         .append('<div></div>')
                         .find('div:last')
                         .attr('id', 'cc-shell-visual-trust-graphic')
+                        .addClass('bp-shell-content')
                         .end()
 
                         .append('<div></div>')
@@ -505,7 +506,7 @@ bp.shell = (function () {
                         .attr('id', 'bp-shell-' + section_name + '-navigation')
                         .load('html/bp-shell-' + section_name + '-navigation.html', function () {
                             jq_container
-                                .addClass('section');
+                                .addClass('bp-shell-section');
                             on_Resize();
                             cc.force.initModule('trust');
                             cc.force.presentForce('trust');
@@ -540,7 +541,7 @@ bp.shell = (function () {
                         .end();
                     if (['connect'].indexOf(section_name) === -1) {
                         jq_container
-                            .addClass('section');
+                            .addClass('bp-shell-section');
                         on_Resize();
                     }
                     if (callback !== undefined && typeof callback === 'function') {
@@ -659,7 +660,7 @@ bp.shell = (function () {
         set_Footer_Height();
         set_Footer_Top();
         set_Section_Height();
-        $('.section').css('height', module_State.section_height + 'px');
+        $('.bp-shell-section').css('height', module_State.section_height + 'px');
         $('.caption').css('margin-top', 0.618 * module_State.section_height + 'px');
     };
 

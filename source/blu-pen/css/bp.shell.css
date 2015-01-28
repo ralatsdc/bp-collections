@@ -16,13 +16,21 @@
     viewBox: "none";
 }
 
+#bp-shell-header-nav-to-share {
+    padding-top: 5px;
+}
+
 .bp-shell-body {
     margin: 0;
 }
 
-.centered {
-    text-align: center;
-    display: block;
-    margin-left: auto;
-    margin-right: auto
+.bp-shell-section {
+}
+
+.bp-shell-content {
+    padding-top: 100px;
+}
+
+.bp-shell-navigation {
+    padding-top: 100px;
 }
