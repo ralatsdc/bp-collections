@@ -33,8 +33,8 @@ h1, h2, h3, h4, h5, h6 {
     font-family: "OpenSansBold", Helvetica, Arial, sans-serif;
 }
 
-.image h1, .image h2, .image h3, .image h4, .image h5, .image h6 {
-    color: #212121;
+.caption h1, .caption h2, .caption h3, .caption h4, .caption h5, .caption h6 {
+    color: white;
     font-family: "OswaldBold", Helvetica, Arial, sans-serif;
 }
 

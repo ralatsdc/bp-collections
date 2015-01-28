@@ -327,6 +327,11 @@ bp.shell = (function () {
 
             switch (section_name) {
             case 'number':
+                module_State.jq_containers[page_name + '-' + section_name]
+                    .addClass('centered');
+                create_Text(page_name, section_name);
+                break;
+
             case 'outwit':
             case 'browse':
                 create_Text(page_name, section_name);
@@ -340,7 +345,6 @@ bp.shell = (function () {
                 break;
 
             case 'window':
-                // TODO: Understand why this is here
                 create_Image(page_name, section_name, present_Page, {page_name: 'home'});
                 break;
 
@@ -376,7 +380,8 @@ bp.shell = (function () {
                 .load('html/bp-shell-' + section_name + '.html', function () {
                     if (['browse'].indexOf(section_name) === -1) {
                         jq_container
-                            .css('height', module_State.section_height + 'px');
+                            .addClass('section');
+                        on_Resize();
                     }
                     if (callback !== undefined && typeof callback === 'function') {
                         if (data !== undefined) {
@@ -412,10 +417,11 @@ bp.shell = (function () {
                     jq_container
                         .append('<div></div>')
                         .find('div:last')
-                        .addClass('two-thirds column image')
+                        .addClass('two-thirds column caption')
                         .load('html/bp-shell-' + section_name + '.html', function () {
                             jq_container
-                                .css('height', module_State.section_height + 'px');
+                                .addClass('section');
+                            on_Resize();
                             if (callback !== undefined && typeof callback === 'function') {
                                 if (data !== undefined) {
                                     callback({data: data});
@@ -453,7 +459,8 @@ bp.shell = (function () {
                         .addClass('one-third column')
                         .load('html/bp-shell-' + section_name + '-navigation.html', function () {
                             jq_container
-                                .css('height', module_State.section_height + 'px');
+                                .addClass('section');
+                            on_Resize();
                             if (callback !== undefined && typeof callback === 'function') {
                                 if (data !== undefined) {
                                     callback({data: data});
@@ -498,7 +505,8 @@ bp.shell = (function () {
                         .attr('id', 'bp-shell-' + section_name + '-navigation')
                         .load('html/bp-shell-' + section_name + '-navigation.html', function () {
                             jq_container
-                                .css('height', module_State.section_height + 'px');
+                                .addClass('section');
+                            on_Resize();
                             cc.force.initModule('trust');
                             cc.force.presentForce('trust');
                             if (callback !== undefined && typeof callback === 'function') {
@@ -532,7 +540,8 @@ bp.shell = (function () {
                         .end();
                     if (['connect'].indexOf(section_name) === -1) {
                         jq_container
-                            .css('height', module_State.section_height + 'px');
+                            .addClass('section');
+                        on_Resize();
                     }
                     if (callback !== undefined && typeof callback === 'function') {
                         if (data !== undefined) {
@@ -589,7 +598,7 @@ bp.shell = (function () {
         var
         page_name = module_State.uri_anchor.page_name,
         section_names = module_Config.section_names[page_name],
-        i_s = Math.round($('body').scrollTop() / module_State.section_height);
+        i_s = Math.ceil($('body').scrollTop() / module_State.section_height);
 
         if (0 < i_s && i_s < section_names.length) {
             i_s -= 1;
@@ -602,7 +611,7 @@ bp.shell = (function () {
         var
         page_name = module_State.uri_anchor.page_name,
         section_names = module_Config.section_names[page_name],
-        i_s = Math.round($('body').scrollTop() / module_State.section_height);
+        i_s = Math.floor($('body').scrollTop() / module_State.section_height);
 
         if (-1 < i_s && i_s < section_names.length - 1) {
             i_s += 1;
@@ -645,31 +654,13 @@ bp.shell = (function () {
     };
 
     on_Resize = function () {
-
         set_Window_Height();
         set_Header_Height();
         set_Footer_Height();
         set_Footer_Top();
         set_Section_Height();
-
-        var page_name = module_State.uri_anchor.page_name;
-        switch (page_name) {
-        case 'home':
-            var section_names = module_Config.section_names[page_name];
-            for (var i_s = 0; i_s < section_names.length; i_s += 1) {
-                var section_name = section_names[i_s];
-                module_State.jq_containers[page_name + '-' + section_name]
-                    .css('height', module_State.section_height + 'px');
-            }
-            break;
-
-        case 'browse':
-        case 'connect':
-        case 'news':
-            break;
-
-        default:
-        }
+        $('.section').css('height', module_State.section_height + 'px');
+        $('.caption').css('margin-top', 0.60 * module_State.section_height + 'px');
     };
 
     return {
