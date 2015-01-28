@@ -48,11 +48,17 @@ bp.shell = (function () {
         },
         init_page_name: 'home',
         country_file_name: '../crisis-countries/json/collection/car.json',
+        twitter_tweets_per_day: 500000000,
+        tumblr_posts_per_day: 80000000,
+        flickr_photos_per_day: 1830000,
         settable: {
             page_names: false,
             section_names: false,
             init_page_name: true,
-            country_file_name: true
+            country_file_name: true,
+            twitter_tweets_per_day: false,
+            tumblr_posts_per_day: false,
+            flickr_photos_per_day:false
         }
     },
     module_State = {
@@ -374,6 +380,33 @@ bp.shell = (function () {
 
         switch (section_name) {
         case 'number':
+            jq_container
+                .load('html/bp-shell-' + section_name + '.html', function () {
+                    jq_container
+                        .addClass('bp-shell-section');
+                    on_Resize();
+                    var
+                    interval = 100,
+                    counter = 0,
+                    rate =
+                        (module_Config.flickr_photos_per_day +
+                         module_Config.tumblr_posts_per_day +
+                         module_Config.twitter_tweets_per_day) / 86400000;
+                    // [photos|posts|tweets/ms] = [photos|posts|tweets/day] / [ms/day]
+                    window.setInterval(function () {
+                        counter += Math.round(interval * rate);
+                        $('#bp-shell-counter').text(counter.toLocaleString());
+                    }, interval);
+                    if (callback !== undefined && typeof callback === 'function') {
+                        if (data !== undefined) {
+                            callback({data: data});
+                        } else {
+                            callback();
+                        }
+                    }
+                });
+            break;
+
         case 'outwit':
         case 'browse':
             jq_container
