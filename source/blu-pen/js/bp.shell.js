@@ -131,33 +131,35 @@ bp.shell = (function () {
 
         set_Window_Height();
 
-        module_State.jq_containers.header =
+        module_State.jq_containers.header_fixed =
             module_State.jq_containers.main
             .append('<div></div>')
             .find('div:last')
             .attr('id', 'bp-shell-header-fixed')
             .addClass('room')
-            .css('z-index', 4)
+            .css('z-index', 4);
 
+        module_State.jq_containers.header_skeleton =
+            module_State.jq_containers.header_fixed
             .append('<div></div>')
             .find('div:last')
             .attr('id', 'bp-shell-header-skeleton')
             .addClass('container row sixteen columns');
 
-        module_State.jq_containers.header
+        module_State.jq_containers.header_skeleton
             .append('<div></div>')
             .find('div:last')
             .attr('id', 'bp-shell-header-logo')
             .addClass('one-third column')
             .click({page_name: 'home'}, present_Page)
             .load('img/bp-logo-two-color-text.svg', function () {
-                module_State.jq_containers.header
+                module_State.jq_containers.header_skeleton
                     .append('<div></div>')
                     .find('div:last')
                     .attr('id', 'bp-shell-header-navigation')
                     .addClass('two-thirds column')
                     .load('html/bp-shell-header-navigation.html', function () {
-                        module_State.jq_containers.header
+                        module_State.jq_containers.header_skeleton
                             .find('#bp-shell-header-nav-to-browse')
                             .click({page_name: 'browse'}, present_Page)
                             .hover(hover_In, hover_Out)
@@ -185,31 +187,33 @@ bp.shell = (function () {
 
     init_Footer = function () {
 
-        module_State.jq_containers.footer =
+        module_State.jq_containers.footer_fixed =
             module_State.jq_containers.main
             .append('<div></div>')
             .find('div:last')
             .attr('id', 'bp-shell-footer-fixed')
             .addClass('room')
-            .css('z-index', 2)
-        
+            .css('z-index', 2);
+
+        module_State.jq_containers.footer_skeleton =
+            module_State.jq_containers.footer_fixed
             .append('<div></div>')
             .find('div:last')
             .attr('id', 'bp-shell-footer-skeleton')
             .addClass('container row sixteen columns');
 
-        module_State.jq_containers.footer
+        module_State.jq_containers.footer_skeleton
             .append('<div></div>')
             .find('div:last')
             .addClass('one-third column')
             .load('html/bp-shell-empty.html', function () {
-                module_State.jq_containers.footer
+                module_State.jq_containers.footer_skeleton
                     .append('<div></div>')
                     .find('div:last')
                     .attr('id', 'bp-shell-footer-navigation')
                     .addClass('two-thirds column')
                     .load('html/bp-shell-footer-navigation.html', function () {
-                        module_State.jq_containers.footer
+                        module_State.jq_containers.footer_skeleton
                             .find('#bp-shell-footer-nav-down')
                             .click(scroll_Down)
                             .hover(hover_In, hover_Out)
@@ -272,16 +276,16 @@ bp.shell = (function () {
 
     set_Header_Height = function () {
         module_State.header_height = 
-            parseInt(module_State.jq_containers.header.css('height')) +
-            parseInt(module_State.jq_containers.header.css('margin-top')) +
-            parseInt(module_State.jq_containers.header.css('margin-bottom'));
+            parseInt(module_State.jq_containers.header_skeleton.css('height')) +
+            parseInt(module_State.jq_containers.header_skeleton.css('margin-top')) +
+            parseInt(module_State.jq_containers.header_skeleton.css('margin-bottom'));
     };
 
     set_Footer_Height = function () {
         module_State.footer_height = 
-            parseInt(module_State.jq_containers.footer.css('height')) +
-            parseInt(module_State.jq_containers.footer.css('margin-top')) +
-            parseInt(module_State.jq_containers.footer.css('margin-bottom'));
+            parseInt(module_State.jq_containers.footer_skeleton.css('height')) +
+            parseInt(module_State.jq_containers.footer_skeleton.css('margin-top')) +
+            parseInt(module_State.jq_containers.footer_skeleton.css('margin-bottom'));
     };
 
     set_Section_Height = function () {
@@ -292,7 +296,7 @@ bp.shell = (function () {
         var top = 
             module_State.window_height -
             module_State.footer_height;
-        module_State.jq_containers.footer
+        module_State.jq_containers.footer_fixed
             .css('top', top + 'px');
     };
 

@@ -1,9 +1,14 @@
 /*
  * bp.shell.css
  * Styles the shell module presentation
- * Contains classes
+ * Contains classes and identifiers
  *
  */
+
+#bp-shell-header-fixed,
+#bp-shell-footer-fixed {
+    background-color: rgb(256, 256, 256);
+}
 
 .bp-shell-body {
     margin: 0;
