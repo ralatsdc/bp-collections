@@ -12,7 +12,8 @@ bp.shell = (function () {
     configModule,
     initModule,
     getJqContainers,
-    delegatePage;
+    delegatePage,
+    sendMessage;
 
     var
     module_Config = {
@@ -51,6 +52,7 @@ bp.shell = (function () {
         twitter_tweets_per_day: 500000000,
         tumblr_posts_per_day: 80000000,
         flickr_photos_per_day: 1830000,
+        mail_to: 'raymond.leclair@gmail.com',
         settable: {
             page_names: false,
             section_names: false,
@@ -58,7 +60,8 @@ bp.shell = (function () {
             country_file_name: true,
             twitter_tweets_per_day: false,
             tumblr_posts_per_day: false,
-            flickr_photos_per_day:false
+            flickr_photos_per_day: false,
+            mail_to: false
         }
     },
     module_State = {
@@ -131,6 +134,21 @@ bp.shell = (function () {
 
     delegatePage = function (event) {
         present_Page(event);
+    };
+
+    sendMessage = function () {
+        window.setTimeout(
+            function () {
+                var event = {data: {page_name: 'browse'}};
+                present_Page(event);
+            }, 2000);
+        var win = window.open('mailto:' + module_Config.mail_to);
+        win.setTimeout(
+            function () {
+                if (win && win.open && !win.closed) {
+                    win.close();
+                }
+            }, 1000);
     };
 
     init_Header = function () {
@@ -701,7 +719,8 @@ bp.shell = (function () {
         configModule: configModule,
         initModule: initModule,
         getJqContainers: getJqContainers,
-        delegatePage: delegatePage
+        delegatePage: delegatePage,
+        sendMessage: sendMessage
     };
 
 }());
