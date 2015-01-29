@@ -81,6 +81,7 @@ bp.shell = (function () {
     set_Header_Height,
     set_Footer_Height,
     set_Section_Height,
+    set_Scroll_Margin,
 
     set_Footer_Top,
 
@@ -250,6 +251,8 @@ bp.shell = (function () {
 
                         set_Footer_Height();
 
+                        set_Scroll_Margin();
+
                         set_Footer_Top();
 
                         init_Body();
@@ -314,6 +317,11 @@ bp.shell = (function () {
 
     set_Section_Height = function () {
         module_State.section_height = module_State.window_height - module_State.header_height - module_State.footer_height;
+    };
+
+    set_Scroll_Margin = function () {
+        module_State.scroll_margin = 
+            parseInt(module_State.jq_containers.footer_skeleton.css('height'));
     };
 
     set_Footer_Top = function () {
@@ -709,10 +717,13 @@ bp.shell = (function () {
         set_Window_Height();
         set_Header_Height();
         set_Footer_Height();
+        set_Scroll_Margin();
         set_Footer_Top();
         set_Section_Height();
+        $('#bp-shell-body-spacer').css('height', module_State.header_height + 'px');
         $('.bp-shell-section').css('height', module_State.section_height + 'px');
         $('.caption').css('margin-top', 0.618 * module_State.section_height + 'px');
+        $('#bp-shell-home').css('margin-bottom', module_State.scroll_margin + 'px');
     };
 
     return {

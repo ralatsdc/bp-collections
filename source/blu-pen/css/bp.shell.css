@@ -5,21 +5,6 @@
  *
  */
 
-#bp-shell-header-fixed,
-#bp-shell-footer-fixed {
-    background-color: white;
-}
-
-#bp-shell-header-logo svg {
-    height: 34px;
-    width: auto;
-    viewBox: "none";
-}
-
-#bp-shell-header-nav-to-share {
-    padding-top: 5px;
-}
-
 .bp-shell-body {
     margin: 0;
 }
@@ -33,4 +18,36 @@
 
 .bp-shell-navigation {
     padding-top: 100px;
+}
+
+#bp-shell-header-fixed {
+    background-color: black;
+}
+
+#bp-shell-footer-fixed {
+    background-color: white;
+}
+
+#bp-shell-header-logo svg {
+    height: 34px;
+    width: auto;
+    viewBox: "none";
+    stroke: white;
+    fill: white;
+}
+
+#bp-shell-header-navigation * {
+    color: white;
+}
+
+#bp-shell-header-logo {
+    margin-top: 20px;
+}
+
+#bp-shell-header-navigation {
+    margin-top: 25px;
+}
+
+#bp-shell-header-nav-to-share {
+    margin-top: 2px;
 }
