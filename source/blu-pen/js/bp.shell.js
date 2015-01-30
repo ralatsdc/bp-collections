@@ -533,14 +533,17 @@ bp.shell = (function () {
                     jq_container
                         .append('<div></div>')
                         .find('div:last')
-                        .attr('id', 'bp-shell-' + section_name + '-navigation')
                         .addClass('one-third column')
 
                         .append('<div></div>')
                         .find('div:last')
                         .attr('id', 'cc-shell-visual-trust-graphic')
+                        .addClass('bp-shell-content')
                         .end()
 
+                        .append('<div></div>')
+                        .find('div:last')
+                        .attr('id', 'bp-shell-' + section_name + '-navigation')
                         .load('html/bp-shell-' + section_name + '-navigation.html', function () {
                             jq_container
                                 .addClass('bp-shell-section');
