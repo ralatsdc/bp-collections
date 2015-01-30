@@ -32,17 +32,17 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
     color: #212121;
-    font-family: "ComfortaaBold", Helvetica, Arial, sans-serif;
-}
-
-.navigation h1, .navigation h2, .navigation h3, .navigation h4, .navigation h5, .navigation h6 {
-    color: #212121;
     font-family: "OpenSansBold", Helvetica, Arial, sans-serif;
 }
 
-.caption h1, .caption h2, .caption h3, .caption h4, .caption h5, .caption h6 {
-    color: white;
+.oswaldbold h1, .oswaldbold h2, .oswaldbold h3, .oswaldbold h4, .oswaldbold h5, .oswaldbold h6,
+ h1.oswaldbold,  h2.oswaldbold,  h3.oswaldbold,  h4.oswaldbold,  h5.oswaldbold,  h6.oswaldbold {
     font-family: "OswaldBold", Helvetica, Arial, sans-serif;
+}
+
+.comfortaabold h1, .comfortaabold h2, .comfortaabold h3, .comfortaabold h4, .comfortaabold h5, .comfortaabold h6,
+ h1.comfortaabold,  h2.comfortaabold,  h3.comfortaabold,  h4.comfortaabold,  h5.comfortaabold,  h6.comfortaabold {
+    font-family: "ComfortaaBold", Helvetica, Arial, sans-serif;
 }
 
 /* #Links

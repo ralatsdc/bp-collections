@@ -71,20 +71,23 @@ bp.tumblr = (function () {
                  * width           Number  The width of the photo or photoset
                  * height          Number  The height of the photo or photoset
                  */
-                var content = '<p>' + post.caption + '</p>';
-                var photos = post.photos;
+                var
+                content = '<h1>' + post.date + '</h1>',
+                photos = post.photos;
                 for (var i_photo = 0; i_photo < photos.length; i_photo += 1) {
                     var
                     photo = photos[i_photo],
                     url = photo.alt_sizes[1].url;
                     content += '<img src="' + url + '">';
                 }
+                content += post.caption;
                 jq_container
                     .append('<div></div>')
                     .find('div:last')
-                    .attr('id', 'cc-tumblr-news')
+                    .addClass('eight columns offset-by-four')
                     .html(content)
                     .end();
+
                 break;
                 
             case 'quote':

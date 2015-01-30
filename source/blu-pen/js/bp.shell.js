@@ -70,7 +70,8 @@ bp.shell = (function () {
         window_height: undefined,
         header_height: undefined,
         footer_height: undefined,
-        section_height: undefined
+        section_height: undefined,
+        last_color: undefined
     },
 
     init_Header,
@@ -182,7 +183,7 @@ bp.shell = (function () {
                     .append('<div></div>')
                     .find('div:last')
                     .attr('id', 'bp-shell-header-navigation')
-                    .addClass('two-thirds column navigation')
+                    .addClass('two-thirds column opensansbold')
                     .load('html/bp-shell-header-navigation.html', function () {
                         module_State.jq_containers.header_skeleton
                             .find('#bp-shell-header-nav-to-browse')
@@ -203,11 +204,8 @@ bp.shell = (function () {
                         set_Header_Height();
 
                         init_Footer();
-                    })
-                    .end();
-            })
-            .end()
-            .end();
+                    });
+            });
     };
 
     init_Footer = function () {
@@ -236,7 +234,7 @@ bp.shell = (function () {
                     .append('<div></div>')
                     .find('div:last')
                     .attr('id', 'bp-shell-footer-navigation')
-                    .addClass('two-thirds column navigation')
+                    .addClass('two-thirds column opensansbold')
                     .load('html/bp-shell-footer-navigation.html', function () {
                         module_State.jq_containers.footer_skeleton
                             .find('#bp-shell-footer-nav-down')
@@ -256,11 +254,8 @@ bp.shell = (function () {
                         set_Footer_Top();
 
                         init_Body();
-                    })
-                    .end();
-            })
-            .end()
-            .end();
+                    });
+            });
     };
 
     init_Body = function () {
@@ -476,7 +471,7 @@ bp.shell = (function () {
                     jq_container
                         .append('<div></div>')
                         .find('div:last')
-                        .addClass('two-thirds column caption')
+                        .addClass('two-thirds column bp-shell-caption oswaldbold')
                         .load('html/bp-shell-' + section_name + '.html', function () {
                             jq_container
                                 .addClass('bp-shell-section');
@@ -488,10 +483,8 @@ bp.shell = (function () {
                                     callback();
                                 }
                             }
-                        })
-                        .end();
-                })
-                .end();
+                        });
+                });
             break;
 
         default:
@@ -504,7 +497,6 @@ bp.shell = (function () {
 
         switch (section_name) {
         case 'tame':
-        case 'preserve':
             jq_container
                 .append('<div></div>')
                 .find('div:last')
@@ -527,22 +519,11 @@ bp.shell = (function () {
                                     callback();
                                 }
                             }
-                        })
-                        .end();
-                })
-                .end();
+                        });
+                });
             break;
 
-        default:
-        }
-    };
-
-    create_Text_Right = function (page_name, section_name, callback, data) {
-
-        var jq_container = module_State.jq_containers[page_name + '-' + section_name];
-
-        switch (section_name) {
-        case 'eliminate':
+        case 'preserve':
             jq_container
                 .append('<div></div>')
                 .find('div:last')
@@ -552,17 +533,14 @@ bp.shell = (function () {
                     jq_container
                         .append('<div></div>')
                         .find('div:last')
+                        .attr('id', 'bp-shell-' + section_name + '-navigation')
                         .addClass('one-third column')
 
                         .append('<div></div>')
                         .find('div:last')
                         .attr('id', 'cc-shell-visual-trust-graphic')
-                        .addClass('bp-shell-content')
                         .end()
 
-                        .append('<div></div>')
-                        .find('div:last')
-                        .attr('id', 'bp-shell-' + section_name + '-navigation')
                         .load('html/bp-shell-' + section_name + '-navigation.html', function () {
                             jq_container
                                 .addClass('bp-shell-section');
@@ -576,13 +554,20 @@ bp.shell = (function () {
                                     callback();
                                 }
                             }
-                        })
-                        .end()
-                        .end();
-                })
-                .end();
+                        });
+                });
             break;
 
+        default:
+        }
+    };
+
+    create_Text_Right = function (page_name, section_name, callback, data) {
+
+        var jq_container = module_State.jq_containers[page_name + '-' + section_name];
+
+        switch (section_name) {
+        case 'eliminate':
         case 'less':
         case 'connect':
             jq_container
@@ -596,22 +581,21 @@ bp.shell = (function () {
                         .find('div:last')
                         .attr('id', 'bp-shell-' + section_name + '-content')
                         .addClass('two-thirds column')
-                        .load('html/bp-shell-' + section_name + '-content.html')
-                        .end();
-                    if (['connect'].indexOf(section_name) === -1) {
-                        jq_container
-                            .addClass('bp-shell-section');
-                        on_Resize();
-                    }
-                    if (callback !== undefined && typeof callback === 'function') {
-                        if (data !== undefined) {
-                            callback({data: data});
-                        } else {
-                            callback();
-                        }
-                    }
-                })
-                .end();
+                        .load('html/bp-shell-' + section_name + '-content.html', function () {
+                            if (['connect'].indexOf(section_name) === -1) {
+                                jq_container
+                                    .addClass('bp-shell-section');
+                                on_Resize();
+                            }
+                            if (callback !== undefined && typeof callback === 'function') {
+                                if (data !== undefined) {
+                                    callback({data: data});
+                                } else {
+                                    callback();
+                                }
+                            }
+                        });
+                });
             break;
 
         default:
@@ -699,13 +683,14 @@ bp.shell = (function () {
     };
 
     hover_In = function () {
+        module_State.last_color = $(this).css('color');
         $(this).animate({'color': '#1AB6E5'}, 100);
     };
 
     hover_Out = function () {
-        $(this).animate({'color': '#000000'}, 100);
+        $(this).animate({'color': module_State.last_color}, 100);
     };
-
+    
     on_Hash_Change = function () {
         var uri_anchor = $.uriAnchor.makeAnchorMap();
         if (uri_anchor.page_name !== module_State.uri_anchor.page_name) {
@@ -722,8 +707,8 @@ bp.shell = (function () {
         set_Section_Height();
         $('#bp-shell-body-spacer').css('height', module_State.header_height + 'px');
         $('.bp-shell-section').css('height', module_State.section_height + 'px');
-        $('.caption').css('margin-top', 0.618 * module_State.section_height + 'px');
-        $('#bp-shell-home').css('margin-bottom', module_State.scroll_margin + 'px');
+        $('.bp-shell-caption').css('margin-top', 0.618 * module_State.section_height + 'px');
+        $('.bp-shell-body').css('margin-bottom', module_State.scroll_margin + 'px');
     };
 
     return {

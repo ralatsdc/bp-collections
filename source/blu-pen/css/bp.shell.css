@@ -51,3 +51,8 @@
 #bp-shell-header-nav-to-share {
     margin-top: 2px;
 }
+
+.bp-shell-caption * {
+    color: white;
+}
+
