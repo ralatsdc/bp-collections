@@ -23,6 +23,11 @@
     -ms-transform: scale(1.0);
     transform: scale(1.0);
 }
+
+body {
+    font: 21px/32px "OpenSansRegular", Helvetica, Arial, sans-serif;
+}
+
 h1 { font-size: 138px; line-height: 150px; margin-bottom: 42px;}
 h2 { font-size: 60px; line-height: 69px; margin-bottom: 17px; }
 h3 { font-size: 42px; line-height: 51px; margin-bottom: 12px; }
@@ -33,6 +38,29 @@ h6 { font-size: 14px; line-height: 21px; }
 p { margin: 0 0 20px 0; }
 p img { margin: 0; }
 p.lead { font-size: 21px; line-height: 27px; color: #777;  }
+
+.bp-shell-content {
+    padding-top: 100px;
+}
+
+.bp-shell-navigation {
+    padding-top: 100px;
+}
+
+#bp-shell-header-logo {
+}
+
+#bp-shell-header-logo svg {
+    height: 25px;
+    width: auto;
+    viewBox: "none";
+}
+
+#bp-shell-header-navigation {
+}
+
+#bp-shell-header-nav-to-share {
+}
 
 /* #Tablet (Portrait)
    ================================================== */
@@ -48,16 +76,52 @@ p.lead { font-size: 21px; line-height: 27px; color: #777;  }
         -ms-transform: scale(0.7935);
         transform: scale(0.7935);
     }
-    h1 { font-size: 46px; line-height: 50px; margin-bottom: 14px;}
-    h2 { font-size: 35px; line-height: 40px; margin-bottom: 10px; }
-    h3 { font-size: 28px; line-height: 34px; margin-bottom: 8px; }
-    h4 { font-size: 21px; line-height: 30px; margin-bottom: 4px; }
-    h5 { font-size: 17px; line-height: 24px; }
-    h6 { font-size: 14px; line-height: 21px; }
+
+    body {
+        font: 17px/25px "OpenSansRegular", Helvetica, Arial, sans-serif;
+    }
+
+    h1 { font-size: 110px; line-height: 119px; margin-bottom: 33px; }
+    h2 { font-size: 48px; line-height: 55px; margin-bottom: 13px; }
+    h3 { font-size: 33px; line-height: 40px; margin-bottom: 10px; }
+    h4 { font-size: 13px; line-height: 19px; margin-bottom: 2px; }
+    h5 { font-size: 13px; line-height: 19px; }
+    h6 { font-size: 11px; line-height: 17px; }
     
-    p { margin: 0 0 20px 0; }
+    p { margin: 0 0 16px 0; }
     p img { margin: 0; }
-    p.lead { font-size: 21px; line-height: 27px; color: #777;  }
+    p.lead { font-size: 17px; line-height: 21px; color: #777;  }
+
+    .bp-shell-content {
+        padding-top: 79px;
+    }
+
+    .bp-shell-navigation {
+        padding-top: 79px;
+    }
+
+    /*
+    #bp-shell-header-logo {
+        margin-top: 16px;
+        margin-left: 16px;
+    }
+    */
+
+    #bp-shell-header-logo svg {
+        height: 20px;
+        width: auto;
+        viewBox: "none";
+    }
+
+    /*
+    #bp-shell-header-navigation {
+        margin-top: 20px;
+    }
+
+    #bp-shell-header-nav-to-share {
+        margin-top: 2px;
+    }
+    */
 }
 
 /*  #Mobile (Portrait)
@@ -74,16 +138,52 @@ p.lead { font-size: 21px; line-height: 27px; color: #777;  }
         -ms-transform: scale(0.4838);
         transform: scale(0.4838);
     }
-    h1 { font-size: 46px; line-height: 50px; margin-bottom: 14px;}
-    h2 { font-size: 35px; line-height: 40px; margin-bottom: 10px; }
-    h3 { font-size: 28px; line-height: 34px; margin-bottom: 8px; }
-    h4 { font-size: 21px; line-height: 30px; margin-bottom: 4px; }
-    h5 { font-size: 17px; line-height: 24px; }
-    h6 { font-size: 14px; line-height: 21px; }
+
+    body {
+        font: 10px/15px "OpenSansRegular", Helvetica, Arial, sans-serif;
+    }
+
+    h1 { font-size: 67px; line-height: 73px; margin-bottom: 20px; }
+    h2 { font-size: 29px; line-height: 33px; margin-bottom: 8px; }
+    h3 { font-size: 20px; line-height: 25px; margin-bottom: 6px; }
+    h4 { font-size: 8px; line-height: 12px; margin-bottom: 1px; }
+    h5 { font-size: 8px; line-height: 12px; margin-bottom: 0px; }
+    h6 { font-size: 7px; line-height: 10px; margin-bottom: 0px; }
     
-    p { margin: 0 0 20px 0; }
+    p { margin: 0 0 10px 0; }
     p img { margin: 0; }
-    p.lead { font-size: 21px; line-height: 27px; color: #777;  }
+    p.lead { font-size: 10px; line-height: 13px; color: #777;  }
+
+    .bp-shell-content {
+        padding-top: 48px;
+    }
+
+    .bp-shell-navigation {
+        padding-top: 48px;
+    }
+
+    #bp-shell-header-logo {
+        margin-top: 10px;
+        margin-left: 10px;
+    }
+    */
+
+    /*
+    #bp-shell-header-logo svg {
+        height: 12px;
+        width: auto;
+        viewBox: "none";
+    }
+
+    /*
+    #bp-shell-header-navigation {
+        margin-top: 12px;
+    }
+
+    #bp-shell-header-nav-to-share {
+        margin-top: 2px;
+    }
+    */
 }
 
 /* #Mobile (Landscape)
@@ -100,14 +200,50 @@ p.lead { font-size: 21px; line-height: 27px; color: #777;  }
         -ms-transform: scale(0.6774);
         transform: scale(0.6774);
     }
-    h1 { font-size: 46px; line-height: 50px; margin-bottom: 14px;}
-    h2 { font-size: 35px; line-height: 40px; margin-bottom: 10px; }
-    h3 { font-size: 28px; line-height: 34px; margin-bottom: 8px; }
-    h4 { font-size: 21px; line-height: 30px; margin-bottom: 4px; }
-    h5 { font-size: 17px; line-height: 24px; }
-    h6 { font-size: 14px; line-height: 21px; }
+
+    body {
+        font: 14px/22px "OpenSansRegular", Helvetica, Arial, sans-serif;
+    }
+
+    h1 { font-size: 93px; line-height: 102px; margin-bottom: 28px; }
+    h2 { font-size: 41px; line-height: 47px; margin-bottom: 12px; }
+    h3 { font-size: 28px; line-height: 35px; margin-bottom: 8px; }
+    h4 { font-size: 12px; line-height: 16px; margin-bottom: 2px; }
+    h5 { font-size: 12px; line-height: 16px; margin-bottom: 0px; }
+    h6 { font-size: 9px; line-height: 14px; margin-bottom: 0px; }
     
-    p { margin: 0 0 20px 0; }
+    p { margin: 0 0 14px 0; }
     p img { margin: 0; }
-    p.lead { font-size: 21px; line-height: 27px; color: #777;  }
+    p.lead { font-size: 14px; line-height: 18px; color: #777;  }
+
+    .bp-shell-content {
+        padding-top: 68px;
+    }
+
+    .bp-shell-navigation {
+        padding-top: 68px;
+    }
+
+    /*
+    #bp-shell-header-logo {
+        margin-top: 14px;
+        margin-left: 14px;
+    }
+    */
+
+    #bp-shell-header-logo svg {
+        height: 17px;
+        width: auto;
+        viewBox: "none";
+    }
+
+    /*
+    #bp-shell-header-navigation {
+        margin-top: 17px;
+    }
+
+    #bp-shell-header-nav-to-share {
+        margin-top: 2px;
+    }
+    */
 }

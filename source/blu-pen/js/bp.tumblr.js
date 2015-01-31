@@ -37,8 +37,8 @@ bp.tumblr = (function () {
         section_name = event.data.section_name,
         jq_container = bp.shell.getJqContainers()[page_name + '-' + section_name];
 
-        module_State.jq_container = jq_container;
-        
+        module_State.jq_container = jq_container.addClass('bp-shell-content');
+
         var posts = bp.model.getPosts();
         if (posts === null) {
             bp.model.initModule(createNews,
@@ -72,7 +72,7 @@ bp.tumblr = (function () {
                  * height          Number  The height of the photo or photoset
                  */
                 var
-                content = '<h1>' + post.date + '</h1>',
+                content = '<h3 class="comfortaabold">' + post.date + '</h3>',
                 photos = post.photos;
                 for (var i_photo = 0; i_photo < photos.length; i_photo += 1) {
                     var
