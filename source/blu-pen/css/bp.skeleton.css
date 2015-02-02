@@ -47,19 +47,22 @@ p.lead { font-size: 21px; line-height: 27px; color: #777;  }
     padding-top: 100px;
 }
 
-#bp-shell-header-logo {
-}
-
 #bp-shell-header-logo svg {
     height: 25px;
     width: auto;
     viewBox: "none";
 }
 
-#bp-shell-header-navigation {
+#bp-shell-header-navigation svg {
+    height: 25px;
+    width: auto;
+    viewBox: "none";
 }
 
-#bp-shell-header-nav-to-share {
+#bp-shell-footer-navigation svg {
+    height: 25px;
+    width: auto;
+    viewBox: "none";
 }
 
 /* #Tablet (Portrait)

@@ -12,8 +12,7 @@ bp.shell = (function () {
     configModule,
     initModule,
     getJqContainers,
-    delegatePage,
-    sendMessage;
+    delegatePage;
 
     var
     module_Config = {
@@ -101,6 +100,8 @@ bp.shell = (function () {
     disable_scrolling,
     enable_scrolling,
 
+    send_Message,
+
     hover_In,
     hover_Out,
     on_Hash_Change,
@@ -138,21 +139,6 @@ bp.shell = (function () {
         present_Page(event);
     };
 
-    sendMessage = function () {
-        window.setTimeout(
-            function () {
-                var event = {data: {page_name: 'browse'}};
-                present_Page(event);
-            }, 2000);
-        var win = window.open('mailto:' + module_Config.mail_to);
-        win.setTimeout(
-            function () {
-                if (win && win.open && !win.closed) {
-                    win.close();
-                }
-            }, 1000);
-    };
-
     init_Header = function () {
 
         set_Window_Height();
@@ -188,17 +174,31 @@ bp.shell = (function () {
                         module_State.jq_containers.header_skeleton
                             .find('#bp-shell-header-nav-to-browse')
                             .click({page_name: 'browse'}, present_Page)
-                            .hover(hover_In, hover_Out)
-                            .end()
-
-                            .find('#bp-shell-header-nav-to-connect')
-                            .click({page_name: 'connect'}, present_Page)
-                            .hover(hover_In, hover_Out)
                             .end()
 
                             .find('#bp-shell-header-nav-to-news')
                             .click({page_name: 'news'}, present_Page)
-                            .hover(hover_In, hover_Out)
+                            .end()
+
+                            .find('#bp-shell-header-nav-to-connect')
+                            .click({page_name: 'connect'}, present_Page)
+                            .end()
+
+                            .find('#bp-shell-header-nav-to-flickr')
+                            .load('img/bp-logo-flickr-square.svg')
+                            .end()
+
+                            .find('#bp-shell-header-nav-to-tumblr')
+                            .load('img/bp-logo-tumblr-square.svg')
+                            .end()
+
+                            .find('#bp-shell-header-nav-to-twitter')
+                            .load('img/bp-logo-twitter-square.svg')
+                            .end()
+
+                            .find('#bp-shell-header-nav-to-email')
+                            .load('img/bp-logo-email-square.svg')
+                            .click(send_Message)
                             .end();
 
                         set_Header_Height();
@@ -239,13 +239,12 @@ bp.shell = (function () {
                         module_State.jq_containers.footer_skeleton
                             .find('#bp-shell-footer-nav-down')
                             .click(scroll_Down)
-                            .hover(hover_In, hover_Out)
-                            .end()
-
-                            .find('#bp-shell-footer-nav-up')
-                            .click(scroll_Up)
-                            .hover(hover_In, hover_Out)
-                            .end();
+                            .load('img/bp-circle-arrow-down.svg', function () {
+                                module_State.jq_containers.footer_skeleton
+                                    .find('#bp-shell-footer-nav-up')
+                                    .click(scroll_Up)
+                                    .load('img/bp-circle-arrow-up.svg');
+                            });
 
                         set_Footer_Height();
 
@@ -361,6 +360,7 @@ bp.shell = (function () {
 
             case 'outwit':
             case 'browse':
+            case 'connect':
                 create_Text(page_name, section_name);
                 break;
 
@@ -382,7 +382,6 @@ bp.shell = (function () {
 
             case 'eliminate':
             case 'less':
-            case 'connect':
                 create_Text_Right(page_name, section_name);
                 break;
                 
@@ -430,12 +429,19 @@ bp.shell = (function () {
 
         case 'outwit':
         case 'browse':
+        case 'connect':
             jq_container
                 .load('html/bp-shell-' + section_name + '.html', function () {
                     if (['browse'].indexOf(section_name) === -1) {
                         jq_container
                             .addClass('bp-shell-section');
                         on_Resize();
+                    }
+                    if (section_name === 'connect') {
+                        jq_container
+                            .find('#bp-shell-connect-nav-to-email')
+                            .click(send_Message)
+                            .end();
                     }
                     if (callback !== undefined && typeof callback === 'function') {
                         if (data !== undefined) {
@@ -640,7 +646,7 @@ bp.shell = (function () {
         });
     };
 
-    scroll_Down = function () {
+    scroll_Up = function () {
 
         var
         page_name = module_State.uri_anchor.page_name,
@@ -653,7 +659,7 @@ bp.shell = (function () {
         }
     };
 
-    scroll_Up = function () {
+    scroll_Down = function () {
 
         var
         page_name = module_State.uri_anchor.page_name,
@@ -683,6 +689,23 @@ bp.shell = (function () {
 
     enable_scrolling = function () {
         $('html, body').css('overflow', 'auto');
+    };
+
+    send_Message = function () {
+        /*
+        window.setTimeout(
+            function () {
+                var event = {data: {page_name: 'connect'}};
+                present_Page(event);
+            }, 2000);
+        */
+        var win = window.open('mailto:' + module_Config.mail_to);
+        win.setTimeout(
+            function () {
+                if (win && win.open && !win.closed) {
+                    win.close();
+                }
+            }, 1000);
     };
 
     hover_In = function () {
@@ -718,8 +741,7 @@ bp.shell = (function () {
         configModule: configModule,
         initModule: initModule,
         getJqContainers: getJqContainers,
-        delegatePage: delegatePage,
-        sendMessage: sendMessage
+        delegatePage: delegatePage
     };
 
 }());

@@ -17,7 +17,7 @@
 }
 
 #bp-shell-header-fixed {
-    background-color: black;
+    background-color: gray;
 }
 
 #bp-shell-header-logo svg {
@@ -27,6 +27,35 @@
 
 #bp-shell-header-navigation * {
     color: white;
+}
+
+#bp-shell-header-logo svg:hover text,
+#bp-shell-header-logo svg:hover path {
+    stroke: #1AB6E5;
+    fill: #1AB6E5;
+}
+
+#bp-shell-header-navigation *:hover {
+    color: #1AB6E5;
+}
+
+#bp-shell-header-navigation svg rect {
+    fill: gray;
+}
+
+#bp-shell-header-navigation svg:hover ellipse,
+#bp-shell-header-navigation svg:hover path {
+    stroke: #1AB6E5;
+    fill: #1AB6E5;
+}
+
+#bp-shell-footer-navigation svg:hover path {
+    stroke: #1AB6E5;
+    fill: #1AB6E5;
+}
+
+span#bp-shell-connect-nav-to-email:hover {
+    color: #1AB6E5;
 }
 
 #bp-shell-footer-fixed {
