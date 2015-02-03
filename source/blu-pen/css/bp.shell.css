@@ -13,7 +13,20 @@
     color: white;
 }
 
-#bp-shell-header-content {
+.bp-shell-paging-major svg circle {
+    fill: black;
+}
+
+.bp-shell-paging-minor svg {
+    opacity: 0.50;
+}
+
+.bp-shell-paging-minor svg circle {
+    fill: gray;
+}
+
+#bp-shell-header-fixed,
+#bp-shell-footer-content {
     background-color: gray;
 }
 
@@ -22,7 +35,8 @@
     fill: white;
 }
 
-#bp-shell-header-navigation * {
+#bp-shell-header-navigation *,
+#bp-shell-footer-content * {
     color: white;
 }
 
@@ -36,16 +50,20 @@
     color: #1AB6E5;
 }
 
-#bp-shell-header-navigation svg rect {
+#bp-shell-header-navigation svg rect,
+#bp-shell-footer-content svg rect {
     fill: gray;
 }
 
 #bp-shell-header-navigation svg:hover ellipse,
-#bp-shell-header-navigation svg:hover path {
+#bp-shell-header-navigation svg:hover path,
+#bp-shell-footer-content svg:hover ellipse,
+#bp-shell-footer-content svg:hover path {
     stroke: #1AB6E5;
     fill: #1AB6E5;
 }
 
+span#bp-shell-footer-nav-to-email:hover,
 span#bp-shell-connect-nav-to-email:hover {
     color: #1AB6E5;
 }

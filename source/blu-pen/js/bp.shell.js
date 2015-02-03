@@ -151,7 +151,7 @@ bp.shell = (function () {
             .append('<div></div>')
             .find('div:last')
             .attr('id', 'bp-shell-header-content')
-            .addClass('container row sixteen columns');
+            .addClass('container sixteen columns');
 
         module_State.jq_containers.header_content
             .append('<div></div>')
@@ -192,8 +192,8 @@ bp.shell = (function () {
                             .end()
 
                             .find('#bp-shell-header-nav-to-email')
-                            .load('img/bp-logo-email-square.svg')
                             .click(send_Message)
+                            .load('img/bp-logo-email-square.svg')
                             .end();
 
                         set_Header_Height();
@@ -265,7 +265,7 @@ bp.shell = (function () {
             .append('<div></div>')
             .find('div:last')
             .attr('id', page_id)
-            .addClass('row bp-shell-body')
+            .addClass('bp-shell-body')
             .css('display', 'none');
 
         for (var i_s = 0; i_s < section_names.length; i_s += 1) {
@@ -319,18 +319,18 @@ bp.shell = (function () {
 
     create_Text = function (page_name, section_name, callback, data) {
 
-        var jq_container = module_State.jq_containers[page_name + '-' + section_name];
+        var jq_section = module_State.jq_containers[page_name + '-' + section_name];
 
-        jq_container
+        jq_section
             .load('html/bp-shell-' + section_name + '.html', function () {
 
                 switch (section_name) {
                 case 'number':
-                    jq_container
+                    jq_section
                         .addClass('bp-shell-section')
                         .append('<div></div>')
                         .find('div:last')
-                        .addClass('sixteen columns centered bp-shell-paging')
+                        .addClass('sixteen columns centered bp-shell-paging-major')
                         .click(scroll_Down)
                         .load('img/bp-circle-arrow-down.svg', function () {
                             var
@@ -351,11 +351,11 @@ bp.shell = (function () {
                     break;
 
                 case 'outwit':
-                    jq_container
+                    jq_section
                         .addClass('bp-shell-section')
                         .append('<div></div>')
                         .find('div:last')
-                        .addClass('sixteen columns centered bp-shell-paging')
+                        .addClass('sixteen columns centered bp-shell-paging-minor')
                         .click(scroll_Down)
                         .load('img/bp-circle-arrow-down.svg', function () {
                             on_Resize();
@@ -367,7 +367,7 @@ bp.shell = (function () {
                     break;
 
                 case 'connect':
-                    jq_container
+                    jq_section
                         .addClass('bp-shell-section')
                         .find('#bp-shell-connect-nav-to-email')
                         .click(send_Message)
@@ -383,16 +383,18 @@ bp.shell = (function () {
 
     create_Image = function (page_name, section_name, callback, data) {
 
-        var jq_container = module_State.jq_containers[page_name + '-' + section_name];
+        var
+        jq_page = module_State.jq_containers[page_name],
+        jq_section = module_State.jq_containers[page_name + '-' + section_name];
 
-        jq_container
+        jq_section
             .css({'background': 'url(img/bp-' + section_name + '.jpg)',
                   'background-size': 'cover'})
             .append('<div></div>')
             .find('div:last')
             .addClass('one-third column')
             .load('html/bp-shell-empty.html', function () {
-                jq_container
+                jq_section
                     .append('<div></div>')
                     .find('div:last')
                     .addClass('two-thirds column bp-shell-caption oswaldbold')
@@ -402,11 +404,11 @@ bp.shell = (function () {
                         case 'fashion':
                         case 'buildings':
                         case 'bones':
-                            jq_container
+                            jq_section
                                 .addClass('bp-shell-section')
                                 .append('<div></div>')
                                 .find('div:last')
-                                .addClass('sixteen columns centered bp-shell-paging')
+                                .addClass('sixteen columns centered bp-shell-paging-minor')
                                 .click(scroll_Down)
                                 .load('img/bp-circle-arrow-down.svg', function () {
                                     on_Resize();
@@ -415,10 +417,35 @@ bp.shell = (function () {
                             break;
 
                         case 'window':
-                            jq_container
-                                .addClass('bp-shell-section');
-                            on_Resize();
-                            do_Callback(callback, data);
+                            jq_page
+                                .append('<div></div>')
+                                .find('div:last')
+                                .attr('id', 'bp-shell-footer-content')
+                                .load('html/bp-shell-footer.html', function () {
+                                    jq_page
+                                        .find('#bp-shell-footer-nav-to-tumblr')
+                                        .load('img/bp-logo-tumblr-square.svg')
+                                        .end()
+
+                                        .find('#bp-shell-footer-nav-to-twitter')
+                                        .load('img/bp-logo-twitter-square.svg')
+                                        .end()
+
+                                        .find('#bp-shell-footer-nav-to-email')
+                                        .click(send_Message)
+                                        .load('img/bp-logo-email-square.svg')
+                                        .end()
+
+                                        .find('#bp-shell-footer-nav-to-browse')
+                                        .click({page_name: 'browse'}, present_Page)
+                                        .end();
+
+                                    jq_section
+                                        .addClass('bp-shell-section');
+                                    
+                                    on_Resize();
+                                    do_Callback(callback, data);
+                                });
                             break;
 
                         default:
@@ -429,9 +456,9 @@ bp.shell = (function () {
 
     create_Text_Left = function (page_name, section_name, callback, data) {
 
-        var jq_container = module_State.jq_containers[page_name + '-' + section_name];
+        var jq_section = module_State.jq_containers[page_name + '-' + section_name];
 
-        jq_container
+        jq_section
             .append('<div></div>')
             .find('div:last')
             .attr('id', 'bp-shell-' + section_name + '-content')
@@ -440,17 +467,17 @@ bp.shell = (function () {
 
                 switch (section_name) {
                 case 'tame':
-                    jq_container
+                    jq_section
                         .append('<div></div>')
                         .find('div:last')
                         .attr('id', 'bp-shell-' + section_name + '-navigation')
                         .addClass('one-third column')
                         .load('html/bp-shell-' + section_name + '-navigation.html', function () {
-                            jq_container
+                            jq_section
                                 .addClass('bp-shell-section')
                                 .append('<div></div>')
                                 .find('div:last')
-                                .addClass('sixteen columns centered bp-shell-paging')
+                                .addClass('sixteen columns centered bp-shell-paging-minor')
                                 .click(scroll_Down)
                                 .load('img/bp-circle-arrow-down.svg', function () {
                                     on_Resize();
@@ -460,8 +487,7 @@ bp.shell = (function () {
                     break;
 
                 case 'preserve':
-
-                    jq_container
+                    jq_section
                         .append('<div></div>')
                         .find('div:last')
                         .addClass('one-third column')
@@ -476,11 +502,11 @@ bp.shell = (function () {
                         .find('div:last')
                         .attr('id', 'bp-shell-' + section_name + '-navigation')
                         .load('html/bp-shell-' + section_name + '-navigation.html', function () {
-                            jq_container
+                            jq_section
                                 .addClass('bp-shell-section')
                                 .append('<div></div>')
                                 .find('div:last')
-                                .addClass('sixteen columns centered bp-shell-paging')
+                                .addClass('sixteen columns centered bp-shell-paging-minor')
                                 .click(scroll_Down)
                                 .load('img/bp-circle-arrow-down.svg', function () {
                                     cc.force.initModule('trust');
@@ -498,25 +524,25 @@ bp.shell = (function () {
 
     create_Text_Right = function (page_name, section_name, callback, data) {
 
-        var jq_container = module_State.jq_containers[page_name + '-' + section_name];
+        var jq_section = module_State.jq_containers[page_name + '-' + section_name];
 
-        jq_container
+        jq_section
             .append('<div></div>')
             .find('div:last')
             .attr('id', 'bp-shell-' + section_name + '-navigation')
             .addClass('one-third column')
             .load('html/bp-shell-' + section_name + '-navigation.html', function () {
-                jq_container
+                jq_section
                     .append('<div></div>')
                     .find('div:last')
                     .attr('id', 'bp-shell-' + section_name + '-content')
                     .addClass('two-thirds column')
                     .load('html/bp-shell-' + section_name + '-content.html', function () {
-                        jq_container
+                        jq_section
                             .addClass('bp-shell-section')
                             .append('<div></div>')
                             .find('div:last')
-                            .addClass('sixteen columns centered bp-shell-paging')
+                            .addClass('sixteen columns centered bp-shell-paging-minor')
                             .click(scroll_Down)
                             .load('img/bp-circle-arrow-down.svg', function () {
                                 on_Resize();
@@ -528,19 +554,19 @@ bp.shell = (function () {
 
     present_Page = function (event) {
 
-        var page_name, jq_container, uri_anchor;
+        var page_name, jq_page, uri_anchor;
 
         page_name = module_State.uri_anchor.page_name;
-        jq_container = module_State.jq_containers[page_name];
+        jq_page = module_State.jq_containers[page_name];
 
-        if (jq_container !== undefined && jq_container.css('display') !== 'none') {
+        if (jq_page !== undefined && jq_page.css('display') !== 'none') {
             dismiss_Page(event);
 
         } else {
             page_name = event.data.page_name;
-            jq_container = module_State.jq_containers[page_name];
+            jq_page = module_State.jq_containers[page_name];
 
-            jq_container.fadeIn('slow');
+            jq_page.fadeIn('slow');
 
             uri_anchor = $.uriAnchor.makeAnchorMap();
             uri_anchor.page_name = page_name;
@@ -551,12 +577,12 @@ bp.shell = (function () {
 
     dismiss_Page = function (event) {
 
-        var page_name, jq_container;
+        var page_name, jq_page;
 
         page_name = module_State.uri_anchor.page_name;
-        jq_container = module_State.jq_containers[page_name];
+        jq_page = module_State.jq_containers[page_name];
 
-        jq_container.fadeOut('slow', function () {
+        jq_page.fadeOut('slow', function () {
             present_Page(event);
         });
     };
