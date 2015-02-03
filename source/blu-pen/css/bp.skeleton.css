@@ -59,7 +59,13 @@ p.lead { font-size: 21px; line-height: 27px; color: #777;  }
     viewBox: "none";
 }
 
-#bp-shell-footer-navigation svg {
+#bp-shell-header-paging svg {
+    height: 25px;
+    width: auto;
+    viewBox: "none";
+}
+
+#bp-shell-footer-paging svg {
     height: 25px;
     width: auto;
     viewBox: "none";

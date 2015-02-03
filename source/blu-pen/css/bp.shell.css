@@ -10,13 +10,15 @@
 }
 
 .bp-shell-section {
+    border-bottom-style: solid;
+    border-bottom-color: red;
 }
 
 .bp-shell-caption * {
     color: white;
 }
 
-#bp-shell-header-fixed {
+#bp-shell-header-content {
     background-color: gray;
 }
 
@@ -59,5 +61,4 @@ span#bp-shell-connect-nav-to-email:hover {
 }
 
 #bp-shell-footer-fixed {
-    background-color: white;
 }

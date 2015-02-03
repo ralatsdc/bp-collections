@@ -22,6 +22,7 @@ bp.shell = (function () {
             'connect',
             'news'
         ],
+        init_page_name: 'home',
         section_names: {
             home: [
                 'number',
@@ -46,7 +47,7 @@ bp.shell = (function () {
                 'news'
             ]
         },
-        init_page_name: 'home',
+        section_border_bottom_width: 10,
         country_file_name: '../crisis-countries/json/collection/car.json',
         twitter_tweets_per_day: 500000000,
         tumblr_posts_per_day: 80000000,
@@ -151,27 +152,34 @@ bp.shell = (function () {
             .addClass('room')
             .css('z-index', 4);
 
-        module_State.jq_containers.header_skeleton =
+        module_State.jq_containers.header_content =
             module_State.jq_containers.header_fixed
             .append('<div></div>')
             .find('div:last')
-            .attr('id', 'bp-shell-header-skeleton')
+            .attr('id', 'bp-shell-header-content')
             .addClass('container row sixteen columns');
 
-        module_State.jq_containers.header_skeleton
+        module_State.jq_containers.header_paging =
+            module_State.jq_containers.header_fixed
+            .append('<div></div>')
+            .find('div:last')
+            .attr('id', 'bp-shell-header-paging')
+            .addClass('container row sixteen columns');
+
+        module_State.jq_containers.header_content
             .append('<div></div>')
             .find('div:last')
             .attr('id', 'bp-shell-header-logo')
             .addClass('one-third column')
             .click({page_name: 'home'}, present_Page)
             .load('img/bp-logo-two-color-text.svg', function () {
-                module_State.jq_containers.header_skeleton
+                module_State.jq_containers.header_content
                     .append('<div></div>')
                     .find('div:last')
                     .attr('id', 'bp-shell-header-navigation')
                     .addClass('two-thirds column opensansbold')
                     .load('html/bp-shell-header-navigation.html', function () {
-                        module_State.jq_containers.header_skeleton
+                        module_State.jq_containers.header_content
                             .find('#bp-shell-header-nav-to-browse')
                             .click({page_name: 'browse'}, present_Page)
                             .end()
@@ -206,6 +214,20 @@ bp.shell = (function () {
                         init_Footer();
                     });
             });
+
+        module_State.jq_containers.header_paging
+            .append('<div></div>')
+            .find('div:last')
+            .addClass('one-third column')
+            .load('html/bp-shell-empty.html', function () {
+                module_State.jq_containers.header_paging
+                    .append('<div></div>')
+                    .find('div:last')
+                    .attr('id', 'bp-shell-header-nav-up')
+                    .addClass('two-thirds column')
+                    .click(scroll_Up)
+                    .load('img/bp-circle-arrow-up.svg');
+            });
     };
 
     init_Footer = function () {
@@ -218,42 +240,33 @@ bp.shell = (function () {
             .addClass('room')
             .css('z-index', 2);
 
-        module_State.jq_containers.footer_skeleton =
+        module_State.jq_containers.footer_paging =
             module_State.jq_containers.footer_fixed
             .append('<div></div>')
             .find('div:last')
-            .attr('id', 'bp-shell-footer-skeleton')
+            .attr('id', 'bp-shell-footer-paging')
             .addClass('container row sixteen columns');
 
-        module_State.jq_containers.footer_skeleton
+        module_State.jq_containers.footer_paging
             .append('<div></div>')
             .find('div:last')
             .addClass('one-third column')
             .load('html/bp-shell-empty.html', function () {
-                module_State.jq_containers.footer_skeleton
+                module_State.jq_containers.footer_paging
                     .append('<div></div>')
                     .find('div:last')
-                    .attr('id', 'bp-shell-footer-navigation')
-                    .addClass('two-thirds column opensansbold')
-                    .load('html/bp-shell-footer-navigation.html', function () {
-                        module_State.jq_containers.footer_skeleton
-                            .find('#bp-shell-footer-nav-down')
-                            .click(scroll_Down)
-                            .load('img/bp-circle-arrow-down.svg', function () {
-                                module_State.jq_containers.footer_skeleton
-                                    .find('#bp-shell-footer-nav-up')
-                                    .click(scroll_Up)
-                                    .load('img/bp-circle-arrow-up.svg');
-                            });
+                    .attr('id', 'bp-shell-footer-nav-down')
+                    .addClass('two-thirds column')
+                    .click(scroll_Down)
+                    .load('img/bp-circle-arrow-down.svg');
 
-                        set_Footer_Height();
+                set_Footer_Height();
 
-                        set_Scroll_Margin();
+                set_Scroll_Margin();
 
-                        set_Footer_Top();
-
-                        init_Body();
-                    });
+                set_Footer_Top();
+                
+                init_Body();
             });
     };
 
@@ -297,25 +310,30 @@ bp.shell = (function () {
 
     set_Header_Height = function () {
         module_State.header_height = 
-            parseInt(module_State.jq_containers.header_skeleton.css('height')) +
-            parseInt(module_State.jq_containers.header_skeleton.css('margin-top')) +
-            parseInt(module_State.jq_containers.header_skeleton.css('margin-bottom'));
+            parseInt(module_State.jq_containers.header_content.css('height')) +
+            parseInt(module_State.jq_containers.header_content.css('margin-top')) +
+            parseInt(module_State.jq_containers.header_content.css('margin-bottom'));
     };
 
     set_Footer_Height = function () {
-        module_State.footer_height = 
-            parseInt(module_State.jq_containers.footer_skeleton.css('height')) +
-            parseInt(module_State.jq_containers.footer_skeleton.css('margin-top')) +
-            parseInt(module_State.jq_containers.footer_skeleton.css('margin-bottom'));
+        module_State.footer_height =
+            parseInt(module_State.jq_containers.footer_paging.css('height')) +
+            parseInt(module_State.jq_containers.footer_paging.css('margin-top')) +
+            parseInt(module_State.jq_containers.footer_paging.css('margin-bottom'));
     };
 
     set_Section_Height = function () {
-        module_State.section_height = module_State.window_height - module_State.header_height - module_State.footer_height;
+        module_State.section_height =
+            module_State.window_height -
+            module_State.header_height +
+            module_Config.section_border_bottom_width;
+        // module_State.footer_height;
     };
 
     set_Scroll_Margin = function () {
-        module_State.scroll_margin = 
-            parseInt(module_State.jq_containers.footer_skeleton.css('height'));
+        module_State.scroll_margin = 0;
+        // module_Config.section_border_bottom_width;
+        // parseInt(module_State.jq_containers.footer_paging.css('height'));
     };
 
     set_Footer_Top = function () {
@@ -732,7 +750,9 @@ bp.shell = (function () {
         set_Footer_Top();
         set_Section_Height();
         $('#bp-shell-body-spacer').css('height', module_State.header_height + 'px');
-        $('.bp-shell-section').css('height', module_State.section_height + 'px');
+        $('.bp-shell-section').css({
+            'height': module_State.section_height + 'px',
+            'border-bottom-width': module_Config.section_border_bottom_width + 'px'});
         $('.bp-shell-caption').css('margin-top', 0.618 * module_State.section_height + 'px');
         $('.bp-shell-body').css('margin-bottom', module_State.scroll_margin + 'px');
     };
