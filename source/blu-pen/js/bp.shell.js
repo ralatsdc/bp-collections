@@ -47,7 +47,6 @@ bp.shell = (function () {
                 'news'
             ]
         },
-        section_border_bottom_width: 10,
         country_file_name: '../crisis-countries/json/collection/car.json',
         twitter_tweets_per_day: 500000000,
         tumblr_posts_per_day: 80000000,
@@ -100,7 +99,8 @@ bp.shell = (function () {
     hover_In,
     hover_Out,
     on_Hash_Change,
-    on_Resize;
+    on_Resize,
+    do_Callback;
 
     configModule = function (input_config) {
         bp.util.setConfig(input_config, module_Config);
@@ -153,13 +153,6 @@ bp.shell = (function () {
             .attr('id', 'bp-shell-header-content')
             .addClass('container row sixteen columns');
 
-        module_State.jq_containers.header_paging =
-            module_State.jq_containers.header_fixed
-            .append('<div></div>')
-            .find('div:last')
-            .attr('id', 'bp-shell-header-paging')
-            .addClass('container row sixteen columns');
-
         module_State.jq_containers.header_content
             .append('<div></div>')
             .find('div:last')
@@ -207,20 +200,6 @@ bp.shell = (function () {
 
                         init_Body();
                     });
-            });
-
-        module_State.jq_containers.header_paging
-            .append('<div></div>')
-            .find('div:last')
-            .addClass('one-third column')
-            .load('html/bp-shell-empty.html', function () {
-                module_State.jq_containers.header_paging
-                    .append('<div></div>')
-                    .find('div:last')
-                    .attr('id', 'bp-shell-header-nav-up')
-                    .addClass('two-thirds column')
-                    .click(scroll_Up)
-                    .load('img/bp-circle-arrow-up.svg');
             });
     };
 
@@ -272,8 +251,7 @@ bp.shell = (function () {
     set_Section_Height = function () {
         module_State.section_height =
             module_State.window_height -
-            module_State.header_height +
-            module_Config.section_border_bottom_width;
+            module_State.header_height;
     };
 
     create_Body = function (page_name) {
@@ -303,11 +281,6 @@ bp.shell = (function () {
 
             switch (section_name) {
             case 'number':
-                module_State.jq_containers[page_name + '-' + section_name]
-                    .addClass('centered');
-                create_Text(page_name, section_name);
-                break;
-
             case 'outwit':
             case 'browse':
             case 'connect':
@@ -348,117 +321,125 @@ bp.shell = (function () {
 
         var jq_container = module_State.jq_containers[page_name + '-' + section_name];
 
-        switch (section_name) {
-        case 'number':
-            jq_container
-                .load('html/bp-shell-' + section_name + '.html', function () {
+        jq_container
+            .load('html/bp-shell-' + section_name + '.html', function () {
+
+                switch (section_name) {
+                case 'number':
                     jq_container
-                        .addClass('bp-shell-section');
+                        .addClass('bp-shell-section')
+                        .append('<div></div>')
+                        .find('div:last')
+                        .addClass('sixteen columns centered bp-shell-paging')
+                        .click(scroll_Down)
+                        .load('img/bp-circle-arrow-down.svg', function () {
+                            var
+                            interval = 100,
+                            counter = 0,
+                            rate =
+                                (module_Config.flickr_photos_per_day +
+                                 module_Config.tumblr_posts_per_day +
+                                 module_Config.twitter_tweets_per_day) / 86400000;
+                            // [photos|posts|tweets/ms] = [photos|posts|tweets/day] / [ms/day]
+                            window.setInterval(function () {
+                                counter += Math.round(interval * rate);
+                                $('#bp-shell-counter').text(counter.toLocaleString());
+                            }, interval);
+                            on_Resize();
+                            do_Callback(callback, data);
+                        });
+                    break;
+
+                case 'outwit':
+                    jq_container
+                        .addClass('bp-shell-section')
+                        .append('<div></div>')
+                        .find('div:last')
+                        .addClass('sixteen columns centered bp-shell-paging')
+                        .click(scroll_Down)
+                        .load('img/bp-circle-arrow-down.svg', function () {
+                            on_Resize();
+                            do_Callback(callback, data);
+                        });
+                    break;
+
+                case 'browse':
+                    break;
+
+                case 'connect':
+                    jq_container
+                        .addClass('bp-shell-section')
+                        .find('#bp-shell-connect-nav-to-email')
+                        .click(send_Message)
+                        .end();
                     on_Resize();
-                    var
-                    interval = 100,
-                    counter = 0,
-                    rate =
-                        (module_Config.flickr_photos_per_day +
-                         module_Config.tumblr_posts_per_day +
-                         module_Config.twitter_tweets_per_day) / 86400000;
-                    // [photos|posts|tweets/ms] = [photos|posts|tweets/day] / [ms/day]
-                    window.setInterval(function () {
-                        counter += Math.round(interval * rate);
-                        $('#bp-shell-counter').text(counter.toLocaleString());
-                    }, interval);
-                    if (callback !== undefined && typeof callback === 'function') {
-                        if (data !== undefined) {
-                            callback({data: data});
-                        } else {
-                            callback();
-                        }
-                    }
-                });
-            break;
+                    do_Callback(callback, data);
+                    break;
 
-        case 'outwit':
-        case 'browse':
-        case 'connect':
-            jq_container
-                .load('html/bp-shell-' + section_name + '.html', function () {
-                    if (['browse'].indexOf(section_name) === -1) {
-                        jq_container
-                            .addClass('bp-shell-section');
-                        on_Resize();
-                    }
-                    if (section_name === 'connect') {
-                        jq_container
-                            .find('#bp-shell-connect-nav-to-email')
-                            .click(send_Message)
-                            .end();
-                    }
-                    if (callback !== undefined && typeof callback === 'function') {
-                        if (data !== undefined) {
-                            callback({data: data});
-                        } else {
-                            callback();
-                        }
-                    }
-                });
-            break;
-
-        default:
-        }
+                default:
+                }
+            });
     };
 
     create_Image = function (page_name, section_name, callback, data) {
 
         var jq_container = module_State.jq_containers[page_name + '-' + section_name];
 
-        switch (section_name) {
-        case 'zebras':
-        case 'fashion':
-        case 'buildings':
-        case 'bones':
-        case 'window':
-            jq_container
-                .css({'background': 'url(img/bp-' + section_name + '.jpg)',
-                      'background-size': 'cover'})
-                .append('<div></div>')
-                .find('div:last')
-                .addClass('one-third column')
-                .load('html/bp-shell-empty.html', function () {
-                    jq_container
-                        .append('<div></div>')
-                        .find('div:last')
-                        .addClass('two-thirds column bp-shell-caption oswaldbold')
-                        .load('html/bp-shell-' + section_name + '.html', function () {
+        jq_container
+            .css({'background': 'url(img/bp-' + section_name + '.jpg)',
+                  'background-size': 'cover'})
+            .append('<div></div>')
+            .find('div:last')
+            .addClass('one-third column')
+            .load('html/bp-shell-empty.html', function () {
+                jq_container
+                    .append('<div></div>')
+                    .find('div:last')
+                    .addClass('two-thirds column bp-shell-caption oswaldbold')
+                    .load('html/bp-shell-' + section_name + '.html', function () {
+                        switch (section_name) {
+                        case 'zebras':
+                        case 'fashion':
+                        case 'buildings':
+                        case 'bones':
+                            jq_container
+                                .addClass('bp-shell-section')
+                                .append('<div></div>')
+                                .find('div:last')
+                                .addClass('sixteen columns centered bp-shell-paging')
+                                .click(scroll_Down)
+                                .load('img/bp-circle-arrow-down.svg', function () {
+                                    on_Resize();
+                                    do_Callback(callback, data);
+                                });
+                            break;
+
+                        case 'window':
                             jq_container
                                 .addClass('bp-shell-section');
                             on_Resize();
-                            if (callback !== undefined && typeof callback === 'function') {
-                                if (data !== undefined) {
-                                    callback({data: data});
-                                } else {
-                                    callback();
-                                }
-                            }
-                        });
-                });
-            break;
+                            do_Callback(callback, data);
+                            break;
 
-        default:
-        }
+                        default:
+                        }
+                    });
+            });
     };
 
     create_Text_Left = function (page_name, section_name, callback, data) {
 
         var jq_container = module_State.jq_containers[page_name + '-' + section_name];
 
-        switch (section_name) {
-        case 'tame':
-            jq_container
-                .append('<div></div>')
-                .find('div:last')
-                .attr('id', 'bp-shell-' + section_name + '-content')
-                .addClass('two-thirds column')
-                .load('html/bp-shell-' + section_name + '-content.html', function () {
+        jq_container
+            .append('<div></div>')
+            .find('div:last')
+            .attr('id', 'bp-shell-' + section_name + '-content')
+            .addClass('two-thirds column')
+            .load('html/bp-shell-' + section_name + '-content.html', function () {
+
+                switch (section_name) {
+                case 'tame':
                     jq_container
                         .append('<div></div>')
                         .find('div:last')
@@ -466,26 +447,20 @@ bp.shell = (function () {
                         .addClass('one-third column')
                         .load('html/bp-shell-' + section_name + '-navigation.html', function () {
                             jq_container
-                                .addClass('bp-shell-section');
-                            on_Resize();
-                            if (callback !== undefined && typeof callback === 'function') {
-                                if (data !== undefined) {
-                                    callback({data: data});
-                                } else {
-                                    callback();
-                                }
-                            }
+                                .addClass('bp-shell-section')
+                                .append('<div></div>')
+                                .find('div:last')
+                                .addClass('sixteen columns centered bp-shell-paging')
+                                .click(scroll_Down)
+                                .load('img/bp-circle-arrow-down.svg', function () {
+                                    on_Resize();
+                                    do_Callback(callback, data);
+                                });
                         });
-                });
-            break;
+                    break;
 
-        case 'preserve':
-            jq_container
-                .append('<div></div>')
-                .find('div:last')
-                .attr('id', 'bp-shell-' + section_name + '-content')
-                .addClass('two-thirds column')
-                .load('html/bp-shell-' + section_name + '-content.html', function () {
+                case 'preserve':
+
                     jq_container
                         .append('<div></div>')
                         .find('div:last')
@@ -502,63 +477,53 @@ bp.shell = (function () {
                         .attr('id', 'bp-shell-' + section_name + '-navigation')
                         .load('html/bp-shell-' + section_name + '-navigation.html', function () {
                             jq_container
-                                .addClass('bp-shell-section');
-                            on_Resize();
-                            cc.force.initModule('trust');
-                            cc.force.presentForce('trust');
-                            if (callback !== undefined && typeof callback === 'function') {
-                                if (data !== undefined) {
-                                    callback({data: data});
-                                } else {
-                                    callback();
-                                }
-                            }
+                                .addClass('bp-shell-section')
+                                .append('<div></div>')
+                                .find('div:last')
+                                .addClass('sixteen columns centered bp-shell-paging')
+                                .click(scroll_Down)
+                                .load('img/bp-circle-arrow-down.svg', function () {
+                                    cc.force.initModule('trust');
+                                    cc.force.presentForce('trust');
+                                    on_Resize();
+                                    do_Callback(callback, data);
+                                });
                         });
-                });
-            break;
+                    break;
 
-        default:
-        }
+                default:
+                }
+            });
     };
 
     create_Text_Right = function (page_name, section_name, callback, data) {
 
         var jq_container = module_State.jq_containers[page_name + '-' + section_name];
 
-        switch (section_name) {
-        case 'eliminate':
-        case 'less':
-        case 'connect':
-            jq_container
-                .append('<div></div>')
-                .find('div:last')
-                .attr('id', 'bp-shell-' + section_name + '-navigation')
-                .addClass('one-third column')
-                .load('html/bp-shell-' + section_name + '-navigation.html', function () {
-                    jq_container
-                        .append('<div></div>')
-                        .find('div:last')
-                        .attr('id', 'bp-shell-' + section_name + '-content')
-                        .addClass('two-thirds column')
-                        .load('html/bp-shell-' + section_name + '-content.html', function () {
-                            if (['connect'].indexOf(section_name) === -1) {
-                                jq_container
-                                    .addClass('bp-shell-section');
+        jq_container
+            .append('<div></div>')
+            .find('div:last')
+            .attr('id', 'bp-shell-' + section_name + '-navigation')
+            .addClass('one-third column')
+            .load('html/bp-shell-' + section_name + '-navigation.html', function () {
+                jq_container
+                    .append('<div></div>')
+                    .find('div:last')
+                    .attr('id', 'bp-shell-' + section_name + '-content')
+                    .addClass('two-thirds column')
+                    .load('html/bp-shell-' + section_name + '-content.html', function () {
+                        jq_container
+                            .addClass('bp-shell-section')
+                            .append('<div></div>')
+                            .find('div:last')
+                            .addClass('sixteen columns centered bp-shell-paging')
+                            .click(scroll_Down)
+                            .load('img/bp-circle-arrow-down.svg', function () {
                                 on_Resize();
-                            }
-                            if (callback !== undefined && typeof callback === 'function') {
-                                if (data !== undefined) {
-                                    callback({data: data});
-                                } else {
-                                    callback();
-                                }
-                            }
-                        });
-                });
-            break;
-
-        default:
-        }
+                                do_Callback(callback, data);
+                            });
+                    });
+            });
     };
 
     present_Page = function (event) {
@@ -679,11 +644,19 @@ bp.shell = (function () {
         set_Header_Height();
         set_Section_Height();
         $('#bp-shell-body-spacer').css('height', module_State.header_height + 'px');
-        $('.bp-shell-section').css({
-            'height': module_State.section_height + 'px',
-            'border-bottom-width': module_Config.section_border_bottom_width + 'px'});
+        $('.bp-shell-section').css('height', module_State.section_height + 'px');
         $('.bp-shell-caption').css('margin-top', 0.618 * module_State.section_height + 'px');
         $('.bp-shell-body').css('margin-bottom', module_State.scroll_margin + 'px');
+    };
+
+    do_Callback = function (callback, data) {
+        if (callback !== undefined && typeof callback === 'function') {
+            if (data !== undefined) {
+                callback({data: data});
+            } else {
+                callback();
+            }
+        }
     };
 
     return {

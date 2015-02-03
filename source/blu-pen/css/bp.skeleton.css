@@ -47,6 +47,12 @@ p.lead { font-size: 21px; line-height: 27px; color: #777;  }
     padding-top: 100px;
 }
 
+.bp-shell-paging svg {
+    height: 25px;
+    width: auto;
+    viewBox: "none";
+}
+
 #bp-shell-header-logo svg {
     height: 25px;
     width: auto;
@@ -60,12 +66,6 @@ p.lead { font-size: 21px; line-height: 27px; color: #777;  }
 }
 
 #bp-shell-header-paging svg {
-    height: 25px;
-    width: auto;
-    viewBox: "none";
-}
-
-#bp-shell-footer-paging svg {
     height: 25px;
     width: auto;
     viewBox: "none";

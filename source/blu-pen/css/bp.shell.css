@@ -9,11 +9,6 @@
     margin: 0;
 }
 
-.bp-shell-section {
-    border-bottom-style: solid;
-    border-bottom-color: red;
-}
-
 .bp-shell-caption * {
     color: white;
 }
@@ -51,14 +46,6 @@
     fill: #1AB6E5;
 }
 
-#bp-shell-footer-navigation svg:hover path {
-    stroke: #1AB6E5;
-    fill: #1AB6E5;
-}
-
 span#bp-shell-connect-nav-to-email:hover {
     color: #1AB6E5;
-}
-
-#bp-shell-footer-fixed {
 }
