@@ -12,6 +12,7 @@ bp.shell = (function () {
     configModule,
     initModule,
     getJqContainers,
+    createFooter,
     delegatePage;
 
     var
@@ -128,6 +129,34 @@ bp.shell = (function () {
 
     getJqContainers = function () {
         return module_State.jq_containers;
+    };
+
+    createFooter = function(jq_page, callback, data) {
+        jq_page
+            .append('<div></div>')
+            .find('div:last')
+            .addClass('bp-shell-footer-content')
+            .load('html/bp-shell-footer.html', function () {
+                jq_page
+                    .find('.bp-shell-footer-nav-to-tumblr')
+                    .load('img/bp-logo-tumblr-square.svg')
+                    .end()
+
+                    .find('.bp-shell-footer-nav-to-twitter')
+                    .load('img/bp-logo-twitter-square.svg')
+                    .end()
+
+                    .find('.bp-shell-footer-nav-to-email')
+                    .click(send_Message)
+                    .load('img/bp-logo-email-square.svg')
+                    .end()
+
+                    .find('.bp-shell-footer-nav-to-browse')
+                    .click({page_name: 'browse'}, present_Page)
+                    .end();
+
+                do_Callback(callback, data);
+            });
     };
 
     delegatePage = function (event) {
@@ -319,7 +348,9 @@ bp.shell = (function () {
 
     create_Text = function (page_name, section_name, callback, data) {
 
-        var jq_section = module_State.jq_containers[page_name + '-' + section_name];
+        var
+        jq_page = module_State.jq_containers[page_name],
+        jq_section = module_State.jq_containers[page_name + '-' + section_name];
 
         jq_section
             .load('html/bp-shell-' + section_name + '.html', function () {
@@ -364,16 +395,24 @@ bp.shell = (function () {
                     break;
 
                 case 'browse':
+                    createFooter(jq_page, function () {
+                        jq_section
+                            .addClass('bp-shell-section');
+                        on_Resize();
+                        do_Callback(callback, data);
+                    });
                     break;
 
                 case 'connect':
-                    jq_section
-                        .addClass('bp-shell-section')
-                        .find('#bp-shell-connect-nav-to-email')
-                        .click(send_Message)
-                        .end();
-                    on_Resize();
-                    do_Callback(callback, data);
+                    createFooter(jq_page, function () {
+                        jq_section
+                            .addClass('bp-shell-section')
+                            .find('#bp-shell-connect-nav-to-email')
+                            .click(send_Message)
+                            .end();
+                        on_Resize();
+                        do_Callback(callback, data);
+                    });
                     break;
 
                 default:
@@ -417,35 +456,12 @@ bp.shell = (function () {
                             break;
 
                         case 'window':
-                            jq_page
-                                .append('<div></div>')
-                                .find('div:last')
-                                .attr('id', 'bp-shell-footer-content')
-                                .load('html/bp-shell-footer.html', function () {
-                                    jq_page
-                                        .find('#bp-shell-footer-nav-to-tumblr')
-                                        .load('img/bp-logo-tumblr-square.svg')
-                                        .end()
-
-                                        .find('#bp-shell-footer-nav-to-twitter')
-                                        .load('img/bp-logo-twitter-square.svg')
-                                        .end()
-
-                                        .find('#bp-shell-footer-nav-to-email')
-                                        .click(send_Message)
-                                        .load('img/bp-logo-email-square.svg')
-                                        .end()
-
-                                        .find('#bp-shell-footer-nav-to-browse')
-                                        .click({page_name: 'browse'}, present_Page)
-                                        .end();
-
-                                    jq_section
-                                        .addClass('bp-shell-section');
-                                    
-                                    on_Resize();
-                                    do_Callback(callback, data);
-                                });
+                            createFooter(jq_page, function () {
+                                jq_section
+                                    .addClass('bp-shell-section');
+                                on_Resize();
+                                do_Callback(callback, data);
+                            });
                             break;
 
                         default:
@@ -689,6 +705,7 @@ bp.shell = (function () {
         configModule: configModule,
         initModule: initModule,
         getJqContainers: getJqContainers,
+        createFooter: createFooter,
         delegatePage: delegatePage
     };
 

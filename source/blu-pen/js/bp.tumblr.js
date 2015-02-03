@@ -18,7 +18,8 @@ bp.tumblr = (function () {
         }
     },
     module_State = {
-        jq_container: {}
+        jq_section: {},
+        jq_page: {}
     },
     createNews;
     
@@ -35,9 +36,14 @@ bp.tumblr = (function () {
         var
         page_name = event.data.page_name,
         section_name = event.data.section_name,
-        jq_container = bp.shell.getJqContainers()[page_name + '-' + section_name];
+        jq_page =
+            bp.shell.getJqContainers()[page_name],
+        jq_section =
+            bp.shell.getJqContainers()[page_name + '-' + section_name]
+            .addClass('row bp-shell-content');
 
-        module_State.jq_container = jq_container.addClass('bp-shell-content');
+        module_State.jq_page = jq_page;
+        module_State.jq_section = jq_section;
 
         var posts = bp.model.getPosts();
         if (posts === null) {
@@ -81,7 +87,7 @@ bp.tumblr = (function () {
                     content += '<img src="' + url + '">';
                 }
                 content += post.caption;
-                jq_container
+                jq_section
                     .append('<div></div>')
                     .find('div:last')
                     .addClass('eight columns offset-by-four')
@@ -160,7 +166,8 @@ bp.tumblr = (function () {
                 
             default:
             }
-        }        
+        }
+        bp.shell.createFooter(jq_page);
     };
     
     return {

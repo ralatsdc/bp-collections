@@ -26,7 +26,7 @@
 }
 
 #bp-shell-header-fixed,
-#bp-shell-footer-content {
+.bp-shell-footer-content {
     background-color: gray;
 }
 
@@ -36,7 +36,7 @@
 }
 
 #bp-shell-header-navigation *,
-#bp-shell-footer-content * {
+.bp-shell-footer-content * {
     color: white;
 }
 
@@ -51,19 +51,19 @@
 }
 
 #bp-shell-header-navigation svg rect,
-#bp-shell-footer-content svg rect {
+.bp-shell-footer-content svg rect {
     fill: gray;
 }
 
 #bp-shell-header-navigation svg:hover ellipse,
 #bp-shell-header-navigation svg:hover path,
-#bp-shell-footer-content svg:hover ellipse,
-#bp-shell-footer-content svg:hover path {
+.bp-shell-footer-content svg:hover ellipse,
+.bp-shell-footer-content svg:hover path {
     stroke: #1AB6E5;
     fill: #1AB6E5;
 }
 
-span#bp-shell-footer-nav-to-email:hover,
+span.bp-shell-footer-nav-to-browse:hover,
 span#bp-shell-connect-nav-to-email:hover {
     color: #1AB6E5;
 }
