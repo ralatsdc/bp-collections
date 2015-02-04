@@ -48,7 +48,6 @@ bp.shell = (function () {
                 'news'
             ]
         },
-        section_border_bottom_width: 10,
         country_file_name: '../crisis-countries/json/collection/car.json',
         twitter_tweets_per_day: 500000000,
         tumblr_posts_per_day: 80000000,
@@ -272,17 +271,18 @@ bp.shell = (function () {
     };
 
     set_Header_Height = function () {
-        module_State.header_height = 
-            parseInt(module_State.jq_containers.header_content.css('height')) +
-            parseInt(module_State.jq_containers.header_content.css('margin-top')) +
-            parseInt(module_State.jq_containers.header_content.css('margin-bottom'));
+        if (module_State.jq_containers.header_content !== undefined) {
+            module_State.header_height = 
+                parseInt(module_State.jq_containers.header_content.css('height')) +
+                parseInt(module_State.jq_containers.header_content.css('margin-top')) +
+                parseInt(module_State.jq_containers.header_content.css('margin-bottom'));
+        }
     };
 
     set_Section_Height = function () {
         module_State.section_height =
             module_State.window_height -
-            module_State.header_height -
-            module_Config.section_border_bottom_width;
+            module_State.header_height;
     };
 
     create_Body = function (page_name) {
@@ -540,6 +540,15 @@ bp.shell = (function () {
                         .load('html/bp-shell-' + section_name + '-navigation.html', function () {
                             jq_section
                                 .addClass('bp-shell-section')
+
+                                .find('#bp-shell-tame-image')
+                                .load('img/cc-cover-car.svg')
+                                .end()
+
+                                .find('#bp-shell-tame-nav-to-browse')
+                                .click({page_name: 'browse'}, present_Page)
+                                .end()
+
                                 .append('<div></div>')
                                 .find('div:last')
                                 .addClass('sixteen columns centered bp-shell-paging-minor')
@@ -597,6 +606,22 @@ bp.shell = (function () {
             .attr('id', 'bp-shell-' + section_name + '-navigation')
             .addClass('one-third column')
             .load('html/bp-shell-' + section_name + '-navigation.html', function () {
+
+                switch (section_name) {
+                case 'eliminate':
+                    break;
+                case 'less':
+                    jq_section
+                        .find('#bp-shell-less-image')
+                        .load('img/cc-cover-syria.svg')
+                        .end()
+                        .find('#bp-shell-less-nav-to-browse')
+                        .click({page_name: 'browse'}, present_Page)
+                        .end();
+                    break;
+                default:
+                }
+
                 jq_section
                     .append('<div></div>')
                     .find('div:last')
@@ -622,6 +647,7 @@ bp.shell = (function () {
         var page_name, jq_page, uri_anchor;
 
         page_name = module_State.uri_anchor.page_name;
+
         jq_page = module_State.jq_containers[page_name];
 
         if (jq_page !== undefined && jq_page.css('display') !== 'none') {
@@ -629,17 +655,19 @@ bp.shell = (function () {
 
         } else {
             page_name = event.data.page_name;
+
             jq_page = module_State.jq_containers[page_name];
-
-            // TODO: Decide on this...
-            $('html, body').scrollTop(0);
-
-            jq_page.fadeIn('slow');
 
             uri_anchor = $.uriAnchor.makeAnchorMap();
             uri_anchor.page_name = page_name;
             $.uriAnchor.setAnchor(uri_anchor);
             module_State.uri_anchor = uri_anchor;
+
+            // TODO: Decide on this...
+            $('html, body').scrollTop(0);
+            jq_page.fadeIn('slow');
+
+            on_Resize();
         }
     };
 
@@ -660,8 +688,7 @@ bp.shell = (function () {
         var
         page_name = module_State.uri_anchor.page_name,
         section_names = module_Config.section_names[page_name],
-        i_s = Math.ceil($('body').scrollTop() /
-                        (module_State.section_height + module_Config.section_border_bottom_width));
+        i_s = Math.ceil($('body').scrollTop() / module_State.section_height);
 
         if (0 < i_s && i_s < section_names.length) {
             i_s -= 1;
@@ -674,8 +701,7 @@ bp.shell = (function () {
         var
         page_name = module_State.uri_anchor.page_name,
         section_names = module_Config.section_names[page_name],
-        i_s = Math.floor($('body').scrollTop() /
-                         (module_State.section_height + module_Config.section_border_bottom_width));
+        i_s = Math.floor($('body').scrollTop() / module_State.section_height);
 
         if (-1 < i_s && i_s < section_names.length - 1) {
             i_s += 1;
@@ -688,8 +714,7 @@ bp.shell = (function () {
         var
         section_names = module_Config.section_names[page_name],
         i_s = section_names.indexOf(section_name),
-        scroll_target = i_s * 
-            (module_State.section_height + module_Config.section_border_bottom_width);
+        scroll_target = i_s * module_State.section_height;
 
         disable_scrolling();
         $('html, body').animate({scrollTop: scroll_target}, 1200, enable_scrolling);
@@ -736,16 +761,43 @@ bp.shell = (function () {
         }
     };
 
+    // TODO: There has got to be a more efficient way...
     on_Resize = function () {
         set_Window_Height();
         set_Header_Height();
         set_Section_Height();
+
         $('#bp-shell-body-spacer').css('height', module_State.header_height + 'px');
-        $('.bp-shell-section').css({
-            'height': module_State.section_height + 'px',
-            'border-bottom-width': module_Config.section_border_bottom_width + 'px'});
+
+        $('.bp-shell-section').css('height', module_State.section_height + 'px');
         $('.bp-shell-caption').css('margin-top', 0.618 * module_State.section_height + 'px');
-        $('.bp-shell-body').css('margin-bottom', module_State.scroll_margin + 'px');
+
+        var
+        page_name = module_State.uri_anchor.page_name,
+        footer_height;
+        switch(page_name) {
+        case 'home':
+            footer_height = parseInt($('#bp-shell-home .bp-shell-footer-content').css('height'));
+            $('#bp-shell-home-window')
+                .css('height', module_State.section_height - footer_height + 'px');
+            $('#bp-shell-home-window .bp-shell-caption')
+                .css('margin-top', 0.618 * (module_State.section_height - footer_height) + 'px');
+            break;
+
+        case 'browse':
+            break;
+
+        case 'connect':
+            footer_height = parseInt($('#bp-shell-connect .bp-shell-footer-content').css('height'));
+            $('#bp-shell-connect-connect')
+                .css('height', module_State.section_height - footer_height + 'px');
+            break;
+
+        case 'news':
+            break;
+
+        default:
+        }
     };
 
     do_Callback = function (callback, data) {
