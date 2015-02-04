@@ -522,7 +522,7 @@ function () {
                 break;
             }
         }
-        window.open('http://localhost:8080/crisis-countries/#!page_name=source&source_index=' + i_src);
+        window.open(cc.shell.getCollectionUrl() + '#!page_name=source&source_index=' + i_src);
     };
 
     /**

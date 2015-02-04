@@ -12,20 +12,23 @@ cc.shell = (function () {
     configModule,
     initModule,
     getJqContainers,
+    getCollectionUrl,
     delegatePage;
 
     /* == Private variables == */
 
     var
     module_Config = {
-        country_file_name: 'json/collection/japan.json',
+        collection_name: 'car',
         init_page_name: 'cover',
         settable: {
-            country_file_name: true,
+            collection_name: true,
             init_page_name: false
         }
     },
     module_State = {
+        collection_file: undefined,
+        collection_url: undefined,
         jq_containers: {},
         uri_anchor: {}
     },
@@ -73,6 +76,11 @@ cc.shell = (function () {
         module_State.jq_containers.main = jq_container
             .addClass('container sixteen columns');
 
+        module_State.collection_file =
+            'json/collection/' + module_Config.collection_name + '.json';
+        module_State.collection_url =
+            module_Config.collection_name + '.html';
+
         cc.model.configModule({});
         cc.force.configModule({});
 
@@ -99,13 +107,13 @@ cc.shell = (function () {
         case 'frequency':
         case 'postscript':
         case 'colophon':
-            cc.model.initModule(module_Config.country_file_name,
+            cc.model.initModule(module_State.collection_file,
                                 {page_name: page_name});
             break;
 
         case 'source':
             if ('source_index' in uri_anchor) {
-                cc.model.initModule(module_Config.country_file_name,
+                cc.model.initModule(module_State.collection_file,
                                     {source_index: uri_anchor.source_index});
             }
             break;
@@ -122,6 +130,15 @@ cc.shell = (function () {
      */
     getJqContainers = function () {
         return module_State.jq_containers;
+    };
+
+    /**
+     * Returns the collection URL.
+     *
+     * return {String}
+     */
+    getCollectionUrl = function () {
+        return module_State.collection_url;
     };
 
     /**
@@ -1210,6 +1227,7 @@ cc.shell = (function () {
         configModule: configModule,
         initModule: initModule,
         getJqContainers: getJqContainers,
+        getCollectionUrl: getCollectionUrl,
         delegatePage: delegatePage
     };
 
