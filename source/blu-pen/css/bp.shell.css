@@ -9,6 +9,11 @@
     margin: 0;
 }
 
+.bp-shell-section {
+    border-bottom-style: solid;
+    border-bottom-color: #4C5CC5;
+}
+
 .bp-shell-caption * {
     color: white;
 }

@@ -18,10 +18,10 @@ cc.shell = (function () {
 
     var
     module_Config = {
-        country_file_name: 'json/collection/car.json',
+        country_file_name: 'json/collection/japan.json',
         init_page_name: 'cover',
         settable: {
-            country_file_name: false,
+            country_file_name: true,
             init_page_name: false
         }
     },

@@ -48,6 +48,7 @@ bp.shell = (function () {
                 'news'
             ]
         },
+        section_border_bottom_width: 10,
         country_file_name: '../crisis-countries/json/collection/car.json',
         twitter_tweets_per_day: 500000000,
         tumblr_posts_per_day: 80000000,
@@ -280,7 +281,8 @@ bp.shell = (function () {
     set_Section_Height = function () {
         module_State.section_height =
             module_State.window_height -
-            module_State.header_height;
+            module_State.header_height -
+            module_Config.section_border_bottom_width;
     };
 
     create_Body = function (page_name) {
@@ -395,10 +397,57 @@ bp.shell = (function () {
                     break;
 
                 case 'browse':
+                    jq_section
+                        .find('#bp-shell-collection-source-car')
+                        .click(function () {
+                            window.open('http://localhost:8080/crisis-countries/car.html');
+                        })
+                        .load('img/cc-cover-car.svg')
+                        .end()
+
+                        .find('#bp-shell-collection-source-haiti')
+                        .click(function () {
+                            window.open('http://localhost:8080/crisis-countries/haiti.html');
+                        })
+                        .load('img/cc-cover-haiti.svg')
+                        .end()
+
+                        .find('#bp-shell-collection-source-japan')
+                        .click(function () {
+                            window.open('http://localhost:8080/crisis-countries/japan.html');
+                        })
+                        .load('img/cc-cover-japan.svg')
+                        .end()
+
+                        .find('#bp-shell-collection-source-philippines')
+                        .click(function () {
+                            window.open('http://localhost:8080/crisis-countries/philippines.html');
+                        })
+                        .load('img/cc-cover-philippines.svg')
+                        .end()
+
+                        .find('#bp-shell-collection-source-south-sudan')
+                        .click(function () {
+                            window.open('http://localhost:8080/crisis-countries/south-sudan.html');
+                        })
+                        .load('img/cc-cover-south-sudan.svg')
+                        .end()
+
+                        .find('#bp-shell-collection-source-syria')
+                        .click(function () {
+                            window.open('http://localhost:8080/crisis-countries/syria.html');
+                        })
+                        .load('img/cc-cover-syria.svg')
+                        .end()
+
+                        .find('#bp-shell-collection-source-zimbabwe')
+                        .click(function () {
+                            window.open('http://localhost:8080/crisis-countries/zimbabwe.html');
+                        })
+                        .load('img/cc-cover-zimbabwe.svg')
+                        .end();
+
                     createFooter(jq_page, function () {
-                        jq_section
-                            .addClass('bp-shell-section');
-                        on_Resize();
                         do_Callback(callback, data);
                     });
                     break;
@@ -582,6 +631,9 @@ bp.shell = (function () {
             page_name = event.data.page_name;
             jq_page = module_State.jq_containers[page_name];
 
+            // TODO: Decide on this...
+            $('html, body').scrollTop(0);
+
             jq_page.fadeIn('slow');
 
             uri_anchor = $.uriAnchor.makeAnchorMap();
@@ -608,7 +660,8 @@ bp.shell = (function () {
         var
         page_name = module_State.uri_anchor.page_name,
         section_names = module_Config.section_names[page_name],
-        i_s = Math.ceil($('body').scrollTop() / module_State.section_height);
+        i_s = Math.ceil($('body').scrollTop() /
+                        (module_State.section_height + module_Config.section_border_bottom_width));
 
         if (0 < i_s && i_s < section_names.length) {
             i_s -= 1;
@@ -621,7 +674,8 @@ bp.shell = (function () {
         var
         page_name = module_State.uri_anchor.page_name,
         section_names = module_Config.section_names[page_name],
-        i_s = Math.floor($('body').scrollTop() / module_State.section_height);
+        i_s = Math.floor($('body').scrollTop() /
+                         (module_State.section_height + module_Config.section_border_bottom_width));
 
         if (-1 < i_s && i_s < section_names.length - 1) {
             i_s += 1;
@@ -634,7 +688,8 @@ bp.shell = (function () {
         var
         section_names = module_Config.section_names[page_name],
         i_s = section_names.indexOf(section_name),
-        scroll_target = i_s * module_State.section_height;
+        scroll_target = i_s * 
+            (module_State.section_height + module_Config.section_border_bottom_width);
 
         disable_scrolling();
         $('html, body').animate({scrollTop: scroll_target}, 1200, enable_scrolling);
@@ -686,7 +741,9 @@ bp.shell = (function () {
         set_Header_Height();
         set_Section_Height();
         $('#bp-shell-body-spacer').css('height', module_State.header_height + 'px');
-        $('.bp-shell-section').css('height', module_State.section_height + 'px');
+        $('.bp-shell-section').css({
+            'height': module_State.section_height + 'px',
+            'border-bottom-width': module_Config.section_border_bottom_width + 'px'});
         $('.bp-shell-caption').css('margin-top', 0.618 * module_State.section_height + 'px');
         $('.bp-shell-body').css('margin-bottom', module_State.scroll_margin + 'px');
     };
