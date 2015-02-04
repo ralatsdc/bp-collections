@@ -22,12 +22,22 @@
     fill: black;
 }
 
+.bp-shell-paging-major svg:hover path {
+    stroke: #1AB6E5;
+    fill: #1AB6E5;
+}
+
 .bp-shell-paging-minor svg {
     opacity: 0.50;
 }
 
 .bp-shell-paging-minor svg circle {
     fill: gray;
+}
+
+.bp-shell-paging-minor svg:hover path {
+    stroke: #1AB6E5;
+    fill: #1AB6E5;
 }
 
 #bp-shell-header-fixed,
@@ -71,4 +81,8 @@
 span.bp-shell-footer-nav-to-browse:hover,
 span#bp-shell-connect-nav-to-email:hover {
     color: #1AB6E5;
+}
+
+div#bp-shell-home-number {
+    background-color: #F0F0F0;
 }
