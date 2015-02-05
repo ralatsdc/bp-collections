@@ -568,10 +568,6 @@ bp.shell = (function () {
 
                         case 'preserve':
                             jq_section
-                                .find('#bp-shell-preserve-image')
-                                .load('img/cc-cover-haiti.svg')
-                                .end()
-
                                 .find('#bp-shell-preserve-nav-to-browse')
                                 .click({page_name: 'browse'}, present_Page)
                                 .end();
@@ -608,7 +604,12 @@ bp.shell = (function () {
                 case 'eliminate':
                     cc.force.initModule('trust');
                     cc.force.presentForce('trust');
+                    jq_section
+                        .find('#bp-shell-eliminate-nav-to-browse')
+                        .click({page_name: 'browse'}, present_Page)
+                        .end();
                     break;
+
 
                 case 'less':
                     jq_section
@@ -834,7 +835,7 @@ bp.shell = (function () {
                         module_State.section_height -
                         parseInt($('#' + section_id + ' .bp-shell-caption').css('padding-top')) -
                         parseInt($('#' + section_id + ' .bp-shell-caption').css('height')) -
-                        // parseInt($('#' + section_id + ' .bp-shell-paging-minor svg').css('height')) -
+                        parseInt($('#' + section_id + ' .bp-shell-paging-minor svg').css('height')) -
                         module_Config.paging_minor_bottom;
                     $('#' + section_id + ' .bp-shell-paging-minor').css('padding-top', paging_height + 'px');
                     break;

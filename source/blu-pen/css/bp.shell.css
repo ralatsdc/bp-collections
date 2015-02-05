@@ -21,6 +21,10 @@ div#bp-shell-home-number {
     padding-top: 100px;
 }
 
+.bp-shell-navigation h5:hover {
+    color: #1AB6E5;
+}
+
 .bp-shell-caption * {
     color: white;
 }
