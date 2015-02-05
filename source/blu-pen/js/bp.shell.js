@@ -48,6 +48,14 @@ bp.shell = (function () {
                 'news'
             ]
         },
+        content_padding_top: 100,
+        navigation_padding_top: 100,
+        paging_major_height: 50,
+        paging_minor_height: 50,
+        paging_major_bottom: 100,
+        paging_minor_bottom: 100,
+        header_logo_height: 25,
+        footer_logo_height: 25,
         country_file_name: '../crisis-countries/json/collection/car.json',
         twitter_tweets_per_day: 500000000,
         tumblr_posts_per_day: 80000000,
@@ -55,8 +63,16 @@ bp.shell = (function () {
         mail_to: 'raymond.leclair@gmail.com',
         settable: {
             page_names: false,
-            section_names: false,
             init_page_name: true,
+            section_names: false,
+            content_padding_top: false,
+            navigation_padding_top: false,
+            paging_major_height: false,
+            paging_minor_height: false,
+            paging_major_bottom: false,
+            paging_minor_bottom: false,
+            header_logo_height: false,
+            footer_logo_height: false,
             country_file_name: true,
             twitter_tweets_per_day: false,
             tumblr_posts_per_day: false,
@@ -248,7 +264,7 @@ bp.shell = (function () {
             .append('<div></div>')
             .find('div:last')
             .attr('id', 'bp-shell-body-spacer')
-            .css('height', module_State.header_height + 'px')
+            .load('html/bp-shell-empty.html')
             .end();
 
         page_names = module_Config.page_names;
@@ -529,70 +545,51 @@ bp.shell = (function () {
             .attr('id', 'bp-shell-' + section_name + '-content')
             .addClass('two-thirds column')
             .load('html/bp-shell-' + section_name + '-content.html', function () {
+                jq_section
+                    .append('<div></div>')
+                    .find('div:last')
+                    .attr('id', 'bp-shell-' + section_name + '-navigation')
+                    .addClass('one-third column')
+                    .load('html/bp-shell-' + section_name + '-navigation.html', function () {
+                        jq_section
+                            .addClass('bp-shell-section');
 
-                switch (section_name) {
-                case 'tame':
-                    jq_section
-                        .append('<div></div>')
-                        .find('div:last')
-                        .attr('id', 'bp-shell-' + section_name + '-navigation')
-                        .addClass('one-third column')
-                        .load('html/bp-shell-' + section_name + '-navigation.html', function () {
+                        switch (section_name) {
+                        case 'tame':
                             jq_section
-                                .addClass('bp-shell-section')
-
                                 .find('#bp-shell-tame-image')
                                 .load('img/cc-cover-car.svg')
                                 .end()
 
                                 .find('#bp-shell-tame-nav-to-browse')
                                 .click({page_name: 'browse'}, present_Page)
+                                .end();
+                            break;
+
+                        case 'preserve':
+                            jq_section
+                                .find('#bp-shell-preserve-image')
+                                .load('img/cc-cover-haiti.svg')
                                 .end()
 
-                                .append('<div></div>')
-                                .find('div:last')
-                                .addClass('sixteen columns centered bp-shell-paging-minor')
-                                .click(scroll_Down)
-                                .load('img/bp-circle-arrow-down.svg', function () {
-                                    on_Resize();
-                                    do_Callback(callback, data);
-                                });
-                        });
-                    break;
+                                .find('#bp-shell-preserve-nav-to-browse')
+                                .click({page_name: 'browse'}, present_Page)
+                                .end();
+                            break;
+                                
+                        default:
+                        }
 
-                case 'preserve':
-                    jq_section
-                        .append('<div></div>')
-                        .find('div:last')
-                        .addClass('one-third column')
-
-                        .append('<div></div>')
-                        .find('div:last')
-                        .attr('id', 'cc-shell-visual-trust-graphic')
-                        .addClass('bp-shell-content')
-                        .end()
-
-                        .append('<div></div>')
-                        .find('div:last')
-                        .attr('id', 'bp-shell-' + section_name + '-navigation')
-                        .load('html/bp-shell-' + section_name + '-navigation.html', function () {
-                            jq_section
-                                .addClass('bp-shell-section')
-                                .append('<div></div>')
-                                .find('div:last')
-                                .addClass('sixteen columns centered bp-shell-paging-minor')
-                                .click(scroll_Down)
-                                .load('img/bp-circle-arrow-down.svg', function () {
-                                    cc.force.initModule('trust');
-                                    cc.force.presentForce('trust');
-                                    on_Resize();
-                                    do_Callback(callback, data);
-                                });
-                        });
-                    break;
-
-                default:
-                }
+                        jq_section
+                            .append('<div></div>')
+                            .find('div:last')
+                            .addClass('sixteen columns centered bp-shell-paging-minor')
+                            .click(scroll_Down)
+                            .load('img/bp-circle-arrow-down.svg', function () {
+                                on_Resize();
+                                do_Callback(callback, data);
+                            });
+                    });
             });
     };
 
@@ -609,16 +606,21 @@ bp.shell = (function () {
 
                 switch (section_name) {
                 case 'eliminate':
+                    cc.force.initModule('trust');
+                    cc.force.presentForce('trust');
                     break;
+
                 case 'less':
                     jq_section
                         .find('#bp-shell-less-image')
-                        .load('img/cc-cover-syria.svg')
+                        .load('img/cc-cover-japan.svg')
                         .end()
+
                         .find('#bp-shell-less-nav-to-browse')
                         .click({page_name: 'browse'}, present_Page)
                         .end();
                     break;
+
                 default:
                 }
 
@@ -768,20 +770,113 @@ bp.shell = (function () {
         set_Section_Height();
 
         $('#bp-shell-body-spacer').css('height', module_State.header_height + 'px');
+        $('#bp-shell-body-spacer p').css('margin', 0 + 'px');
+
+        $('#bp-shell-header-logo svg').css('height', module_Config.header_logo_height);
+        $('#bp-shell-header-navigation svg').css('height', module_Config.footer_logo_height);
 
         $('.bp-shell-section').css('height', module_State.section_height + 'px');
-        $('.bp-shell-caption').css('margin-top', 0.618 * module_State.section_height + 'px');
+        $('.bp-shell-content').css('padding-top', module_Config.content_padding_top);
+        $('.bp-shell-navigation').css('padding-top', module_Config.navigation_padding_top);
+        $('.bp-shell-caption').css('padding-top', 0.618 * module_State.section_height + 'px');
+        $('.bp-shell-paging-major svg').css('height', module_Config.paging_major_height);
+        $('.bp-shell-paging-minor svg').css('height', module_Config.paging_minor_height);
+
+        $('.bp-shell-footer-content svg').css('height', module_Config.footer_logo_height);
+        $('.bp-shell-footer-content svg').css('height', module_Config.footer_logo_height);
 
         var
         page_name = module_State.uri_anchor.page_name,
+        section_names = module_Config.section_names[page_name],
         footer_height;
         switch(page_name) {
         case 'home':
-            footer_height = parseInt($('#bp-shell-home .bp-shell-footer-content').css('height'));
-            $('#bp-shell-home-window')
-                .css('height', module_State.section_height - footer_height + 'px');
-            $('#bp-shell-home-window .bp-shell-caption')
-                .css('margin-top', 0.618 * (module_State.section_height - footer_height) + 'px');
+            
+            for (var i_s = 0; i_s < section_names.length; i_s += 1) {
+                var
+                section_name = section_names[i_s],
+                section_id = 'bp-shell-' + page_name + '-' + section_name,
+                paging_height;
+
+                switch (section_name) {
+                case 'number':
+                    $('#' + section_id + ' .bp-shell-paging-major')
+                        .css('height', parseInt($('#' + section_id + ' .bp-shell-paging-major svg').css('height')));
+                    paging_height = 
+                        module_State.section_height -
+                        parseInt($('#' + section_id + ' .bp-shell-content').css('padding-top')) -
+                        parseInt($('#' + section_id + ' .bp-shell-content').css('height')) -
+                        parseInt($('#' + section_id + ' .bp-shell-content p').css('margin-bottom')) -
+                        parseInt($('#' + section_id + ' .bp-shell-paging-major svg').css('height')) - 
+                        module_Config.paging_major_bottom;
+                    $('#' + section_id + ' .bp-shell-paging-major').css('padding-top', paging_height + 'px');
+                    break;
+
+                case 'outwit':
+                    $('#' + section_id + ' .bp-shell-paging-minor')
+                        .css('height', parseInt($('#' + section_id + ' .bp-shell-paging-minor svg').css('height')));
+                    paging_height = 
+                        module_State.section_height -
+                        parseInt($('#' + section_id + ' .bp-shell-content').css('padding-top')) -
+                        parseInt($('#' + section_id + ' .bp-shell-content').css('height')) -
+                        parseInt($('#' + section_id + ' .bp-shell-content p').css('margin-bottom')) -
+                        parseInt($('#' + section_id + ' .bp-shell-paging-minor svg').css('height')) - 
+                        module_Config.paging_minor_bottom;
+                    $('#' + section_id + ' .bp-shell-paging-minor').css('padding-top', paging_height + 'px');
+                    break;
+
+                case 'zebras':
+                case 'fashion':
+                case 'buildings':
+                    $('#' + section_id + ' .bp-shell-paging-minor')
+                        .css('height', parseInt($('#' + section_id + ' .bp-shell-paging-minor svg').css('height')));
+                    paging_height = 
+                        module_State.section_height -
+                        parseInt($('#' + section_id + ' .bp-shell-caption').css('padding-top')) -
+                        parseInt($('#' + section_id + ' .bp-shell-caption').css('height')) -
+                        // parseInt($('#' + section_id + ' .bp-shell-paging-minor svg').css('height')) -
+                        module_Config.paging_minor_bottom;
+                    $('#' + section_id + ' .bp-shell-paging-minor').css('padding-top', paging_height + 'px');
+                    break;
+
+                case 'bones':
+                    $('#' + section_id + ' .bp-shell-paging-minor')
+                        .css('height', parseInt($('#' + section_id + ' .bp-shell-paging-minor svg').css('height')));
+                    paging_height = 
+                        module_State.section_height -
+                        parseInt($('#' + section_id + ' .bp-shell-caption').css('padding-top')) -
+                        parseInt($('#' + section_id + ' .bp-shell-caption').css('height')) -
+                        parseInt($('#' + section_id + ' .bp-shell-paging-minor svg').css('height')) -
+                        module_Config.paging_minor_bottom;
+                    $('#' + section_id + ' .bp-shell-paging-minor').css('padding-top', paging_height + 'px');
+                    break;
+
+                case 'tame':
+                case 'eliminate':
+                case 'preserve':
+                case 'less':
+                    $('#' + section_id + ' .bp-shell-paging-minor')
+                        .css('height', parseInt($('#' + section_id + ' .bp-shell-paging-minor svg').css('height')));
+                    paging_height = 
+                        module_State.section_height -
+                        parseInt($('#' + section_id + ' .bp-shell-navigation').css('padding-top')) -
+                        parseInt($('#' + section_id + ' .bp-shell-navigation').css('height')) -
+                        parseInt($('#' + section_id + ' .bp-shell-paging-minor svg').css('height')) - 
+                        module_Config.paging_minor_bottom;
+                    $('#' + section_id + ' .bp-shell-paging-minor').css('padding-top', paging_height + 'px');
+                    break;
+
+                case 'window':
+                    footer_height = 99; // parseInt($('#bp-shell-home .bp-shell-footer-content').css('height'));
+                    $('#bp-shell-home-window')
+                        .css('height', module_State.section_height - footer_height + 'px');
+                    $('#bp-shell-home-window .bp-shell-caption')
+                        .css('padding-top', 0.618 * (module_State.section_height - footer_height) + 'px');
+                    break;
+
+                default:
+                }
+            }
             break;
 
         case 'browse':

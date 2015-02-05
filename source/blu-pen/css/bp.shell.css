@@ -9,13 +9,23 @@
     margin: 0;
 }
 
-.bp-shell-section {
-    border-bottom-style: solid;
-    border-bottom-color: #4C5CC5;
+div#bp-shell-home-number {
+    background-color: #F0F0F0;
+}
+
+.bp-shell-content {
+    padding-top: 100px;
+}
+
+.bp-shell-navigation {
+    padding-top: 100px;
 }
 
 .bp-shell-caption * {
     color: white;
+}
+
+.bp-shell-paging-major {
 }
 
 .bp-shell-paging-major svg circle {
@@ -23,11 +33,22 @@
 }
 
 .bp-shell-paging-major svg:hover path {
-    stroke: #1AB6E5;
     fill: #1AB6E5;
 }
 
+.bp-shell-paging-major svg {
+    height: 50px;
+    width: auto;
+    viewBox: "none";
+}
+
+.bp-shell-paging-minor {
+}
+
 .bp-shell-paging-minor svg {
+    height: 50px;
+    width: auto;
+    viewBox: "none";
     opacity: 0.50;
 }
 
@@ -36,7 +57,10 @@
 }
 
 .bp-shell-paging-minor svg:hover path {
-    stroke: #1AB6E5;
+    fill: #1AB6E5;
+}
+
+.bp-shell-collection svg:hover tspan {
     fill: #1AB6E5;
 }
 
@@ -46,13 +70,11 @@
 }
 
 #bp-shell-header-logo svg {
+    height: 25px;
+    width: auto;
+    viewBox: "none";
     stroke: white;
     fill: white;
-}
-
-#bp-shell-header-navigation *,
-.bp-shell-footer-content * {
-    color: white;
 }
 
 #bp-shell-header-logo svg:hover text,
@@ -61,8 +83,21 @@
     fill: #1AB6E5;
 }
 
-#bp-shell-header-navigation *:hover {
-    color: #1AB6E5;
+#bp-shell-header-content div,
+.bp-shell-footer-content div {
+    margin-bottom: 0px;
+}
+
+#bp-shell-header-navigation *,
+.bp-shell-footer-content * {
+    color: white;
+}
+
+#bp-shell-header-navigation svg,
+.bp-shell-footer-content svg {
+    height: 25px;
+    width: auto;
+    viewBox: "none";
 }
 
 #bp-shell-header-navigation svg rect,
@@ -74,15 +109,15 @@
 #bp-shell-header-navigation svg:hover path,
 .bp-shell-footer-content svg:hover ellipse,
 .bp-shell-footer-content svg:hover path {
-    stroke: #1AB6E5;
+    /* stroke: #1AB6E5; */
     fill: #1AB6E5;
+}
+
+#bp-shell-header-navigation *:hover {
+    color: #1AB6E5;
 }
 
 span.bp-shell-footer-nav-to-browse:hover,
 span#bp-shell-connect-nav-to-email:hover {
     color: #1AB6E5;
-}
-
-div#bp-shell-home-number {
-    background-color: #F0F0F0;
 }

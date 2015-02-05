@@ -39,50 +39,6 @@ p { margin: 0 0 20px 0; }
 p img { margin: 0; }
 p.lead { font-size: 21px; line-height: 27px; color: #777;  }
 
-.bp-shell-content {
-    padding-top: 100px;
-}
-
-.bp-shell-navigation {
-    padding-top: 100px;
-}
-
-.bp-shell-paging-major svg {
-    height: 50px;
-    width: auto;
-    viewBox: "none";
-}
-
-.bp-shell-paging-minor svg {
-    height: 25px;
-    width: auto;
-    viewBox: "none";
-}
-
-#bp-shell-header-logo svg {
-    height: 25px;
-    width: auto;
-    viewBox: "none";
-}
-
-#bp-shell-header-content div,
-.bp-shell-footer-content div {
-    margin-bottom: 0px;
-}
-
-#bp-shell-header-navigation svg,
-.bp-shell-footer-content svg {
-    height: 25px;
-    width: auto;
-    viewBox: "none";
-}
-
-#bp-shell-header-paging svg {
-    height: 25px;
-    width: auto;
-    viewBox: "none";
-}
-
 /* #Tablet (Portrait)
    ================================================== */
 
@@ -112,37 +68,6 @@ p.lead { font-size: 21px; line-height: 27px; color: #777;  }
     p { margin: 0 0 16px 0; }
     p img { margin: 0; }
     p.lead { font-size: 17px; line-height: 21px; color: #777;  }
-
-    .bp-shell-content {
-        padding-top: 79px;
-    }
-
-    .bp-shell-navigation {
-        padding-top: 79px;
-    }
-
-    /*
-    #bp-shell-header-logo {
-        margin-top: 16px;
-        margin-left: 16px;
-    }
-    */
-
-    #bp-shell-header-logo svg {
-        height: 20px;
-        width: auto;
-        viewBox: "none";
-    }
-
-    /*
-    #bp-shell-header-navigation {
-        margin-top: 20px;
-    }
-
-    #bp-shell-header-nav-to-share {
-        margin-top: 2px;
-    }
-    */
 }
 
 /*  #Mobile (Portrait)
@@ -174,37 +99,6 @@ p.lead { font-size: 21px; line-height: 27px; color: #777;  }
     p { margin: 0 0 10px 0; }
     p img { margin: 0; }
     p.lead { font-size: 10px; line-height: 13px; color: #777;  }
-
-    .bp-shell-content {
-        padding-top: 48px;
-    }
-
-    .bp-shell-navigation {
-        padding-top: 48px;
-    }
-
-    #bp-shell-header-logo {
-        margin-top: 10px;
-        margin-left: 10px;
-    }
-    */
-
-    /*
-    #bp-shell-header-logo svg {
-        height: 12px;
-        width: auto;
-        viewBox: "none";
-    }
-
-    /*
-    #bp-shell-header-navigation {
-        margin-top: 12px;
-    }
-
-    #bp-shell-header-nav-to-share {
-        margin-top: 2px;
-    }
-    */
 }
 
 /* #Mobile (Landscape)
@@ -236,35 +130,4 @@ p.lead { font-size: 21px; line-height: 27px; color: #777;  }
     p { margin: 0 0 14px 0; }
     p img { margin: 0; }
     p.lead { font-size: 14px; line-height: 18px; color: #777;  }
-
-    .bp-shell-content {
-        padding-top: 68px;
-    }
-
-    .bp-shell-navigation {
-        padding-top: 68px;
-    }
-
-    /*
-    #bp-shell-header-logo {
-        margin-top: 14px;
-        margin-left: 14px;
-    }
-    */
-
-    #bp-shell-header-logo svg {
-        height: 17px;
-        width: auto;
-        viewBox: "none";
-    }
-
-    /*
-    #bp-shell-header-navigation {
-        margin-top: 17px;
-    }
-
-    #bp-shell-header-nav-to-share {
-        margin-top: 2px;
-    }
-    */
 }
