@@ -86,7 +86,8 @@ bp.shell = (function () {
         window_height: undefined,
         header_height: undefined,
         section_height: undefined,
-        last_color: undefined
+        last_color: undefined,
+        scroll_element: undefined
     },
 
     init_Header,
@@ -105,6 +106,7 @@ bp.shell = (function () {
     present_Page,
     dismiss_Page,
 
+    get_Scroll_Element,
     scroll_To_Section,
     scroll_Down,
     scroll_Up,
@@ -147,7 +149,7 @@ bp.shell = (function () {
         return module_State.jq_containers;
     };
 
-    createFooter = function(jq_page, callback, data) {
+    createFooter = function (jq_page, callback, data) {
         jq_page
             .append('<div></div>')
             .find('div:last')
@@ -281,7 +283,7 @@ bp.shell = (function () {
         w = window,
         d = document,
         e = d.documentElement,
-        g = d.getElementsByTagName('body')[0];
+        g = d.getElementsByTagName(module_State.scroll_element)[0];
         // width = w.innerWidth || e.clientWidth || g.clientWidth;
         module_State.window_height = w.innerHeight|| e.clientHeight|| g.clientHeight;
     };
@@ -657,20 +659,20 @@ bp.shell = (function () {
             dismiss_Page(event);
 
         } else {
+
             page_name = event.data.page_name;
 
             jq_page = module_State.jq_containers[page_name];
+
+            jq_page.fadeIn('slow', function () {
+                // $(module_State.scroll_element).scrollTop(0);
+                on_Resize();
+            });
 
             uri_anchor = $.uriAnchor.makeAnchorMap();
             uri_anchor.page_name = page_name;
             $.uriAnchor.setAnchor(uri_anchor);
             module_State.uri_anchor = uri_anchor;
-
-            // TODO: Decide on this...
-            $('html, body').scrollTop(0);
-            jq_page.fadeIn('slow');
-
-            on_Resize();
         }
     };
 
@@ -679,11 +681,47 @@ bp.shell = (function () {
         var page_name, jq_page;
 
         page_name = module_State.uri_anchor.page_name;
+
         jq_page = module_State.jq_containers[page_name];
 
         jq_page.fadeOut('slow', function () {
+            $(module_State.scroll_element).scrollTop(0);
             present_Page(event);
         });
+    };
+
+    get_Scroll_Element = function () {
+
+        // if missing doctype (quirks mode) then will always use 'body'
+        if ( document.compatMode !== 'CSS1Compat' ) {
+            return 'body';
+        }
+
+        // if there's a doctype (and your page should)
+        // most browsers will support the scrollTop property on EITHER html OR body
+        // we'll have to do a quick test to detect which one...
+        var html = document.documentElement;
+        var body = document.body;
+
+        // get our starting position. 
+        // pageYOffset works for all browsers except IE8 and below
+        var startingY = window.pageYOffset || body.scrollTop || html.scrollTop;
+
+        // scroll the window down by 1px (scrollTo works in all browsers)
+        var newY = startingY + 1;
+        window.scrollTo(0, newY);
+
+        // And check which property changed
+        // FF and IE use only html. Safari uses only body.
+        // Chrome has values for both, but says 
+        // body.scrollTop is deprecated when in Strict mode.,
+        // so let's check for html first.
+        var element = ( html.scrollTop === newY ) ? 'html' : 'body';
+
+        // now reset back to the starting position
+        window.scrollTo(0, startingY);
+
+        return element;
     };
 
     scroll_Up = function () {
@@ -691,7 +729,7 @@ bp.shell = (function () {
         var
         page_name = module_State.uri_anchor.page_name,
         section_names = module_Config.section_names[page_name],
-        i_s = Math.ceil($('body').scrollTop() / module_State.section_height);
+        i_s = Math.ceil($(module_State.scroll_element).scrollTop() / module_State.section_height);
 
         if (0 < i_s && i_s < section_names.length) {
             i_s -= 1;
@@ -701,10 +739,14 @@ bp.shell = (function () {
 
     scroll_Down = function () {
 
+        if (module_State.scroll_element === undefined) {
+            module_State.scroll_element = get_Scroll_Element();
+        }
+
         var
         page_name = module_State.uri_anchor.page_name,
         section_names = module_Config.section_names[page_name],
-        i_s = Math.floor($('body').scrollTop() / module_State.section_height);
+        i_s = Math.floor($(module_State.scroll_element).scrollTop() / module_State.section_height);
 
         if (-1 < i_s && i_s < section_names.length - 1) {
             i_s += 1;
@@ -714,21 +756,30 @@ bp.shell = (function () {
 
     scroll_To_Section = function (page_name, section_name) {
 
+        if (module_State.scroll_element === undefined) {
+            module_State.scroll_element = get_Scroll_Element();
+        }
+
         var
         section_names = module_Config.section_names[page_name],
         i_s = section_names.indexOf(section_name),
         scroll_target = i_s * module_State.section_height;
-
+        
         disable_scrolling();
-        $('html, body').animate({scrollTop: scroll_target}, 1200, enable_scrolling);
+        $(module_State.scroll_element).animate({scrollTop: scroll_target}, 600, enable_scrolling);
+
+        // $('body').animate({scrollTop: scroll_target}, 600); // +ch -ff
+        // $('html').animate({scrollTop: scroll_target}, 600); // -ch +ff
+        // $('body, html').animate({scrollTop: scroll_target}, 600); // +ch +ff
+        // $('html, body').animate({scrollTop: scroll_target}, 600); // +ch +ff
     };
 
     disable_scrolling = function () {
-        $('html, body').css('overflow', 'hidden');
+        $(module_State.scroll_element).css('overflow', 'hidden');
     };
 
     enable_scrolling = function () {
-        $('html, body').css('overflow', 'auto');
+        $(module_State.scroll_element).css('overflow', 'auto');
     };
 
     send_Message = function () {
@@ -764,7 +815,6 @@ bp.shell = (function () {
         }
     };
 
-    // TODO: There has got to be a more efficient way...
     on_Resize = function () {
         set_Window_Height();
         set_Header_Height();
@@ -786,6 +836,7 @@ bp.shell = (function () {
         $('.bp-shell-footer-content svg').css('height', module_Config.footer_logo_height);
         $('.bp-shell-footer-content svg').css('height', module_Config.footer_logo_height);
 
+        // TODO: There has got to be a better way...
         var
         page_name = module_State.uri_anchor.page_name,
         section_names = module_Config.section_names[page_name],
@@ -829,17 +880,6 @@ bp.shell = (function () {
                 case 'zebras':
                 case 'fashion':
                 case 'buildings':
-                    $('#' + section_id + ' .bp-shell-paging-minor')
-                        .css('height', parseInt($('#' + section_id + ' .bp-shell-paging-minor svg').css('height')));
-                    paging_height = 
-                        module_State.section_height -
-                        parseInt($('#' + section_id + ' .bp-shell-caption').css('padding-top')) -
-                        parseInt($('#' + section_id + ' .bp-shell-caption').css('height')) -
-                        parseInt($('#' + section_id + ' .bp-shell-paging-minor svg').css('height')) -
-                        module_Config.paging_minor_bottom;
-                    $('#' + section_id + ' .bp-shell-paging-minor').css('padding-top', paging_height + 'px');
-                    break;
-
                 case 'bones':
                     $('#' + section_id + ' .bp-shell-paging-minor')
                         .css('height', parseInt($('#' + section_id + ' .bp-shell-paging-minor svg').css('height')));
@@ -847,6 +887,7 @@ bp.shell = (function () {
                         module_State.section_height -
                         parseInt($('#' + section_id + ' .bp-shell-caption').css('padding-top')) -
                         parseInt($('#' + section_id + ' .bp-shell-caption').css('height')) -
+                        parseInt($('#' + section_id + ' .bp-shell-caption h3').css('margin-bottom')) -
                         parseInt($('#' + section_id + ' .bp-shell-paging-minor svg').css('height')) -
                         module_Config.paging_minor_bottom;
                     $('#' + section_id + ' .bp-shell-paging-minor').css('padding-top', paging_height + 'px');
@@ -868,6 +909,7 @@ bp.shell = (function () {
                     break;
 
                 case 'window':
+                    // TODO: Fix this
                     footer_height = 99; // parseInt($('#bp-shell-home .bp-shell-footer-content').css('height'));
                     $('#bp-shell-home-window')
                         .css('height', module_State.section_height - footer_height + 'px');
