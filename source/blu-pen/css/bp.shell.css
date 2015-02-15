@@ -9,6 +9,42 @@
     margin: 0;
 }
 
+#bp-shell-header-fixed {
+    background-color: gray;
+}
+
+#bp-shell-header-logo svg {
+    stroke: white;
+    fill: white;
+}
+
+#bp-shell-header-logo svg:hover text,
+#bp-shell-header-logo svg:hover path {
+    stroke: #1AB6E5;
+    fill: #1AB6E5;
+}
+
+#bp-shell-header-content div {
+    margin-bottom: 0px;
+}
+
+#bp-shell-header-navigation * {
+    color: white;
+}
+
+#bp-shell-header-navigation svg rect {
+    fill: gray;
+}
+
+#bp-shell-header-navigation svg:hover ellipse,
+#bp-shell-header-navigation svg:hover path {
+    fill: #1AB6E5;
+}
+
+#bp-shell-header-navigation *:hover {
+    color: #1AB6E5;
+}
+
 div#bp-shell-body-spacer p,
 div#bp-shell-sction-spacer p {
     margin: 0;
@@ -16,12 +52,6 @@ div#bp-shell-sction-spacer p {
 
 div#bp-shell-home-number {
     background-color: #F0F0F0;
-}
-
-.bp-shell-content {
-}
-
-.bp-shell-navigation {
 }
 
 .bp-shell-navigation h5:hover {
@@ -32,9 +62,6 @@ div#bp-shell-home-number {
     color: white;
 }
 
-.bp-shell-paging-major {
-}
-
 .bp-shell-paging-major svg circle {
     fill: black;
 }
@@ -43,17 +70,7 @@ div#bp-shell-home-number {
     fill: #1AB6E5;
 }
 
-.bp-shell-paging-major svg {
-    width: auto;
-    viewBox: "none";
-}
-
-.bp-shell-paging-minor {
-}
-
 .bp-shell-paging-minor svg {
-    width: auto;
-    viewBox: "none";
     opacity: 0.50;
 }
 
@@ -69,54 +86,28 @@ div#bp-shell-home-number {
     fill: #1AB6E5;
 }
 
-#bp-shell-header-fixed,
 .bp-shell-footer-content {
     background-color: gray;
 }
 
-#bp-shell-header-logo svg {
-    width: auto;
-    viewBox: "none";
-    stroke: white;
-    fill: white;
-}
-
-#bp-shell-header-logo svg:hover text,
-#bp-shell-header-logo svg:hover path {
-    stroke: #1AB6E5;
-    fill: #1AB6E5;
-}
-
-#bp-shell-header-content div,
 .bp-shell-footer-content div {
     margin-bottom: 0px;
 }
 
-#bp-shell-header-navigation *,
 .bp-shell-footer-content * {
     color: white;
 }
 
-#bp-shell-header-navigation svg,
-.bp-shell-footer-content svg {
-    width: auto;
-    viewBox: "none";
-}
-
-#bp-shell-header-navigation svg rect,
 .bp-shell-footer-content svg rect {
     fill: gray;
 }
 
-#bp-shell-header-navigation svg:hover ellipse,
-#bp-shell-header-navigation svg:hover path,
 .bp-shell-footer-content svg:hover ellipse,
 .bp-shell-footer-content svg:hover path {
-    /* stroke: #1AB6E5; */
     fill: #1AB6E5;
 }
 
-#bp-shell-header-navigation *:hover {
+.bp-shell-footer-content *:hover {
     color: #1AB6E5;
 }
 

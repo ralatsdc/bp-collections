@@ -16,6 +16,7 @@
    ================================================== */
 
 .room { position: fixed; width: 960px; margin: 0 auto; padding: 0; left: 50%; margin-left: -480px; }
+
 .graphic {
     -webkit-transform: scale(1.0);
     -moz-transform: scale(1.0);
@@ -39,29 +40,24 @@ p { margin: 0 0 20px 0; }
 p img { margin: 0; }
 p.lead { font-size: 21px; line-height: 27px; color: #777;  }
 
-.bp-shell-section-spacer {
-    padding-top: 100px;
-}
-
-.bp-shell-content {
-}
-
-.bp-shell-navigation {
-}
-
-.bp-shell-paging-major svg {
-    height: 50px;
-}
-
-.bp-shell-paging-minor svg {
-    height: 50px;
-}
-
 #bp-shell-header-logo svg,
 #bp-shell-header-navigation svg {
     height: 25px;
 }
-
+.bp-shell-section-spacer {
+    padding-top: 100px;
+}
+.bp-shell-navigation svg,
+.bp-shell-navigation img,
+.bp-shell-collection svg {
+    height: 300px;
+}
+.bp-shell-paging-major svg {
+    height: 50px;
+}
+.bp-shell-paging-minor svg {
+    height: 50px;
+}
 .bp-shell-footer-content svg {
     height: 25px;
 }
@@ -73,6 +69,7 @@ p.lead { font-size: 21px; line-height: 27px; color: #777;  }
 
 @media only screen and (min-width: 768px) and (max-width: 959px) {
     .room { width: 768px; left: 50%; margin-left: -384px;}
+
     .graphic {
         -webkit-transform: scale(0.7935);
         -moz-transform: scale(0.7935);
@@ -95,6 +92,28 @@ p.lead { font-size: 21px; line-height: 27px; color: #777;  }
     p { margin: 0 0 16px 0; }
     p img { margin: 0; }
     p.lead { font-size: 17px; line-height: 21px; color: #777;  }
+
+    /* 20    79   238    40    40    20 */
+    #bp-shell-header-logo svg {
+        height: 20px;
+    }
+    .bp-shell-section-spacer {
+        padding-top: 79px;
+    }
+    .bp-shell-navigation svg,
+    .bp-shell-navigation img, 
+    .bp-shell-collection svg {
+        height: 238px;
+    }
+    .bp-shell-paging-major svg {
+        height: 40px;
+    }
+    .bp-shell-paging-minor svg {
+        height: 40px;
+    }
+    .bp-shell-footer-content svg {
+        height: 20px;
+    }
 }
 
 /*  #Mobile (Portrait)
@@ -104,6 +123,7 @@ p.lead { font-size: 21px; line-height: 27px; color: #777;  }
 
 @media only screen and (max-width: 767px) {
     .room { width: 300px; left: 50%; margin-left: -150px;}
+
     .graphic {
         -webkit-transform: scale(0.4838);
         -moz-transform: scale(0.4838);
@@ -126,6 +146,29 @@ p.lead { font-size: 21px; line-height: 27px; color: #777;  }
     p { margin: 0 0 10px 0; }
     p img { margin: 0; }
     p.lead { font-size: 10px; line-height: 13px; color: #777;  }
+
+    /* 12    48   145    24    24    12 */
+    #bp-shell-header-logo svg,
+    #bp-shell-header-navigation svg {
+        height: 12px;
+    }
+    .bp-shell-section-spacer {
+        padding-top: 48px;
+    }
+    .bp-shell-navigation svg,
+    .bp-shell-navigation img, 
+    .bp-shell-collection svg {
+        height: 145px;
+    }
+    .bp-shell-paging-major svg {
+        height: 24px;
+    }
+    .bp-shell-paging-minor svg {
+        height: 24px;
+    }
+    .bp-shell-footer-content svg {
+        height: 12px;
+    }
 }
 
 /* #Mobile (Landscape)
@@ -135,6 +178,7 @@ p.lead { font-size: 21px; line-height: 27px; color: #777;  }
 
 @media only screen and (min-width: 480px) and (max-width: 767px) {
     .room { width: 420px; left: 50%; margin-left: -210px;}
+
     .graphic {
         -webkit-transform: scale(0.6774);
         -moz-transform: scale(0.6774);
@@ -157,4 +201,27 @@ p.lead { font-size: 21px; line-height: 27px; color: #777;  }
     p { margin: 0 0 14px 0; }
     p img { margin: 0; }
     p.lead { font-size: 14px; line-height: 18px; color: #777;  }
+
+    /* 17    68   203    34    34    17 */
+    #bp-shell-header-logo svg,
+    #bp-shell-header-navigation svg {
+        height: 17px;
+    }
+    .bp-shell-section-spacer {
+        padding-top: 68px;
+    }
+    .bp-shell-navigation svg,
+    .bp-shell-navigation img, 
+    .bp-shell-collection svg {
+        height: 203px;
+    }
+    .bp-shell-paging-major svg {
+        height: 34px;
+    }
+    .bp-shell-paging-minor svg {
+        height: 34px;
+    }
+    .bp-shell-footer-content svg {
+        height: 17px;
+    }
 }
