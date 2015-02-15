@@ -361,6 +361,15 @@ bp.shell = (function () {
         jq_section = module_State.jq_containers[page_name + '-' + section_name];
 
         jq_section
+            .append('<div></div>')
+            .find('div:last')
+            .addClass('bp-shell-section-spacer')
+            .load('html/bp-shell-empty.html')
+            .end()
+
+            .append('<div></div>')
+            .find('div:last')
+            .addClass('bp-shell-section-content')
             .load('html/bp-shell-' + section_name + '.html', function () {
 
                 switch (section_name) {
@@ -532,10 +541,21 @@ bp.shell = (function () {
         jq_section
             .append('<div></div>')
             .find('div:last')
+            .addClass('bp-shell-section-spacer')
+            .load('html/bp-shell-empty.html')
+            .end()
+
+            .append('<div></div>')
+            .find('div:last')
+            .addClass('bp-shell-section-content')
+
+            .append('<div></div>')
+            .find('div:last')
             .attr('id', 'bp-shell-' + section_name + '-content')
             .addClass('two-thirds column')
             .load('html/bp-shell-' + section_name + '-content.html', function () {
                 jq_section
+                    .find('div.bp-shell-section-content')
                     .append('<div></div>')
                     .find('div:last')
                     .attr('id', 'bp-shell-' + section_name + '-navigation')
@@ -586,6 +606,16 @@ bp.shell = (function () {
         jq_section
             .append('<div></div>')
             .find('div:last')
+            .addClass('bp-shell-section-spacer')
+            .load('html/bp-shell-empty.html')
+            .end()
+
+            .append('<div></div>')
+            .find('div:last')
+            .addClass('bp-shell-section-content')
+
+            .append('<div></div>')
+            .find('div:last')
             .attr('id', 'bp-shell-' + section_name + '-navigation')
             .addClass('one-third column')
             .load('html/bp-shell-' + section_name + '-navigation.html', function () {
@@ -616,6 +646,7 @@ bp.shell = (function () {
                 }
 
                 jq_section
+                    .find('div.bp-shell-section-content')
                     .append('<div></div>')
                     .find('div:last')
                     .attr('id', 'bp-shell-' + section_name + '-content')

@@ -39,12 +39,14 @@ p { margin: 0 0 20px 0; }
 p img { margin: 0; }
 p.lead { font-size: 21px; line-height: 27px; color: #777;  }
 
-.bp-shell-content {
+.bp-shell-section-spacer {
     padding-top: 100px;
 }
 
+.bp-shell-content {
+}
+
 .bp-shell-navigation {
-    padding-top: 100px;
 }
 
 .bp-shell-paging-major svg {

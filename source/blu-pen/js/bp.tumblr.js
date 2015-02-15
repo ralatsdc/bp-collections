@@ -40,7 +40,17 @@ bp.tumblr = (function () {
             bp.shell.getJqContainers()[page_name],
         jq_section =
             bp.shell.getJqContainers()[page_name + '-' + section_name]
-            .addClass('row bp-shell-content');
+
+            .append('<div></div>')
+            .find('div:last')
+            .addClass('bp-shell-section-spacer')
+            .load('html/bp-shell-empty.html')
+            .end()
+
+            .append('<div></div>')
+            .find('div:last')
+            .addClass('row bp-shell-section-content')
+            .end();
 
         module_State.jq_page = jq_page;
         module_State.jq_section = jq_section;
@@ -88,6 +98,7 @@ bp.tumblr = (function () {
                 }
                 content += post.caption;
                 jq_section
+                    .find('div.bp-shell-section-content')
                     .append('<div></div>')
                     .find('div:last')
                     .addClass('eight columns offset-by-four')

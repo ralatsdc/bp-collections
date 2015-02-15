@@ -9,7 +9,8 @@
     margin: 0;
 }
 
-div#bp-shell-body-spacer p {
+div#bp-shell-body-spacer p,
+div#bp-shell-sction-spacer p {
     margin: 0;
 }
 
