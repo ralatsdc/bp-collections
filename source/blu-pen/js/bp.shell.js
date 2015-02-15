@@ -48,14 +48,8 @@ bp.shell = (function () {
                 'news'
             ]
         },
-        content_padding_top: 100,
-        navigation_padding_top: 100,
-        paging_major_height: 50,
-        paging_minor_height: 50,
         paging_major_bottom: 100,
         paging_minor_bottom: 100,
-        header_logo_height: 25,
-        footer_logo_height: 25,
         country_file_name: '../crisis-countries/json/collection/car.json',
         twitter_tweets_per_day: 500000000,
         tumblr_posts_per_day: 80000000,
@@ -65,14 +59,8 @@ bp.shell = (function () {
             page_names: false,
             init_page_name: true,
             section_names: false,
-            content_padding_top: false,
-            navigation_padding_top: false,
-            paging_major_height: false,
-            paging_minor_height: false,
             paging_major_bottom: false,
             paging_minor_bottom: false,
-            header_logo_height: false,
-            footer_logo_height: false,
             country_file_name: true,
             twitter_tweets_per_day: false,
             tumblr_posts_per_day: false,
@@ -665,7 +653,6 @@ bp.shell = (function () {
             jq_page = module_State.jq_containers[page_name];
 
             jq_page.fadeIn('slow', function () {
-                // $(module_State.scroll_element).scrollTop(0);
                 on_Resize();
             });
 
@@ -767,11 +754,6 @@ bp.shell = (function () {
         
         disable_scrolling();
         $(module_State.scroll_element).animate({scrollTop: scroll_target}, 600, enable_scrolling);
-
-        // $('body').animate({scrollTop: scroll_target}, 600); // +ch -ff
-        // $('html').animate({scrollTop: scroll_target}, 600); // -ch +ff
-        // $('body, html').animate({scrollTop: scroll_target}, 600); // +ch +ff
-        // $('html, body').animate({scrollTop: scroll_target}, 600); // +ch +ff
     };
 
     disable_scrolling = function () {
@@ -821,20 +803,8 @@ bp.shell = (function () {
         set_Section_Height();
 
         $('#bp-shell-body-spacer').css('height', module_State.header_height + 'px');
-        $('#bp-shell-body-spacer p').css('margin', 0 + 'px');
-
-        $('#bp-shell-header-logo svg').css('height', module_Config.header_logo_height);
-        $('#bp-shell-header-navigation svg').css('height', module_Config.footer_logo_height);
-
         $('.bp-shell-section').css('height', module_State.section_height + 'px');
-        $('.bp-shell-content').css('padding-top', module_Config.content_padding_top);
-        $('.bp-shell-navigation').css('padding-top', module_Config.navigation_padding_top);
         $('.bp-shell-caption').css('padding-top', 0.618 * module_State.section_height + 'px');
-        $('.bp-shell-paging-major svg').css('height', module_Config.paging_major_height);
-        $('.bp-shell-paging-minor svg').css('height', module_Config.paging_minor_height);
-
-        $('.bp-shell-footer-content svg').css('height', module_Config.footer_logo_height);
-        $('.bp-shell-footer-content svg').css('height', module_Config.footer_logo_height);
 
         // TODO: There has got to be a better way...
         var
@@ -844,6 +814,7 @@ bp.shell = (function () {
         switch(page_name) {
         case 'home':
             
+            /*
             for (var i_s = 0; i_s < section_names.length; i_s += 1) {
                 var
                 section_name = section_names[i_s],
@@ -920,6 +891,12 @@ bp.shell = (function () {
                 default:
                 }
             }
+            */
+            footer_height = parseInt($('#bp-shell-home .bp-shell-footer-content').css('height'));
+            $('#bp-shell-home-window')
+                .css('height', module_State.section_height - footer_height + 'px');
+            $('#bp-shell-home-window .bp-shell-caption')
+                .css('padding-top', 0.618 * (module_State.section_height - footer_height) + 'px');
             break;
 
         case 'browse':

@@ -9,16 +9,18 @@
     margin: 0;
 }
 
+div#bp-shell-body-spacer p {
+    margin: 0;
+}
+
 div#bp-shell-home-number {
     background-color: #F0F0F0;
 }
 
 .bp-shell-content {
-    padding-top: 100px;
 }
 
 .bp-shell-navigation {
-    padding-top: 100px;
 }
 
 .bp-shell-navigation h5:hover {
@@ -41,7 +43,6 @@ div#bp-shell-home-number {
 }
 
 .bp-shell-paging-major svg {
-    height: 50px;
     width: auto;
     viewBox: "none";
 }
@@ -50,7 +51,6 @@ div#bp-shell-home-number {
 }
 
 .bp-shell-paging-minor svg {
-    height: 50px;
     width: auto;
     viewBox: "none";
     opacity: 0.50;
@@ -74,7 +74,6 @@ div#bp-shell-home-number {
 }
 
 #bp-shell-header-logo svg {
-    height: 25px;
     width: auto;
     viewBox: "none";
     stroke: white;
@@ -99,7 +98,6 @@ div#bp-shell-home-number {
 
 #bp-shell-header-navigation svg,
 .bp-shell-footer-content svg {
-    height: 25px;
     width: auto;
     viewBox: "none";
 }

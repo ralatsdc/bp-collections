@@ -39,6 +39,31 @@ p { margin: 0 0 20px 0; }
 p img { margin: 0; }
 p.lead { font-size: 21px; line-height: 27px; color: #777;  }
 
+.bp-shell-content {
+    padding-top: 100px;
+}
+
+.bp-shell-navigation {
+    padding-top: 100px;
+}
+
+.bp-shell-paging-major svg {
+    height: 50px;
+}
+
+.bp-shell-paging-minor svg {
+    height: 50px;
+}
+
+#bp-shell-header-logo svg,
+#bp-shell-header-navigation svg {
+    height: 25px;
+}
+
+.bp-shell-footer-content svg {
+    height: 25px;
+}
+
 /* #Tablet (Portrait)
    ================================================== */
 
