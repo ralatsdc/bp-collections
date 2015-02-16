@@ -74,6 +74,7 @@ bp.shell = (function () {
         window_height: undefined,
         header_height: undefined,
         section_height: undefined,
+        footer_height: 0,
         last_color: undefined,
         scroll_element: undefined
     },
@@ -84,6 +85,7 @@ bp.shell = (function () {
     set_Window_Height,
     set_Header_Height,
     set_Section_Height,
+    set_Footer_Height,
 
     create_Body,
     create_Text,
@@ -160,7 +162,7 @@ bp.shell = (function () {
                     .find('.bp-shell-footer-nav-to-browse')
                     .click({page_name: 'browse'}, present_Page)
                     .end();
-
+                
                 do_Callback(callback, data);
             });
     };
@@ -271,24 +273,42 @@ bp.shell = (function () {
         w = window,
         d = document,
         e = d.documentElement,
-        g = d.getElementsByTagName(module_State.scroll_element)[0];
+        g = d.getElementsByTagName('body')[0];
         // width = w.innerWidth || e.clientWidth || g.clientWidth;
         module_State.window_height = w.innerHeight|| e.clientHeight|| g.clientHeight;
+        // console.log(module_State.window_height);
     };
 
     set_Header_Height = function () {
-        if (module_State.jq_containers.header_content !== undefined) {
-            module_State.header_height = 
-                parseInt(module_State.jq_containers.header_content.css('height')) +
-                parseInt(module_State.jq_containers.header_content.css('margin-top')) +
-                parseInt(module_State.jq_containers.header_content.css('margin-bottom'));
-        }
+        module_State.header_height = 
+            parseInt(module_State.jq_containers.header_content.css('height')) +
+            parseInt(module_State.jq_containers.header_content.css('margin-top')) +
+            parseInt(module_State.jq_containers.header_content.css('margin-bottom'));
+        // console.log(module_State.header_height);
     };
 
     set_Section_Height = function () {
         module_State.section_height =
             module_State.window_height -
             module_State.header_height;
+        // console.log(module_State.section_height);
+    };
+
+    set_Footer_Height = function () {
+        var footer_height;
+        $('div.bp-shell-footer-content').each(function () {
+            footer_height = parseInt($(this).css('height'));
+            // console.log(footer_height);
+            if (footer_height > 0) {
+                module_State.footer_height = footer_height;
+            }
+        });
+        /*
+        if (module_State.footer_height === undefined) {
+            module_State.footer_height = 0;
+        }
+        */
+        // console.log('final: ' + module_State.footer_height);
     };
 
     create_Body = function (page_name) {
@@ -375,7 +395,7 @@ bp.shell = (function () {
                 switch (section_name) {
                 case 'number':
                     jq_section
-                        .addClass('bp-shell-section')
+                        .addClass('bp-shell-section-without-footer')
                         .append('<div></div>')
                         .find('div:last')
                         .addClass('sixteen columns centered bp-shell-paging-major')
@@ -400,7 +420,7 @@ bp.shell = (function () {
 
                 case 'outwit':
                     jq_section
-                        .addClass('bp-shell-section')
+                        .addClass('bp-shell-section-without-footer')
                         .append('<div></div>')
                         .find('div:last')
                         .addClass('sixteen columns centered bp-shell-paging-minor')
@@ -470,7 +490,7 @@ bp.shell = (function () {
                 case 'connect':
                     createFooter(jq_page, function () {
                         jq_section
-                            .addClass('bp-shell-section')
+                            .addClass('bp-shell-section-with-footer')
                             .find('#bp-shell-connect-nav-to-email')
                             .click(send_Message)
                             .end();
@@ -497,18 +517,18 @@ bp.shell = (function () {
             .find('div:last')
             .addClass('one-third column')
             .load('html/bp-shell-empty.html', function () {
-                jq_section
-                    .append('<div></div>')
-                    .find('div:last')
-                    .addClass('two-thirds column bp-shell-caption oswaldbold')
-                    .load('html/bp-shell-' + section_name + '.html', function () {
-                        switch (section_name) {
-                        case 'zebras':
-                        case 'fashion':
-                        case 'buildings':
-                        case 'bones':
+                switch (section_name) {
+                case 'zebras':
+                case 'fashion':
+                case 'buildings':
+                case 'bones':
+                    jq_section
+                        .append('<div></div>')
+                        .find('div:last')
+                        .addClass('two-thirds column bp-shell-caption-without-footer oswaldbold')
+                        .load('html/bp-shell-' + section_name + '.html', function () {
                             jq_section
-                                .addClass('bp-shell-section')
+                                .addClass('bp-shell-section-without-footer')
                                 .append('<div></div>')
                                 .find('div:last')
                                 .addClass('sixteen columns centered bp-shell-paging-minor')
@@ -517,20 +537,26 @@ bp.shell = (function () {
                                     on_Resize();
                                     do_Callback(callback, data);
                                 });
-                            break;
+                        });
+                    break;
 
-                        case 'window':
+                case 'window':
+                    jq_section
+                        .append('<div></div>')
+                        .find('div:last')
+                        .addClass('two-thirds column bp-shell-caption-with-footer oswaldbold')
+                        .load('html/bp-shell-' + section_name + '.html', function () {
                             createFooter(jq_page, function () {
                                 jq_section
-                                    .addClass('bp-shell-section');
+                                    .addClass('bp-shell-section-with-footer');
                                 on_Resize();
                                 do_Callback(callback, data);
                             });
-                            break;
+                        });
+                    break;
 
-                        default:
-                        }
-                    });
+                default:
+                }
             });
     };
 
@@ -562,7 +588,7 @@ bp.shell = (function () {
                     .addClass('one-third column')
                     .load('html/bp-shell-' + section_name + '-navigation.html', function () {
                         jq_section
-                            .addClass('bp-shell-section');
+                            .addClass('bp-shell-section-without-footer');
 
                         switch (section_name) {
                         case 'tame':
@@ -653,7 +679,7 @@ bp.shell = (function () {
                     .addClass('two-thirds column')
                     .load('html/bp-shell-' + section_name + '-content.html', function () {
                         jq_section
-                            .addClass('bp-shell-section')
+                            .addClass('bp-shell-section-without-footer')
                             .append('<div></div>')
                             .find('div:last')
                             .addClass('sixteen columns centered bp-shell-paging-minor')
@@ -684,6 +710,16 @@ bp.shell = (function () {
             jq_page = module_State.jq_containers[page_name];
 
             jq_page.fadeIn('slow', function () {
+                /*
+                console.log(parseInt($('#bp-shell-home .bp-shell-footer-content').css('height')));
+                console.log(parseInt($('#bp-shell-browse .bp-shell-footer-content').css('height')));
+                console.log(parseInt($('#bp-shell-news .bp-shell-footer-content').css('height')));
+                console.log(parseInt($('#bp-shell-connect .bp-shell-footer-content').css('height')));
+                */
+                if (module_State.scroll_element === undefined) {
+                    module_State.scroll_element = get_Scroll_Element();
+                }
+                // console.log(module_State.scroll_element);
                 on_Resize();
             });
 
@@ -757,10 +793,6 @@ bp.shell = (function () {
 
     scroll_Down = function () {
 
-        if (module_State.scroll_element === undefined) {
-            module_State.scroll_element = get_Scroll_Element();
-        }
-
         var
         page_name = module_State.uri_anchor.page_name,
         section_names = module_Config.section_names[page_name],
@@ -773,10 +805,6 @@ bp.shell = (function () {
     };
 
     scroll_To_Section = function (page_name, section_name) {
-
-        if (module_State.scroll_element === undefined) {
-            module_State.scroll_element = get_Scroll_Element();
-        }
 
         var
         section_names = module_Config.section_names[page_name],
@@ -832,16 +860,29 @@ bp.shell = (function () {
         set_Window_Height();
         set_Header_Height();
         set_Section_Height();
+        set_Footer_Height();
 
-        $('#bp-shell-body-spacer').css('height', module_State.header_height + 'px');
-        $('.bp-shell-section').css('height', module_State.section_height + 'px');
-        $('.bp-shell-caption').css('padding-top', 0.618 * module_State.section_height + 'px');
+        // module_State.footer_height = 0;
+
+        $('#bp-shell-body-spacer')
+            .css('height', module_State.header_height + 'px');
+
+        $('.bp-shell-section-without-footer')
+            .css('height', module_State.section_height + 'px');
+
+        $('.bp-shell-section-with-footer')
+            .css('height', module_State.section_height - module_State.footer_height + 'px');
+
+        $('.bp-shell-caption-without-footer')
+            .css('padding-top', 0.618 * module_State.section_height + 'px');
+
+        $('.bp-shell-caption-with-footer')
+            .css('padding-top', 0.618 * (module_State.section_height - module_State.footer_height) + 'px');
 
         // TODO: There has got to be a better way...
         var
-        page_name = module_State.uri_anchor.page_name,
-        section_names = module_Config.section_names[page_name],
-        footer_height;
+        page_name = module_State.uri_anchor.page_name;
+        // section_names = module_Config.section_names[page_name];
         switch(page_name) {
         case 'home':
             
@@ -922,21 +963,23 @@ bp.shell = (function () {
                 default:
                 }
             }
-            */
-            footer_height = parseInt($('#bp-shell-home .bp-shell-footer-content').css('height'));
+            var footer_height = parseInt($('#bp-shell-home .bp-shell-footer-content').css('height'));
             $('#bp-shell-home-window')
                 .css('height', module_State.section_height - footer_height + 'px');
-            $('#bp-shell-home-window .bp-shell-caption')
+            $('#bp-shell-home-window .bp-shell-caption-with-footer')
                 .css('padding-top', 0.618 * (module_State.section_height - footer_height) + 'px');
+            */
             break;
 
         case 'browse':
             break;
 
         case 'connect':
+            /*
             footer_height = parseInt($('#bp-shell-connect .bp-shell-footer-content').css('height'));
             $('#bp-shell-connect-connect')
                 .css('height', module_State.section_height - footer_height + 'px');
+            */
             break;
 
         case 'news':
