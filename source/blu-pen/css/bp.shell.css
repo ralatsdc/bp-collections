@@ -90,6 +90,11 @@ div#bp-shell-home-number {
     fill: #1AB6E5;
 }
 
+#bp-shell-news img {
+    max-width: 100%;
+    height: auto;
+}
+
 .bp-shell-footer-content {
     background-color: gray;
 }

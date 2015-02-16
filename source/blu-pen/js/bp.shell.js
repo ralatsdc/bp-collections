@@ -71,6 +71,7 @@ bp.shell = (function () {
     module_State = {
         jq_containers: {},
         uri_anchor: {},
+        window_width: undefined,
         window_height: undefined,
         header_height: undefined,
         section_height: undefined,
@@ -82,7 +83,7 @@ bp.shell = (function () {
     init_Header,
     init_Body,
 
-    set_Window_Height,
+    set_Window_Dimensions,
     set_Header_Height,
     set_Section_Height,
     set_Footer_Height,
@@ -173,7 +174,7 @@ bp.shell = (function () {
 
     init_Header = function () {
 
-        set_Window_Height();
+        set_Window_Dimensions();
 
         module_State.jq_containers.header_fixed =
             module_State.jq_containers.main
@@ -268,13 +269,13 @@ bp.shell = (function () {
         $(window).bind('resize', on_Resize);
     };
 
-    set_Window_Height = function () {
+    set_Window_Dimensions = function () {
         var
         w = window,
         d = document,
         e = d.documentElement,
         g = d.getElementsByTagName('body')[0];
-        // width = w.innerWidth || e.clientWidth || g.clientWidth;
+        module_State.window_width = w.innerWidth || e.clientWidth || g.clientWidth;
         module_State.window_height = w.innerHeight|| e.clientHeight|| g.clientHeight;
     };
 
@@ -840,7 +841,7 @@ bp.shell = (function () {
     };
 
     on_Resize = function () {
-        set_Window_Height();
+        set_Window_Dimensions();
         set_Header_Height();
         set_Section_Height();
         set_Footer_Height();
@@ -905,14 +906,15 @@ bp.shell = (function () {
                 case 'bones':
                     $('#' + section_id + ' .bp-shell-paging-minor')
                         .css('height', parseInt($('#' + section_id + ' .bp-shell-paging-minor svg').css('height')));
-
                     paging_height = 
                         module_State.section_height -
                         parseInt($('#' + section_id + ' .bp-shell-caption-without-footer').css('padding-top')) -
                         parseInt($('#' + section_id + ' .bp-shell-caption-without-footer').css('height')) -
                         parseInt($('#' + section_id + ' .bp-shell-paging-minor').css('height')) -
-                        module_Config.paging_minor_bottom + 
-                        parseInt($('#' + section_id + ' p').css('margin-bottom'));
+                        module_Config.paging_minor_bottom;
+                    if (module_State.window_width > 767) {
+                        paging_height += parseInt($('#' + section_id + ' p').css('margin-bottom'));
+                    }
                     $('#' + section_id + ' .bp-shell-paging-minor').css('padding-top', paging_height + 'px');
                     break;
 
@@ -924,10 +926,18 @@ bp.shell = (function () {
                         .css('height', parseInt($('#' + section_id + ' .bp-shell-paging-minor svg').css('height')));
                     paging_height = 
                         module_State.section_height -
-                        parseInt($('#' + section_id + ' .bp-shell-section-spacer').css('padding-top')) -
-                        Math.max(parseInt($('#bp-shell-' + section_name + '-content').css('height')),
-                                 parseInt($('#bp-shell-' + section_name + '-navigation').css('height'))) -
-                        parseInt($('#' + section_id + ' .bp-shell-paging-minor svg').css('height')) - 
+                        parseInt($('#' + section_id + ' .bp-shell-section-spacer').css('padding-top'));
+                    if (module_State.window_width > 767) {
+                        paging_height -= 
+                            Math.max(parseInt($('#bp-shell-' + section_name + '-content').css('height')),
+                                     parseInt($('#bp-shell-' + section_name + '-navigation').css('height')));
+                    } else {
+                        paging_height -= 
+                            parseInt($('#bp-shell-' + section_name + '-content').css('height')) +
+                            parseInt($('#bp-shell-' + section_name + '-navigation').css('height'));
+                    }
+                    paging_height -= 
+                        parseInt($('#' + section_id + ' .bp-shell-paging-minor svg').css('height')) +
                         module_Config.paging_minor_bottom;
                     $('#' + section_id + ' .bp-shell-paging-minor').css('padding-top', paging_height + 'px');
                     break;
