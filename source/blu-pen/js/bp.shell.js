@@ -276,7 +276,6 @@ bp.shell = (function () {
         g = d.getElementsByTagName('body')[0];
         // width = w.innerWidth || e.clientWidth || g.clientWidth;
         module_State.window_height = w.innerHeight|| e.clientHeight|| g.clientHeight;
-        // console.log(module_State.window_height);
     };
 
     set_Header_Height = function () {
@@ -284,31 +283,22 @@ bp.shell = (function () {
             parseInt(module_State.jq_containers.header_content.css('height')) +
             parseInt(module_State.jq_containers.header_content.css('margin-top')) +
             parseInt(module_State.jq_containers.header_content.css('margin-bottom'));
-        // console.log(module_State.header_height);
     };
 
     set_Section_Height = function () {
         module_State.section_height =
             module_State.window_height -
             module_State.header_height;
-        // console.log(module_State.section_height);
     };
 
     set_Footer_Height = function () {
         var footer_height;
         $('div.bp-shell-footer-content').each(function () {
             footer_height = parseInt($(this).css('height'));
-            // console.log(footer_height);
             if (footer_height > 0) {
                 module_State.footer_height = footer_height;
             }
         });
-        /*
-        if (module_State.footer_height === undefined) {
-            module_State.footer_height = 0;
-        }
-        */
-        // console.log('final: ' + module_State.footer_height);
     };
 
     create_Body = function (page_name) {
@@ -710,16 +700,9 @@ bp.shell = (function () {
             jq_page = module_State.jq_containers[page_name];
 
             jq_page.fadeIn('slow', function () {
-                /*
-                console.log(parseInt($('#bp-shell-home .bp-shell-footer-content').css('height')));
-                console.log(parseInt($('#bp-shell-browse .bp-shell-footer-content').css('height')));
-                console.log(parseInt($('#bp-shell-news .bp-shell-footer-content').css('height')));
-                console.log(parseInt($('#bp-shell-connect .bp-shell-footer-content').css('height')));
-                */
                 if (module_State.scroll_element === undefined) {
                     module_State.scroll_element = get_Scroll_Element();
                 }
-                // console.log(module_State.scroll_element);
                 on_Resize();
             });
 
@@ -746,33 +729,33 @@ bp.shell = (function () {
 
     get_Scroll_Element = function () {
 
-        // if missing doctype (quirks mode) then will always use 'body'
+        /* If missing doctype (quirks mode) then will always use 'body' */
         if ( document.compatMode !== 'CSS1Compat' ) {
             return 'body';
         }
 
-        // if there's a doctype (and your page should)
-        // most browsers will support the scrollTop property on EITHER html OR body
-        // we'll have to do a quick test to detect which one...
+        /* If there's a doctype (and your page should) most browsers
+        will support the scrollTop property on EITHER html OR body
+        we'll have to do a quick test to detect which one... */
         var html = document.documentElement;
         var body = document.body;
 
-        // get our starting position. 
-        // pageYOffset works for all browsers except IE8 and below
+        /* Get our starting position. pageYOffset works for all
+        browsers except IE8 and below. */
         var startingY = window.pageYOffset || body.scrollTop || html.scrollTop;
 
-        // scroll the window down by 1px (scrollTo works in all browsers)
+        /* Scroll the window down by 1px (scrollTo works in all
+        browsers) */
         var newY = startingY + 1;
         window.scrollTo(0, newY);
 
-        // And check which property changed
-        // FF and IE use only html. Safari uses only body.
-        // Chrome has values for both, but says 
-        // body.scrollTop is deprecated when in Strict mode.,
-        // so let's check for html first.
+        /* And check which property changed. FF and IE use only
+         html. Safari uses only body. Chrome has values for both, but
+         says body.scrollTop is deprecated when in Strict mode, so
+         let's check for html first. */
         var element = ( html.scrollTop === newY ) ? 'html' : 'body';
 
-        // now reset back to the starting position
+        /* Now reset back to the starting position */
         window.scrollTo(0, startingY);
 
         return element;
@@ -861,8 +844,6 @@ bp.shell = (function () {
         set_Header_Height();
         set_Section_Height();
         set_Footer_Height();
-
-        // module_State.footer_height = 0;
 
         $('#bp-shell-body-spacer')
             .css('height', module_State.header_height + 'px');
