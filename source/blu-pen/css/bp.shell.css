@@ -46,7 +46,7 @@
 }
 
 div#bp-shell-body-spacer p,
-div#bp-shell-sction-spacer p {
+div#bp-shell-section-spacer p {
     margin: 0;
 }
 
@@ -58,7 +58,11 @@ div#bp-shell-home-number {
     color: #1AB6E5;
 }
 
-.bp-shell-caption * {
+.bp-shell-caption-without-footer * {
+    color: white;
+}
+
+.bp-shell-caption-with-footer * {
     color: white;
 }
 

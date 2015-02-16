@@ -860,14 +860,12 @@ bp.shell = (function () {
         $('.bp-shell-caption-with-footer')
             .css('padding-top', 0.618 * (module_State.section_height - module_State.footer_height) + 'px');
 
-        // TODO: There has got to be a better way...
         var
-        page_name = module_State.uri_anchor.page_name;
-        // section_names = module_Config.section_names[page_name];
+        page_name = module_State.uri_anchor.page_name,
+        section_names = module_Config.section_names[page_name];
         switch(page_name) {
         case 'home':
-            
-            /*
+
             for (var i_s = 0; i_s < section_names.length; i_s += 1) {
                 var
                 section_name = section_names[i_s],
@@ -880,9 +878,9 @@ bp.shell = (function () {
                         .css('height', parseInt($('#' + section_id + ' .bp-shell-paging-major svg').css('height')));
                     paging_height = 
                         module_State.section_height -
-                        parseInt($('#' + section_id + ' .bp-shell-content').css('padding-top')) -
+                        parseInt($('#' + section_id + ' .bp-shell-section-spacer').css('padding-top')) -
                         parseInt($('#' + section_id + ' .bp-shell-content').css('height')) -
-                        parseInt($('#' + section_id + ' .bp-shell-content p').css('margin-bottom')) -
+                        parseInt($('#' + section_id + ' .bp-shell-content p:last').css('margin-bottom')) -
                         parseInt($('#' + section_id + ' .bp-shell-paging-major svg').css('height')) - 
                         module_Config.paging_major_bottom;
                     $('#' + section_id + ' .bp-shell-paging-major').css('padding-top', paging_height + 'px');
@@ -893,9 +891,9 @@ bp.shell = (function () {
                         .css('height', parseInt($('#' + section_id + ' .bp-shell-paging-minor svg').css('height')));
                     paging_height = 
                         module_State.section_height -
-                        parseInt($('#' + section_id + ' .bp-shell-content').css('padding-top')) -
+                        parseInt($('#' + section_id + ' .bp-shell-section-spacer').css('padding-top')) -
                         parseInt($('#' + section_id + ' .bp-shell-content').css('height')) -
-                        parseInt($('#' + section_id + ' .bp-shell-content p').css('margin-bottom')) -
+                        parseInt($('#' + section_id + ' .bp-shell-content p:last').css('margin-bottom')) -
                         parseInt($('#' + section_id + ' .bp-shell-paging-minor svg').css('height')) - 
                         module_Config.paging_minor_bottom;
                     $('#' + section_id + ' .bp-shell-paging-minor').css('padding-top', paging_height + 'px');
@@ -907,13 +905,14 @@ bp.shell = (function () {
                 case 'bones':
                     $('#' + section_id + ' .bp-shell-paging-minor')
                         .css('height', parseInt($('#' + section_id + ' .bp-shell-paging-minor svg').css('height')));
+
                     paging_height = 
                         module_State.section_height -
-                        parseInt($('#' + section_id + ' .bp-shell-caption').css('padding-top')) -
-                        parseInt($('#' + section_id + ' .bp-shell-caption').css('height')) -
-                        parseInt($('#' + section_id + ' .bp-shell-caption h3').css('margin-bottom')) -
-                        parseInt($('#' + section_id + ' .bp-shell-paging-minor svg').css('height')) -
-                        module_Config.paging_minor_bottom;
+                        parseInt($('#' + section_id + ' .bp-shell-caption-without-footer').css('padding-top')) -
+                        parseInt($('#' + section_id + ' .bp-shell-caption-without-footer').css('height')) -
+                        parseInt($('#' + section_id + ' .bp-shell-paging-minor').css('height')) -
+                        module_Config.paging_minor_bottom + 
+                        parseInt($('#' + section_id + ' p').css('margin-bottom'));
                     $('#' + section_id + ' .bp-shell-paging-minor').css('padding-top', paging_height + 'px');
                     break;
 
@@ -925,44 +924,24 @@ bp.shell = (function () {
                         .css('height', parseInt($('#' + section_id + ' .bp-shell-paging-minor svg').css('height')));
                     paging_height = 
                         module_State.section_height -
-                        parseInt($('#' + section_id + ' .bp-shell-navigation').css('padding-top')) -
-                        parseInt($('#' + section_id + ' .bp-shell-navigation').css('height')) -
+                        parseInt($('#' + section_id + ' .bp-shell-section-spacer').css('padding-top')) -
+                        Math.max(parseInt($('#bp-shell-' + section_name + '-content').css('height')),
+                                 parseInt($('#bp-shell-' + section_name + '-navigation').css('height'))) -
                         parseInt($('#' + section_id + ' .bp-shell-paging-minor svg').css('height')) - 
                         module_Config.paging_minor_bottom;
                     $('#' + section_id + ' .bp-shell-paging-minor').css('padding-top', paging_height + 'px');
                     break;
 
                 case 'window':
-                    // TODO: Fix this
-                    footer_height = 99; // parseInt($('#bp-shell-home .bp-shell-footer-content').css('height'));
-                    $('#bp-shell-home-window')
-                        .css('height', module_State.section_height - footer_height + 'px');
-                    $('#bp-shell-home-window .bp-shell-caption')
-                        .css('padding-top', 0.618 * (module_State.section_height - footer_height) + 'px');
                     break;
 
                 default:
                 }
             }
-            var footer_height = parseInt($('#bp-shell-home .bp-shell-footer-content').css('height'));
-            $('#bp-shell-home-window')
-                .css('height', module_State.section_height - footer_height + 'px');
-            $('#bp-shell-home-window .bp-shell-caption-with-footer')
-                .css('padding-top', 0.618 * (module_State.section_height - footer_height) + 'px');
-            */
             break;
 
         case 'browse':
-            break;
-
         case 'connect':
-            /*
-            footer_height = parseInt($('#bp-shell-connect .bp-shell-footer-content').css('height'));
-            $('#bp-shell-connect-connect')
-                .css('height', module_State.section_height - footer_height + 'px');
-            */
-            break;
-
         case 'news':
             break;
 
