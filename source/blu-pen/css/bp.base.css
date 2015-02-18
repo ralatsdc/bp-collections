@@ -20,6 +20,14 @@ body {
     color: #292929;
 }
 
+.inline {
+    display: inline;
+}
+
+.newline {
+    clear: left;
+}
+    
 .centered {
     text-align: center;
     display: block;

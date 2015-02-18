@@ -40,26 +40,34 @@ p { margin: 0 0 20px 0; }
 p img { margin: 0; }
 p.lead { font-size: 21px; line-height: 27px; color: #777;  }
 
-#bp-shell-header-logo svg,
-#bp-shell-header-navigation svg {
+#bp-shell-header-logo svg {
     height: 25px;
 }
+
+.bp-shell-share-on-flickr svg,
+.bp-shell-share-on-tumblr svg,
+.bp-shell-share-on-twitter svg,
+.bp-shell-share-by-email svg {
+    height: 25px;
+}
+
 .bp-shell-section-spacer {
     padding-top: 100px;
 }
-.bp-shell-navigation svg,
-.bp-shell-navigation img,
-.bp-shell-collection svg {
+
+#bp-shell-tame-image svg,
+#bp-shell-eliminate-image svg,
+img#bp-shell-preserve-image,
+#bp-shell-less-image svg {
     height: 300px;
 }
+
 .bp-shell-paging-major svg {
     height: 50px;
 }
+
 .bp-shell-paging-minor svg {
     height: 50px;
-}
-.bp-shell-footer-content svg {
-    height: 25px;
 }
 
 /* #Tablet (Portrait)
@@ -93,26 +101,35 @@ p.lead { font-size: 21px; line-height: 27px; color: #777;  }
     p img { margin: 0; }
     p.lead { font-size: 17px; line-height: 21px; color: #777;  }
 
-    /* 20    79   238    40    40    20 */
+    /* 20    20    79   238    40    40 */
     #bp-shell-header-logo svg {
         height: 20px;
     }
+
+    .bp-shell-share-on-flickr svg,
+    .bp-shell-share-on-tumblr svg,
+    .bp-shell-share-on-twitter svg,
+    .bp-shell-share-by-email svg {
+        height: 20px;
+    }
+
     .bp-shell-section-spacer {
         padding-top: 79px;
     }
-    .bp-shell-navigation svg,
-    .bp-shell-navigation img, 
-    .bp-shell-collection svg {
+
+    #bp-shell-tame-image svg,
+    #bp-shell-eliminate-image svg,
+    img#bp-shell-preserve-image,
+    #bp-shell-less-image svg {
         height: 238px;
     }
+
     .bp-shell-paging-major svg {
         height: 40px;
     }
+
     .bp-shell-paging-minor svg {
         height: 40px;
-    }
-    .bp-shell-footer-content svg {
-        height: 20px;
     }
 }
 
@@ -147,27 +164,35 @@ p.lead { font-size: 21px; line-height: 27px; color: #777;  }
     p img { margin: 0; }
     p.lead { font-size: 10px; line-height: 13px; color: #777;  }
 
-    /* 12    48   145    24    24    12 */
-    #bp-shell-header-logo svg,
-    #bp-shell-header-navigation svg {
+    /* 12    12    48   145    24    24 */
+    #bp-shell-header-logo svg {
         height: 12px;
     }
+
+    .bp-shell-share-on-flickr svg,
+    .bp-shell-share-on-tumblr svg,
+    .bp-shell-share-on-twitter svg,
+    .bp-shell-share-by-email svg {
+        height: 12px;
+    }
+
     .bp-shell-section-spacer {
         padding-top: 48px;
     }
-    .bp-shell-navigation svg,
-    .bp-shell-navigation img, 
-    .bp-shell-collection svg {
+
+    #bp-shell-tame-image svg,
+    #bp-shell-eliminate-image svg,
+    img#bp-shell-preserve-image,
+    #bp-shell-less-image svg {
         height: 145px;
     }
+
     .bp-shell-paging-major svg {
         height: 24px;
     }
+
     .bp-shell-paging-minor svg {
         height: 24px;
-    }
-    .bp-shell-footer-content svg {
-        height: 12px;
     }
 }
 
@@ -202,26 +227,34 @@ p.lead { font-size: 21px; line-height: 27px; color: #777;  }
     p img { margin: 0; }
     p.lead { font-size: 14px; line-height: 18px; color: #777;  }
 
-    /* 17    68   203    34    34    17 */
-    #bp-shell-header-logo svg,
-    #bp-shell-header-navigation svg {
+    /* 17    17    68   203    34    34 */
+    #bp-shell-header-logo svg {
         height: 17px;
     }
+
+    .bp-shell-share-on-flickr svg,
+    .bp-shell-share-on-tumblr svg,
+    .bp-shell-share-on-twitter svg,
+    .bp-shell-share-by-email svg {
+        height: 17px;
+    }
+
     .bp-shell-section-spacer {
         padding-top: 68px;
     }
-    .bp-shell-navigation svg,
-    .bp-shell-navigation img, 
-    .bp-shell-collection svg {
+
+    #bp-shell-tame-image svg,
+    #bp-shell-eliminate-image svg,
+    img#bp-shell-preserve-image,
+    #bp-shell-less-image svg {
         height: 203px;
     }
+
     .bp-shell-paging-major svg {
         height: 34px;
     }
+
     .bp-shell-paging-minor svg {
         height: 34px;
-    }
-    .bp-shell-footer-content svg {
-        height: 17px;
     }
 }

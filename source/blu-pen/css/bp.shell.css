@@ -13,6 +13,10 @@
     background-color: gray;
 }
 
+#bp-shell-header-content div {
+    margin-bottom: 0px;
+}
+
 #bp-shell-header-logo svg {
     stroke: white;
     fill: white;
@@ -24,21 +28,8 @@
     fill: #1AB6E5;
 }
 
-#bp-shell-header-content div {
-    margin-bottom: 0px;
-}
-
 #bp-shell-header-navigation * {
     color: white;
-}
-
-#bp-shell-header-navigation svg rect {
-    fill: gray;
-}
-
-#bp-shell-header-navigation svg:hover ellipse,
-#bp-shell-header-navigation svg:hover path {
-    fill: #1AB6E5;
 }
 
 #bp-shell-header-navigation *:hover {
@@ -50,12 +41,28 @@ div#bp-shell-section-spacer p {
     margin: 0;
 }
 
-div#bp-shell-home-number {
-    background-color: #F0F0F0;
+.bp-shell-white-on-gray svg rect {
+    fill: gray;
 }
 
-.bp-shell-navigation h5:hover {
-    color: #1AB6E5;
+.bp-shell-black-on-gray svg rect {
+    fill: #F0F0F0;
+}
+
+.bp-shell-black-on-gray svg path {
+    fill: black;
+}
+
+.bp-shell-black-on-white svg rect {
+    fill: white;
+}
+
+.bp-shell-black-on-white svg path {
+    fill: black;
+}
+
+div#bp-shell-home-number {
+    background-color: #F0F0F0;
 }
 
 .bp-shell-caption-without-footer * {
@@ -64,6 +71,19 @@ div#bp-shell-home-number {
 
 .bp-shell-caption-with-footer * {
     color: white;
+}
+
+.bp-shell-share-on-flickr svg:hover ellipse,
+.bp-shell-share-on-tumblr svg:hover path,
+.bp-shell-share-on-twitter svg:hover path,
+.bp-shell-share-by-email svg:hover path,
+.bp-shell-collection svg:hover tspan {
+    fill: #1AB6E5;
+}
+
+#bp-shell-news img {
+    max-width: 100%;
+    height: auto;
 }
 
 .bp-shell-paging-major svg circle {
@@ -86,15 +106,6 @@ div#bp-shell-home-number {
     fill: #1AB6E5;
 }
 
-.bp-shell-collection svg:hover tspan {
-    fill: #1AB6E5;
-}
-
-#bp-shell-news img {
-    max-width: 100%;
-    height: auto;
-}
-
 .bp-shell-footer-content {
     background-color: gray;
 }
@@ -105,22 +116,4 @@ div#bp-shell-home-number {
 
 .bp-shell-footer-content * {
     color: white;
-}
-
-.bp-shell-footer-content svg rect {
-    fill: gray;
-}
-
-.bp-shell-footer-content svg:hover ellipse,
-.bp-shell-footer-content svg:hover path {
-    fill: #1AB6E5;
-}
-
-.bp-shell-footer-content *:hover {
-    color: #1AB6E5;
-}
-
-span.bp-shell-footer-nav-to-browse:hover,
-span#bp-shell-connect-nav-to-email:hover {
-    color: #1AB6E5;
 }

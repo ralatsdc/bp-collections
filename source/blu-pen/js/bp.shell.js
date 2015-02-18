@@ -147,21 +147,33 @@ bp.shell = (function () {
             .addClass('bp-shell-footer-content')
             .load('html/bp-shell-footer.html', function () {
                 jq_page
-                    .find('.bp-shell-footer-nav-to-tumblr')
+                    .find('.bp-shell-share-on-flickr')
+                    .load('img/bp-logo-flickr-square.svg')
+                    .end()
+
+                    .find('.bp-shell-share-on-tumblr')
                     .load('img/bp-logo-tumblr-square.svg')
                     .end()
 
-                    .find('.bp-shell-footer-nav-to-twitter')
+                    .find('.bp-shell-share-on-twitter')
                     .load('img/bp-logo-twitter-square.svg')
                     .end()
 
-                    .find('.bp-shell-footer-nav-to-email')
+                    .find('.bp-shell-share-by-email')
                     .click(send_Message)
                     .load('img/bp-logo-email-square.svg')
                     .end()
 
-                    .find('.bp-shell-footer-nav-to-browse')
+                    .find('.bp-shell-nav-to-browse')
                     .click({page_name: 'browse'}, present_Page)
+                    .end()
+                
+                    .find('.bp-shell-nav-to-news')
+                    .click({page_name: 'news'}, present_Page)
+                    .end()
+                
+                    .find('.bp-shell-nav-to-connect')
+                    .click({page_name: 'connect'}, present_Page)
                     .end();
                 
                 do_Callback(callback, data);
@@ -205,6 +217,35 @@ bp.shell = (function () {
                     .addClass('two-thirds column opensansbold')
                     .load('html/bp-shell-header-navigation.html', function () {
                         module_State.jq_containers.header_content
+                            .find('.bp-shell-share-on-flickr')
+                            .load('img/bp-logo-flickr-square.svg')
+                            .end()
+
+                            .find('.bp-shell-share-on-tumblr')
+                            .load('img/bp-logo-tumblr-square.svg')
+                            .end()
+
+                            .find('.bp-shell-share-on-twitter')
+                            .load('img/bp-logo-twitter-square.svg')
+                            .end()
+
+                            .find('.bp-shell-share-by-email')
+                            .click(send_Message)
+                            .load('img/bp-logo-email-square.svg')
+                            .end()
+
+                            .find('.bp-shell-nav-to-browse')
+                            .click({page_name: 'browse'}, present_Page)
+                            .end()
+                
+                            .find('.bp-shell-nav-to-news')
+                            .click({page_name: 'news'}, present_Page)
+                            .end()
+                
+                            .find('.bp-shell-nav-to-connect')
+                            .click({page_name: 'connect'}, present_Page)
+                            .end();
+                        /*
                             .find('#bp-shell-header-nav-to-browse')
                             .click({page_name: 'browse'}, present_Page)
                             .end()
@@ -233,7 +274,7 @@ bp.shell = (function () {
                             .click(send_Message)
                             .load('img/bp-logo-email-square.svg')
                             .end();
-
+                        */
                         set_Header_Height();
 
                         init_Body();
@@ -481,10 +522,12 @@ bp.shell = (function () {
                 case 'connect':
                     createFooter(jq_page, function () {
                         jq_section
-                            .addClass('bp-shell-section-with-footer')
+                            .addClass('bp-shell-section-with-footer');
+                        /*
                             .find('#bp-shell-connect-nav-to-email')
                             .click(send_Message)
                             .end();
+                        */
                         on_Resize();
                         do_Callback(callback, data);
                     });
@@ -586,18 +629,21 @@ bp.shell = (function () {
                             jq_section
                                 .find('#bp-shell-tame-image')
                                 .load('img/cc-cover-car.svg')
-                                .end()
-
+                                .end();
+                            /*
                                 .find('#bp-shell-tame-nav-to-browse')
                                 .click({page_name: 'browse'}, present_Page)
                                 .end();
+                            */
                             break;
 
                         case 'preserve':
+                            /*
                             jq_section
                                 .find('#bp-shell-preserve-nav-to-browse')
                                 .click({page_name: 'browse'}, present_Page)
                                 .end();
+                            */
                             break;
                                 
                         default:
@@ -641,10 +687,12 @@ bp.shell = (function () {
                 case 'eliminate':
                     cc.force.initModule('trust');
                     cc.force.presentForce('trust');
+                    /*
                     jq_section
                         .find('#bp-shell-eliminate-nav-to-browse')
                         .click({page_name: 'browse'}, present_Page)
                         .end();
+                    */
                     break;
 
 
@@ -652,11 +700,12 @@ bp.shell = (function () {
                     jq_section
                         .find('#bp-shell-less-image')
                         .load('img/cc-cover-japan.svg')
-                        .end()
-
+                        .end();
+                    /*
                         .find('#bp-shell-less-nav-to-browse')
                         .click({page_name: 'browse'}, present_Page)
                         .end();
+                    */
                     break;
 
                 default:
@@ -704,6 +753,7 @@ bp.shell = (function () {
                 if (module_State.scroll_element === undefined) {
                     module_State.scroll_element = get_Scroll_Element();
                 }
+                $(module_State.scroll_element).scrollTop(0);
                 on_Resize();
             });
 
@@ -881,7 +931,7 @@ bp.shell = (function () {
                         module_State.section_height -
                         parseInt($('#' + section_id + ' .bp-shell-section-spacer').css('padding-top')) -
                         parseInt($('#' + section_id + ' .bp-shell-content').css('height')) -
-                        parseInt($('#' + section_id + ' .bp-shell-content p:last').css('margin-bottom')) -
+                        // parseInt($('#' + section_id + ' .bp-shell-content p:last').css('margin-bottom')) -
                         parseInt($('#' + section_id + ' .bp-shell-paging-major svg').css('height')) - 
                         module_Config.paging_major_bottom;
                     $('#' + section_id + ' .bp-shell-paging-major').css('padding-top', paging_height + 'px');
