@@ -402,6 +402,22 @@ bp.shell = (function () {
                 switch (section_name) {
                 case 'number':
                     jq_section
+                        .find('a.bp-shell-share-on-tumblr')
+                        .attr('href',
+                              'http://www.tumblr.com/share/link?url=' +
+                              encodeURIComponent('http://localhost:8080/blu-pen/home.html') +
+                              '&name=' + encodeURIComponent('Blu Pen') +
+                              '&description=' + encodeURIComponent('Content is flooding the Internet'))
+                        .end()
+
+                        .find('a.bp-shell-share-on-twitter')
+                        .attr('href',
+                              'https://twitter.com/share?url=' +
+                              encodeURIComponent('http://localhost:8080/blu-pen/home.html') +
+                              '&via=' + encodeURIComponent('blu_pen') +
+                              '&text=' + encodeURIComponent('Content is flooding the Internet'))
+
+                        .end()
                         .addClass('bp-shell-section-without-footer')
                         .append('<div></div>')
                         .find('div:last')
@@ -445,7 +461,15 @@ bp.shell = (function () {
                               'http://www.tumblr.com/share/link?url=' +
                               encodeURIComponent('http://localhost:8080/blu-pen/browse.html') +
                               '&name=' + encodeURIComponent('Blu Pen') +
-                              '&description=' + encodeURIComponent('The Crisis Collection &mdash; One'))
+                              '&description=' + encodeURIComponent('The Crisis Collection \u2014 One'))
+                        .end()
+
+                        .find('div.bp-shell-content a.bp-shell-share-on-twitter')
+                        .attr('href',
+                              'https://twitter.com/share?url=' +
+                              encodeURIComponent('http://localhost:8080/blu-pen/browse.html') +
+                              '&via=' + encodeURIComponent('blu_pen') +
+                              '&text=' + encodeURIComponent('The Crisis Collection \u2014 One'))
                         .end()
 
                         .find('#bp-shell-collection-source-car')
@@ -460,7 +484,15 @@ bp.shell = (function () {
                               'http://www.tumblr.com/share/link?url=' +
                               encodeURIComponent('http://localhost:8080/crisis-countries/car.html') +
                               '&name=' + encodeURIComponent('Blu Pen') +
-                              '&description=' + encodeURIComponent('CAR &mdash; A Visual Collection'))
+                              '&description=' + encodeURIComponent('CAR \u2014 A Visual Collection'))
+                        .end()
+
+                        .find('div#bp-shell-collection-share-car a.bp-shell-share-on-twitter')
+                        .attr('href',
+                              'https://twitter.com/share?url=' +
+                              encodeURIComponent('http://localhost:8080/crisis-countries/car.html') +
+                              '&via=' + encodeURIComponent('blu_pen') +
+                              '&text=' + encodeURIComponent('CAR \u2014 A Visual Collection'))
                         .end()
 
                         .find('#bp-shell-collection-source-haiti')
@@ -475,7 +507,15 @@ bp.shell = (function () {
                               'http://www.tumblr.com/share/link?url=' +
                               encodeURIComponent('http://localhost:8080/crisis-countries/haiti.html') +
                               '&name=' + encodeURIComponent('Blu Pen') +
-                              '&description=' + encodeURIComponent('Haiti &mdash; A Visual Collection'))
+                              '&description=' + encodeURIComponent('Haiti \u2014 A Visual Collection'))
+                        .end()
+
+                        .find('div#bp-shell-collection-share-haiti a.bp-shell-share-on-twitter')
+                        .attr('href',
+                              'https://twitter.com/share?url=' +
+                              encodeURIComponent('http://localhost:8080/crisis-countries/haiti.html') +
+                              '&via=' + encodeURIComponent('blu_pen') +
+                              '&text=' + encodeURIComponent('Haiti \u2014 A Visual Collection'))
                         .end()
 
                         .find('#bp-shell-collection-source-japan')
@@ -490,7 +530,15 @@ bp.shell = (function () {
                               'http://www.tumblr.com/share/link?url=' +
                               encodeURIComponent('http://localhost:8080/crisis-countries/japan.html') +
                               '&name=' + encodeURIComponent('Blu Pen') +
-                              '&description=' + encodeURIComponent('Japan &mdash; A Visual Collection'))
+                              '&description=' + encodeURIComponent('Japan \u2014 A Visual Collection'))
+                        .end()
+
+                        .find('div#bp-shell-collection-share-japan a.bp-shell-share-on-twitter')
+                        .attr('href',
+                              'https://twitter.com/share?url=' +
+                              encodeURIComponent('http://localhost:8080/crisis-countries/japan.html') +
+                              '&via=' + encodeURIComponent('blu_pen') +
+                              '&text=' + encodeURIComponent('Japan \u2014 A Visual Collection'))
                         .end()
 
                         .find('#bp-shell-collection-source-philippines')
@@ -505,7 +553,15 @@ bp.shell = (function () {
                               'http://www.tumblr.com/share/link?url=' +
                               encodeURIComponent('http://localhost:8080/crisis-countries/philippines.html') +
                               '&name=' + encodeURIComponent('Blu Pen') +
-                              '&description=' + encodeURIComponent('Philippines &mdash; A Visual Collection'))
+                              '&description=' + encodeURIComponent('Philippines \u2014 A Visual Collection'))
+                        .end()
+
+                        .find('div#bp-shell-collection-share-philippines a.bp-shell-share-on-twitter')
+                        .attr('href',
+                              'https://twitter.com/share?url=' +
+                              encodeURIComponent('http://localhost:8080/crisis-countries/philippines.html') +
+                              '&via=' + encodeURIComponent('blu_pen') +
+                              '&text=' + encodeURIComponent('Philipinnes \u2014 A Visual Collection'))
                         .end()
 
                         .find('#bp-shell-collection-source-south-sudan')
@@ -520,7 +576,15 @@ bp.shell = (function () {
                               'http://www.tumblr.com/share/link?url=' +
                               encodeURIComponent('http://localhost:8080/crisis-countries/south-sudan.html') +
                               '&name=' + encodeURIComponent('Blu Pen') +
-                              '&description=' + encodeURIComponent('South Sudan &mdash; A Visual Collection'))
+                              '&description=' + encodeURIComponent('South Sudan \u2014 A Visual Collection'))
+                        .end()
+
+                        .find('div#bp-shell-collection-share-south-sudan a.bp-shell-share-on-twitter')
+                        .attr('href',
+                              'https://twitter.com/share?url=' +
+                              encodeURIComponent('http://localhost:8080/crisis-countries/south-sudan.html') +
+                              '&via=' + encodeURIComponent('blu_pen') +
+                              '&text=' + encodeURIComponent('South Sudan \u2014 A Visual Collection'))
                         .end()
 
                         .find('#bp-shell-collection-source-syria')
@@ -535,7 +599,15 @@ bp.shell = (function () {
                               'http://www.tumblr.com/share/link?url=' +
                               encodeURIComponent('http://localhost:8080/crisis-countries/syria.html') +
                               '&name=' + encodeURIComponent('Blu Pen') +
-                              '&description=' + encodeURIComponent('Syria &mdash; A Visual Collection'))
+                              '&description=' + encodeURIComponent('Syria \u2014 A Visual Collection'))
+                        .end()
+
+                        .find('div#bp-shell-collection-share-syria a.bp-shell-share-on-twitter')
+                        .attr('href',
+                              'https://twitter.com/share?url=' +
+                              encodeURIComponent('http://localhost:8080/crisis-countries/syria.html') +
+                              '&via=' + encodeURIComponent('blu_pen') +
+                              '&text=' + encodeURIComponent('Syria \u2014 A Visual Collection'))
                         .end()
 
                         .find('#bp-shell-collection-source-zimbabwe')
@@ -550,7 +622,15 @@ bp.shell = (function () {
                               'http://www.tumblr.com/share/link?url=' +
                               encodeURIComponent('http://localhost:8080/crisis-countries/zimbabwe.html') +
                               '&name=' + encodeURIComponent('Blu Pen') +
-                              '&description=' + encodeURIComponent('Zimbabwe &mdash; A Visual Collection'))
+                              '&description=' + encodeURIComponent('Zimbabwe \u2014 A Visual Collection'))
+                        .end()
+
+                        .find('div#bp-shell-collection-share-zimbabwe a.bp-shell-share-on-twitter')
+                        .attr('href',
+                              'https://twitter.com/share?url=' +
+                              encodeURIComponent('http://localhost:8080/crisis-countries/zimbabwe.html') +
+                              '&via=' + encodeURIComponent('blu_pen') +
+                              '&text=' + encodeURIComponent('Zimbabwe \u2014 A Visual Collection'))
                         .end();
 
                     createFooter(jq_page, function () {
@@ -662,7 +742,15 @@ bp.shell = (function () {
                                   'http://www.tumblr.com/share/link?url=' +
                                   encodeURIComponent('http://localhost:8080/blu-pen/browse.html') +
                                   '&name=' + encodeURIComponent('Blu Pen') +
-                                  '&description=' + encodeURIComponent('The Crisis Collection &mdash; One'))
+                                  '&description=' + encodeURIComponent('The Crisis Collection \u2014 One'))
+                            .end()
+
+                            .find('a.bp-shell-share-on-twitter')
+                            .attr('href',
+                                  'https://twitter.com/share?url=' +
+                                  encodeURIComponent('http://localhost:8080/blu-pen/browse.html') +
+                                  '&via=' + encodeURIComponent('blu_pen') +
+                                  '&text=' + encodeURIComponent('The Crisis Collection \u2014 One'))
                             .end();
 
                         switch (section_name) {
@@ -719,7 +807,15 @@ bp.shell = (function () {
                           'http://www.tumblr.com/share/link?url=' +
                           encodeURIComponent('http://localhost:8080/blu-pen/browse.html') +
                           '&name=' + encodeURIComponent('Blu Pen') +
-                          '&description=' + encodeURIComponent('The Crisis Collection &mdash; One'))
+                          '&description=' + encodeURIComponent('The Crisis Collection \u2014 One'))
+                    .end()
+
+                    .find('a.bp-shell-share-on-twitter')
+                    .attr('href',
+                          'https://twitter.com/share?url=' +
+                          encodeURIComponent('http://localhost:8080/blu-pen/browse.html') +
+                          '&via=' + encodeURIComponent('blu_pen') +
+                          '&text=' + encodeURIComponent('The Crisis Collection \u2014 One'))
                     .end();
 
                 switch (section_name) {
