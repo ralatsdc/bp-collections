@@ -55,7 +55,7 @@ bp.shell = (function () {
         twitter_tweets_per_day: 500000000,
         tumblr_posts_per_day: 80000000,
         flickr_photos_per_day: 1830000,
-        mail_to: 'raymond.leclair@gmail.com',
+        mail_to: 'info@blu-pen.com',
         settable: {
             page_names: false,
             section_names: false,
@@ -162,8 +162,12 @@ bp.shell = (function () {
                     .end()
 
                     .find('.bp-shell-share-by-email')
-                    .click(send_Message)
                     .load('img/bp-logo-email-square.svg')
+                    .end()
+
+                    .find('.bp-shell-footer-content .bp-shell-share-by-email')
+                    .click({to: module_Config.mail_to,
+                            subject: 'Greetings!'}, send_Message)
                     .end()
 
                     .find('.bp-shell-nav-to-browse')
@@ -232,8 +236,9 @@ bp.shell = (function () {
                             .end()
 
                             .find('.bp-shell-share-by-email')
-                            .click(send_Message)
                             .load('img/bp-logo-email-square.svg')
+                            .click({to: module_Config.mail_to,
+                                    subject: 'Greetings!'}, send_Message)
                             .end()
 
                             .find('.bp-shell-nav-to-browse')
@@ -416,8 +421,13 @@ bp.shell = (function () {
                               encodeURIComponent('http://localhost:8080/blu-pen/home.html') +
                               '&via=' + encodeURIComponent('blu_pen') +
                               '&text=' + encodeURIComponent('Content is flooding the Internet'))
-
                         .end()
+
+                        .find('span.bp-shell-share-by-email')
+                        .click({subject: 'Blu Pen',
+                                body: 'Content is flooding the Internet'}, send_Message)
+                        .end()
+
                         .addClass('bp-shell-section-without-footer')
                         .append('<div></div>')
                         .find('div:last')
@@ -472,6 +482,11 @@ bp.shell = (function () {
                               '&text=' + encodeURIComponent('The Crisis Collection \u2014 One'))
                         .end()
 
+                        .find('div.bp-shell-content span.bp-shell-share-by-email')
+                        .click({subject: 'Blu Pen',
+                                body: 'The Crisis Collection \u2014 One'}, send_Message)
+                        .end()
+
                         .find('#bp-shell-collection-source-car')
                         .click(function () {
                             window.open('http://localhost:8080/crisis-countries/car.html');
@@ -493,6 +508,11 @@ bp.shell = (function () {
                               encodeURIComponent('http://localhost:8080/crisis-countries/car.html') +
                               '&via=' + encodeURIComponent('blu_pen') +
                               '&text=' + encodeURIComponent('CAR \u2014 A Visual Collection'))
+                        .end()
+
+                        .find('div#bp-shell-collection-share-car span.bp-shell-share-by-email')
+                        .click({subject: 'Blu Pen',
+                                body: 'CAR \u2014 A Visual Collection'}, send_Message)
                         .end()
 
                         .find('#bp-shell-collection-source-haiti')
@@ -518,6 +538,11 @@ bp.shell = (function () {
                               '&text=' + encodeURIComponent('Haiti \u2014 A Visual Collection'))
                         .end()
 
+                        .find('div#bp-shell-collection-share-haiti span.bp-shell-share-by-email')
+                        .click({subject: 'Blu Pen',
+                                body: 'Haiti \u2014 A Visual Collection'}, send_Message)
+                        .end()
+
                         .find('#bp-shell-collection-source-japan')
                         .click(function () {
                             window.open('http://localhost:8080/crisis-countries/japan.html');
@@ -541,6 +566,11 @@ bp.shell = (function () {
                               '&text=' + encodeURIComponent('Japan \u2014 A Visual Collection'))
                         .end()
 
+                        .find('div#bp-shell-collection-share-japan span.bp-shell-share-by-email')
+                        .click({subject: 'Blu Pen',
+                                body: 'Japan \u2014 A Visual Collection'}, send_Message)
+                        .end()
+
                         .find('#bp-shell-collection-source-philippines')
                         .click(function () {
                             window.open('http://localhost:8080/crisis-countries/philippines.html');
@@ -561,7 +591,12 @@ bp.shell = (function () {
                               'https://twitter.com/share?url=' +
                               encodeURIComponent('http://localhost:8080/crisis-countries/philippines.html') +
                               '&via=' + encodeURIComponent('blu_pen') +
-                              '&text=' + encodeURIComponent('Philipinnes \u2014 A Visual Collection'))
+                              '&text=' + encodeURIComponent('Philippines \u2014 A Visual Collection'))
+                        .end()
+
+                        .find('div#bp-shell-collection-share-philippines span.bp-shell-share-by-email')
+                        .click({subject: 'Blu Pen',
+                                body: 'Philippines \u2014 A Visual Collection'}, send_Message)
                         .end()
 
                         .find('#bp-shell-collection-source-south-sudan')
@@ -587,6 +622,11 @@ bp.shell = (function () {
                               '&text=' + encodeURIComponent('South Sudan \u2014 A Visual Collection'))
                         .end()
 
+                        .find('div#bp-shell-collection-share-south-sudan span.bp-shell-share-by-email')
+                        .click({subject: 'Blu Pen',
+                                body: 'South Sudan \u2014 A Visual Collection'}, send_Message)
+                        .end()
+
                         .find('#bp-shell-collection-source-syria')
                         .click(function () {
                             window.open('http://localhost:8080/crisis-countries/syria.html');
@@ -610,6 +650,11 @@ bp.shell = (function () {
                               '&text=' + encodeURIComponent('Syria \u2014 A Visual Collection'))
                         .end()
 
+                        .find('div#bp-shell-collection-share-syria span.bp-shell-share-by-email')
+                        .click({subject: 'Blu Pen',
+                                body: 'Syria \u2014 A Visual Collection'}, send_Message)
+                        .end()
+
                         .find('#bp-shell-collection-source-zimbabwe')
                         .click(function () {
                             window.open('http://localhost:8080/crisis-countries/zimbabwe.html');
@@ -631,6 +676,11 @@ bp.shell = (function () {
                               encodeURIComponent('http://localhost:8080/crisis-countries/zimbabwe.html') +
                               '&via=' + encodeURIComponent('blu_pen') +
                               '&text=' + encodeURIComponent('Zimbabwe \u2014 A Visual Collection'))
+                        .end()
+
+                        .find('div#bp-shell-collection-share-zimbabwe span.bp-shell-share-by-email')
+                        .click({subject: 'Blu Pen',
+                                body: 'Zimbabwe \u2014 A Visual Collection'}, send_Message)
                         .end();
 
                     createFooter(jq_page, function () {
@@ -641,7 +691,12 @@ bp.shell = (function () {
                 case 'connect':
                     createFooter(jq_page, function () {
                         jq_section
-                            .addClass('bp-shell-section-with-footer');
+                            .addClass('bp-shell-section-with-footer')
+                            .find('.bp-shell-share-by-email')
+                            .click({to: module_Config.mail_to,
+                                    subject: 'Greetings!'}, send_Message)
+                            .end();
+
                         on_Resize();
                         do_Callback(callback, data);
                     });
@@ -751,6 +806,11 @@ bp.shell = (function () {
                                   encodeURIComponent('http://localhost:8080/blu-pen/browse.html') +
                                   '&via=' + encodeURIComponent('blu_pen') +
                                   '&text=' + encodeURIComponent('The Crisis Collection \u2014 One'))
+                            .end()
+
+                            .find('span.bp-shell-share-by-email')
+                            .click({subject: 'Blu Pen',
+                                    body: 'The Crisis Collection \u2014 One'}, send_Message)
                             .end();
 
                         switch (section_name) {
@@ -816,6 +876,11 @@ bp.shell = (function () {
                           encodeURIComponent('http://localhost:8080/blu-pen/browse.html') +
                           '&via=' + encodeURIComponent('blu_pen') +
                           '&text=' + encodeURIComponent('The Crisis Collection \u2014 One'))
+                    .end()
+
+                    .find('span.bp-shell-share-by-email')
+                    .click({subject: 'Blu Pen',
+                            body: 'The Crisis Collection \u2014 One'}, send_Message)
                     .end();
 
                 switch (section_name) {
@@ -984,7 +1049,7 @@ bp.shell = (function () {
         $(module_State.scroll_element).css('overflow', 'auto');
     };
 
-    send_Message = function () {
+    send_Message = function (event) {
         /*
         window.setTimeout(
             function () {
@@ -992,7 +1057,21 @@ bp.shell = (function () {
                 present_Page(event);
             }, 2000);
         */
-        var win = window.open('mailto:' + module_Config.mail_to);
+        var url, qry = '?', win;
+        url = 'mailto:';
+        if (event.data !== null) {
+            if (event.data.hasOwnProperty('to')) {
+                url += encodeURIComponent(event.data.to);
+            }
+            if (event.data.hasOwnProperty('subject')) {
+                url += qry + 'subject=' + encodeURIComponent(event.data.subject);
+                qry = '&';
+            }
+            if (event.data.hasOwnProperty('body')) {
+                url += qry + 'body=' + encodeURIComponent(event.data.body);
+            }
+        }
+        win = window.open(url);
         win.setTimeout(
             function () {
                 if (win && win.open && !win.closed) {
