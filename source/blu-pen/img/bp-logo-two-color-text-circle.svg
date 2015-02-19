@@ -1,19 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Generator: Adobe Illustrator 15.0.0, SVG Export Plug-In  -->
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" [
-	<!ENTITY ns_flows "http://ns.adobe.com/Flows/1.0/">
-]>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg version="1.1"
-	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"
-	 x="0px" y="0px" width="368px" height="114px" viewBox="-0.546 -0.057 368 114"
-	 overflow="visible" enable-background="new -0.546 -0.057 368 114" xml:space="preserve">
-<defs>
-</defs>
-<circle fill="#515FAB" cx="56.669" cy="56.669" r="56.669"/>
-<polyline fill="#717080" stroke="#FFFFFF" stroke-miterlimit="10" points="39.213,29.772 56.898,47.022 74.714,29.772 "/>
-<polygon fill="#717080" stroke="#FFFFFF" stroke-miterlimit="10" points="65.714,56.646 37.713,82.771 77.213,84.022 
+     xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"
+     viewBox="-0.546 -0.057 368 114">
+  <defs>
+    <style type="text/css">
+      @font-face {
+      font-family: 'ComfortaaBold';
+      src: url('fonts/comfortaa/comfortaa_bold-webfont.eot');
+      src: url('fonts/comfortaa/comfortaa_bold-webfont.eot?#iefix') format('embedded-opentype'),
+      url('fonts/comfortaa/comfortaa_bold-webfont.woff') format('woff'),
+      url('fonts/comfortaa/comfortaa_bold-webfont.ttf') format('truetype'),
+      url('fonts/comfortaa/comfortaa_bold-webfont.svg#comfortaabold') format('svg');
+      font-weight: normal;
+      font-style: normal;
+      }
+      @font-face {
+      font-family: 'ComfortaaRegular';
+      src: url('fonts/comfortaa/comfortaa_regular-webfont.eot');
+      src: url('fonts/comfortaa/comfortaa_regular-webfont.eot?#iefix') format('embedded-opentype'),
+      url('fonts/comfortaa/comfortaa_regular-webfont.woff') format('woff'),
+      url('fonts/comfortaa/comfortaa_regular-webfont.ttf') format('truetype'),
+      url('fonts/comfortaa/comfortaa_regular-webfont.svg#comfortaaregular') format('svg');
+      font-weight: normal;
+      font-style: normal;
+      }
+      @font-face {
+      font-family: 'ComfortaaThin';
+      src: url('fonts/comfortaa/comfortaa_thin-webfont.eot');
+      src: url('fonts/comfortaa/comfortaa_thin-webfont.eot?#iefix') format('embedded-opentype'),
+      url('fonts/comfortaa/comfortaa_thin-webfont.woff') format('woff'),
+      url('fonts/comfortaa/comfortaa_thin-webfont.ttf') format('truetype'),
+      url('fonts/comfortaa/comfortaa_thin-webfont.svg#comfortaathin') format('svg');
+      font-weight: normal;
+      font-style: normal;
+      }
+    </style>
+  </defs>
+  <!--circle fill="#515FAB" cx="56.669" cy="56.669" r="56.669"/-->
+  <circle fill="#3333FF" cx="56.669" cy="56.669" r="56.669"/>
+  <polyline fill="#717080" stroke="#FFFFFF" stroke-miterlimit="10" points="39.213,29.772 56.898,47.022 74.714,29.772 "/>
+  <polygon fill="#717080" stroke="#FFFFFF" stroke-miterlimit="10" points="65.714,56.646 37.713,82.771 77.213,84.022 
 	103.964,55.522 "/>
-<path fill="#FFFFFF" d="M37.609,26.852c-0.347,0.15-1.425,1.172-1.425,1.34c0,0.066-0.178,0.226-0.394,0.366
+  <path fill="#FFFFFF" d="M37.609,26.852c-0.347,0.15-1.425,1.172-1.425,1.34c0,0.066-0.178,0.226-0.394,0.366
 	c-0.459,0.299-0.703,0.543-0.778,0.788c-0.028,0.084-0.244,0.271-0.469,0.412c-0.234,0.131-0.422,0.3-0.422,0.375
 	s-0.028,0.131-0.065,0.122c-0.047-0.009-0.497,0.404-1.013,0.919s-1.425,1.406-2.016,1.978c-0.59,0.571-1.397,1.377-1.781,1.79
 	c-0.384,0.413-0.731,0.732-0.769,0.712c-0.028-0.018-0.141,0.113-0.253,0.291c-0.103,0.178-0.225,0.328-0.271,0.328
@@ -174,6 +204,6 @@
 	c-0.253,0.084-0.319,0.057-0.722-0.281c-0.497-0.402-0.469-0.375-1.369-1.416c-0.347-0.402-0.9-1.002-1.219-1.33
 	c-0.722-0.75-1.312-1.443-1.463-1.725c-0.103-0.188-0.065-0.264,0.281-0.676c0.216-0.262,0.432-0.469,0.479-0.469
 	c0.037,0,0.74-0.656,1.547-1.453c0.806-0.797,1.537-1.453,1.631-1.453S36.719,71.814,36.822,71.945z"/>
-<rect x="143.121" y="31.276" fill="none" width="387.333" height="85"/>
-<text transform="matrix(1 0 0 1 143.1211 81.9697)"><tspan x="0" y="0" font-family="'Comfortaa-Bold'" font-size="71">B</tspan><tspan x="33.047" y="0" font-family="'Comfortaa-Bold'" font-size="71">l</tspan><tspan x="49.09" y="0" font-family="'Comfortaa-Bold'" font-size="71" letter-spacing="21">u</tspan><tspan x="111.575" y="0" font-family="'Comfortaa-Bold'" font-size="71">P</tspan><tspan x="142.656" y="0" font-family="'Comfortaa-Bold'" font-size="71">en</tspan></text>
+  <!--rect x="143.121" y="31.276" fill="none" width="387.333" height="85"/-->
+  <text transform="matrix(1 0 0 1 143.1211 81.9697)"><tspan x="0" y="0" font-family="'ComfortaaBold'" font-size="71">B</tspan><tspan x="33.047" y="0" font-family="'ComfortaaBold'" font-size="71">l</tspan><tspan x="49.09" y="0" font-family="'ComfortaaBold'" font-size="71" letter-spacing="21">u</tspan><tspan x="111.575" y="0" font-family="'ComfortaaBold'" font-size="71">P</tspan><tspan x="142.656" y="0" font-family="'ComfortaaBold'" font-size="71">en</tspan></text>
 </svg>

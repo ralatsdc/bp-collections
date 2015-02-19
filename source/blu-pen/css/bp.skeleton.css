@@ -32,7 +32,7 @@ body {
 h1 { font-size: 138px; line-height: 150px; margin-bottom: 42px;}
 h2 { font-size: 60px; line-height: 69px; margin-bottom: 17px; }
 h3 { font-size: 42px; line-height: 51px; margin-bottom: 12px; }
-h4 { font-size: 17px; line-height: 24px; margin-bottom: 3px; }
+h4 { font-size: 36px; line-height: 24px; margin-bottom: 3px; }
 h5 { font-size: 17px; line-height: 24px; }
 h6 { font-size: 14px; line-height: 21px; }
 
@@ -40,8 +40,18 @@ p { margin: 0 0 20px 0; }
 p img { margin: 0; }
 p.lead { font-size: 21px; line-height: 27px; color: #777;  }
 
+#bp-shell-header-content {
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
 #bp-shell-header-logo svg {
-    height: 25px;
+    margin-left: 25px;
+    height: 50px;
+}
+
+#bp-shell-header-navigation {
+    margin-top: 13px;
 }
 
 .bp-shell-share-on-flickr svg,

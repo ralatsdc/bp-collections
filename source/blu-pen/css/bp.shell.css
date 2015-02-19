@@ -10,22 +10,28 @@
 }
 
 #bp-shell-header-fixed {
-    background-color: gray;
+    background-color: #323644;
+    opacity: 0.90;
 }
 
 #bp-shell-header-content div {
     margin-bottom: 0px;
 }
 
-#bp-shell-header-logo svg {
-    stroke: white;
+#bp-shell-header-logo svg circle {
+    fill: #6085ff;
+}
+
+#bp-shell-header-logo svg:hover circle {
+    fill: #4d6bcc;
+}
+
+#bp-shell-header-logo svg text {
     fill: white;
 }
 
-#bp-shell-header-logo svg:hover text,
-#bp-shell-header-logo svg:hover path {
-    stroke: #1AB6E5;
-    fill: #1AB6E5;
+#bp-shell-header-logo svg:hover text {
+    fill: #adc0ff;
 }
 
 #bp-shell-header-navigation * {
@@ -33,7 +39,7 @@
 }
 
 #bp-shell-header-navigation *:hover {
-    color: #1AB6E5;
+    color: #adc0ff;
 }
 
 div#bp-shell-body-spacer p,
@@ -41,8 +47,12 @@ div#bp-shell-section-spacer p {
     margin: 0;
 }
 
+.bp-shell-nav-to-browse:hover {
+    color: #6085ff;
+}
+
 .bp-shell-white-on-gray svg rect {
-    fill: gray;
+    fill: #323644;
 }
 
 .bp-shell-black-on-gray svg rect {
@@ -61,8 +71,8 @@ div#bp-shell-section-spacer p {
     fill: black;
 }
 
-div#bp-shell-home-number {
-    background-color: #F0F0F0;
+div#bp-shell-home-outwit {
+    background-color: #d2ddda;
 }
 
 .bp-shell-caption-without-footer * {
@@ -73,12 +83,18 @@ div#bp-shell-home-number {
     color: white;
 }
 
-.bp-shell-share-on-flickr svg:hover ellipse,
-.bp-shell-share-on-tumblr svg:hover path,
-.bp-shell-share-on-twitter svg:hover path,
-.bp-shell-share-by-email svg:hover path,
-.bp-shell-collection svg:hover tspan {
-    fill: #1AB6E5;
+#bp-shell-header-content .bp-shell-share-on-flickr svg:hover ellipse,
+#bp-shell-header-content .bp-shell-share-on-tumblr svg:hover path,
+#bp-shell-header-content .bp-shell-share-on-twitter svg:hover path,
+#bp-shell-header-content .bp-shell-share-by-email svg:hover path,
+#bp-shell-header-content .bp-shell-collection svg:hover tspan {
+    fill: #adc0ff;
+}
+
+#bp-shell-body-scrolling .bp-shell-share-on-tumblr svg:hover path,
+#bp-shell-body-scrolling .bp-shell-share-on-twitter svg:hover path,
+#bp-shell-body-scrolling .bp-shell-share-by-email svg:hover path {
+    fill: #6085ff;
 }
 
 #bp-shell-news img {
@@ -87,11 +103,12 @@ div#bp-shell-home-number {
 }
 
 .bp-shell-paging-major svg circle {
-    fill: black;
+    fill: #323644;
+    opacity: 0.95;
 }
 
 .bp-shell-paging-major svg:hover path {
-    fill: #1AB6E5;
+    fill: #adc0ff;
 }
 
 .bp-shell-paging-minor svg {
@@ -103,7 +120,7 @@ div#bp-shell-home-number {
 }
 
 .bp-shell-paging-minor svg:hover path {
-    fill: #1AB6E5;
+    fill: #adc0ff;
 }
 
 .bp-shell-footer-content {

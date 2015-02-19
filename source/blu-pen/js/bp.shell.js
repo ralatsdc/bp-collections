@@ -215,7 +215,7 @@ bp.shell = (function () {
             .attr('id', 'bp-shell-header-logo')
             .addClass('one-third column')
             .click({page_name: 'home'}, present_Page)
-            .load('img/bp-logo-two-color-text.svg', function () {
+            .load('img/bp-logo-two-color-text-circle.svg', function () {
                 module_State.jq_containers.header_content
                     .append('<div></div>')
                     .find('div:last')
