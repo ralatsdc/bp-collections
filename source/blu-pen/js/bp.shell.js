@@ -23,7 +23,6 @@ bp.shell = (function () {
             'connect',
             'news'
         ],
-        init_page_name: 'home',
         section_names: {
             home: [
                 'number',
@@ -48,6 +47,8 @@ bp.shell = (function () {
                 'news'
             ]
         },
+        init_page_name: 'home',
+        init_section_name: undefined,
         paging_major_bottom: 100,
         paging_minor_bottom: 100,
         country_file_name: '../crisis-countries/json/collection/car.json',
@@ -57,8 +58,9 @@ bp.shell = (function () {
         mail_to: 'raymond.leclair@gmail.com',
         settable: {
             page_names: false,
-            init_page_name: true,
             section_names: false,
+            init_page_name: true,
+            init_section_name: true,
             paging_major_bottom: false,
             paging_minor_bottom: false,
             country_file_name: true,
@@ -245,36 +247,7 @@ bp.shell = (function () {
                             .find('.bp-shell-nav-to-connect')
                             .click({page_name: 'connect'}, present_Page)
                             .end();
-                        /*
-                            .find('#bp-shell-header-nav-to-browse')
-                            .click({page_name: 'browse'}, present_Page)
-                            .end()
 
-                            .find('#bp-shell-header-nav-to-news')
-                            .click({page_name: 'news'}, present_Page)
-                            .end()
-
-                            .find('#bp-shell-header-nav-to-connect')
-                            .click({page_name: 'connect'}, present_Page)
-                            .end()
-
-                            .find('#bp-shell-header-nav-to-flickr')
-                            .load('img/bp-logo-flickr-square.svg')
-                            .end()
-
-                            .find('#bp-shell-header-nav-to-tumblr')
-                            .load('img/bp-logo-tumblr-square.svg')
-                            .end()
-
-                            .find('#bp-shell-header-nav-to-twitter')
-                            .load('img/bp-logo-twitter-square.svg')
-                            .end()
-
-                            .find('#bp-shell-header-nav-to-email')
-                            .click(send_Message)
-                            .load('img/bp-logo-email-square.svg')
-                            .end();
-                        */
                         set_Header_Height();
 
                         init_Body();
@@ -384,7 +357,9 @@ bp.shell = (function () {
                 break;
 
             case 'window':
-                create_Image(page_name, section_name, present_Page, {page_name: 'home'});
+                create_Image(page_name, section_name,
+                             present_Page, {page_name: module_Config.init_page_name,
+                                            section_name: module_Config.init_section_name});
                 break;
 
             case 'tame':
@@ -465,11 +440,27 @@ bp.shell = (function () {
 
                 case 'browse':
                     jq_section
+                        .find('div.bp-shell-content a.bp-shell-share-on-tumblr')
+                        .attr('href',
+                              'http://www.tumblr.com/share/link?url=' +
+                              encodeURIComponent('http://localhost:8080/blu-pen/browse.html') +
+                              '&name=' + encodeURIComponent('Blu Pen') +
+                              '&description=' + encodeURIComponent('The Crisis Collection &mdash; One'))
+                        .end()
+
                         .find('#bp-shell-collection-source-car')
                         .click(function () {
                             window.open('http://localhost:8080/crisis-countries/car.html');
                         })
                         .load('img/cc-cover-car.svg')
+                        .end()
+
+                        .find('div#bp-shell-collection-share-car a.bp-shell-share-on-tumblr')
+                        .attr('href',
+                              'http://www.tumblr.com/share/link?url=' +
+                              encodeURIComponent('http://localhost:8080/crisis-countries/car.html') +
+                              '&name=' + encodeURIComponent('Blu Pen') +
+                              '&description=' + encodeURIComponent('CAR &mdash; A Visual Collection'))
                         .end()
 
                         .find('#bp-shell-collection-source-haiti')
@@ -479,11 +470,27 @@ bp.shell = (function () {
                         .load('img/cc-cover-haiti.svg')
                         .end()
 
+                        .find('div#bp-shell-collection-share-haiti a.bp-shell-share-on-tumblr')
+                        .attr('href',
+                              'http://www.tumblr.com/share/link?url=' +
+                              encodeURIComponent('http://localhost:8080/crisis-countries/haiti.html') +
+                              '&name=' + encodeURIComponent('Blu Pen') +
+                              '&description=' + encodeURIComponent('Haiti &mdash; A Visual Collection'))
+                        .end()
+
                         .find('#bp-shell-collection-source-japan')
                         .click(function () {
                             window.open('http://localhost:8080/crisis-countries/japan.html');
                         })
                         .load('img/cc-cover-japan.svg')
+                        .end()
+
+                        .find('div#bp-shell-collection-share-japan a.bp-shell-share-on-tumblr')
+                        .attr('href',
+                              'http://www.tumblr.com/share/link?url=' +
+                              encodeURIComponent('http://localhost:8080/crisis-countries/japan.html') +
+                              '&name=' + encodeURIComponent('Blu Pen') +
+                              '&description=' + encodeURIComponent('Japan &mdash; A Visual Collection'))
                         .end()
 
                         .find('#bp-shell-collection-source-philippines')
@@ -493,11 +500,27 @@ bp.shell = (function () {
                         .load('img/cc-cover-philippines.svg')
                         .end()
 
+                        .find('div#bp-shell-collection-share-philippines a.bp-shell-share-on-tumblr')
+                        .attr('href',
+                              'http://www.tumblr.com/share/link?url=' +
+                              encodeURIComponent('http://localhost:8080/crisis-countries/philippines.html') +
+                              '&name=' + encodeURIComponent('Blu Pen') +
+                              '&description=' + encodeURIComponent('Philippines &mdash; A Visual Collection'))
+                        .end()
+
                         .find('#bp-shell-collection-source-south-sudan')
                         .click(function () {
                             window.open('http://localhost:8080/crisis-countries/south-sudan.html');
                         })
                         .load('img/cc-cover-south-sudan.svg')
+                        .end()
+
+                        .find('div#bp-shell-collection-share-south-sudan a.bp-shell-share-on-tumblr')
+                        .attr('href',
+                              'http://www.tumblr.com/share/link?url=' +
+                              encodeURIComponent('http://localhost:8080/crisis-countries/south-sudan.html') +
+                              '&name=' + encodeURIComponent('Blu Pen') +
+                              '&description=' + encodeURIComponent('South Sudan &mdash; A Visual Collection'))
                         .end()
 
                         .find('#bp-shell-collection-source-syria')
@@ -507,11 +530,27 @@ bp.shell = (function () {
                         .load('img/cc-cover-syria.svg')
                         .end()
 
+                        .find('div#bp-shell-collection-share-syria a.bp-shell-share-on-tumblr')
+                        .attr('href',
+                              'http://www.tumblr.com/share/link?url=' +
+                              encodeURIComponent('http://localhost:8080/crisis-countries/syria.html') +
+                              '&name=' + encodeURIComponent('Blu Pen') +
+                              '&description=' + encodeURIComponent('Syria &mdash; A Visual Collection'))
+                        .end()
+
                         .find('#bp-shell-collection-source-zimbabwe')
                         .click(function () {
                             window.open('http://localhost:8080/crisis-countries/zimbabwe.html');
                         })
                         .load('img/cc-cover-zimbabwe.svg')
+                        .end()
+
+                        .find('div#bp-shell-collection-share-zimbabwe a.bp-shell-share-on-tumblr')
+                        .attr('href',
+                              'http://www.tumblr.com/share/link?url=' +
+                              encodeURIComponent('http://localhost:8080/crisis-countries/zimbabwe.html') +
+                              '&name=' + encodeURIComponent('Blu Pen') +
+                              '&description=' + encodeURIComponent('Zimbabwe &mdash; A Visual Collection'))
                         .end();
 
                     createFooter(jq_page, function () {
@@ -523,11 +562,6 @@ bp.shell = (function () {
                     createFooter(jq_page, function () {
                         jq_section
                             .addClass('bp-shell-section-with-footer');
-                        /*
-                            .find('#bp-shell-connect-nav-to-email')
-                            .click(send_Message)
-                            .end();
-                        */
                         on_Resize();
                         do_Callback(callback, data);
                     });
@@ -622,7 +656,14 @@ bp.shell = (function () {
                     .addClass('one-third column')
                     .load('html/bp-shell-' + section_name + '-navigation.html', function () {
                         jq_section
-                            .addClass('bp-shell-section-without-footer');
+                            .addClass('bp-shell-section-without-footer')
+                            .find('a.bp-shell-share-on-tumblr')
+                            .attr('href',
+                                  'http://www.tumblr.com/share/link?url=' +
+                                  encodeURIComponent('http://localhost:8080/blu-pen/browse.html') +
+                                  '&name=' + encodeURIComponent('Blu Pen') +
+                                  '&description=' + encodeURIComponent('The Crisis Collection &mdash; One'))
+                            .end();
 
                         switch (section_name) {
                         case 'tame':
@@ -630,20 +671,9 @@ bp.shell = (function () {
                                 .find('#bp-shell-tame-image')
                                 .load('img/cc-cover-car.svg')
                                 .end();
-                            /*
-                                .find('#bp-shell-tame-nav-to-browse')
-                                .click({page_name: 'browse'}, present_Page)
-                                .end();
-                            */
                             break;
 
                         case 'preserve':
-                            /*
-                            jq_section
-                                .find('#bp-shell-preserve-nav-to-browse')
-                                .click({page_name: 'browse'}, present_Page)
-                                .end();
-                            */
                             break;
                                 
                         default:
@@ -683,16 +713,19 @@ bp.shell = (function () {
             .addClass('one-third column')
             .load('html/bp-shell-' + section_name + '-navigation.html', function () {
 
+                jq_section
+                    .find('a.bp-shell-share-on-tumblr')
+                    .attr('href',
+                          'http://www.tumblr.com/share/link?url=' +
+                          encodeURIComponent('http://localhost:8080/blu-pen/browse.html') +
+                          '&name=' + encodeURIComponent('Blu Pen') +
+                          '&description=' + encodeURIComponent('The Crisis Collection &mdash; One'))
+                    .end();
+
                 switch (section_name) {
                 case 'eliminate':
                     cc.force.initModule('trust');
                     cc.force.presentForce('trust');
-                    /*
-                    jq_section
-                        .find('#bp-shell-eliminate-nav-to-browse')
-                        .click({page_name: 'browse'}, present_Page)
-                        .end();
-                    */
                     break;
 
 
@@ -701,11 +734,6 @@ bp.shell = (function () {
                         .find('#bp-shell-less-image')
                         .load('img/cc-cover-japan.svg')
                         .end();
-                    /*
-                        .find('#bp-shell-less-nav-to-browse')
-                        .click({page_name: 'browse'}, present_Page)
-                        .end();
-                    */
                     break;
 
                 default:
@@ -734,10 +762,13 @@ bp.shell = (function () {
 
     present_Page = function (event) {
 
-        var page_name, jq_page, uri_anchor;
+        var page_name, jq_page, section_name, uri_anchor;
+
+        if (module_State.scroll_element === undefined) {
+            module_State.scroll_element = get_Scroll_Element();
+        }
 
         page_name = module_State.uri_anchor.page_name;
-
         jq_page = module_State.jq_containers[page_name];
 
         if (jq_page !== undefined && jq_page.css('display') !== 'none') {
@@ -746,15 +777,16 @@ bp.shell = (function () {
         } else {
 
             page_name = event.data.page_name;
-
             jq_page = module_State.jq_containers[page_name];
 
             jq_page.fadeIn('slow', function () {
-                if (module_State.scroll_element === undefined) {
-                    module_State.scroll_element = get_Scroll_Element();
-                }
-                $(module_State.scroll_element).scrollTop(0);
                 on_Resize();
+
+                section_name = event.data.section_name;
+
+                if (section_name !== undefined) {
+                    scroll_To_Section(page_name, section_name);
+                }
             });
 
             uri_anchor = $.uriAnchor.makeAnchorMap();
@@ -769,7 +801,6 @@ bp.shell = (function () {
         var page_name, jq_page;
 
         page_name = module_State.uri_anchor.page_name;
-
         jq_page = module_State.jq_containers[page_name];
 
         jq_page.fadeOut('slow', function () {
