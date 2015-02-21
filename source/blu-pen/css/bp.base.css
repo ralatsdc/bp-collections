@@ -43,6 +43,11 @@ h1, h2, h3, h4, h5, h6 {
     font-family: "OpenSansBold", Helvetica, Arial, sans-serif;
 }
 
+.opensansregular h1, .opensansregular h2, .opensansregular h3, .opensansregular h4, .opensansregular h5, .opensansregular h6,
+ h1.opensansregular,  h2.opensansregular,  h3.opensansregular,  h4.opensansregular,  h5.opensansregular,  h6.opensansregular {
+    font-family: "OpensansRegular", Helvetica, Arial, sans-serif;
+}
+
 .oswaldbold h1, .oswaldbold h2, .oswaldbold h3, .oswaldbold h4, .oswaldbold h5, .oswaldbold h6,
  h1.oswaldbold,  h2.oswaldbold,  h3.oswaldbold,  h4.oswaldbold,  h5.oswaldbold,  h6.oswaldbold {
     font-family: "OswaldBold", Helvetica, Arial, sans-serif;

@@ -2,8 +2,7 @@
  * Creates the force layout for all body pages.
  */
 /* global cc, d3 */
-cc.force = (
-function () {
+cc.force = (function () {
 
     'use strict';
 

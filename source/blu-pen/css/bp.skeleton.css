@@ -33,12 +33,14 @@ h1 { font-size: 138px; line-height: 150px; margin-bottom: 42px;}
 h2 { font-size: 60px; line-height: 69px; margin-bottom: 17px; }
 h3 { font-size: 42px; line-height: 51px; margin-bottom: 12px; }
 h4 { font-size: 36px; line-height: 24px; margin-bottom: 3px; }
-h5 { font-size: 17px; line-height: 24px; }
-h6 { font-size: 14px; line-height: 21px; }
+h5 { font-size: 14px; line-height: 25px; }
+h6 { font-size: 12px; line-height: 25px; }
 
 p { margin: 0 0 20px 0; }
 p img { margin: 0; }
 p.lead { font-size: 21px; line-height: 27px; color: #777;  }
+
+.footer p { font-size: 12px; line-height: 18px; }
 
 #bp-shell-header-content {
     margin-top: 25px;
@@ -72,12 +74,29 @@ img#bp-shell-preserve-image,
     height: 300px;
 }
 
+.bp-shell-navigation h6 {
+    margin-top: 15px;
+}
+
 .bp-shell-paging-major svg {
     height: 50px;
 }
 
 .bp-shell-paging-minor svg {
     height: 50px;
+}
+
+.bp-shell-footer-content {
+    padding-top: 25px;
+}
+
+.bp-shell-footer-content h5 {
+    margin-bottom: 5px;
+}
+
+.bp-shell-footer-content h5.bp-shell-nav-to-browse {
+    margin-top: 20px;
+    margin-bottom: 25px;
 }
 
 /* #Tablet (Portrait)

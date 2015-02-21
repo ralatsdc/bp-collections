@@ -72,14 +72,17 @@ cc.shell = (function () {
      */
     initModule = function (jq_container) {
 
-        // Sets the container class on the main div
-        module_State.jq_containers.main = jq_container
-            .addClass('container sixteen columns');
-
         module_State.collection_file =
             'json/collection/' + module_Config.collection_name + '.json';
         module_State.collection_url =
-            module_Config.collection_name + '.html';
+            'http://localhost:8080/crisis-countries/' + module_Config.collection_name + '.html';
+        if ($.isEmptyObject(jq_container)) {
+            return;
+        }
+
+        // Sets the container class on the main div
+        module_State.jq_containers.main = jq_container
+            .addClass('container sixteen columns');
 
         cc.model.configModule({});
         cc.force.configModule({});

@@ -49,8 +49,8 @@ bp.shell = (function () {
         },
         init_page_name: 'home',
         init_section_name: undefined,
-        paging_major_bottom: 100,
-        paging_minor_bottom: 100,
+        paging_major_bottom: 25,
+        paging_minor_bottom: 25,
         country_file_name: '../crisis-countries/json/collection/car.json',
         twitter_tweets_per_day: 500000000,
         tumblr_posts_per_day: 80000000,
@@ -128,6 +128,9 @@ bp.shell = (function () {
 
         bp.tumblr.configModule({});
         bp.tumblr.initModule({});
+
+        cc.shell.configModule({});
+        cc.shell.initModule({});
 
         cc.model.configModule({});
         // TODO: Look at initializing the cc model when needed with a callback
@@ -316,7 +319,8 @@ bp.shell = (function () {
         $('div.bp-shell-footer-content').each(function () {
             footer_height = parseInt($(this).css('height'));
             if (footer_height > 0) {
-                module_State.footer_height = footer_height;
+                module_State.footer_height = footer_height +
+                    parseInt($(this).css('padding-top'));
             }
         });
     };
@@ -425,7 +429,7 @@ bp.shell = (function () {
 
                         .find('span.bp-shell-share-by-email')
                         .click({subject: 'Blu Pen',
-                                body: 'Content is flooding the Internet'}, send_Message)
+                                body: 'Content is flooding the Internet http://localhost:8080/blu-pen/home.html'}, send_Message)
                         .end()
 
                         .addClass('bp-shell-section-without-footer')
@@ -484,7 +488,7 @@ bp.shell = (function () {
 
                         .find('div.bp-shell-content span.bp-shell-share-by-email')
                         .click({subject: 'Blu Pen',
-                                body: 'The Crisis Collection \u2014 One'}, send_Message)
+                                body: 'The Crisis Collection \u2014 One http://localhost:8080/blu-pen/browse.html'}, send_Message)
                         .end()
 
                         .find('#bp-shell-collection-source-car')
@@ -512,7 +516,7 @@ bp.shell = (function () {
 
                         .find('div#bp-shell-collection-share-car span.bp-shell-share-by-email')
                         .click({subject: 'Blu Pen',
-                                body: 'CAR \u2014 A Visual Collection'}, send_Message)
+                                body: 'CAR \u2014 A Visual Collection http://localhost:8080/crisis-countries/car.html'}, send_Message)
                         .end()
 
                         .find('#bp-shell-collection-source-haiti')
@@ -540,7 +544,7 @@ bp.shell = (function () {
 
                         .find('div#bp-shell-collection-share-haiti span.bp-shell-share-by-email')
                         .click({subject: 'Blu Pen',
-                                body: 'Haiti \u2014 A Visual Collection'}, send_Message)
+                                body: 'Haiti \u2014 A Visual Collection http://localhost:8080/crisis-countries/haiti.html'}, send_Message)
                         .end()
 
                         .find('#bp-shell-collection-source-japan')
@@ -568,7 +572,7 @@ bp.shell = (function () {
 
                         .find('div#bp-shell-collection-share-japan span.bp-shell-share-by-email')
                         .click({subject: 'Blu Pen',
-                                body: 'Japan \u2014 A Visual Collection'}, send_Message)
+                                body: 'Japan \u2014 A Visual Collection http://localhost:8080/crisis-countries/japan.html'}, send_Message)
                         .end()
 
                         .find('#bp-shell-collection-source-philippines')
@@ -596,7 +600,7 @@ bp.shell = (function () {
 
                         .find('div#bp-shell-collection-share-philippines span.bp-shell-share-by-email')
                         .click({subject: 'Blu Pen',
-                                body: 'Philippines \u2014 A Visual Collection'}, send_Message)
+                                body: 'Philippines \u2014 A Visual Collection http://localhost:8080/crisis-countries/philippines.html'}, send_Message)
                         .end()
 
                         .find('#bp-shell-collection-source-south-sudan')
@@ -624,7 +628,7 @@ bp.shell = (function () {
 
                         .find('div#bp-shell-collection-share-south-sudan span.bp-shell-share-by-email')
                         .click({subject: 'Blu Pen',
-                                body: 'South Sudan \u2014 A Visual Collection'}, send_Message)
+                                body: 'South Sudan \u2014 A Visual Collection http://localhost:8080/crisis-countries/south-sudan.html'}, send_Message)
                         .end()
 
                         .find('#bp-shell-collection-source-syria')
@@ -652,7 +656,7 @@ bp.shell = (function () {
 
                         .find('div#bp-shell-collection-share-syria span.bp-shell-share-by-email')
                         .click({subject: 'Blu Pen',
-                                body: 'Syria \u2014 A Visual Collection'}, send_Message)
+                                body: 'Syria \u2014 A Visual Collection http://localhost:8080/crisis-countries/syria.html'}, send_Message)
                         .end()
 
                         .find('#bp-shell-collection-source-zimbabwe')
@@ -680,7 +684,7 @@ bp.shell = (function () {
 
                         .find('div#bp-shell-collection-share-zimbabwe span.bp-shell-share-by-email')
                         .click({subject: 'Blu Pen',
-                                body: 'Zimbabwe \u2014 A Visual Collection'}, send_Message)
+                                body: 'Zimbabwe \u2014 A Visual Collection http://localhost:8080/crisis-countries/zimbabwe.html'}, send_Message)
                         .end();
 
                     createFooter(jq_page, function () {
@@ -1137,7 +1141,7 @@ bp.shell = (function () {
                         module_State.section_height -
                         parseInt($('#' + section_id + ' .bp-shell-section-spacer').css('padding-top')) -
                         parseInt($('#' + section_id + ' .bp-shell-content').css('height')) -
-                        // parseInt($('#' + section_id + ' .bp-shell-content p:last').css('margin-bottom')) -
+                        parseInt($('#' + section_id + ' .bp-shell-content p:last').css('margin-bottom')) -
                         parseInt($('#' + section_id + ' .bp-shell-paging-major svg').css('height')) - 
                         module_Config.paging_major_bottom;
                     $('#' + section_id + ' .bp-shell-paging-major').css('padding-top', paging_height + 'px');
@@ -1169,7 +1173,7 @@ bp.shell = (function () {
                         parseInt($('#' + section_id + ' .bp-shell-paging-minor').css('height')) -
                         module_Config.paging_minor_bottom;
                     if (module_State.window_width > 767) {
-                        paging_height += parseInt($('#' + section_id + ' p').css('margin-bottom'));
+                        // paging_height += parseInt($('#' + section_id + ' p').css('margin-bottom'));
                     }
                     $('#' + section_id + ' .bp-shell-paging-minor').css('padding-top', paging_height + 'px');
                     break;
@@ -1193,6 +1197,7 @@ bp.shell = (function () {
                             parseInt($('#bp-shell-' + section_name + '-navigation').css('height'));
                     }
                     paging_height -= 
+                        parseInt($('#' + section_id + ' .bp-shell-content p:last').css('margin-bottom')) +
                         parseInt($('#' + section_id + ' .bp-shell-paging-minor svg').css('height')) +
                         module_Config.paging_minor_bottom;
                     $('#' + section_id + ' .bp-shell-paging-minor').css('padding-top', paging_height + 'px');

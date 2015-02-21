@@ -9,6 +9,10 @@
     margin: 0;
 }
 
+#bp-shell-body-scrolling {
+    margin-bottom: 0;
+}
+
 #bp-shell-header-fixed {
     background-color: #323644;
     opacity: 0.90;
@@ -51,8 +55,12 @@ div#bp-shell-section-spacer p {
     color: #6085ff;
 }
 
-.bp-shell-white-on-gray svg rect {
+.bp-shell-white-on-header-gray svg rect {
     fill: #323644;
+}
+
+.bp-shell-white-on-footer-gray svg rect {
+    fill: #A1AEBA;
 }
 
 .bp-shell-black-on-gray svg rect {
@@ -91,6 +99,7 @@ div#bp-shell-home-outwit {
     fill: #adc0ff;
 }
 
+#bp-shell-body-scrolling .bp-shell-share-on-flickr svg:hover ellipse,
 #bp-shell-body-scrolling .bp-shell-share-on-tumblr svg:hover path,
 #bp-shell-body-scrolling .bp-shell-share-on-twitter svg:hover path,
 #bp-shell-body-scrolling .bp-shell-share-by-email svg:hover path {
@@ -104,7 +113,7 @@ div#bp-shell-home-outwit {
 
 .bp-shell-paging-major svg circle {
     fill: #323644;
-    opacity: 0.95;
+    opacity: 0.90;
 }
 
 .bp-shell-paging-major svg:hover path {
@@ -124,7 +133,7 @@ div#bp-shell-home-outwit {
 }
 
 .bp-shell-footer-content {
-    background-color: gray;
+    background-color: #A1AEBA;
 }
 
 .bp-shell-footer-content div {
