@@ -168,7 +168,28 @@ bp.shell = (function () {
                     .load('img/bp-logo-email-square.svg')
                     .end()
 
-                    .find('.bp-shell-footer-content .bp-shell-share-by-email')
+                    .find('.bp-shell-footer-content a.bp-shell-share-on-tumblr:last')
+                    .attr('href',
+                          'http://www.tumblr.com/share/link?url=' +
+                          encodeURIComponent('http://localhost:8080/blu-pen/browse.html') +
+                          '&name=' + encodeURIComponent('Blu Pen') +
+                          '&description=' + encodeURIComponent('The Crisis Collection \u2014 One'))
+                    .end()
+                
+                    .find('.bp-shell-footer-content a.bp-shell-share-on-twitter:last')
+                    .attr('href',
+                          'https://twitter.com/share?url=' +
+                          encodeURIComponent('http://localhost:8080/blu-pen/browse.html') +
+                          '&via=' + encodeURIComponent('blu_pen') +
+                          '&text=' + encodeURIComponent('The Crisis Collection \u2014 One'))
+                    .end()
+
+                    .find('.bp-shell-footer-content span.bp-shell-share-by-email:first')
+                    .click({subject: 'Blu Pen',
+                            body: 'The Crisis Collection \u2014 One http://localhost:8080/blu-pen/browse.html'}, send_Message)
+                    .end()
+
+                    .find('.bp-shell-footer-content span.bp-shell-share-by-email:last')
                     .click({to: module_Config.mail_to,
                             subject: 'Greetings!'}, send_Message)
                     .end()
