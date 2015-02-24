@@ -136,7 +136,8 @@ div#bp-shell-home-outwit {
     background-color: #A1AEBA;
 }
 
-.bp-shell-footer-content div {
+.bp-shell-footer-content div,
+.bp-shell-footer-content form {
     margin-bottom: 0px;
 }
 
