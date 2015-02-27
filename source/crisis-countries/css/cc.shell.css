@@ -21,16 +21,18 @@
     viewBox: "none";
 }
 
-#cc-shell-cover-logo svg:hover path,
+#cc-shell-cover-logo svg:hover circle,
+.cc-shell-front-logo svg:hover circle,
+.cc-shell-visual-logo svg:hover circle,
+.cc-shell-source-logo svg:hover circle {
+    fill: #4d6bcc;
+}
+
 #cc-shell-cover-logo svg:hover text,
-.cc-shell-front-logo svg:hover path,
 .cc-shell-front-logo svg:hover text,
-.cc-shell-visual-logo svg:hover path,
 .cc-shell-visual-logo svg:hover text,
-.cc-shell-source-logo svg:hover path,
 .cc-shell-source-logo svg:hover text {
-    stroke: #1AB6E5;
-    fill: #1AB6E5;
+    fill: #6085ff;
 }
 
 /* SVG navigation */
@@ -43,7 +45,7 @@
 }
 
 .cc-shell-circle-arrow svg:hover polyline {
-    stroke: #1AB6E5;
+    stroke: #6085ff;
 }
 
 #cc-shell-cover-image svg {

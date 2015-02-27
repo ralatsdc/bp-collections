@@ -42,7 +42,7 @@ viewBox="-0.5 -0.775879 127 137">
 <line fill="none" stroke="#231F20" stroke-miterlimit="10" x1="36.304688" y1="134.315918" x2="36.304688" y2="34.23584"/>
 <rect x="0.5" y="0.5" fill="#FFFFFF" stroke="#58595B" stroke-miterlimit="10" width="90.195312" height="134.724121"/>
 <rect x="0.695312" y="18.224121" fill="none" width="90" height="27"/>
-<text transform="matrix(1 0 0 1 13.336914 31.407715)"><tspan x="0" y="0" fill="#231F20" font-family="'OswaldBold'" font-size="15">ZIMBABWE</tspan><tspan x="-5.447754" y="10.799805" fill="#231F20" font-family="'OswaldBook'" font-size="9">A VISUAL COLLECTION</tspan></text>
+<text class="bp-shell-collection" transform="matrix(1 0 0 1 13.336914 31.407715)"><tspan x="0" y="0" fill="#231F20" font-family="'OswaldBold'" font-size="15">ZIMBABWE</tspan><tspan x="-5.447754" y="10.799805" fill="#231F20" font-family="'OswaldBook'" font-size="9">A VISUAL COLLECTION</tspan></text>
 <circle opacity="0.75" fill="#B1005D" enable-background="new    " cx="51.500977" cy="73.347168" r="5.941406"/>
 <circle opacity="0.75" fill="#B1005D" enable-background="new    " cx="13.757812" cy="102.371582" r="1.485352"/>
 <circle opacity="0.75" fill="#B1005D" enable-background="new    " cx="66.414062" cy="61.563965" r="2.970703"/>

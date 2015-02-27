@@ -42,7 +42,7 @@ viewBox="-0.5 -0.775879 127 137">
 <line fill="none" stroke="#231F20" stroke-miterlimit="10" x1="36.304688" y1="134.315918" x2="36.304688" y2="34.23584"/>
 <rect x="0.5" y="0.5" fill="#FFFFFF" stroke="#58595B" stroke-miterlimit="10" width="90.195312" height="134.724121"/>
 <rect x="0.695312" y="18.224121" fill="none" width="90" height="27"/>
-<text transform="matrix(1 0 0 1 2.706055 31.407715)"><tspan x="0" y="0" fill="#231F20" font-family="'OswaldBold'" font-size="15">SOUTH SUDAN</tspan><tspan x="5.183105" y="10.799805" fill="#231F20" font-family="'OswaldBook'" font-size="9">A VISUAL COLLECTION</tspan></text>
+<text class="bp-shell-collection" transform="matrix(1 0 0 1 2.706055 31.407715)"><tspan x="0" y="0" fill="#231F20" font-family="'OswaldBold'" font-size="15">SOUTH SUDAN</tspan><tspan x="5.183105" y="10.799805" fill="#231F20" font-family="'OswaldBook'" font-size="9">A VISUAL COLLECTION</tspan></text>
 <circle opacity="0.6" fill="#FF0084" enable-background="new    " cx="68.678711" cy="69.50293" r="4.210449"/>
 <circle opacity="0.75" fill="#B1005D" enable-background="new    " cx="18.370117" cy="62.635742" r="2.10498"/>
 <circle opacity="0.6" fill="#FF0084" enable-background="new    " cx="75.393555" cy="58.43457" r="4.210449"/>

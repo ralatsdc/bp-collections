@@ -176,7 +176,7 @@ cc.shell = (function () {
      * @return {undefined}
      */
     hover_In = function () {
-        $(this).animate({'color': '#1AB6E5'}, 100);
+        $(this).animate({'color': '#6085ff'}, 100);
     };
 
     /**
@@ -292,7 +292,7 @@ cc.shell = (function () {
                 .click(function () {
                     window.open('http://www.blu-pen.com');
                 })
-                .load('img/bp-logo-two-color-text.svg')
+                .load('img/bp-logo-two-color-text-circle.svg')
                 .end()
 
                 .end() // div#cc-shell-cover-header
@@ -320,7 +320,7 @@ cc.shell = (function () {
                 .find('div:last')
                 .attr('id', 'cc-shell-cover-image')
                 .addClass('offset-by-three ten columns')
-                .load('img/cc-visual-frequency-japan.svg')
+                .load('img/cc-cover-' + module_Config.collection_name + '.svg')
                 .end()
 
                 .append('<div></div>')
@@ -865,7 +865,7 @@ cc.shell = (function () {
             .click(function () {
                 window.open('http://www.blu-pen.com');
             })
-            .load('img/bp-logo-two-color-text.svg')
+            .load('img/bp-logo-two-color-text-circle.svg')
             .end()
 
             .end() // div.row
@@ -1021,7 +1021,7 @@ cc.shell = (function () {
             .click(function () {
                 window.open('http://www.blu-pen.com');
             })
-            .load('img/bp-logo-two-color-text.svg')
+            .load('img/bp-logo-two-color-text-circle.svg')
             .end()
 
             .end() // div.row
@@ -1206,7 +1206,7 @@ cc.shell = (function () {
             .click(function () {
                 window.open('http://www.blu-pen.com');
             })
-            .load('img/bp-logo-two-color-text.svg')
+            .load('img/bp-logo-two-color-text-circle.svg')
             .end()
 
             .end(); // div#cc-shell-source-footer-page-name

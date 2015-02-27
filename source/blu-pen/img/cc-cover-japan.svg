@@ -42,7 +42,7 @@ viewBox="-0.5 -0.775879 127 137">
 <line fill="none" stroke="#231F20" stroke-miterlimit="10" x1="36.304688" y1="134.315918" x2="36.304688" y2="34.23584"/>
 <rect x="0.5" y="0.5" fill="#FFFFFF" stroke="#58595B" stroke-miterlimit="10" width="90.195312" height="134.724121"/>
 <rect x="0.695312" y="18.224121" fill="none" width="90" height="27"/>
-<text transform="matrix(1 0 0 1 23.001953 34.044434)"><tspan x="0" y="0" fill="#231F20" font-family="'OswaldBold'" font-size="18">JAPAN</tspan><tspan x="-15.112793" y="10.799805" fill="#231F20" font-family="'OswaldBook'" font-size="9">A VISUAL COLLECTION</tspan></text>
+<text class="bp-shell-collection" transform="matrix(1 0 0 1 23.001953 34.044434)"><tspan x="0" y="0" fill="#231F20" font-family="'OswaldBold'" font-size="18">JAPAN</tspan><tspan x="-15.112793" y="10.799805" fill="#231F20" font-family="'OswaldBook'" font-size="9">A VISUAL COLLECTION</tspan></text>
 <circle opacity="0.75" fill="#B1005D" enable-background="new    " cx="66.598633" cy="86.636719" r="1.54248"/>
 <circle opacity="0.75" fill="#B1005D" enable-background="new    " cx="73.394531" cy="66.280762" r="3.084961"/>
 <circle opacity="0.6" fill="#FF0084" enable-background="new    " cx="67.743164" cy="81.184082" r="3.084961"/>

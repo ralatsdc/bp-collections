@@ -86,7 +86,7 @@ viewBox="-0.5 -0.775879 127 137">
 <circle opacity="0.6" fill="#9AA9B7" stroke="#AF1F23" stroke-width="3" enable-background="new    " cx="69.861328" cy="85.361816" r="6.126953"/>
 <circle opacity="0.9" fill="#1DB5E3" stroke="#AF1F23" stroke-width="3" enable-background="new    " cx="11.730469" cy="123.662109" r="1.531738"/>
 <rect x="0.695312" y="18.224121" fill="none" width="90" height="27"/>
-<text transform="matrix(1 0 0 1 30.564453 34.044434)"><tspan x="0" y="0" fill="#231F20" font-family="'OswaldBold'" font-size="18">CAR</tspan><tspan x="-22.675293" y="10.799805" fill="#231F20" font-family="'OswaldBook'" font-size="9">A VISUAL COLLECTION</tspan></text>
+<text class="bp-shell-collection" transform="matrix(1 0 0 1 30.564453 34.044434)"><tspan x="0" y="0" fill="#231F20" font-family="'OswaldBold'" font-size="18">CAR</tspan><tspan x="-22.675293" y="10.799805" fill="#231F20" font-family="'OswaldBook'" font-size="9">A VISUAL COLLECTION</tspan></text>
 <circle fill="#6085FF" cx="36.881348" cy="8.462891" r="3.966797"/>
 <g id="XMLID_2_">
 	<g>

@@ -46,6 +46,20 @@
     color: #adc0ff;
 }
 
+#bp-shell-header-content .bp-shell-share-on-flickr svg:hover ellipse,
+#bp-shell-header-content .bp-shell-share-on-tumblr svg:hover path,
+#bp-shell-header-content .bp-shell-share-on-twitter svg:hover path,
+#bp-shell-header-content .bp-shell-share-by-email svg:hover path {
+    fill: #adc0ff;
+}
+
+#bp-shell-body-scrolling .bp-shell-share-on-flickr svg:hover ellipse,
+#bp-shell-body-scrolling .bp-shell-share-on-tumblr svg:hover path,
+#bp-shell-body-scrolling .bp-shell-share-on-twitter svg:hover path,
+#bp-shell-body-scrolling .bp-shell-share-by-email svg:hover path {
+    fill: #6085ff;
+}
+
 div#bp-shell-body-spacer p,
 div#bp-shell-section-spacer p {
     margin: 0;
@@ -91,18 +105,7 @@ div#bp-shell-home-outwit {
     color: white;
 }
 
-#bp-shell-header-content .bp-shell-share-on-flickr svg:hover ellipse,
-#bp-shell-header-content .bp-shell-share-on-tumblr svg:hover path,
-#bp-shell-header-content .bp-shell-share-on-twitter svg:hover path,
-#bp-shell-header-content .bp-shell-share-by-email svg:hover path,
-#bp-shell-header-content .bp-shell-collection svg:hover tspan {
-    fill: #adc0ff;
-}
-
-#bp-shell-body-scrolling .bp-shell-share-on-flickr svg:hover ellipse,
-#bp-shell-body-scrolling .bp-shell-share-on-tumblr svg:hover path,
-#bp-shell-body-scrolling .bp-shell-share-on-twitter svg:hover path,
-#bp-shell-body-scrolling .bp-shell-share-by-email svg:hover path {
+text.bp-shell-collection:hover tspan {
     fill: #6085ff;
 }
 
@@ -129,7 +132,7 @@ div#bp-shell-home-outwit {
 }
 
 .bp-shell-paging-minor svg:hover path {
-    fill: #adc0ff;
+    fill: #6085ff;
 }
 
 .bp-shell-footer-content {
