@@ -160,6 +160,17 @@ div.cc-shell-source-header {
     font-family: "OpenSansLightItalic", sans-serif;
 }
 
+#cc-shell-front-nav-to-preface-preface,
+#cc-shell-front-nav-to-introduction-introduction,
+#cc-shell-visual-nav-to-volume-volume,
+#cc-shell-visual-nav-to-trust-trust,
+#cc-shell-visual-nav-to-topics-topics,
+#cc-shell-visual-nav-to-frequency-frequency,
+#cc-shell-front-nav-to-postscript-postscript,
+#cc-shell-front-nav-to-colophon-colophon {
+    font-family: "OpenSansBold", Helvetica, Arial, sans-serif;
+}
+
 /* Body miscellaneous */
 
 .cc-shell-front-body ul {

@@ -359,7 +359,7 @@ cc.shell = (function () {
                         .hover(hover_In, hover_Out)
                         .end()
 
-                        .find('#cc-shell-front-contents-nav-to-volume')
+                        .find('.cc-shell-front-contents-nav-to-volume')
                         .click({page_name: 'volume'}, present_Page)
                         .hover(hover_In, hover_Out)
                         .end()
@@ -797,8 +797,8 @@ cc.shell = (function () {
                     .hover(hover_In, hover_Out)
                     .end()
 
-                    .find('#cc-shell-front-nav-to-volume')
-                    .addClass('cc-shell-front-nav-to-volume')
+                    .find('.cc-shell-front-nav-to-volume')
+                    // .addClass('cc-shell-front-nav-to-volume')
                     .attr('id', 'cc-shell-front-nav-to-volume-' + page_name)
                     .click({page_name: 'volume'}, present_Page)
                     .hover(hover_In, hover_Out)
