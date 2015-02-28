@@ -4,6 +4,20 @@
  *
  */
 
+.cc-shell-share-on-flickr svg,
+.cc-shell-share-on-tumblr svg,
+.cc-shell-share-on-twitter svg,
+.cc-shell-share-by-email svg {
+    height: 25px;
+}
+
+.cc-shell-share-on-flickr svg:hover ellipse,
+.cc-shell-share-on-tumblr svg:hover path,
+.cc-shell-share-on-twitter svg:hover path,
+.cc-shell-share-by-email svg:hover path {
+    fill: #6085ff;
+}
+
 /* SVG logos */
 
 #cc-shell-cover-logo svg {
@@ -33,6 +47,15 @@
 .cc-shell-visual-logo svg:hover text,
 .cc-shell-source-logo svg:hover text {
     fill: #6085ff;
+}
+
+.cc-shell-black-on-white svg rect {
+    fill: white;
+}
+
+.cc-shell-black-on-white svg ellipse,
+.cc-shell-black-on-white svg path {
+    fill: black;
 }
 
 /* SVG navigation */
@@ -67,10 +90,18 @@ div.cc-shell-source-header {
     margin-top: 18px;
 }
 
-.cc-shell-front-share,
-.cc-shell-visual-share,
-.cc-shell-source-share {
-    padding-top: 5px;
+.cc-shell-visual-title-logo {
+    margin-bottom: 20px;
+}
+
+.cc-shell-share-for-visual {
+    margin-top: 20px;
+}
+
+.cc-shell-front-share-logo,
+.cc-shell-visual-share-logo,
+.cc-shell-source-share-logo {
+    margin-top: 6px;
 }
 
 #cc-shell-contents hr,
@@ -138,7 +169,7 @@ div.cc-shell-source-header {
 
 #cc-shell-cover-navigation {
     position: absolute;
-    top: 50%;
+    top: 61.8%;
     width: 100%;
 }
 

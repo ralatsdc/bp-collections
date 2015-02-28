@@ -70,7 +70,6 @@ cc.force = (function () {
     stroke_Width_R,
     charge_R,
     on_Tick,
-    append_Circle,
     get_Scale,
     present_Description,
     move_Description,
@@ -230,9 +229,6 @@ cc.force = (function () {
         // resize handlers
         switch (page_name) {
         case 'volume':
-            append_Circle('volume', 'div#cc-shell-visual-volume-large-circle', '+1');
-            append_Circle('volume', 'div#cc-shell-visual-volume-medium-circle', '0');
-            append_Circle('volume', 'div#cc-shell-visual-volume-small-circle', '-1');
             d3.select(window)
                 .on('resize', resizeVolumeLegend);
             break;
@@ -311,38 +307,8 @@ cc.force = (function () {
     /* == Private functions == */
 
     /**
-     * Appends circles for the volume page force layout legend.
-     *
-     * @param {string} page_name only 'volume' expected
-     * @param {string} selector for creating a D3 selection
-     * @param {number} volume the value used in selecting radius
-     *
-     * @return {undefined}
-     */
-    append_Circle = function (page_name, selector, volume) {
-        
-        var
-        scale = get_Scale(),
-        R = scale_R({volume: volume}),
-        width = 2.0 * R * scale,
-        height = 2.0 * R * scale;
-
-        module_State.legends[page_name] = d3.select(selector)
-            .append('svg')
-            .attr('width', width)
-            .attr('height', height)
-            .append('g')
-            .attr('class', 'graphic')
-            .append('circle')
-            .attr('cx', scale_R({volume: volume}))
-            .attr('cy', scale_R({volume: volume}))
-            .attr('r', scale_R({volume: volume}))
-            .attr('opacity', scale_O({engagement: '0'}))
-            .attr('fill', fill_R({engagement: '0'}));
-    };
-
-    /**
-     * Resizes the volume page force layout legend.
+     * Resizes the volume page force layout legend. Also sets legend
+     * circle attributes.
      *
      * @return {undefined}
      */
@@ -365,6 +331,13 @@ cc.force = (function () {
             d3.select('div#cc-shell-visual-volume-' + size[i_crcl] + '-circle svg')
                 .attr('width',  width)
                 .attr('height', height);
+
+            d3.select('div#cc-shell-visual-volume-' + size[i_crcl] + '-circle circle')
+                .attr('cx', R)
+                .attr('cy', R)
+                .attr('r', R)
+                .attr('opacity', scale_O({engagement: '0'}))
+                .attr('fill', fill_R({engagement: '0'}));
         }
     };
 

@@ -312,7 +312,24 @@ cc.shell = (function () {
                 .load('html/cc-shell-cover-title.html', function () {
                     $('div#cc-shell-cover-title')
                         .find('h1')
-                        .text(cc.model.getCountry().toUpperCase());
+                        .text(cc.model.getCountry().toUpperCase())
+                        .end()
+
+                        .find('.cc-shell-share-on-flickr')
+                        .load('img/bp-logo-flickr-square.svg')
+                        .end()
+
+                        .find('.cc-shell-share-on-tumblr')
+                        .load('img/bp-logo-tumblr-square.svg')
+                        .end()
+
+                        .find('.cc-shell-share-on-twitter')
+                        .load('img/bp-logo-twitter-square.svg')
+                        .end()
+
+                        .find('.cc-shell-share-by-email')
+                        .load('img/bp-logo-email-square.svg')
+                        .end();
                 })
                 .end()
 
@@ -441,49 +458,23 @@ cc.shell = (function () {
                 .append('<div></div>')
                 .find('div:last')
                 .addClass('one-third column alpha')
-
-                .append('<div></div>')
-                .find('div:last')
                 .attr('id', 'cc-shell-visual-volume-description')
-                .end()
+                .load('html/cc-shell-visual-volume-description.html', function () {
+                    cc.force.resizeVolumeLegend();
+                    module_State.jq_containers[page_name]
+                        .find('.cc-shell-share-on-tumblr')
+                        .load('img/bp-logo-tumblr-square.svg')
+                        .end()
 
-                .append('<div></div>')
-                .find('div:last')
-                .attr('id', 'cc-shell-visual-volume-small-title')
-                .addClass('cc-shell-visual-description')
-                .load('html/cc-shell-visual-volume-small-title.html')
-                .end()
+                        .find('.cc-shell-share-on-twitter')
+                        .load('img/bp-logo-twitter-square.svg')
+                        .end()
 
-                .append('<div></div>')
-                .find('div:last')
-                .attr('id', 'cc-shell-visual-volume-small-circle')
+                        .find('.cc-shell-share-by-email')
+                        .load('img/bp-logo-email-square.svg')
+                        .end();
+                })
                 .end()
-
-                .append('<div></div>')
-                .find('div:last')
-                .attr('id', 'cc-shell-visual-volume-medium-title')
-                .addClass('cc-shell-visual-description')
-                .load('html/cc-shell-visual-volume-medium-title.html')
-                .end()
-
-                .append('<div></div>')
-                .find('div:last')
-                .attr('id', 'cc-shell-visual-volume-medium-circle')
-                .end()
-
-                .append('<div></div>')
-                .find('div:last')
-                .attr('id', 'cc-shell-visual-volume-large-title')
-                .addClass('cc-shell-visual-description')
-                .load('html/cc-shell-visual-volume-large-title.html')
-                .end()
-
-                .append('<div></div>')
-                .find('div:last')
-                .attr('id', 'cc-shell-visual-volume-large-circle')
-                .end()
-
-                .end() // div.one-third.column.alpha
 
                 .append('<div></div>')
                 .find('div:last')
@@ -492,15 +483,9 @@ cc.shell = (function () {
                 .end()
 
                 .end(); // div#cc-shell-visual-content-volume
-
+            
             // Initialize volume force layout
             cc.force.initModule(page_name);
-
-            // Load volume page force layout description
-            module_State.jq_containers[page_name]
-                .find('div#cc-shell-visual-volume-description')
-                .load('html/cc-shell-visual-volume-description.html')
-                .end();
 
             break;
 
@@ -525,6 +510,18 @@ cc.shell = (function () {
                 .attr('id', 'cc-shell-visual-trust-description')
                 .load('html/cc-shell-visual-trust-description.html', function () {
                     cc.force.resizeTrustLegend();
+                    module_State.jq_containers[page_name]
+                        .find('.cc-shell-share-on-tumblr')
+                        .load('img/bp-logo-tumblr-square.svg')
+                        .end()
+
+                        .find('.cc-shell-share-on-twitter')
+                        .load('img/bp-logo-twitter-square.svg')
+                        .end()
+
+                        .find('.cc-shell-share-by-email')
+                        .load('img/bp-logo-email-square.svg')
+                        .end();
                 })
                 .end()
 
@@ -565,6 +562,18 @@ cc.shell = (function () {
                 .attr('id', 'cc-shell-visual-topics-description')
                 .load('html/cc-shell-visual-topics-description.html', function () {
                     cc.force.resizeTopicsLegend();
+                    module_State.jq_containers[page_name]
+                        .find('.cc-shell-share-on-tumblr')
+                        .load('img/bp-logo-tumblr-square.svg')
+                        .end()
+
+                        .find('.cc-shell-share-on-twitter')
+                        .load('img/bp-logo-twitter-square.svg')
+                        .end()
+
+                        .find('.cc-shell-share-by-email')
+                        .load('img/bp-logo-email-square.svg')
+                        .end();
                 })
                 .end()
 
@@ -647,7 +656,20 @@ cc.shell = (function () {
                 .find('div:last')
                 .addClass('one-third column alpha')
                 .attr('id', 'cc-shell-visual-frequency-description')
-                .load('html/cc-shell-visual-frequency-description.html')
+                .load('html/cc-shell-visual-frequency-description.html', function () {
+                    module_State.jq_containers[page_name]
+                        .find('.cc-shell-share-on-tumblr')
+                        .load('img/bp-logo-tumblr-square.svg')
+                        .end()
+
+                        .find('.cc-shell-share-on-twitter')
+                        .load('img/bp-logo-twitter-square.svg')
+                        .end()
+
+                        .find('.cc-shell-share-by-email')
+                        .load('img/bp-logo-email-square.svg')
+                        .end();
+                })
                 .end()
 
                 .append('<div></div>')
@@ -737,7 +759,28 @@ cc.shell = (function () {
             .find('div:last')
             .addClass('one-third column omega cc-shell-front-share')
             .attr('id', 'cc-shell-front-share-' + page_name)
-            .load('html/cc-shell-front-share.html')
+            .load('html/cc-shell-front-share.html', function () {
+                jq_container
+                    .find('.cc-shell-front-logo')
+                    .load('img/bp-logo-two-color-text-circle.svg')
+                    .end()
+
+                    .find('.cc-shell-share-on-flickr')
+                    .load('img/bp-logo-flickr-square.svg')
+                    .end()
+
+                    .find('.cc-shell-share-on-tumblr')
+                    .load('img/bp-logo-tumblr-square.svg')
+                    .end()
+
+                    .find('.cc-shell-share-on-twitter')
+                    .load('img/bp-logo-twitter-square.svg')
+                    .end()
+
+                    .find('.cc-shell-share-by-email')
+                    .load('img/bp-logo-email-square.svg')
+                    .end();
+            })
             .end()
 
             .end() // div#cc-shell-front-header-page-name
@@ -860,12 +903,8 @@ cc.shell = (function () {
 
             .append('<div></div>')
             .find('div:last')
-            .addClass('one-third column omega cc-shell-front-logo')
-            .attr('id', 'cc-shell-front-logo-' + page_name)
-            .click(function () {
-                window.open('http://www.blu-pen.com');
-            })
-            .load('img/bp-logo-two-color-text-circle.svg')
+            .addClass('one-third column omega')
+            .load('html/cc-shell-empty.html')
             .end()
 
             .end() // div.row
@@ -917,7 +956,19 @@ cc.shell = (function () {
                     .find('h1')
                     .click({page_name: 'cover'}, present_Page)
                     .hover(hover_In, hover_Out)
-                    .text(cc.model.getCountry().toUpperCase());
+                    .text(cc.model.getCountry().toUpperCase())
+
+                    .find('.cc-shell-share-on-tumblr')
+                    .load('img/bp-logo-tumblr-square.svg')
+                    .end()
+
+                    .find('.cc-shell-share-on-twitter')
+                    .load('img/bp-logo-twitter-square.svg')
+                    .end()
+
+                    .find('.cc-shell-share-by-email')
+                    .load('img/bp-logo-email-square.svg')
+                    .end();
             })
             .end()
 
@@ -925,7 +976,28 @@ cc.shell = (function () {
             .find('div:last')
             .addClass('one-third column omega cc-shell-visual-share')
             .attr('id', 'cc-shell-visual-share-' + page_name)
-            .load('html/cc-shell-visual-share.html')
+            .load('html/cc-shell-visual-share.html', function () {
+                jq_container
+                    .find('.cc-shell-visual-logo')
+                    .load('img/bp-logo-two-color-text-circle.svg')
+                    .end()
+
+                    .find('.cc-shell-share-on-flickr')
+                    .load('img/bp-logo-flickr-square.svg')
+                    .end()
+
+                    .find('.cc-shell-share-on-tumblr')
+                    .load('img/bp-logo-tumblr-square.svg')
+                    .end()
+
+                    .find('.cc-shell-share-on-twitter')
+                    .load('img/bp-logo-twitter-square.svg')
+                    .end()
+
+                    .find('.cc-shell-share-by-email')
+                    .load('img/bp-logo-email-square.svg')
+                    .end();
+            })
             .end()
 
             .end() // div#cc-shell-visual-header-page-name
@@ -1016,12 +1088,8 @@ cc.shell = (function () {
 
             .append('<div></div>')
             .find('div:last')
-            .addClass('one-third column omega cc-shell-visual-logo')
-            .attr('id', 'cc-shell-visual-logo-' + page_name)
-            .click(function () {
-                window.open('http://www.blu-pen.com');
-            })
-            .load('img/bp-logo-two-color-text-circle.svg')
+            .addClass('one-third column omega')
+            .load('html/cc-shell-empty.html')
             .end()
 
             .end() // div.row
@@ -1073,7 +1141,29 @@ cc.shell = (function () {
             .find('div:last')
             .addClass('one-third column omega cc-shell-source-share')
             .attr('id', 'cc-shell-source-share-' + page_name)
-            .load('html/cc-shell-source-share.html')
+            .load('html/cc-shell-source-share.html', function () {
+                jq_container
+                    .find('.cc-shell-visual-logo')
+                    .load('img/bp-logo-two-color-text-circle.svg')
+                    .end()
+
+                    .find('.cc-shell-share-on-flickr')
+                    .load('img/bp-logo-flickr-square.svg')
+                    .end()
+
+                    .find('.cc-shell-share-on-tumblr')
+                    .load('img/bp-logo-tumblr-square.svg')
+                    .end()
+
+                    .find('.cc-shell-share-on-twitter')
+                    .load('img/bp-logo-twitter-square.svg')
+                    .end()
+
+                    .find('.cc-shell-share-by-email')
+                    .load('img/bp-logo-email-square.svg')
+                    .end();
+                
+            })
             .end()
 
             .end() // div.row
@@ -1201,12 +1291,8 @@ cc.shell = (function () {
 
             .append('<div></div>')
             .find('div:last')
-            .addClass('one-third column omega cc-shell-source-logo')
-            .attr('id', 'cc-shell-source-logo-' + page_name)
-            .click(function () {
-                window.open('http://www.blu-pen.com');
-            })
-            .load('img/bp-logo-two-color-text-circle.svg')
+            .addClass('one-third column omega')
+            .load('html/cc-shell-empty.html')
             .end()
 
             .end(); // div#cc-shell-source-footer-page-name
