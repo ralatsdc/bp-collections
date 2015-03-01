@@ -261,8 +261,9 @@ bp.shell = (function () {
 
                             .find('.bp-shell-share-by-email')
                             .load('img/bp-logo-email-square.svg')
-                            .click({to: module_Config.mail_to,
-                                    subject: 'Greetings!'}, send_Message)
+                            .click(function () {
+                                window.open('http://eepurl.com/bfB51j');
+                            })
                             .end()
 
                             .find('.bp-shell-nav-to-browse')
