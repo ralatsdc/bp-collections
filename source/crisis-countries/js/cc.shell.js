@@ -343,6 +343,15 @@ cc.shell = (function () {
                 .find('div:last')
                 .attr('id', 'cc-shell-cover-title')
                 .load('html/cc-shell-cover-title.html', function () {
+                    var
+                    text = 
+                        cc.model.getCountry().toUpperCase() +
+                        '\u2014 A Visual Collection',
+                    url =
+                        'http://localhost:8080/crisis-countries/' +
+                        module_Config.collection_name +
+                        '.html#!page_name=cover';
+
                     $('div#cc-shell-cover-title')
                         .find('h1')
                         .text(cc.model.getCountry().toUpperCase())
@@ -350,18 +359,29 @@ cc.shell = (function () {
 
                         .find('.cc-shell-share-on-tumblr')
                         .load('img/bp-logo-tumblr-square.svg')
+                        .attr('href',
+                              'http://www.tumblr.com/share/link?url=' +
+                              encodeURIComponent(url) +
+                              '&name=' + encodeURIComponent('Blu Pen') +
+                              '&description=' + encodeURIComponent(text))
                         .end()
 
                         .find('.cc-shell-share-on-twitter')
                         .load('img/bp-logo-twitter-square.svg')
+                        .attr('href',
+                              'https://twitter.com/share?url=' +
+                              encodeURIComponent(url) +
+                              '&via=' + encodeURIComponent('blu_pen') +
+                              '&text=' + encodeURIComponent(text))
                         .end()
 
                         .find('.cc-shell-share-by-email')
                         .load('img/bp-logo-email-square.svg')
                         .click({subject: 'Blu Pen',
                                 body:
-                                module_Config.collection_name.toUpperCase() +
-                                ' \u2014 A Visual Collection http://localhost:8080/crisis-countries/' +
+                                cc.model.getCountry().toUpperCase() +
+                                ' \u2014 A Visual Collection\n' +
+                                'http://localhost:8080/crisis-countries/' +
                                 module_Config.collection_name +
                                 '.html'},
                                send_Message)
@@ -497,20 +517,40 @@ cc.shell = (function () {
                 .attr('id', 'cc-shell-visual-volume-description')
                 .load('html/cc-shell-visual-volume-description.html', function () {
                     cc.force.resizeVolumeLegend();
+
+                    var
+                    text = 
+                        cc.model.getCountry().toUpperCase() +
+                        '\u2014 A Visual Collection: Volume',
+                    url =
+                        'http://localhost:8080/crisis-countries/' +
+                        module_Config.collection_name +
+                        '.html#!page_name=volume';
+
                     $('div#cc-shell-visual-volume-description')
                         .find('.cc-shell-share-on-tumblr')
                         .load('img/bp-logo-tumblr-square.svg')
+                        .attr('href',
+                              'http://www.tumblr.com/share/link?url=' +
+                              encodeURIComponent(url) +
+                              '&name=' + encodeURIComponent('Blu Pen') +
+                              '&description=' + encodeURIComponent(text))
                         .end()
 
                         .find('.cc-shell-share-on-twitter')
                         .load('img/bp-logo-twitter-square.svg')
+                        .attr('href',
+                              'https://twitter.com/share?url=' +
+                              encodeURIComponent(url) +
+                              '&via=' + encodeURIComponent('blu_pen') +
+                              '&text=' + encodeURIComponent(text))
                         .end()
 
                         .find('.cc-shell-share-by-email')
                         .load('img/bp-logo-email-square.svg')
                         .click({subject: 'Blu Pen',
                                 body:
-                                module_Config.collection_name.toUpperCase() +
+                                cc.model.getCountry().toUpperCase() +
                                 ' \u2014 A Visual Collection: Volume\n' +
                                 'http://localhost:8080/crisis-countries/' +
                                 module_Config.collection_name +
@@ -554,20 +594,40 @@ cc.shell = (function () {
                 .attr('id', 'cc-shell-visual-trust-description')
                 .load('html/cc-shell-visual-trust-description.html', function () {
                     cc.force.resizeTrustLegend();
+
+                    var
+                    text = 
+                        cc.model.getCountry().toUpperCase() +
+                        '\u2014 A Visual Collection: Trust',
+                    url =
+                        'http://localhost:8080/crisis-countries/' +
+                        module_Config.collection_name +
+                        '.html#!page_name=trust';
+
                     $('div#cc-shell-visual-trust-description')
                         .find('.cc-shell-share-on-tumblr')
                         .load('img/bp-logo-tumblr-square.svg')
+                        .attr('href',
+                              'http://www.tumblr.com/share/link?url=' +
+                              encodeURIComponent(url) +
+                              '&name=' + encodeURIComponent('Blu Pen') +
+                              '&description=' + encodeURIComponent(text))
                         .end()
 
                         .find('.cc-shell-share-on-twitter')
                         .load('img/bp-logo-twitter-square.svg')
+                        .attr('href',
+                              'https://twitter.com/share?url=' +
+                              encodeURIComponent(url) +
+                              '&via=' + encodeURIComponent('blu_pen') +
+                              '&text=' + encodeURIComponent(text))
                         .end()
 
                         .find('.cc-shell-share-by-email')
                         .load('img/bp-logo-email-square.svg')
                         .click({subject: 'Blu Pen',
                                 body:
-                                module_Config.collection_name.toUpperCase() +
+                                cc.model.getCountry().toUpperCase() +
                                 ' \u2014 A Visual Collection: Trust\n' +
                                 'http://localhost:8080/crisis-countries/' +
                                 module_Config.collection_name +
@@ -614,20 +674,40 @@ cc.shell = (function () {
                 .attr('id', 'cc-shell-visual-topics-description')
                 .load('html/cc-shell-visual-topics-description.html', function () {
                     cc.force.resizeTopicsLegend();
+
+                    var
+                    text = 
+                        cc.model.getCountry().toUpperCase() +
+                        '\u2014 A Visual Collection: Topics',
+                    url =
+                        'http://localhost:8080/crisis-countries/' +
+                        module_Config.collection_name +
+                        '.html#!page_name=topics';
+
                     $('div#cc-shell-visual-topics-description')
                         .find('.cc-shell-share-on-tumblr')
                         .load('img/bp-logo-tumblr-square.svg')
+                        .attr('href',
+                              'http://www.tumblr.com/share/link?url=' +
+                              encodeURIComponent(url) +
+                              '&name=' + encodeURIComponent('Blu Pen') +
+                              '&description=' + encodeURIComponent(text))
                         .end()
 
                         .find('.cc-shell-share-on-twitter')
                         .load('img/bp-logo-twitter-square.svg')
+                        .attr('href',
+                              'https://twitter.com/share?url=' +
+                              encodeURIComponent(url) +
+                              '&via=' + encodeURIComponent('blu_pen') +
+                              '&text=' + encodeURIComponent(text))
                         .end()
 
                         .find('.cc-shell-share-by-email')
                         .load('img/bp-logo-email-square.svg')
                         .click({subject: 'Blu Pen',
                                 body:
-                                module_Config.collection_name.toUpperCase() +
+                                cc.model.getCountry().toUpperCase() +
                                 ' \u2014 A Visual Collection: Topics\n' +
                                 'http://localhost:8080/crisis-countries/' +
                                 module_Config.collection_name +
@@ -717,20 +797,39 @@ cc.shell = (function () {
                 .addClass('one-third column alpha')
                 .attr('id', 'cc-shell-visual-frequency-description')
                 .load('html/cc-shell-visual-frequency-description.html', function () {
+                    var
+                    text = 
+                        cc.model.getCountry().toUpperCase() +
+                        '\u2014 A Visual Collection: Frequency',
+                    url =
+                        'http://localhost:8080/crisis-countries/' +
+                        module_Config.collection_name +
+                        '.html#!page_name=frequency';
+
                     $('div#cc-shell-visual-frequency-description')
                         .find('.cc-shell-share-on-tumblr')
                         .load('img/bp-logo-tumblr-square.svg')
+                        .attr('href',
+                              'http://www.tumblr.com/share/link?url=' +
+                              encodeURIComponent(url) +
+                              '&name=' + encodeURIComponent('Blu Pen') +
+                              '&description=' + encodeURIComponent(text))
                         .end()
 
                         .find('.cc-shell-share-on-twitter')
                         .load('img/bp-logo-twitter-square.svg')
+                        .attr('href',
+                              'https://twitter.com/share?url=' +
+                              encodeURIComponent(url) +
+                              '&via=' + encodeURIComponent('blu_pen') +
+                              '&text=' + encodeURIComponent(text))
                         .end()
 
                         .find('.cc-shell-share-by-email')
                         .load('img/bp-logo-email-square.svg')
                         .click({subject: 'Blu Pen',
                                 body:
-                                module_Config.collection_name.toUpperCase() +
+                                cc.model.getCountry().toUpperCase() + 
                                 ' \u2014 A Visual Collection: Frequency\n' +
                                 'http://localhost:8080/crisis-countries/' +
                                 module_Config.collection_name +
@@ -1023,6 +1122,15 @@ cc.shell = (function () {
             .addClass('two-thirds column alpha cc-shell-visual-title')
             .attr('id', 'cc-shell-visual-title-' + page_name)
             .load('html/cc-shell-visual-title.html', function () {
+                var
+                text = 
+                    cc.model.getCountry().toUpperCase() +
+                    '\u2014 A Visual Collection',
+                url =
+                    'http://localhost:8080/crisis-countries/' +
+                    module_Config.collection_name +
+                    '.html#!page_name=cover';
+
                 $('div#cc-shell-visual-title-' + page_name)
                     .find('h1')
                     .click({page_name: 'cover'}, present_Page)
@@ -1032,18 +1140,29 @@ cc.shell = (function () {
 
                     .find('.cc-shell-share-on-tumblr')
                     .load('img/bp-logo-tumblr-square.svg')
+                    .attr('href',
+                          'http://www.tumblr.com/share/link?url=' +
+                          encodeURIComponent(url) +
+                          '&name=' + encodeURIComponent('Blu Pen') +
+                          '&description=' + encodeURIComponent(text))
                     .end()
 
                     .find('.cc-shell-share-on-twitter')
                     .load('img/bp-logo-twitter-square.svg')
+                    .attr('href',
+                          'https://twitter.com/share?url=' +
+                          encodeURIComponent(url) +
+                          '&via=' + encodeURIComponent('blu_pen') +
+                          '&text=' + encodeURIComponent(text))
                     .end()
 
                     .find('.cc-shell-share-by-email')
                     .load('img/bp-logo-email-square.svg')
                     .click({subject: 'Blu Pen',
                             body:
-                            module_Config.collection_name.toUpperCase() +
-                            ' \u2014 A Visual Collection http://localhost:8080/crisis-countries/' +
+                            cc.model.getCountry().toUpperCase() +
+                            ' \u2014 A Visual Collection\n' +
+                            'http://localhost:8080/crisis-countries/' +
                             module_Config.collection_name +
                             '.html'},
                            send_Message)
