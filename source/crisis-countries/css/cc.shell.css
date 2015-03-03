@@ -65,7 +65,7 @@
 #cc-shell-trust hr,
 #cc-shell-topics hr,
 #cc-shell-frequency hr {
-    margin-bottom: 0px;
+    /* margin-bottom: 0px; */
 }
 
 /* Body titles */
@@ -78,21 +78,21 @@
     font-family: "OswaldLight", sans-serif;
 }
 
-.cc-shell-visual-title h1 {
+.cc-shell-visual-title h3 {
     font-family: "OswaldBold", sans-serif;
 }
 
-.cc-shell-visual-title h3 {
+.cc-shell-visual-title h4 {
     font-family: "OswaldLight", sans-serif;
+}
+
+.cc-shell-front-title h3,
+.cc-shell-source-title h3 {
+    font-family: "OswaldBold", sans-serif;
 }
 
 .cc-shell-front-title h4,
 .cc-shell-source-title h4 {
-    font-family: "OswaldBold", sans-serif;
-}
-
-.cc-shell-front-title h5,
-.cc-shell-source-title h5 {
     font-family: "OswaldLight", sans-serif;
 }
 
@@ -124,6 +124,10 @@
 
 .cc-shell-lightitalic {
     font-family: "OpenSansLightItalic", sans-serif;
+}
+
+.cc-shell-bolditalic {
+    font-family: "OpenSansBoldItalic", sans-serif;
 }
 
 #cc-shell-front-nav-to-preface-preface,

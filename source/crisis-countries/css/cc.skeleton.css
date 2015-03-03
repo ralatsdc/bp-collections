@@ -37,7 +37,7 @@ p.lead { font-size: 21px; line-height: 27px; }
 /* SVG logos */
 
 #cc-shell-cover-logo svg {
-    margin-top: 36px;
+    margin-top: 33px;
     height: 34px;
 }
 
@@ -63,6 +63,10 @@ p.lead { font-size: 21px; line-height: 27px; }
 
 /* Header */
 
+div#cc-shell-cover-header {
+    margin-top: 20px;
+}
+
 div#cc-shell-cover-header,
 div.cc-shell-front-header,
 div.cc-shell-visual-header,
@@ -73,15 +77,20 @@ div.cc-shell-source-header {
 div.cc-shell-front-header,
 div.cc-shell-visual-header,
 div.cc-shell-source-header {
-    margin-top: 18px;
+    margin-top: 20px;
 }
 
+div.cc-shell-source-header .row {
+    margin-bottom: 0;
+}
+
+.cc-shell-visual-title-navigation,
 .cc-shell-visual-title-logo {
-    margin-bottom: 20px;
+    margin-bottom: 0;
 }
 
-.cc-shell-visual-title h3 {
-    margin-top: -16px;
+.cc-shell-visual-title h4 {
+    margin-top: -8px;
 }
 
 .cc-shell-share-for-visual {
@@ -97,9 +106,37 @@ div.cc-shell-source-header {
 #cc-shell-contents hr,
 #cc-shell-preface hr,
 #cc-shell-introduction hr,
+#cc-shell-volume hr,
+#cc-shell-trust hr,
+#cc-shell-topics hr,
+#cc-shell-frequency hr,
 #cc-shell-postscript hr,
 #cc-shell-colophon hr {
-    margin-bottom: 42px;
+    margin-bottom: 40px;
+}
+
+#cc-shell-visual-navigation-volume hr,
+#cc-shell-visual-navigation-trust hr,
+#cc-shell-visual-navigation-topics hr,
+#cc-shell-visual-navigation-frequency hr {
+    /* TODO: Check this with base */
+    margin-bottom: 0px;
+}
+
+.cc-shell-front-content h2 {
+    margin-bottom: 20px;
+}
+
+#cc-shell-front-contents h4 {
+    margin-top: 20px;
+}
+
+.cc-shell-front-navigation h3 {
+    margin-bottom: 26px;
+}
+
+.cc-shell-front-navigation h5 {
+    margin-top: 20px;
 }
 
 /* Body titles */
@@ -118,17 +155,21 @@ div.cc-shell-source-header {
     margin-top: 32px;
 }
 
-.cc-shell-front-title h4,
-.cc-shell-source-title h4 {
+.cc-shell-front-title h3,
+.cc-shell-source-title h3 {
+    /*
     font-size: 21px;
     line-height: 30px;
     margin-bottom: 4px;
+    */
 }
 
-.cc-shell-front-title h5,
-.cc-shell-source-title h5 {
+.cc-shell-front-title h4,
+.cc-shell-source-title h4 {
+    /*
     font-size: 17px;
     line-height: 24px;
+    */
     margin-top: -8px;
 }
 

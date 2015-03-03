@@ -536,12 +536,6 @@ cc.shell = (function () {
 
                 .append('<div></div>')
                 .find('div:last')
-                .attr('id', 'cc-shell-visual-volume-title')
-                .load('html/cc-shell-visual-volume-title.html')
-                .end()
-
-                .append('<div></div>')
-                .find('div:last')
                 .addClass('two-thirds column alpha')
                 .attr('id', 'cc-shell-visual-volume-graphic')
                 .end()
@@ -610,12 +604,6 @@ cc.shell = (function () {
             // Load trust page content
             module_State.jq_containers[page_name]
                 .find('#cc-shell-visual-content-trust')
-
-                .append('<div></div>')
-                .find('div:last')
-                .attr('id', 'cc-shell-visual-trust-title')
-                .load('html/cc-shell-visual-trust-title.html')
-                .end()
 
                 .append('<div></div>')
                 .find('div:last')
@@ -690,12 +678,6 @@ cc.shell = (function () {
             // Load topics page content
             module_State.jq_containers[page_name]
                 .find('#cc-shell-visual-content-topics')
-
-                .append('<div></div>')
-                .find('div:last')
-                .attr('id', 'cc-shell-visual-topics-title')
-                .load('html/cc-shell-visual-topics-title.html')
-                .end()
 
                 .append('<div></div>')
                 .find('div:last')
@@ -814,12 +796,6 @@ cc.shell = (function () {
             // Load frequency page content
             module_State.jq_containers[page_name]
                 .find('#cc-shell-visual-content-frequency')
-
-                .append('<div></div>')
-                .find('div:last')
-                .attr('id', 'cc-shell-visual-frequency-title')
-                .load('html/cc-shell-visual-frequency-title.html')
-                .end()
 
                 .append('<div></div>')
                 .find('div:last')
@@ -947,7 +923,7 @@ cc.shell = (function () {
                     .click({page_name: 'cover'}, present_Page)
                     .hover(hover_All_In, hover_All_Out)
 
-                    .find('h4')
+                    .find('h3')
                     .text(cc.model.getCountry().toUpperCase());
             })
             .end()
@@ -1169,7 +1145,7 @@ cc.shell = (function () {
                     .hover(hover_All_In, hover_All_Out);
 
                 $('div#cc-shell-visual-title-' + page_name)
-                    .find('h1')
+                    .find('h3')
                     .text(cc.model.getCountry().toUpperCase())
                     .end()
 
@@ -1372,7 +1348,7 @@ cc.shell = (function () {
                     .click({page_name: 'cover'}, present_Page)
                     .hover(hover_All_In, hover_All_Out)
 
-                    .find('h4')
+                    .find('h3')
                     .text(cc.model.getCountry().toUpperCase());
             })
             .end()
