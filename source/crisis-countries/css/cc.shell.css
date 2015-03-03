@@ -4,33 +4,12 @@
  *
  */
 
-.cc-shell-share-on-flickr svg,
-.cc-shell-share-on-tumblr svg,
-.cc-shell-share-on-twitter svg,
-.cc-shell-share-by-email svg {
-    height: 25px;
-}
-
-.cc-shell-share-on-flickr svg:hover ellipse,
-.cc-shell-share-on-tumblr svg:hover path,
-.cc-shell-share-on-twitter svg:hover path,
-.cc-shell-share-by-email svg:hover path {
-    fill: #6085ff;
-}
-
 /* SVG logos */
 
-#cc-shell-cover-logo svg {
-    margin-top: 36px;
-    height: 34px;
-    width: auto;
-    viewBox: "none";
-}
-
+#cc-shell-cover-logo svg,
 .cc-shell-front-logo svg,
 .cc-shell-visual-logo svg,
 .cc-shell-source-logo svg {
-    height: 34px;
     width: auto;
     viewBox: "none";
 }
@@ -49,22 +28,11 @@
     fill: #6085ff;
 }
 
-.cc-shell-black-on-white svg rect {
-    fill: white;
-}
-
-.cc-shell-black-on-white svg ellipse,
-.cc-shell-black-on-white svg path {
-    fill: black;
-}
-
 /* SVG navigation */
 
 .cc-shell-circle-arrow svg {
-    height: 24px;
     width: auto;
     viewBox: "none";
-    margin-top: 2px;
 }
 
 .cc-shell-circle-arrow svg:hover polyline {
@@ -75,42 +43,23 @@
     z-index: -1;
 }
 
+.cc-shell-share-on-flickr svg:hover ellipse,
+.cc-shell-share-on-tumblr svg:hover path,
+.cc-shell-share-on-twitter svg:hover path,
+.cc-shell-share-by-email svg:hover path {
+    fill: #6085ff;
+}
+
+.cc-shell-black-on-white svg rect {
+    fill: white;
+}
+
+.cc-shell-black-on-white svg ellipse,
+.cc-shell-black-on-white svg path {
+    fill: black;
+}
+
 /* Header */
-
-div#cc-shell-cover-header,
-div.cc-shell-front-header,
-div.cc-shell-visual-header,
-div.cc-shell-source-header {
-    height: 100px;
-}
-
-div.cc-shell-front-header,
-div.cc-shell-visual-header,
-div.cc-shell-source-header {
-    margin-top: 18px;
-}
-
-.cc-shell-visual-title-logo {
-    margin-bottom: 20px;
-}
-
-.cc-shell-share-for-visual {
-    margin-top: 20px;
-}
-
-.cc-shell-front-share-logo,
-.cc-shell-visual-share-logo,
-.cc-shell-source-share-logo {
-    margin-top: 6px;
-}
-
-#cc-shell-contents hr,
-#cc-shell-preface hr,
-#cc-shell-introduction hr,
-#cc-shell-postscript hr,
-#cc-shell-colophon hr {
-    margin-bottom: 42px;
-}
 
 #cc-shell-volume hr,
 #cc-shell-trust hr,
@@ -123,9 +72,6 @@ div.cc-shell-source-header {
 
 #cc-shell-cover-title h1 {
     font-family: "OswaldBold", sans-serif;
-    font-size: 92px;
-    line-height: 92px;
-    margin-bottom: 0px;
 }
 
 #cc-shell-cover-title h2 {
@@ -138,31 +84,16 @@ div.cc-shell-source-header {
 
 .cc-shell-visual-title h3 {
     font-family: "OswaldLight", sans-serif;
-    margin-top: -16px;
-}
-
-.cc-shell-title-for-visual {
-    margin-top: 32px;
-}
-
-.cc-shell-title-for-visual h2 {
-    margin-top: -16px;
 }
 
 .cc-shell-front-title h4,
 .cc-shell-source-title h4 {
     font-family: "OswaldBold", sans-serif;
-    font-size: 21px;
-    line-height: 30px;
-    margin-bottom: 4px;
 }
 
 .cc-shell-front-title h5,
 .cc-shell-source-title h5 {
     font-family: "OswaldLight", sans-serif;
-    font-size: 17px;
-    line-height: 24px;
-    margin-top: -8px;
 }
 
 /* Body navigation */
@@ -171,6 +102,10 @@ div.cc-shell-source-header {
     position: absolute;
     top: 61.8%;
     width: 100%;
+}
+
+#cc-shell-front-contents div.row {
+    margin-bottom: 0;
 }
 
 /* Body font */
@@ -208,15 +143,8 @@ div.cc-shell-source-header {
     list-style: disc;
 }
 
-div.cc-shell-visual-description p {
-    margin-top: 20px;
-}
-
-#cc-shell-visual-volume-graphic,
-#cc-shell-visual-trust-graphic,
-#cc-shell-visual-topics-graphic,
-#cc-shell-visual-frequency-graphic {
-    margin-top: 32px;
+.cc-shell-source-share div.row {
+    margin-bottom: 0;
 }
 
 .cc-shell-source-content img {

@@ -1,0 +1,115 @@
+body { font-size: <14>px; line-height: <21>px; }
+
+h1 { font-size: <46>px; line-height: <50>px; margin-bottom: <14>px;}
+h2 { font-size: <35>px; line-height: <40>px; margin-bottom: <10>px; }
+h3 { font-size: <28>px; line-height: <34>px; margin-bottom: <8>px; }
+h4 { font-size: <21>px; line-height: <30>px; margin-bottom: <4>px; }
+h5 { font-size: <17>px; line-height: <24>px; }
+h6 { font-size: <14>px; line-height: <21>px; }
+
+p { margin: 0 0 <20>px 0; }
+p.lead { font-size: <21>px; line-height: <27>px; }
+
+/* SVG logos */
+
+#cc-shell-cover-logo svg {
+    margin-top: <36>px;
+    height: <34>px;
+}
+
+.cc-shell-front-logo svg,
+.cc-shell-visual-logo svg,
+.cc-shell-source-logo svg {
+    height: <34>px;
+}
+
+/* SVG navigation */
+
+.cc-shell-circle-arrow svg {
+    margin-top: <2>px;
+    height: <24>px;
+}
+
+.cc-shell-share-on-flickr svg,
+.cc-shell-share-on-tumblr svg,
+.cc-shell-share-on-twitter svg,
+.cc-shell-share-by-email svg {
+    height: <25>px;
+}
+
+/* Header */
+
+div#cc-shell-cover-header,
+div.cc-shell-front-header,
+div.cc-shell-visual-header,
+div.cc-shell-source-header {
+    height: <100>px;
+}
+
+div.cc-shell-front-header,
+div.cc-shell-visual-header,
+div.cc-shell-source-header {
+    margin-top: <18>px;
+}
+
+.cc-shell-visual-title-logo {
+    margin-bottom: <20>px;
+}
+
+.cc-shell-visual-title h3 {
+    margin-top: -<16>px;
+}
+
+.cc-shell-share-for-visual {
+    margin-top: <20>px;
+}
+
+.cc-shell-front-share-logo,
+.cc-shell-visual-share-logo,
+.cc-shell-source-share-logo {
+    margin-top: <6>px;
+}
+
+#cc-shell-contents hr,
+#cc-shell-preface hr,
+#cc-shell-introduction hr,
+#cc-shell-postscript hr,
+#cc-shell-colophon hr {
+    margin-bottom: <42>px;
+}
+
+/* Body titles */
+
+#cc-shell-cover-title h1 {
+    font-size: <110>px;
+    line-height: <110>px;
+}
+
+#cc-shell-cover-title h2 {
+    font-size: <60>px;
+    line-height: <60>px;
+}
+
+.cc-shell-title-for-visual {
+    margin-top: <32>px;
+}
+
+.cc-shell-front-title h4,
+.cc-shell-source-title h4 {
+    font-size: <21>px;
+    line-height: <30>px;
+    margin-bottom: <4>px;
+}
+
+.cc-shell-front-title h5,
+.cc-shell-source-title h5 {
+    font-size: <17>px;
+    line-height: <24>px;
+    margin-top: -<8>px;
+}
+
+/* Body miscellaneous */
+
+div.cc-shell-visual-description p {
+    margin-top: <20>px;
+}

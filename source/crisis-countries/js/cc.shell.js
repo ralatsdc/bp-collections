@@ -42,7 +42,9 @@ cc.shell = (function () {
     on_Hash_Change,
     send_Message,
     hover_In,
-    hover_Out;
+    hover_Out,
+    hover_All_In,
+    hover_All_Out;
 
     /* == Public functions ==*/
 
@@ -204,7 +206,8 @@ cc.shell = (function () {
     };
 
     /**
-     * Animates color change to indicate hover in.
+     * Animates color change to indicate hover in, including only the
+     * selected element.
      *
      * @return {undefined}
      */
@@ -213,12 +216,33 @@ cc.shell = (function () {
     };
 
     /**
-     * Animates color change to indicate hover out.
+     * Animates color change to indicate hover in, including all
+     * elements within the selected element.
+     *
+     * @return {undefined}
+     */
+    hover_All_In = function () {
+        $(this).find('*').animate({'color': '#6085ff'}, 100);
+    };
+
+    /**
+     * Animates color change to indicate hover out, including only the
+     * selected element.
      *
      * @return {undefined}
      */
     hover_Out = function () {
         $(this).animate({'color': '#000000'}, 100);
+    };
+
+    /**
+     * Animates color change to indicate hover out, including all
+     * elements within the selected element.
+     *
+     * @return {undefined}
+     */
+    hover_All_Out = function () {
+        $(this).find('*').animate({'color': '#000000'}, 100);
     };
 
     /**
@@ -353,6 +377,11 @@ cc.shell = (function () {
                         '.html#!page_name=cover';
 
                     $('div#cc-shell-cover-title')
+                        .find('#cc-shell-cover-title-navigation')
+                        .click({page_name: 'contents'}, present_Page)
+                        .hover(hover_All_In, hover_All_Out)
+                        .end()
+
                         .find('h1')
                         .text(cc.model.getCountry().toUpperCase())
                         .end()
@@ -431,7 +460,7 @@ cc.shell = (function () {
                         .click({page_name: 'introduction'}, present_Page)
                         .hover(hover_In, hover_Out)
                         .end()
-
+                    
                         .find('.cc-shell-front-contents-nav-to-volume')
                         .click({page_name: 'volume'}, present_Page)
                         .hover(hover_In, hover_Out)
@@ -513,7 +542,13 @@ cc.shell = (function () {
 
                 .append('<div></div>')
                 .find('div:last')
-                .addClass('one-third column alpha')
+                .addClass('two-thirds column alpha')
+                .attr('id', 'cc-shell-visual-volume-graphic')
+                .end()
+
+                .append('<div></div>')
+                .find('div:last')
+                .addClass('one-third column omega')
                 .attr('id', 'cc-shell-visual-volume-description')
                 .load('html/cc-shell-visual-volume-description.html', function () {
                     cc.force.resizeVolumeLegend();
@@ -560,12 +595,6 @@ cc.shell = (function () {
                 })
                 .end()
 
-                .append('<div></div>')
-                .find('div:last')
-                .addClass('two-thirds column omega')
-                .attr('id', 'cc-shell-visual-volume-graphic')
-                .end()
-
                 .end(); // div#cc-shell-visual-content-volume
             
             // Initialize volume force layout
@@ -590,7 +619,13 @@ cc.shell = (function () {
 
                 .append('<div></div>')
                 .find('div:last')
-                .addClass('one-third column alpha')
+                .addClass('two-thirds column alpha')
+                .attr('id', 'cc-shell-visual-trust-graphic')
+                .end()
+
+                .append('<div></div>')
+                .find('div:last')
+                .addClass('one-third column omega')
                 .attr('id', 'cc-shell-visual-trust-description')
                 .load('html/cc-shell-visual-trust-description.html', function () {
                     cc.force.resizeTrustLegend();
@@ -637,12 +672,6 @@ cc.shell = (function () {
                 })
                 .end()
 
-                .append('<div></div>')
-                .find('div:last')
-                .addClass('two-thirds column omega')
-                .attr('id', 'cc-shell-visual-trust-graphic')
-                .end()
-
                 .end(); // div#cc-shell-visual-content-trust
             
             // Initialize trust force layout
@@ -670,7 +699,28 @@ cc.shell = (function () {
 
                 .append('<div></div>')
                 .find('div:last')
-                .addClass('one-third column alpha')
+                .addClass('two-thirds column alpha')
+
+                .append('<div></div>')
+                .find('div:last')
+                .attr('id', 'cc-shell-visual-topics-crisis')
+                .end()
+
+                .append('<div></div>')
+                .find('div:last')
+                .attr('id', 'cc-shell-visual-topics-graphic')
+                .end()
+
+                .append('<div></div>')
+                .find('div:last')
+                .attr('id', 'cc-shell-visual-topics-culture')
+                .end()
+
+                .end() // div#two-thirds column alpha
+
+                .append('<div></div>')
+                .find('div:last')
+                .addClass('one-third column omega')
                 .attr('id', 'cc-shell-visual-topics-description')
                 .load('html/cc-shell-visual-topics-description.html', function () {
                     cc.force.resizeTopicsLegend();
@@ -716,27 +766,6 @@ cc.shell = (function () {
                         .end();
                 })
                 .end()
-
-                .append('<div></div>')
-                .find('div:last')
-                .addClass('two-thirds column omega')
-
-                .append('<div></div>')
-                .find('div:last')
-                .attr('id', 'cc-shell-visual-topics-crisis')
-                .end()
-
-                .append('<div></div>')
-                .find('div:last')
-                .attr('id', 'cc-shell-visual-topics-graphic')
-                .end()
-
-                .append('<div></div>')
-                .find('div:last')
-                .attr('id', 'cc-shell-visual-topics-culture')
-                .end()
-
-                .end() // div#two-thirds column omega
 
                 .end(); // div#cc-shell-visual-content-topics
 
@@ -794,7 +823,13 @@ cc.shell = (function () {
 
                 .append('<div></div>')
                 .find('div:last')
-                .addClass('one-third column alpha')
+                .addClass('two-thirds column alpha')
+                .attr('id', 'cc-shell-visual-frequency-graphic')
+                .end()
+
+                .append('<div></div>')
+                .find('div:last')
+                .addClass('one-third column omega')
                 .attr('id', 'cc-shell-visual-frequency-description')
                 .load('html/cc-shell-visual-frequency-description.html', function () {
                     var
@@ -837,12 +872,6 @@ cc.shell = (function () {
                                send_Message)
                         .end();
                 })
-                .end()
-
-                .append('<div></div>')
-                .find('div:last')
-                .addClass('two-thirds column omega')
-                .attr('id', 'cc-shell-visual-frequency-graphic')
                 .end()
 
                 .end(); // div#cc-shell-visual-content-frequency
@@ -915,9 +944,10 @@ cc.shell = (function () {
             .attr('id', 'cc-shell-front-title-' + page_name)
             .load('html/cc-shell-front-title.html', function () {
                 $('div#cc-shell-front-title-' + page_name)
-                    .find('h4')
                     .click({page_name: 'cover'}, present_Page)
-                    .hover(hover_In, hover_Out)
+                    .hover(hover_All_In, hover_All_Out)
+
+                    .find('h4')
                     .text(cc.model.getCountry().toUpperCase());
             })
             .end()
@@ -929,6 +959,9 @@ cc.shell = (function () {
             .load('html/cc-shell-front-share.html', function () {
                 $('div#cc-shell-front-share-' + page_name)
                     .find('.cc-shell-front-logo')
+                    .click(function () {
+                        window.open('http://www.blu-pen.com');
+                    })
                     .load('img/bp-logo-two-color-text-circle.svg')
                     .end()
 
@@ -1131,10 +1164,12 @@ cc.shell = (function () {
                     module_Config.collection_name +
                     '.html#!page_name=cover';
 
+                $('.cc-shell-visual-title-navigation')
+                    .click({page_name: 'cover'}, present_Page)
+                    .hover(hover_All_In, hover_All_Out);
+
                 $('div#cc-shell-visual-title-' + page_name)
                     .find('h1')
-                    .click({page_name: 'cover'}, present_Page)
-                    .hover(hover_In, hover_Out)
                     .text(cc.model.getCountry().toUpperCase())
                     .end()
 
@@ -1177,6 +1212,9 @@ cc.shell = (function () {
             .load('html/cc-shell-visual-share.html', function () {
                     $('div#cc-shell-visual-share-' + page_name)
                     .find('.cc-shell-visual-logo')
+                    .click(function () {
+                        window.open('http://www.blu-pen.com');
+                    })
                     .load('img/bp-logo-two-color-text-circle.svg')
                     .end()
 
@@ -1331,9 +1369,10 @@ cc.shell = (function () {
             .attr('id', 'cc-shell-source-title-' + page_name)
             .load('html/cc-shell-source-title.html', function () {
                 $('div#cc-shell-source-title-' + page_name)
-                    .find('h4')
                     .click({page_name: 'cover'}, present_Page)
-                    .hover(hover_In, hover_Out)
+                    .hover(hover_All_In, hover_All_Out)
+
+                    .find('h4')
                     .text(cc.model.getCountry().toUpperCase());
             })
             .end()
@@ -1345,6 +1384,9 @@ cc.shell = (function () {
             .load('html/cc-shell-source-share.html', function () {
                 $('div#cc-shell-source-share-' + page_name)
                     .find('.cc-shell-visual-logo')
+                    .click(function () {
+                        window.open('http://www.blu-pen.com');
+                    })
                     .load('img/bp-logo-two-color-text-circle.svg')
                     .end()
 

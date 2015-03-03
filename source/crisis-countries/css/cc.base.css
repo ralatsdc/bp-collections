@@ -15,7 +15,7 @@
    ================================================== */
 
 body {
-    font: 14px/21px "OpenSansRegular", Helvetica, Arial, sans-serif;
+    font-family: "OpenSansRegular", Helvetica, Arial, sans-serif; */
     color: #292929;
 }
 
@@ -23,8 +23,8 @@ body {
    ================================================== */
 
 h1, h2, h3, h4, h5, h6 {
-    color: #212121;
     font-family: "OpenSansRegular", Helvetica, Arial, sans-serif;
+    color: #212121;
 }
 
 /* #Links
