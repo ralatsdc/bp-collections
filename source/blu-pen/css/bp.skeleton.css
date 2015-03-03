@@ -78,6 +78,10 @@ img#bp-shell-preserve-image,
     margin-top: 15px;
 }
 
+#bp-shell-connect-connect svg {
+    margin-top: 5px;
+}
+
 .bp-shell-paging-major svg {
     height: 50px;
 }
@@ -168,6 +172,10 @@ img#bp-shell-preserve-image,
         margin-top: 12px;
     }
     
+    #bp-shell-connect-connect svg {
+        margin-top: 4px;
+    }
+
     .bp-shell-paging-major svg {
         height: 40px;
     }
@@ -267,6 +275,10 @@ img#bp-shell-preserve-image,
         margin-top: 7px;
     }
     
+    #bp-shell-connect-connect svg {
+        margin-top: 0px;
+    }
+
     .bp-shell-paging-major svg {
         height: 24px;
     }
@@ -366,6 +378,10 @@ img#bp-shell-preserve-image,
         margin-top: 10px;
     }
     
+    #bp-shell-connect-connect svg {
+        margin-top: 0px;
+    }
+
     .bp-shell-paging-major svg {
         height: 34px;
     }

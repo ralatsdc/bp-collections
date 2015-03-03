@@ -52,6 +52,10 @@ img#bp-shell-preserve-image,
     margin-top: <15>px;
 }
 
+#bp-shell-connect-connect svg {
+    margin-top: <5>px;
+}
+
 .bp-shell-paging-major svg {
     height: <50>px;
 }
