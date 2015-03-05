@@ -20,21 +20,6 @@ body {
     color: #292929;
 }
 
-.inline {
-    display: inline;
-}
-
-.newline {
-    clear: left;
-}
-    
-.centered {
-    text-align: center;
-    display: block;
-    margin-left: auto;
-    margin-right: auto
-}
-
 /* #Typography
    ================================================== */
 
@@ -69,3 +54,25 @@ a:hover, a:focus { color: #1AB6E5; }
 
 svg { width: auto; viewBox: "none"; }
 svg.scale-with-grid {max-width: 100%; max-height: 100%; }
+
+/* #Misc
+   ================================================== */
+
+.align-right {
+    text-align: right;
+}
+
+.inline {
+    display: inline;
+}
+
+.newline {
+    clear: left;
+}
+    
+.centered {
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto
+}

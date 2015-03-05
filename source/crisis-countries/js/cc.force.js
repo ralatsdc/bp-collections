@@ -224,34 +224,8 @@ cc.force = (function () {
             .on('mousemove', move_Description)
             .on('mouseout', dismiss_Description)
             .on('click', present_Source);
-
-        // Create the body page force layout descriptions, and attach
-        // resize handlers
-        switch (page_name) {
-        case 'volume':
-            d3.select(window)
-                .on('resize', resizeVolumeLegend);
-            break;
-
-        case 'trust':
-            d3.select(window)
-                .on('resize', resizeTrustLegend);
-            break;
-
-        case 'topics':
-            d3.select(window)
-                .on('resize', resizeTopicsLegend);
-            break;
-
-        case 'frequency':
-            d3.select(window)
-                .on('resize', resizeFrequencyAxes);
-            break;
-
-        default:
-        }
     };
-
+    
     /**
      * Starts the body page force layout simulation, and then resizes
      * the body page force layout legends.
@@ -278,10 +252,13 @@ cc.force = (function () {
 
         case 'trust':
             resizeTrustLegend();
+            resizeVolumeLegend();
             break;
 
         case 'topics':
             resizeTopicsLegend();
+            resizeTrustLegend();
+            resizeVolumeLegend();
             break;
 
         case 'frequency':
@@ -298,6 +275,9 @@ cc.force = (function () {
                 .attr('transform', 'translate(' + scale_X(-50.0) + ', 0)')
                 .call(axis_Y);
             resizeFrequencyAxes();
+            resizeTopicsLegend();
+            resizeTrustLegend();
+            resizeVolumeLegend();
             break;
 
         default:
@@ -315,29 +295,20 @@ cc.force = (function () {
     resizeVolumeLegend = function () {
 
         var
-        volume = [-1, 0, 1],
         size = ['small', 'medium', 'large'],
         scale = get_Scale(),
-        R,
+        R = [10, 20, 40],
         width,
         height;
 
         for (var i_crcl = 0; i_crcl < size.length; i_crcl += 1) {
             
-            R = scale_R({volume: volume[i_crcl]});
-            width = 2.05 * R * scale;
-            height = 2.05 * R * scale;
+            width = 2.05 * R[i_crcl] * scale;
+            height = 2.05 * R[i_crcl] * scale;
         
-            d3.select('div#cc-shell-visual-volume-' + size[i_crcl] + '-circle svg')
+            d3.select('div.cc-shell-visual-volume-' + size[i_crcl] + '-circle svg')
                 .attr('width',  width)
                 .attr('height', height);
-
-            d3.select('div#cc-shell-visual-volume-' + size[i_crcl] + '-circle circle')
-                .attr('cx', R)
-                .attr('cy', R)
-                .attr('r', R)
-                .attr('opacity', scale_O({engagement: '0'}))
-                .attr('fill', fill_R({engagement: '0'}));
         }
     };
 
@@ -352,7 +323,7 @@ cc.force = (function () {
         scale = get_Scale() + 0.05,
         height = 20 * scale;
 
-        d3.selectAll('div#cc-shell-visual-trust-description svg')
+        d3.selectAll('div.cc-shell-visual-trust-legend svg')
             .attr('height', height);
     };
 
@@ -365,10 +336,10 @@ cc.force = (function () {
 
         var
         scale = get_Scale() + 0.05,
-        width = 44 * scale,
-        height = 44 * scale;
+        width = 43 * scale,
+        height = 43 * scale;
 
-        d3.selectAll('div#cc-shell-visual-topics-description svg')
+        d3.selectAll('div.cc-shell-visual-topics-legend svg')
             .attr('width', width)
             .attr('height', height);
     };
@@ -545,7 +516,12 @@ cc.force = (function () {
 
         var
         opacity = 0.75,
-        page_name = module_State.page_name;
+        page_name;
+        if (typeof d === 'object' && d.hasOwnProperty('page_name')) {
+            page_name = d.page_name;
+        } else {
+            page_name = module_State.page_name;
+        }
 
         switch (page_name) {
         case 'volume':
@@ -580,7 +556,12 @@ cc.force = (function () {
 
         var
         color = '#FFFFFF',
-        page_name = module_State.page_name;
+        page_name;
+        if (typeof d === 'object' && d.hasOwnProperty('page_name')) {
+            page_name = d.page_name;
+        } else {
+            page_name = module_State.page_name;
+        }
 
         switch (page_name) {
         case 'volume':

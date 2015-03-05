@@ -76,7 +76,7 @@ cc.model = (function () {
             }
         });
     };
-    
+
     /**
      * Returns the country name.
      *
