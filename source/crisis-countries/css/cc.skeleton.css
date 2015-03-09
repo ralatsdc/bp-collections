@@ -149,6 +149,10 @@ div.cc-shell-visual-description p {
     margin-top: 20px;
 }
 
+div.cc-shell-visual-trust-legend {
+    width: 300px;
+}
+
 /* #Tablet (Portrait)
    ================================================== */
 
@@ -288,6 +292,10 @@ div.cc-shell-visual-description p {
     
     div.cc-shell-visual-description p {
         margin-top: 16px;
+    }
+    
+    div.cc-shell-visual-trust-legend {
+        width: 238px;
     }
 }
 
@@ -432,6 +440,10 @@ div.cc-shell-visual-description p {
     div.cc-shell-visual-description p {
         margin-top: 10px;
     }
+
+    div.cc-shell-visual-trust-legend {
+        width: 145px;
+    }
 }
 
 /* #Mobile (Landscape)
@@ -573,5 +585,9 @@ div.cc-shell-visual-description p {
     
     div.cc-shell-visual-description p {
         margin-top: 14px;
+    }
+
+    div.cc-shell-visual-trust-legend {
+        width: 203px;
     }
 }

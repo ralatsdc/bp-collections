@@ -124,3 +124,7 @@ div.cc-shell-source-header {
 div.cc-shell-visual-description p {
     margin-top: <20>px;
 }
+
+div.cc-shell-visual-trust-legend {
+    width: <300>px;
+}
