@@ -80,15 +80,6 @@ div.cc-shell-source-header {
     margin-top: 20px;
 }
 
-div.cc-shell-source-header .row {
-    margin-bottom: 0;
-}
-
-.cc-shell-visual-title-navigation,
-.cc-shell-visual-title-logo {
-    margin-bottom: 0;
-}
-
 .cc-shell-visual-title h4 {
     margin-top: -8px;
 }
@@ -113,14 +104,6 @@ div.cc-shell-source-header .row {
 #cc-shell-postscript hr,
 #cc-shell-colophon hr {
     margin-bottom: 40px;
-}
-
-#cc-shell-visual-navigation-volume hr,
-#cc-shell-visual-navigation-trust hr,
-#cc-shell-visual-navigation-topics hr,
-#cc-shell-visual-navigation-frequency hr {
-    /* TODO: Check this with base */
-    margin-bottom: 0px;
 }
 
 .cc-shell-front-content h2 {
@@ -155,21 +138,8 @@ div.cc-shell-source-header .row {
     margin-top: 32px;
 }
 
-.cc-shell-front-title h3,
-.cc-shell-source-title h3 {
-    /*
-    font-size: 21px;
-    line-height: 30px;
-    margin-bottom: 4px;
-    */
-}
-
 .cc-shell-front-title h4,
 .cc-shell-source-title h4 {
-    /*
-    font-size: 17px;
-    line-height: 24px;
-    */
     margin-top: -8px;
 }
 
@@ -192,6 +162,7 @@ div.cc-shell-visual-description p {
         -ms-transform: scale(0.7935);
         transform: scale(0.7935);
     }
+    
     body { font-size: 11px; line-height: 17px; }
     
     h1 { font-size: 37px; line-height: 40px; margin-bottom: 11px;}
@@ -207,7 +178,7 @@ div.cc-shell-visual-description p {
     /* SVG logos */
     
     #cc-shell-cover-logo svg {
-        margin-top: 29px;
+        margin-top: 26px;
         height: 27px;
     }
     
@@ -233,6 +204,10 @@ div.cc-shell-visual-description p {
     
     /* Header */
     
+    div#cc-shell-cover-header {
+        margin-top: 16px;
+    }
+    
     div#cc-shell-cover-header,
     div.cc-shell-front-header,
     div.cc-shell-visual-header,
@@ -243,15 +218,11 @@ div.cc-shell-visual-description p {
     div.cc-shell-front-header,
     div.cc-shell-visual-header,
     div.cc-shell-source-header {
-        margin-top: 14px;
+        margin-top: 16px;
     }
     
-    .cc-shell-visual-title-logo {
-        margin-bottom: 16px;
-    }
-    
-    .cc-shell-visual-title h3 {
-        margin-top: -13px;
+    .cc-shell-visual-title h4 {
+        margin-top: -6px;
     }
     
     .cc-shell-share-for-visual {
@@ -267,9 +238,29 @@ div.cc-shell-visual-description p {
     #cc-shell-contents hr,
     #cc-shell-preface hr,
     #cc-shell-introduction hr,
+    #cc-shell-volume hr,
+    #cc-shell-trust hr,
+    #cc-shell-topics hr,
+    #cc-shell-frequency hr,
     #cc-shell-postscript hr,
     #cc-shell-colophon hr {
-        margin-bottom: 33px;
+        margin-bottom: 32px;
+    }
+    
+    .cc-shell-front-content h2 {
+        margin-bottom: 16px;
+    }
+    
+    #cc-shell-front-contents h4 {
+        margin-top: 16px;
+    }
+    
+    .cc-shell-front-navigation h3 {
+        margin-bottom: 21px;
+    }
+    
+    .cc-shell-front-navigation h5 {
+        margin-top: 16px;
     }
     
     /* Body titles */
@@ -290,15 +281,6 @@ div.cc-shell-visual-description p {
     
     .cc-shell-front-title h4,
     .cc-shell-source-title h4 {
-        font-size: 17px;
-        line-height: 24px;
-        margin-bottom: 3px;
-    }
-    
-    .cc-shell-front-title h5,
-    .cc-shell-source-title h5 {
-        font-size: 13px;
-        line-height: 19px;
         margin-top: -6px;
     }
     
@@ -323,6 +305,7 @@ div.cc-shell-visual-description p {
         -ms-transform: scale(0.4838);
         transform: scale(0.4838);
     }
+    
     body { font-size: 7px; line-height: 10px; }
     
     h1 { font-size: 22px; line-height: 24px; margin-bottom: 7px;}
@@ -338,7 +321,7 @@ div.cc-shell-visual-description p {
     /* SVG logos */
     
     #cc-shell-cover-logo svg {
-        margin-top: 17px;
+        margin-top: 16px;
         height: 16px;
     }
     
@@ -364,6 +347,10 @@ div.cc-shell-visual-description p {
     
     /* Header */
     
+    div#cc-shell-cover-header {
+        margin-top: 10px;
+    }
+    
     div#cc-shell-cover-header,
     div.cc-shell-front-header,
     div.cc-shell-visual-header,
@@ -374,15 +361,11 @@ div.cc-shell-visual-description p {
     div.cc-shell-front-header,
     div.cc-shell-visual-header,
     div.cc-shell-source-header {
-        margin-top: 9px;
+        margin-top: 10px;
     }
     
-    .cc-shell-visual-title-logo {
-        margin-bottom: 10px;
-    }
-    
-    .cc-shell-visual-title h3 {
-        margin-top: -8px;
+    .cc-shell-visual-title h4 {
+        margin-top: -4px;
     }
     
     .cc-shell-share-for-visual {
@@ -398,9 +381,29 @@ div.cc-shell-visual-description p {
     #cc-shell-contents hr,
     #cc-shell-preface hr,
     #cc-shell-introduction hr,
+    #cc-shell-volume hr,
+    #cc-shell-trust hr,
+    #cc-shell-topics hr,
+    #cc-shell-frequency hr,
     #cc-shell-postscript hr,
     #cc-shell-colophon hr {
-        margin-bottom: 20px;
+        margin-bottom: 19px;
+    }
+    
+    .cc-shell-front-content h2 {
+        margin-bottom: 10px;
+    }
+    
+    #cc-shell-front-contents h4 {
+        margin-top: 10px;
+    }
+    
+    .cc-shell-front-navigation h3 {
+        margin-bottom: 13px;
+    }
+    
+    .cc-shell-front-navigation h5 {
+        margin-top: 10px;
     }
     
     /* Body titles */
@@ -421,15 +424,6 @@ div.cc-shell-visual-description p {
     
     .cc-shell-front-title h4,
     .cc-shell-source-title h4 {
-        font-size: 10px;
-        line-height: 15px;
-        margin-bottom: 2px;
-    }
-    
-    .cc-shell-front-title h5,
-    .cc-shell-source-title h5 {
-        font-size: 8px;
-        line-height: 12px;
         margin-top: -4px;
     }
     
@@ -453,6 +447,7 @@ div.cc-shell-visual-description p {
         -ms-transform: scale(0.6774);
         transform: scale(0.6774);
     }
+    
     body { font-size: 9px; line-height: 14px; }
     
     h1 { font-size: 31px; line-height: 34px; margin-bottom: 9px;}
@@ -468,7 +463,7 @@ div.cc-shell-visual-description p {
     /* SVG logos */
     
     #cc-shell-cover-logo svg {
-        margin-top: 24px;
+        margin-top: 22px;
         height: 23px;
     }
     
@@ -494,6 +489,10 @@ div.cc-shell-visual-description p {
     
     /* Header */
     
+    div#cc-shell-cover-header {
+        margin-top: 14px;
+    }
+    
     div#cc-shell-cover-header,
     div.cc-shell-front-header,
     div.cc-shell-visual-header,
@@ -504,15 +503,11 @@ div.cc-shell-visual-description p {
     div.cc-shell-front-header,
     div.cc-shell-visual-header,
     div.cc-shell-source-header {
-        margin-top: 12px;
+        margin-top: 14px;
     }
     
-    .cc-shell-visual-title-logo {
-        margin-bottom: 14px;
-    }
-    
-    .cc-shell-visual-title h3 {
-        margin-top: -11px;
+    .cc-shell-visual-title h4 {
+        margin-top: -5px;
     }
     
     .cc-shell-share-for-visual {
@@ -528,9 +523,29 @@ div.cc-shell-visual-description p {
     #cc-shell-contents hr,
     #cc-shell-preface hr,
     #cc-shell-introduction hr,
+    #cc-shell-volume hr,
+    #cc-shell-trust hr,
+    #cc-shell-topics hr,
+    #cc-shell-frequency hr,
     #cc-shell-postscript hr,
     #cc-shell-colophon hr {
-        margin-bottom: 28px;
+        margin-bottom: 27px;
+    }
+    
+    .cc-shell-front-content h2 {
+        margin-bottom: 14px;
+    }
+    
+    #cc-shell-front-contents h4 {
+        margin-top: 14px;
+    }
+    
+    .cc-shell-front-navigation h3 {
+        margin-bottom: 18px;
+    }
+    
+    .cc-shell-front-navigation h5 {
+        margin-top: 14px;
     }
     
     /* Body titles */
@@ -551,15 +566,6 @@ div.cc-shell-visual-description p {
     
     .cc-shell-front-title h4,
     .cc-shell-source-title h4 {
-        font-size: 14px;
-        line-height: 20px;
-        margin-bottom: 3px;
-    }
-    
-    .cc-shell-front-title h5,
-    .cc-shell-source-title h5 {
-        font-size: 12px;
-        line-height: 16px;
         margin-top: -5px;
     }
     

@@ -44,10 +44,6 @@ svg.scale-with-grid {
 /* #Misc
    ================================================== */
 
-.align-right {
-    text-align: right;
-}
-
 .inline {
     display: inline;
 }
@@ -61,4 +57,12 @@ svg.scale-with-grid {
     display: block;
     margin-left: auto;
     margin-right: auto
+}
+
+.align-right {
+    text-align: right;
+}
+
+.add-top {
+    margin-top: 20px !important;
 }

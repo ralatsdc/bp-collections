@@ -61,11 +61,20 @@
 
 /* Header */
 
+.cc-shell-visual-title-navigation,
+.cc-shell-visual-title-logo {
+    margin-bottom: 0;
+}
+
 #cc-shell-volume hr,
 #cc-shell-trust hr,
 #cc-shell-topics hr,
 #cc-shell-frequency hr {
-    /* margin-bottom: 0px; */
+    margin-bottom: 0;
+}
+
+div.cc-shell-source-header .row {
+    margin-bottom: 0;
 }
 
 /* Body titles */
@@ -105,6 +114,13 @@
 }
 
 #cc-shell-front-contents div.row {
+    margin-bottom: 0;
+}
+
+#cc-shell-visual-navigation-volume hr,
+#cc-shell-visual-navigation-trust hr,
+#cc-shell-visual-navigation-topics hr,
+#cc-shell-visual-navigation-frequency hr {
     margin-bottom: 0;
 }
 

@@ -881,7 +881,7 @@ cc.shell = (function () {
                         .end()
 
                         .find('div.cc-shell-share-for-visual')
-                        .load('html/cc-shell-share-share.html', function () {
+                        .load('html/cc-shell-visual-share.html', function () {
 
                             var
                             text = 
