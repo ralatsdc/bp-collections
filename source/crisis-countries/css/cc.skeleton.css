@@ -22,6 +22,137 @@
     transform: scale(1.0);
 }
 
+body { font-size: 14px; line-height: 21px; }
+
+h1 { font-size: 46px; line-height: 50px; margin-bottom: 14px;}
+h2 { font-size: 35px; line-height: 40px; margin-bottom: 10px; }
+h3 { font-size: 28px; line-height: 34px; margin-bottom: 8px; }
+h4 { font-size: 21px; line-height: 30px; margin-bottom: 4px; }
+h5 { font-size: 17px; line-height: 24px; }
+h6 { font-size: 14px; line-height: 21px; }
+
+p { margin: 0 0 20px 0; }
+p.lead { font-size: 21px; line-height: 27px; }
+
+/* SVG logos */
+
+#cc-shell-cover-logo svg {
+    margin-top: 33px;
+    height: 34px;
+}
+
+.cc-shell-front-logo svg,
+.cc-shell-visual-logo svg,
+.cc-shell-source-logo svg {
+    height: 34px;
+}
+
+/* SVG navigation */
+
+.cc-shell-circle-arrow svg {
+    margin-top: 2px;
+    height: 24px;
+}
+
+.cc-shell-share-on-flickr svg,
+.cc-shell-share-on-tumblr svg,
+.cc-shell-share-on-twitter svg,
+.cc-shell-share-by-email svg {
+    height: 25px;
+}
+
+/* Header */
+
+div#cc-shell-cover-header {
+    margin-top: 20px;
+}
+
+div#cc-shell-cover-header,
+div.cc-shell-front-header,
+div.cc-shell-visual-header,
+div.cc-shell-source-header {
+    height: 100px;
+}
+
+div.cc-shell-front-header,
+div.cc-shell-visual-header,
+div.cc-shell-source-header {
+    margin-top: 20px;
+}
+
+.cc-shell-visual-title h4 {
+    margin-top: -8px;
+}
+
+.cc-shell-share-for-visual {
+    margin-top: 20px;
+}
+
+.cc-shell-front-share-logo,
+.cc-shell-visual-share-logo,
+.cc-shell-source-share-logo {
+    margin-top: 6px;
+}
+
+#cc-shell-contents hr,
+#cc-shell-preface hr,
+#cc-shell-introduction hr,
+#cc-shell-volume hr,
+#cc-shell-trust hr,
+#cc-shell-topics hr,
+#cc-shell-frequency hr,
+#cc-shell-postscript hr,
+#cc-shell-colophon hr {
+    margin-bottom: 40px;
+}
+
+.cc-shell-front-content h2 {
+    margin-bottom: 20px;
+}
+
+#cc-shell-front-contents h4 {
+    margin-top: 20px;
+}
+
+.cc-shell-front-navigation h3 {
+    margin-bottom: 26px;
+}
+
+.cc-shell-front-navigation h5 {
+    margin-top: 20px;
+}
+
+/* Body titles */
+
+#cc-shell-cover-title h1 {
+    font-size: 110px;
+    line-height: 110px;
+}
+
+#cc-shell-cover-title h2 {
+    font-size: 60px;
+    line-height: 60px;
+}
+
+.cc-shell-title-for-visual {
+    margin-top: 32px;
+}
+
+.cc-shell-front-title h4,
+.cc-shell-source-title h4 {
+    margin-top: -8px;
+}
+
+/* Body miscellaneous */
+
+div.cc-shell-visual-description p {
+    margin-top: 20px;
+}
+
+div.cc-shell-visual-trust-legend {
+    width: 300px;
+}
+
 /* #Tablet (Portrait)
    ================================================== */
 
@@ -34,6 +165,137 @@
         -o-transform: scale(0.7935);
         -ms-transform: scale(0.7935);
         transform: scale(0.7935);
+    }
+    
+    body { font-size: 11px; line-height: 17px; }
+    
+    h1 { font-size: 37px; line-height: 40px; margin-bottom: 11px;}
+    h2 { font-size: 28px; line-height: 32px; margin-bottom: 8px; }
+    h3 { font-size: 22px; line-height: 27px; margin-bottom: 6px; }
+    h4 { font-size: 17px; line-height: 24px; margin-bottom: 3px; }
+    h5 { font-size: 13px; line-height: 19px; }
+    h6 { font-size: 11px; line-height: 17px; }
+    
+    p { margin: 0 0 16px 0; }
+    p.lead { font-size: 17px; line-height: 21px; }
+    
+    /* SVG logos */
+    
+    #cc-shell-cover-logo svg {
+        margin-top: 26px;
+        height: 27px;
+    }
+    
+    .cc-shell-front-logo svg,
+    .cc-shell-visual-logo svg,
+    .cc-shell-source-logo svg {
+        height: 27px;
+    }
+    
+    /* SVG navigation */
+    
+    .cc-shell-circle-arrow svg {
+        margin-top: 2px;
+        height: 19px;
+    }
+    
+    .cc-shell-share-on-flickr svg,
+    .cc-shell-share-on-tumblr svg,
+    .cc-shell-share-on-twitter svg,
+    .cc-shell-share-by-email svg {
+        height: 20px;
+    }
+    
+    /* Header */
+    
+    div#cc-shell-cover-header {
+        margin-top: 16px;
+    }
+    
+    div#cc-shell-cover-header,
+    div.cc-shell-front-header,
+    div.cc-shell-visual-header,
+    div.cc-shell-source-header {
+        height: 79px;
+    }
+    
+    div.cc-shell-front-header,
+    div.cc-shell-visual-header,
+    div.cc-shell-source-header {
+        margin-top: 16px;
+    }
+    
+    .cc-shell-visual-title h4 {
+        margin-top: -6px;
+    }
+    
+    .cc-shell-share-for-visual {
+        margin-top: 16px;
+    }
+    
+    .cc-shell-front-share-logo,
+    .cc-shell-visual-share-logo,
+    .cc-shell-source-share-logo {
+        margin-top: 5px;
+    }
+    
+    #cc-shell-contents hr,
+    #cc-shell-preface hr,
+    #cc-shell-introduction hr,
+    #cc-shell-volume hr,
+    #cc-shell-trust hr,
+    #cc-shell-topics hr,
+    #cc-shell-frequency hr,
+    #cc-shell-postscript hr,
+    #cc-shell-colophon hr {
+        margin-bottom: 32px;
+    }
+    
+    .cc-shell-front-content h2 {
+        margin-bottom: 16px;
+    }
+    
+    #cc-shell-front-contents h4 {
+        margin-top: 16px;
+    }
+    
+    .cc-shell-front-navigation h3 {
+        margin-bottom: 21px;
+    }
+    
+    .cc-shell-front-navigation h5 {
+        margin-top: 16px;
+    }
+    
+    /* Body titles */
+    
+    #cc-shell-cover-title h1 {
+        font-size: 87px;
+        line-height: 87px;
+    }
+    
+    #cc-shell-cover-title h2 {
+        font-size: 48px;
+        line-height: 48px;
+    }
+    
+    .cc-shell-title-for-visual {
+        margin-top: 25px;
+    }
+    
+    .cc-shell-front-title h4,
+    .cc-shell-source-title h4 {
+        margin-top: -6px;
+    }
+    
+    /* Body miscellaneous */
+    
+    div.cc-shell-visual-description p {
+        margin-top: 16px;
+    }
+    
+    div.cc-shell-visual-trust-legend {
+        width: 238px;
     }
 }
 
@@ -51,8 +313,138 @@
         -ms-transform: scale(0.4838);
         transform: scale(0.4838);
     }
-}
+    
+    body { font-size: 7px; line-height: 10px; }
+    
+    h1 { font-size: 22px; line-height: 24px; margin-bottom: 7px;}
+    h2 { font-size: 17px; line-height: 19px; margin-bottom: 5px; }
+    h3 { font-size: 14px; line-height: 16px; margin-bottom: 4px; }
+    h4 { font-size: 10px; line-height: 15px; margin-bottom: 2px; }
+    h5 { font-size: 8px; line-height: 12px; }
+    h6 { font-size: 7px; line-height: 10px; }
+    
+    p { margin: 0 0 10px 0; }
+    p.lead { font-size: 10px; line-height: 13px; }
+    
+    /* SVG logos */
+    
+    #cc-shell-cover-logo svg {
+        margin-top: 16px;
+        height: 16px;
+    }
+    
+    .cc-shell-front-logo svg,
+    .cc-shell-visual-logo svg,
+    .cc-shell-source-logo svg {
+        height: 16px;
+    }
+    
+    /* SVG navigation */
+    
+    .cc-shell-circle-arrow svg {
+        margin-top: 1px;
+        height: 12px;
+    }
+    
+    .cc-shell-share-on-flickr svg,
+    .cc-shell-share-on-tumblr svg,
+    .cc-shell-share-on-twitter svg,
+    .cc-shell-share-by-email svg {
+        height: 12px;
+    }
+    
+    /* Header */
+    
+    div#cc-shell-cover-header {
+        margin-top: 10px;
+    }
+    
+    div#cc-shell-cover-header,
+    div.cc-shell-front-header,
+    div.cc-shell-visual-header,
+    div.cc-shell-source-header {
+        height: 48px;
+    }
+    
+    div.cc-shell-front-header,
+    div.cc-shell-visual-header,
+    div.cc-shell-source-header {
+        margin-top: 10px;
+    }
+    
+    .cc-shell-visual-title h4 {
+        margin-top: -4px;
+    }
+    
+    .cc-shell-share-for-visual {
+        margin-top: 10px;
+    }
+    
+    .cc-shell-front-share-logo,
+    .cc-shell-visual-share-logo,
+    .cc-shell-source-share-logo {
+        margin-top: 3px;
+    }
+    
+    #cc-shell-contents hr,
+    #cc-shell-preface hr,
+    #cc-shell-introduction hr,
+    #cc-shell-volume hr,
+    #cc-shell-trust hr,
+    #cc-shell-topics hr,
+    #cc-shell-frequency hr,
+    #cc-shell-postscript hr,
+    #cc-shell-colophon hr {
+        margin-bottom: 19px;
+    }
+    
+    .cc-shell-front-content h2 {
+        margin-bottom: 10px;
+    }
+    
+    #cc-shell-front-contents h4 {
+        margin-top: 10px;
+    }
+    
+    .cc-shell-front-navigation h3 {
+        margin-bottom: 13px;
+    }
+    
+    .cc-shell-front-navigation h5 {
+        margin-top: 10px;
+    }
+    
+    /* Body titles */
+    
+    #cc-shell-cover-title h1 {
+        font-size: 53px;
+        line-height: 53px;
+    }
+    
+    #cc-shell-cover-title h2 {
+        font-size: 29px;
+        line-height: 29px;
+    }
+    
+    .cc-shell-title-for-visual {
+        margin-top: 15px;
+    }
+    
+    .cc-shell-front-title h4,
+    .cc-shell-source-title h4 {
+        margin-top: -4px;
+    }
+    
+    /* Body miscellaneous */
+    
+    div.cc-shell-visual-description p {
+        margin-top: 10px;
+    }
 
+    div.cc-shell-visual-trust-legend {
+        width: 145px;
+    }
+}
 
 /* #Mobile (Landscape)
    ================================================== */
@@ -66,5 +458,136 @@
         -o-transform: scale(0.6774);
         -ms-transform: scale(0.6774);
         transform: scale(0.6774);
+    }
+    
+    body { font-size: 9px; line-height: 14px; }
+    
+    h1 { font-size: 31px; line-height: 34px; margin-bottom: 9px;}
+    h2 { font-size: 24px; line-height: 27px; margin-bottom: 7px; }
+    h3 { font-size: 19px; line-height: 23px; margin-bottom: 5px; }
+    h4 { font-size: 14px; line-height: 20px; margin-bottom: 3px; }
+    h5 { font-size: 12px; line-height: 16px; }
+    h6 { font-size: 9px; line-height: 14px; }
+    
+    p { margin: 0 0 14px 0; }
+    p.lead { font-size: 14px; line-height: 18px; }
+    
+    /* SVG logos */
+    
+    #cc-shell-cover-logo svg {
+        margin-top: 22px;
+        height: 23px;
+    }
+    
+    .cc-shell-front-logo svg,
+    .cc-shell-visual-logo svg,
+    .cc-shell-source-logo svg {
+        height: 23px;
+    }
+    
+    /* SVG navigation */
+    
+    .cc-shell-circle-arrow svg {
+        margin-top: 1px;
+        height: 16px;
+    }
+    
+    .cc-shell-share-on-flickr svg,
+    .cc-shell-share-on-tumblr svg,
+    .cc-shell-share-on-twitter svg,
+    .cc-shell-share-by-email svg {
+        height: 17px;
+    }
+    
+    /* Header */
+    
+    div#cc-shell-cover-header {
+        margin-top: 14px;
+    }
+    
+    div#cc-shell-cover-header,
+    div.cc-shell-front-header,
+    div.cc-shell-visual-header,
+    div.cc-shell-source-header {
+        height: 68px;
+    }
+    
+    div.cc-shell-front-header,
+    div.cc-shell-visual-header,
+    div.cc-shell-source-header {
+        margin-top: 14px;
+    }
+    
+    .cc-shell-visual-title h4 {
+        margin-top: -5px;
+    }
+    
+    .cc-shell-share-for-visual {
+        margin-top: 14px;
+    }
+    
+    .cc-shell-front-share-logo,
+    .cc-shell-visual-share-logo,
+    .cc-shell-source-share-logo {
+        margin-top: 4px;
+    }
+    
+    #cc-shell-contents hr,
+    #cc-shell-preface hr,
+    #cc-shell-introduction hr,
+    #cc-shell-volume hr,
+    #cc-shell-trust hr,
+    #cc-shell-topics hr,
+    #cc-shell-frequency hr,
+    #cc-shell-postscript hr,
+    #cc-shell-colophon hr {
+        margin-bottom: 27px;
+    }
+    
+    .cc-shell-front-content h2 {
+        margin-bottom: 14px;
+    }
+    
+    #cc-shell-front-contents h4 {
+        margin-top: 14px;
+    }
+    
+    .cc-shell-front-navigation h3 {
+        margin-bottom: 18px;
+    }
+    
+    .cc-shell-front-navigation h5 {
+        margin-top: 14px;
+    }
+    
+    /* Body titles */
+    
+    #cc-shell-cover-title h1 {
+        font-size: 75px;
+        line-height: 75px;
+    }
+    
+    #cc-shell-cover-title h2 {
+        font-size: 41px;
+        line-height: 41px;
+    }
+    
+    .cc-shell-title-for-visual {
+        margin-top: 22px;
+    }
+    
+    .cc-shell-front-title h4,
+    .cc-shell-source-title h4 {
+        margin-top: -5px;
+    }
+    
+    /* Body miscellaneous */
+    
+    div.cc-shell-visual-description p {
+        margin-top: 14px;
+    }
+
+    div.cc-shell-visual-trust-legend {
+        width: 203px;
     }
 }

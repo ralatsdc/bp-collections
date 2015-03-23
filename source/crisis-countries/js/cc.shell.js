@@ -12,20 +12,25 @@ cc.shell = (function () {
     configModule,
     initModule,
     getJqContainers,
+    getCollectionUrl,
     delegatePage;
 
     /* == Private variables == */
 
     var
     module_Config = {
-        country_file_name: 'json/collection/car.json',
+        host: 'localhost:8080',
+        collection_name: 'car',
         init_page_name: 'cover',
         settable: {
-            country_file_name: false,
+            host: true,
+            collection_name: true,
             init_page_name: false
         }
     },
     module_State = {
+        collection_file: undefined,
+        collection_url: undefined,
         jq_containers: {},
         uri_anchor: {}
     },
@@ -37,8 +42,11 @@ cc.shell = (function () {
     create_Source,
     create_Back,
     on_Hash_Change,
+    send_Message,
     hover_In,
-    hover_Out;
+    hover_Out,
+    hover_All_In,
+    hover_All_Out;
 
     /* == Public functions ==*/
 
@@ -68,6 +76,14 @@ cc.shell = (function () {
      * @return {undefined}
      */
     initModule = function (jq_container) {
+
+        module_State.collection_file =
+            'json/collection/' + module_Config.collection_name + '.json';
+        module_State.collection_url =
+            'http://' + module_Config.host + '/crisis-countries/' + module_Config.collection_name + '.html';
+        if ($.isEmptyObject(jq_container)) {
+            return;
+        }
 
         // Sets the container class on the main div
         module_State.jq_containers.main = jq_container
@@ -99,13 +115,13 @@ cc.shell = (function () {
         case 'frequency':
         case 'postscript':
         case 'colophon':
-            cc.model.initModule(module_Config.country_file_name,
+            cc.model.initModule(module_State.collection_file,
                                 {page_name: page_name});
             break;
 
         case 'source':
             if ('source_index' in uri_anchor) {
-                cc.model.initModule(module_Config.country_file_name,
+                cc.model.initModule(module_State.collection_file,
                                     {source_index: uri_anchor.source_index});
             }
             break;
@@ -113,6 +129,10 @@ cc.shell = (function () {
         default:
         }
         $(window).bind('hashchange', on_Hash_Change);
+        $(window).bind('resize', cc.force.resizeVolumeLegend);
+        $(window).bind('resize', cc.force.resizeTrustLegend);
+        $(window).bind('resize', cc.force.resizeTopicsLegend);
+        $(window).bind('resize', cc.force.resizeFrequencyLegend);
     };
 
     /**
@@ -122,6 +142,15 @@ cc.shell = (function () {
      */
     getJqContainers = function () {
         return module_State.jq_containers;
+    };
+
+    /**
+     * Returns the collection URL.
+     *
+     * return {String}
+     */
+    getCollectionUrl = function () {
+        return module_State.collection_url;
     };
 
     /**
@@ -150,22 +179,76 @@ cc.shell = (function () {
         }
     };
 
+    // TODO: Move this to a common utilities object. Same for blu-pen
+    send_Message = function (event) {
+        /*
+        window.setTimeout(
+            function () {
+                var event = {data: {page_name: 'connect'}};
+                present_Page(event);
+            }, 2000);
+        */
+        var url, qry = '?', win;
+        url = 'mailto:';
+        if (event.data !== null) {
+            if (event.data.hasOwnProperty('to')) {
+                url += encodeURIComponent(event.data.to);
+            }
+            if (event.data.hasOwnProperty('subject')) {
+                url += qry + 'subject=' + encodeURIComponent(event.data.subject);
+                qry = '&';
+            }
+            if (event.data.hasOwnProperty('body')) {
+                url += qry + 'body=' + encodeURIComponent(event.data.body);
+            }
+        }
+        win = window.open(url);
+        win.setTimeout(
+            function () {
+                if (win && win.open && !win.closed) {
+                    win.close();
+                }
+            }, 1000);
+    };
+
     /**
-     * Animates color change to indicate hover in.
+     * Animates color change to indicate hover in, including only the
+     * selected element.
      *
      * @return {undefined}
      */
     hover_In = function () {
-        $(this).animate({'color': '#1AB6E5'}, 100);
+        $(this).animate({'color': '#6085ff'}, 100);
     };
 
     /**
-     * Animates color change to indicate hover out.
+     * Animates color change to indicate hover in, including all
+     * elements within the selected element.
+     *
+     * @return {undefined}
+     */
+    hover_All_In = function () {
+        $(this).find('*').animate({'color': '#6085ff'}, 100);
+    };
+
+    /**
+     * Animates color change to indicate hover out, including only the
+     * selected element.
      *
      * @return {undefined}
      */
     hover_Out = function () {
         $(this).animate({'color': '#000000'}, 100);
+    };
+
+    /**
+     * Animates color change to indicate hover out, including all
+     * elements within the selected element.
+     *
+     * @return {undefined}
+     */
+    hover_All_Out = function () {
+        $(this).find('*').animate({'color': '#000000'}, 100);
     };
 
     /**
@@ -272,7 +355,7 @@ cc.shell = (function () {
                 .click(function () {
                     window.open('http://www.blu-pen.com');
                 })
-                .load('img/bp-logo-two-color-text.svg')
+                .load('img/bp-logo-two-color-text-circle.svg')
                 .end()
 
                 .end() // div#cc-shell-cover-header
@@ -290,9 +373,54 @@ cc.shell = (function () {
                 .find('div:last')
                 .attr('id', 'cc-shell-cover-title')
                 .load('html/cc-shell-cover-title.html', function () {
+                    var
+                    text = 
+                        cc.model.getCountry().toUpperCase() +
+                        '\u2014 A Visual Collection',
+                    url =
+                        'http://' + module_Config.host + '/crisis-countries/' +
+                        module_Config.collection_name +
+                        '.html#!page_name=cover';
+
                     $('div#cc-shell-cover-title')
+                        .find('#cc-shell-cover-title-navigation')
+                        .click({page_name: 'contents'}, present_Page)
+                        .hover(hover_All_In, hover_All_Out)
+                        .end()
+
                         .find('h1')
-                        .text(cc.model.getCountry().toUpperCase());
+                        .text(cc.model.getCountry().toUpperCase())
+                        .end()
+
+                        .find('.cc-shell-share-on-tumblr')
+                        .load('img/bp-logo-tumblr-square.svg')
+                        .attr('href',
+                              'http://www.tumblr.com/share/link?url=' +
+                              encodeURIComponent(url) +
+                              '&name=' + encodeURIComponent('Blu Pen') +
+                              '&description=' + encodeURIComponent(text))
+                        .end()
+
+                        .find('.cc-shell-share-on-twitter')
+                        .load('img/bp-logo-twitter-square.svg')
+                        .attr('href',
+                              'https://twitter.com/share?url=' +
+                              encodeURIComponent(url) +
+                              '&via=' + encodeURIComponent('blu_pen') +
+                              '&text=' + encodeURIComponent(text))
+                        .end()
+
+                        .find('.cc-shell-share-by-email')
+                        .load('img/bp-logo-email-square.svg')
+                        .click({subject: 'Blu Pen',
+                                body:
+                                cc.model.getCountry().toUpperCase() +
+                                ' \u2014 A Visual Collection\n' +
+                                'http://' + module_Config.host + '/crisis-countries/' +
+                                module_Config.collection_name +
+                                '.html'},
+                               send_Message)
+                        .end();
                 })
                 .end()
 
@@ -300,7 +428,7 @@ cc.shell = (function () {
                 .find('div:last')
                 .attr('id', 'cc-shell-cover-image')
                 .addClass('offset-by-three ten columns')
-                .load('img/cc-visual-frequency-japan.svg')
+                .load('img/cc-cover-' + module_Config.collection_name + '.svg')
                 .end()
 
                 .append('<div></div>')
@@ -338,8 +466,8 @@ cc.shell = (function () {
                         .click({page_name: 'introduction'}, present_Page)
                         .hover(hover_In, hover_Out)
                         .end()
-
-                        .find('#cc-shell-front-contents-nav-to-volume')
+                    
+                        .find('.cc-shell-front-contents-nav-to-volume')
                         .click({page_name: 'volume'}, present_Page)
                         .hover(hover_In, hover_Out)
                         .end()
@@ -414,73 +542,73 @@ cc.shell = (function () {
 
                 .append('<div></div>')
                 .find('div:last')
-                .attr('id', 'cc-shell-visual-volume-title')
-                .load('html/cc-shell-visual-volume-title.html')
-                .end()
-
-                .append('<div></div>')
-                .find('div:last')
-                .addClass('one-third column alpha')
-
-                .append('<div></div>')
-                .find('div:last')
-                .attr('id', 'cc-shell-visual-volume-description')
-                .end()
-
-                .append('<div></div>')
-                .find('div:last')
-                .attr('id', 'cc-shell-visual-volume-small-title')
-                .addClass('cc-shell-visual-description')
-                .load('html/cc-shell-visual-volume-small-title.html')
-                .end()
-
-                .append('<div></div>')
-                .find('div:last')
-                .attr('id', 'cc-shell-visual-volume-small-circle')
-                .end()
-
-                .append('<div></div>')
-                .find('div:last')
-                .attr('id', 'cc-shell-visual-volume-medium-title')
-                .addClass('cc-shell-visual-description')
-                .load('html/cc-shell-visual-volume-medium-title.html')
-                .end()
-
-                .append('<div></div>')
-                .find('div:last')
-                .attr('id', 'cc-shell-visual-volume-medium-circle')
-                .end()
-
-                .append('<div></div>')
-                .find('div:last')
-                .attr('id', 'cc-shell-visual-volume-large-title')
-                .addClass('cc-shell-visual-description')
-                .load('html/cc-shell-visual-volume-large-title.html')
-                .end()
-
-                .append('<div></div>')
-                .find('div:last')
-                .attr('id', 'cc-shell-visual-volume-large-circle')
-                .end()
-
-                .end() // div.one-third.column.alpha
-
-                .append('<div></div>')
-                .find('div:last')
-                .addClass('two-thirds column omega')
+                .addClass('two-thirds column alpha')
                 .attr('id', 'cc-shell-visual-volume-graphic')
                 .end()
 
-                .end(); // div#cc-shell-visual-content-volume
+                .append('<div></div>')
+                .find('div:last')
+                .addClass('one-third column omega')
+                .attr('id', 'cc-shell-visual-volume-description')
+                .load('html/cc-shell-visual-volume-description.html', function () {
 
+                    module_State.jq_containers[page_name]
+                        .find('div.cc-shell-visual-volume-legend')
+                        .load('html/cc-shell-visual-volume-legend.html', function () {
+                            cc.force.resizeVolumeLegend();
+                        })
+                        .end()
+
+                        .find('div.cc-shell-share-for-visual')
+                        .load('html/cc-shell-visual-share.html', function () {
+
+                            var
+                            text = 
+                                cc.model.getCountry().toUpperCase() +
+                                '\u2014 A Visual Collection: Volume',
+                            url =
+                                'http://' + module_Config.host + '/crisis-countries/' +
+                                module_Config.collection_name +
+                                '.html#!page_name=volume';
+
+                            module_State.jq_containers[page_name]
+                                .find('.cc-shell-share-on-tumblr')
+                                .load('img/bp-logo-tumblr-square.svg')
+                                .attr('href',
+                                      'http://www.tumblr.com/share/link?url=' +
+                                      encodeURIComponent(url) +
+                                      '&name=' + encodeURIComponent('Blu Pen') +
+                                      '&description=' + encodeURIComponent(text))
+                                .end()
+
+                                .find('.cc-shell-share-on-twitter')
+                                .load('img/bp-logo-twitter-square.svg')
+                                .attr('href',
+                                      'https://twitter.com/share?url=' +
+                                      encodeURIComponent(url) +
+                                      '&via=' + encodeURIComponent('blu_pen') +
+                                      '&text=' + encodeURIComponent(text))
+                                .end()
+
+                                .find('.cc-shell-share-by-email')
+                                .load('img/bp-logo-email-square.svg')
+                                .click({subject: 'Blu Pen',
+                                        body:
+                                        cc.model.getCountry().toUpperCase() +
+                                        ' \u2014 A Visual Collection: Volume\n' +
+                                        'http://' + module_Config.host + '/crisis-countries/' +
+                                        module_Config.collection_name +
+                                        '.html#!page_name=volume'},
+                                       send_Message)
+                                .end();
+                        })
+                        .end();
+                })
+                .end()
+                .end(); // div#cc-shell-visual-content-volume
+            
             // Initialize volume force layout
             cc.force.initModule(page_name);
-
-            // Load volume page force layout description
-            module_State.jq_containers[page_name]
-                .find('div#cc-shell-visual-volume-description')
-                .load('html/cc-shell-visual-volume-description.html')
-                .end();
 
             break;
 
@@ -495,25 +623,75 @@ cc.shell = (function () {
 
                 .append('<div></div>')
                 .find('div:last')
-                .attr('id', 'cc-shell-visual-trust-title')
-                .load('html/cc-shell-visual-trust-title.html')
-                .end()
-
-                .append('<div></div>')
-                .find('div:last')
-                .addClass('one-third column alpha')
-                .attr('id', 'cc-shell-visual-trust-description')
-                .load('html/cc-shell-visual-trust-description.html', function () {
-                    cc.force.resizeTrustLegend();
-                })
-                .end()
-
-                .append('<div></div>')
-                .find('div:last')
-                .addClass('two-thirds column omega')
+                .addClass('two-thirds column alpha')
                 .attr('id', 'cc-shell-visual-trust-graphic')
                 .end()
 
+                .append('<div></div>')
+                .find('div:last')
+                .addClass('one-third column omega')
+                .attr('id', 'cc-shell-visual-trust-description')
+                .load('html/cc-shell-visual-trust-description.html', function () {
+
+                    module_State.jq_containers[page_name]
+                        .find('div.cc-shell-visual-trust-legend')
+                        .load('html/cc-shell-visual-trust-legend.html', function () {
+                            cc.force.resizeTrustLegend();
+                        })
+                        .end()
+
+                        .find('div.cc-shell-visual-volume-legend')
+                        .load('html/cc-shell-visual-volume-legend.html', function () {
+                            cc.force.resizeVolumeLegend();
+                        })
+                        .end()
+
+                        .find('div.cc-shell-share-for-visual')
+                        .load('html/cc-shell-visual-share.html', function () {
+
+                            var
+                            text = 
+                                cc.model.getCountry().toUpperCase() +
+                                '\u2014 A Visual Collection: Trust',
+                            url =
+                                'http://' + module_Config.host + '/crisis-countries/' +
+                                module_Config.collection_name +
+                                '.html#!page_name=trust';
+
+                            $('div#cc-shell-visual-trust-description')
+                                .find('.cc-shell-share-on-tumblr')
+                                .load('img/bp-logo-tumblr-square.svg')
+                                .attr('href',
+                                      'http://www.tumblr.com/share/link?url=' +
+                                      encodeURIComponent(url) +
+                                      '&name=' + encodeURIComponent('Blu Pen') +
+                                      '&description=' + encodeURIComponent(text))
+                                .end()
+
+                                .find('.cc-shell-share-on-twitter')
+                                .load('img/bp-logo-twitter-square.svg')
+                                .attr('href',
+                                      'https://twitter.com/share?url=' +
+                                      encodeURIComponent(url) +
+                                      '&via=' + encodeURIComponent('blu_pen') +
+                                      '&text=' + encodeURIComponent(text))
+                                .end()
+
+                                .find('.cc-shell-share-by-email')
+                                .load('img/bp-logo-email-square.svg')
+                                .click({subject: 'Blu Pen',
+                                        body:
+                                        cc.model.getCountry().toUpperCase() +
+                                        ' \u2014 A Visual Collection: Trust\n' +
+                                        'http://' + module_Config.host + '/crisis-countries/' +
+                                        module_Config.collection_name +
+                                        '.html#!page_name=trust'},
+                                       send_Message)
+                                .end();
+                        })
+                        .end();
+                })
+                .end()
                 .end(); // div#cc-shell-visual-content-trust
             
             // Initialize trust force layout
@@ -535,22 +713,7 @@ cc.shell = (function () {
 
                 .append('<div></div>')
                 .find('div:last')
-                .attr('id', 'cc-shell-visual-topics-title')
-                .load('html/cc-shell-visual-topics-title.html')
-                .end()
-
-                .append('<div></div>')
-                .find('div:last')
-                .addClass('one-third column alpha')
-                .attr('id', 'cc-shell-visual-topics-description')
-                .load('html/cc-shell-visual-topics-description.html', function () {
-                    cc.force.resizeTopicsLegend();
-                })
-                .end()
-
-                .append('<div></div>')
-                .find('div:last')
-                .addClass('two-thirds column omega')
+                .addClass('two-thirds column alpha')
 
                 .append('<div></div>')
                 .find('div:last')
@@ -567,8 +730,79 @@ cc.shell = (function () {
                 .attr('id', 'cc-shell-visual-topics-culture')
                 .end()
 
-                .end() // div#two-thirds column omega
+                .end() // div#two-thirds column alpha
 
+                .append('<div></div>')
+                .find('div:last')
+                .addClass('one-third column omega')
+                .attr('id', 'cc-shell-visual-topics-description')
+                .load('html/cc-shell-visual-topics-description.html', function () {
+
+                    module_State.jq_containers[page_name]
+                        .find('div.cc-shell-visual-topics-legend')
+                        .load('html/cc-shell-visual-topics-legend.html', function () {
+                            cc.force.resizeTopicsLegend();
+                        })
+                        .end()
+
+                        .find('div.cc-shell-visual-trust-legend')
+                        .load('html/cc-shell-visual-trust-legend.html', function () {
+                            cc.force.resizeTrustLegend();
+                        })
+                        .end()
+
+                        .find('div.cc-shell-visual-volume-legend')
+                        .load('html/cc-shell-visual-volume-legend.html', function () {
+                            cc.force.resizeVolumeLegend();
+                        })
+                        .end()
+
+                        .find('div.cc-shell-share-for-visual')
+                        .load('html/cc-shell-visual-share.html', function () {
+
+                            var
+                            text = 
+                                cc.model.getCountry().toUpperCase() +
+                                '\u2014 A Visual Collection: Topics',
+                            url =
+                                'http://' + module_Config.host + '/crisis-countries/' +
+                                module_Config.collection_name +
+                                '.html#!page_name=topics';
+
+                            $('div#cc-shell-visual-topics-description')
+                                .find('.cc-shell-share-on-tumblr')
+                                .load('img/bp-logo-tumblr-square.svg')
+                                .attr('href',
+                                      'http://www.tumblr.com/share/link?url=' +
+                                      encodeURIComponent(url) +
+                                      '&name=' + encodeURIComponent('Blu Pen') +
+                                      '&description=' + encodeURIComponent(text))
+                                .end()
+
+                                .find('.cc-shell-share-on-twitter')
+                                .load('img/bp-logo-twitter-square.svg')
+                                .attr('href',
+                                      'https://twitter.com/share?url=' +
+                                      encodeURIComponent(url) +
+                                      '&via=' + encodeURIComponent('blu_pen') +
+                                      '&text=' + encodeURIComponent(text))
+                                .end()
+                            
+                                .find('.cc-shell-share-by-email')
+                                .load('img/bp-logo-email-square.svg')
+                                .click({subject: 'Blu Pen',
+                                        body:
+                                        cc.model.getCountry().toUpperCase() +
+                                        ' \u2014 A Visual Collection: Topics\n' +
+                                        'http://' + module_Config.host + '/crisis-countries/' +
+                                        module_Config.collection_name +
+                                        '.html#!page_name=topics'},
+                                       send_Message)
+                                .end();
+                        })
+                        .end();
+                })
+                .end()
                 .end(); // div#cc-shell-visual-content-topics
 
             // Initialize topics force layout
@@ -619,23 +853,81 @@ cc.shell = (function () {
 
                 .append('<div></div>')
                 .find('div:last')
-                .attr('id', 'cc-shell-visual-frequency-title')
-                .load('html/cc-shell-visual-frequency-title.html')
-                .end()
-
-                .append('<div></div>')
-                .find('div:last')
-                .addClass('one-third column alpha')
-                .attr('id', 'cc-shell-visual-frequency-description')
-                .load('html/cc-shell-visual-frequency-description.html')
-                .end()
-
-                .append('<div></div>')
-                .find('div:last')
-                .addClass('two-thirds column omega')
+                .addClass('two-thirds column alpha')
                 .attr('id', 'cc-shell-visual-frequency-graphic')
                 .end()
 
+                .append('<div></div>')
+                .find('div:last')
+                .addClass('one-third column omega')
+                .attr('id', 'cc-shell-visual-frequency-description')
+                .load('html/cc-shell-visual-frequency-description.html', function () {
+
+                    module_State.jq_containers[page_name]
+                        .find('div.cc-shell-visual-topics-legend')
+                        .load('html/cc-shell-visual-topics-legend.html', function () {
+                            cc.force.resizeTopicsLegend();
+                        })
+                        .end()
+
+                        .find('div.cc-shell-visual-trust-legend')
+                        .load('html/cc-shell-visual-trust-legend.html', function () {
+                            cc.force.resizeTrustLegend();
+                        })
+                        .end()
+
+                        .find('div.cc-shell-visual-volume-legend')
+                        .load('html/cc-shell-visual-volume-legend.html', function () {
+                            cc.force.resizeVolumeLegend();
+                        })
+                        .end()
+
+                        .find('div.cc-shell-share-for-visual')
+                        .load('html/cc-shell-visual-share.html', function () {
+
+                            var
+                            text = 
+                                cc.model.getCountry().toUpperCase() +
+                                '\u2014 A Visual Collection: Frequency',
+                            url =
+                                'http://' + module_Config.host + '/crisis-countries/' +
+                                module_Config.collection_name +
+                                '.html#!page_name=frequency';
+
+                            $('div#cc-shell-visual-frequency-description')
+                                .find('.cc-shell-share-on-tumblr')
+                                .load('img/bp-logo-tumblr-square.svg')
+                                .attr('href',
+                                      'http://www.tumblr.com/share/link?url=' +
+                                      encodeURIComponent(url) +
+                                      '&name=' + encodeURIComponent('Blu Pen') +
+                                      '&description=' + encodeURIComponent(text))
+                                .end()
+
+                                .find('.cc-shell-share-on-twitter')
+                                .load('img/bp-logo-twitter-square.svg')
+                                .attr('href',
+                                      'https://twitter.com/share?url=' +
+                                      encodeURIComponent(url) +
+                                      '&via=' + encodeURIComponent('blu_pen') +
+                                      '&text=' + encodeURIComponent(text))
+                                .end()
+
+                                .find('.cc-shell-share-by-email')
+                                .load('img/bp-logo-email-square.svg')
+                                .click({subject: 'Blu Pen',
+                                        body:
+                                        cc.model.getCountry().toUpperCase() + 
+                                        ' \u2014 A Visual Collection: Frequency\n' +
+                                        'http://' + module_Config.host + '/crisis-countries/' +
+                                        module_Config.collection_name +
+                                        '.html#!page_name=frequency'},
+                                       send_Message)
+                                .end();
+                        })
+                        .end();
+                })
+                .end()
                 .end(); // div#cc-shell-visual-content-frequency
 
             // Initialize frequency force layout
@@ -706,18 +998,46 @@ cc.shell = (function () {
             .attr('id', 'cc-shell-front-title-' + page_name)
             .load('html/cc-shell-front-title.html', function () {
                 $('div#cc-shell-front-title-' + page_name)
-                    .find('h4')
                     .click({page_name: 'cover'}, present_Page)
-                    .hover(hover_In, hover_Out)
+                    .hover(hover_All_In, hover_All_Out)
+
+                    .find('h3')
                     .text(cc.model.getCountry().toUpperCase());
             })
             .end()
 
             .append('<div></div>')
             .find('div:last')
-            .addClass('one-third column omega cc-shell-front-share')
-            .attr('id', 'cc-shell-front-share-' + page_name)
-            .load('html/cc-shell-front-share.html')
+            .addClass('one-third column omega cc-shell-front-follow')
+            .attr('id', 'cc-shell-front-follow-' + page_name)
+            .load('html/cc-shell-front-follow.html', function () {
+                $('div#cc-shell-front-follow-' + page_name)
+                    .find('.cc-shell-front-logo')
+                    .click(function () {
+                        window.open('http://www.blu-pen.com');
+                    })
+                    .load('img/bp-logo-two-color-text-circle.svg')
+                    .end()
+
+                    .find('.cc-shell-share-on-flickr')
+                    .load('img/bp-logo-flickr-square.svg')
+                    .end()
+
+                    .find('.cc-shell-share-on-tumblr')
+                    .load('img/bp-logo-tumblr-square.svg')
+                    .end()
+
+                    .find('.cc-shell-share-on-twitter')
+                    .load('img/bp-logo-twitter-square.svg')
+                    .end()
+
+                    .find('.cc-shell-share-by-email')
+                    .load('img/bp-logo-email-square.svg')
+                    .click(function () {
+                        window.open('http://eepurl.com/bfB51j');
+                    })
+                    .end();
+            })
             .end()
 
             .end() // div#cc-shell-front-header-page-name
@@ -777,8 +1097,8 @@ cc.shell = (function () {
                     .hover(hover_In, hover_Out)
                     .end()
 
-                    .find('#cc-shell-front-nav-to-volume')
-                    .addClass('cc-shell-front-nav-to-volume')
+                    .find('.cc-shell-front-nav-to-volume')
+                    // .addClass('cc-shell-front-nav-to-volume')
                     .attr('id', 'cc-shell-front-nav-to-volume-' + page_name)
                     .click({page_name: 'volume'}, present_Page)
                     .hover(hover_In, hover_Out)
@@ -840,12 +1160,8 @@ cc.shell = (function () {
 
             .append('<div></div>')
             .find('div:last')
-            .addClass('one-third column omega cc-shell-front-logo')
-            .attr('id', 'cc-shell-front-logo-' + page_name)
-            .click(function () {
-                window.open('http://www.blu-pen.com');
-            })
-            .load('img/bp-logo-two-color-text.svg')
+            .addClass('one-third column omega')
+            .load('html/cc-shell-empty.html')
             .end()
 
             .end() // div.row
@@ -893,19 +1209,88 @@ cc.shell = (function () {
             .addClass('two-thirds column alpha cc-shell-visual-title')
             .attr('id', 'cc-shell-visual-title-' + page_name)
             .load('html/cc-shell-visual-title.html', function () {
-                $('div#cc-shell-visual-title-' + page_name)
-                    .find('h1')
+                var
+                text = 
+                    cc.model.getCountry().toUpperCase() +
+                    '\u2014 A Visual Collection',
+                url =
+                    'http://' + module_Config.host + '/crisis-countries/' +
+                    module_Config.collection_name +
+                    '.html#!page_name=cover';
+
+                $('.cc-shell-visual-title-navigation')
                     .click({page_name: 'cover'}, present_Page)
-                    .hover(hover_In, hover_Out)
-                    .text(cc.model.getCountry().toUpperCase());
+                    .hover(hover_All_In, hover_All_Out);
+
+                $('div#cc-shell-visual-title-' + page_name)
+                    .find('h3')
+                    .text(cc.model.getCountry().toUpperCase())
+                    .end()
+
+                    .find('.cc-shell-share-on-tumblr')
+                    .load('img/bp-logo-tumblr-square.svg')
+                    .attr('href',
+                          'http://www.tumblr.com/share/link?url=' +
+                          encodeURIComponent(url) +
+                          '&name=' + encodeURIComponent('Blu Pen') +
+                          '&description=' + encodeURIComponent(text))
+                    .end()
+
+                    .find('.cc-shell-share-on-twitter')
+                    .load('img/bp-logo-twitter-square.svg')
+                    .attr('href',
+                          'https://twitter.com/share?url=' +
+                          encodeURIComponent(url) +
+                          '&via=' + encodeURIComponent('blu_pen') +
+                          '&text=' + encodeURIComponent(text))
+                    .end()
+
+                    .find('.cc-shell-share-by-email')
+                    .load('img/bp-logo-email-square.svg')
+                    .click({subject: 'Blu Pen',
+                            body:
+                            cc.model.getCountry().toUpperCase() +
+                            ' \u2014 A Visual Collection\n' +
+                            'http://' + module_Config.host + '/crisis-countries/' +
+                            module_Config.collection_name +
+                            '.html'},
+                           send_Message)
+                    .end();
             })
             .end()
 
             .append('<div></div>')
             .find('div:last')
-            .addClass('one-third column omega cc-shell-visual-share')
-            .attr('id', 'cc-shell-visual-share-' + page_name)
-            .load('html/cc-shell-visual-share.html')
+            .addClass('one-third column omega cc-shell-visual-follow')
+            .attr('id', 'cc-shell-visual-follow-' + page_name)
+            .load('html/cc-shell-visual-follow.html', function () {
+                    $('div#cc-shell-visual-follow-' + page_name)
+                    .find('.cc-shell-visual-logo')
+                    .click(function () {
+                        window.open('http://www.blu-pen.com');
+                    })
+                    .load('img/bp-logo-two-color-text-circle.svg')
+                    .end()
+
+                    .find('.cc-shell-share-on-flickr')
+                    .load('img/bp-logo-flickr-square.svg')
+                    .end()
+
+                    .find('.cc-shell-share-on-tumblr')
+                    .load('img/bp-logo-tumblr-square.svg')
+                    .end()
+
+                    .find('.cc-shell-share-on-twitter')
+                    .load('img/bp-logo-twitter-square.svg')
+                    .end()
+
+                    .find('.cc-shell-share-by-email')
+                    .load('img/bp-logo-email-square.svg')
+                    .click(function () {
+                        window.open('http://eepurl.com/bfB51j');
+                    })
+                    .end();
+            })
             .end()
 
             .end() // div#cc-shell-visual-header-page-name
@@ -996,12 +1381,8 @@ cc.shell = (function () {
 
             .append('<div></div>')
             .find('div:last')
-            .addClass('one-third column omega cc-shell-visual-logo')
-            .attr('id', 'cc-shell-visual-logo-' + page_name)
-            .click(function () {
-                window.open('http://www.blu-pen.com');
-            })
-            .load('img/bp-logo-two-color-text.svg')
+            .addClass('one-third column omega')
+            .load('html/cc-shell-empty.html')
             .end()
 
             .end() // div.row
@@ -1042,18 +1423,46 @@ cc.shell = (function () {
             .attr('id', 'cc-shell-source-title-' + page_name)
             .load('html/cc-shell-source-title.html', function () {
                 $('div#cc-shell-source-title-' + page_name)
-                    .find('h4')
                     .click({page_name: 'cover'}, present_Page)
-                    .hover(hover_In, hover_Out)
+                    .hover(hover_All_In, hover_All_Out)
+
+                    .find('h3')
                     .text(cc.model.getCountry().toUpperCase());
             })
             .end()
 
             .append('<div></div>')
             .find('div:last')
-            .addClass('one-third column omega cc-shell-source-share')
-            .attr('id', 'cc-shell-source-share-' + page_name)
-            .load('html/cc-shell-source-share.html')
+            .addClass('one-third column omega cc-shell-source-follow')
+            .attr('id', 'cc-shell-source-follow-' + page_name)
+            .load('html/cc-shell-source-follow.html', function () {
+                $('div#cc-shell-source-follow-' + page_name)
+                    .find('.cc-shell-visual-logo')
+                    .click(function () {
+                        window.open('http://www.blu-pen.com');
+                    })
+                    .load('img/bp-logo-two-color-text-circle.svg')
+                    .end()
+
+                    .find('.cc-shell-share-on-flickr')
+                    .load('img/bp-logo-flickr-square.svg')
+                    .end()
+
+                    .find('.cc-shell-share-on-tumblr')
+                    .load('img/bp-logo-tumblr-square.svg')
+                    .end()
+
+                    .find('.cc-shell-share-on-twitter')
+                    .load('img/bp-logo-twitter-square.svg')
+                    .end()
+
+                    .find('.cc-shell-share-by-email')
+                    .load('img/bp-logo-email-square.svg')
+                    .click(function () {
+                        window.open('http://eepurl.com/bfB51j');
+                    })
+                    .end();
+            })
             .end()
 
             .end() // div.row
@@ -1181,12 +1590,8 @@ cc.shell = (function () {
 
             .append('<div></div>')
             .find('div:last')
-            .addClass('one-third column omega cc-shell-source-logo')
-            .attr('id', 'cc-shell-source-logo-' + page_name)
-            .click(function () {
-                window.open('http://www.blu-pen.com');
-            })
-            .load('img/bp-logo-two-color-text.svg')
+            .addClass('one-third column omega')
+            .load('html/cc-shell-empty.html')
             .end()
 
             .end(); // div#cc-shell-source-footer-page-name
@@ -1210,6 +1615,7 @@ cc.shell = (function () {
         configModule: configModule,
         initModule: initModule,
         getJqContainers: getJqContainers,
+        getCollectionUrl: getCollectionUrl,
         delegatePage: delegatePage
     };
 

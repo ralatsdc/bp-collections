@@ -9,56 +9,141 @@
     margin: 0;
 }
 
-.bp-shell-section {
-    border-bottom-style: solid;
-    border-bottom-color: red;
+#bp-shell-body-scrolling {
+    margin-bottom: 0;
 }
 
-.bp-shell-caption * {
-    color: white;
+#bp-shell-header-fixed {
+    background-color: #323644;
+    opacity: 0.90;
 }
 
-#bp-shell-header-content {
-    background-color: gray;
+#bp-shell-header-content div {
+    margin-bottom: 0px;
 }
 
-#bp-shell-header-logo svg {
-    stroke: white;
+#bp-shell-header-logo svg circle {
+    fill: #6085ff;
+}
+
+#bp-shell-header-logo svg:hover circle {
+    fill: #4d6bcc;
+}
+
+#bp-shell-header-logo svg text {
     fill: white;
+}
+
+#bp-shell-header-logo svg:hover text {
+    fill: #adc0ff;
 }
 
 #bp-shell-header-navigation * {
     color: white;
 }
 
-#bp-shell-header-logo svg:hover text,
-#bp-shell-header-logo svg:hover path {
-    stroke: #1AB6E5;
-    fill: #1AB6E5;
-}
-
 #bp-shell-header-navigation *:hover {
-    color: #1AB6E5;
+    color: #adc0ff;
 }
 
-#bp-shell-header-navigation svg rect {
+#bp-shell-header-content .bp-shell-share-on-flickr svg:hover ellipse,
+#bp-shell-header-content .bp-shell-share-on-tumblr svg:hover path,
+#bp-shell-header-content .bp-shell-share-on-twitter svg:hover path,
+#bp-shell-header-content .bp-shell-share-by-email svg:hover path {
+    fill: #adc0ff;
+}
+
+#bp-shell-body-scrolling .bp-shell-share-on-flickr svg:hover ellipse,
+#bp-shell-body-scrolling .bp-shell-share-on-tumblr svg:hover path,
+#bp-shell-body-scrolling .bp-shell-share-on-twitter svg:hover path,
+#bp-shell-body-scrolling .bp-shell-share-by-email svg:hover path {
+    fill: #6085ff;
+}
+
+div#bp-shell-body-spacer p,
+div#bp-shell-section-spacer p {
+    margin: 0;
+}
+
+.bp-shell-nav-to-browse:hover {
+    color: #6085ff;
+}
+
+.bp-shell-white-on-header-gray svg rect {
+    fill: #323644;
+}
+
+.bp-shell-white-on-footer-gray svg rect {
+    fill: #A1AEBA;
+}
+
+.bp-shell-black-on-gray svg rect {
+    fill: #F0F0F0;
+}
+
+.bp-shell-black-on-gray svg path {
+    fill: black;
+}
+
+.bp-shell-black-on-white svg rect {
+    fill: white;
+}
+
+.bp-shell-black-on-white svg path {
+    fill: black;
+}
+
+div#bp-shell-home-outwit {
+    background-color: #d2ddda;
+}
+
+.bp-shell-caption-without-footer * {
+    color: white;
+}
+
+.bp-shell-caption-with-footer * {
+    color: white;
+}
+
+text.bp-shell-collection:hover tspan {
+    fill: #6085ff;
+}
+
+#bp-shell-news img {
+    max-width: 100%;
+    height: auto;
+}
+
+.bp-shell-paging-major svg circle {
+    fill: #323644;
+    opacity: 0.90;
+}
+
+.bp-shell-paging-major svg:hover path {
+    fill: #adc0ff;
+}
+
+.bp-shell-paging-minor svg {
+    opacity: 0.50;
+}
+
+.bp-shell-paging-minor svg circle {
     fill: gray;
 }
 
-#bp-shell-header-navigation svg:hover ellipse,
-#bp-shell-header-navigation svg:hover path {
-    stroke: #1AB6E5;
-    fill: #1AB6E5;
+.bp-shell-paging-minor svg:hover path {
+    fill: #6085ff;
 }
 
-#bp-shell-footer-navigation svg:hover path {
-    stroke: #1AB6E5;
-    fill: #1AB6E5;
+.bp-shell-footer-content {
+    background-color: #A1AEBA;
 }
 
-span#bp-shell-connect-nav-to-email:hover {
-    color: #1AB6E5;
+.bp-shell-footer-content div,
+.bp-shell-footer-content form {
+    margin-bottom: 0px;
 }
 
-#bp-shell-footer-fixed {
+.bp-shell-footer-content * {
+    color: white;
 }

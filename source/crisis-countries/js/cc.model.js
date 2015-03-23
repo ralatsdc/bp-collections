@@ -50,22 +50,22 @@ cc.model = (function () {
     };
 
     /**
-     * Loads the country JSON document and sets the result as module
+     * Loads the collection JSON document and sets the result as module
      * state. Optionally delegates page presentation or sets the source
      * object.
      * 
-     * @param {string} country_file_name the name of the file
-     *     containing the country JSON document
+     * @param {string} collection_file the name of the file
+     *     containing the collection JSON document
      * @param {Object} options contains a page name or source index
      *
      * @return {undefined}
      */
-    initModule = function (country_file_name, options) {
-        d3.json(country_file_name, function (country_json) {
+    initModule = function (collection_file, options) {
+        d3.json(collection_file, function (collection_json) {
 
-            module_State.country = country_json.country;
-            module_State.sources = country_json.sources;
-            module_State.tags = country_json.tags;
+            module_State.country = collection_json.country;
+            module_State.sources = collection_json.sources;
+            module_State.tags = collection_json.tags;
 
             if (options !== undefined && typeof options === 'object') {
                 if ('page_name' in options) {
@@ -76,7 +76,7 @@ cc.model = (function () {
             }
         });
     };
-    
+
     /**
      * Returns the country name.
      *

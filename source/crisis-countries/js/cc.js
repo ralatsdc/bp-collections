@@ -18,12 +18,13 @@ var cc = (function () {
      *
      * @return {undefined}
      */
-    initModule = function () {
+    initModule = function (input_config) {
 
         var jq_container = $('body')
             .append('<div id="main"></div>')
             .find('div#main');
 
+        cc.shell.configModule(input_config);
         cc.shell.initModule(jq_container);
 
     };

@@ -47,7 +47,7 @@ cc.util = (function () {
         for (key_name in input_config) {
             if (input_config.hasOwnProperty(key_name)) {
                 if (output_config.settable.hasOwnProperty(key_name) &&
-                    output_config.settable.key_name) {
+                    output_config.settable[key_name]) {
                     output_config[key_name] = input_config[key_name];
                 }
                 else {
