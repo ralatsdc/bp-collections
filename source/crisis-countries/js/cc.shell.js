@@ -19,9 +19,11 @@ cc.shell = (function () {
 
     var
     module_Config = {
+        host: 'localhost:8080',
         collection_name: 'car',
         init_page_name: 'cover',
         settable: {
+            host: true,
             collection_name: true,
             init_page_name: false
         }
@@ -78,7 +80,7 @@ cc.shell = (function () {
         module_State.collection_file =
             'json/collection/' + module_Config.collection_name + '.json';
         module_State.collection_url =
-            'http://localhost:8080/crisis-countries/' + module_Config.collection_name + '.html';
+            'http://' + module_Config.host + '/crisis-countries/' + module_Config.collection_name + '.html';
         if ($.isEmptyObject(jq_container)) {
             return;
         }
@@ -376,7 +378,7 @@ cc.shell = (function () {
                         cc.model.getCountry().toUpperCase() +
                         '\u2014 A Visual Collection',
                     url =
-                        'http://localhost:8080/crisis-countries/' +
+                        'http://' + module_Config.host + '/crisis-countries/' +
                         module_Config.collection_name +
                         '.html#!page_name=cover';
 
@@ -414,7 +416,7 @@ cc.shell = (function () {
                                 body:
                                 cc.model.getCountry().toUpperCase() +
                                 ' \u2014 A Visual Collection\n' +
-                                'http://localhost:8080/crisis-countries/' +
+                                'http://' + module_Config.host + '/crisis-countries/' +
                                 module_Config.collection_name +
                                 '.html'},
                                send_Message)
@@ -565,7 +567,7 @@ cc.shell = (function () {
                                 cc.model.getCountry().toUpperCase() +
                                 '\u2014 A Visual Collection: Volume',
                             url =
-                                'http://localhost:8080/crisis-countries/' +
+                                'http://' + module_Config.host + '/crisis-countries/' +
                                 module_Config.collection_name +
                                 '.html#!page_name=volume';
 
@@ -594,7 +596,7 @@ cc.shell = (function () {
                                         body:
                                         cc.model.getCountry().toUpperCase() +
                                         ' \u2014 A Visual Collection: Volume\n' +
-                                        'http://localhost:8080/crisis-countries/' +
+                                        'http://' + module_Config.host + '/crisis-countries/' +
                                         module_Config.collection_name +
                                         '.html#!page_name=volume'},
                                        send_Message)
@@ -652,7 +654,7 @@ cc.shell = (function () {
                                 cc.model.getCountry().toUpperCase() +
                                 '\u2014 A Visual Collection: Trust',
                             url =
-                                'http://localhost:8080/crisis-countries/' +
+                                'http://' + module_Config.host + '/crisis-countries/' +
                                 module_Config.collection_name +
                                 '.html#!page_name=trust';
 
@@ -681,7 +683,7 @@ cc.shell = (function () {
                                         body:
                                         cc.model.getCountry().toUpperCase() +
                                         ' \u2014 A Visual Collection: Trust\n' +
-                                        'http://localhost:8080/crisis-countries/' +
+                                        'http://' + module_Config.host + '/crisis-countries/' +
                                         module_Config.collection_name +
                                         '.html#!page_name=trust'},
                                        send_Message)
@@ -763,7 +765,7 @@ cc.shell = (function () {
                                 cc.model.getCountry().toUpperCase() +
                                 '\u2014 A Visual Collection: Topics',
                             url =
-                                'http://localhost:8080/crisis-countries/' +
+                                'http://' + module_Config.host + '/crisis-countries/' +
                                 module_Config.collection_name +
                                 '.html#!page_name=topics';
 
@@ -792,7 +794,7 @@ cc.shell = (function () {
                                         body:
                                         cc.model.getCountry().toUpperCase() +
                                         ' \u2014 A Visual Collection: Topics\n' +
-                                        'http://localhost:8080/crisis-countries/' +
+                                        'http://' + module_Config.host + '/crisis-countries/' +
                                         module_Config.collection_name +
                                         '.html#!page_name=topics'},
                                        send_Message)
@@ -888,7 +890,7 @@ cc.shell = (function () {
                                 cc.model.getCountry().toUpperCase() +
                                 '\u2014 A Visual Collection: Frequency',
                             url =
-                                'http://localhost:8080/crisis-countries/' +
+                                'http://' + module_Config.host + '/crisis-countries/' +
                                 module_Config.collection_name +
                                 '.html#!page_name=frequency';
 
@@ -917,7 +919,7 @@ cc.shell = (function () {
                                         body:
                                         cc.model.getCountry().toUpperCase() + 
                                         ' \u2014 A Visual Collection: Frequency\n' +
-                                        'http://localhost:8080/crisis-countries/' +
+                                        'http://' + module_Config.host + '/crisis-countries/' +
                                         module_Config.collection_name +
                                         '.html#!page_name=frequency'},
                                        send_Message)
@@ -1212,7 +1214,7 @@ cc.shell = (function () {
                     cc.model.getCountry().toUpperCase() +
                     '\u2014 A Visual Collection',
                 url =
-                    'http://localhost:8080/crisis-countries/' +
+                    'http://' + module_Config.host + '/crisis-countries/' +
                     module_Config.collection_name +
                     '.html#!page_name=cover';
 
@@ -1249,7 +1251,7 @@ cc.shell = (function () {
                             body:
                             cc.model.getCountry().toUpperCase() +
                             ' \u2014 A Visual Collection\n' +
-                            'http://localhost:8080/crisis-countries/' +
+                            'http://' + module_Config.host + '/crisis-countries/' +
                             module_Config.collection_name +
                             '.html'},
                            send_Message)
