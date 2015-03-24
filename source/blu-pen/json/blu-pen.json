@@ -132,10 +132,10 @@
         "highlighted": [],
         "bookmarklet": true,
         "note_count": 0,
-        "source_url": "http://localhost:8080/blu-pen/",
-        "source_title": "localhost",
+        "source_url": "http://bp-static/blu-pen/",
+        "source_title": "bp-static",
         "title": "Blu Pen",
-        "url": "http://localhost:8080/crisis-countries/car.html",
+        "url": "http://bp-static/crisis-countries/car.html",
         "description": "<p>CAR — A Visual Collection</p>"
       },
       {
@@ -154,10 +154,10 @@
         "highlighted": [],
         "bookmarklet": true,
         "note_count": 0,
-        "source_url": "http://localhost:8080/blu-pen/",
-        "source_title": "localhost",
+        "source_url": "http://bp-static/blu-pen/",
+        "source_title": "bp-static",
         "title": "link-name",
-        "url": "http://localhost:8080/blu-pen/browse.html",
+        "url": "http://bp-static/blu-pen/browse.html",
         "description": "<p>link-description</p>"
       },
       {
@@ -176,10 +176,10 @@
         "highlighted": [],
         "bookmarklet": true,
         "note_count": 0,
-        "source_url": "http://localhost:8080/blu-pen/",
-        "source_title": "localhost",
+        "source_url": "http://bp-static/blu-pen/",
+        "source_title": "bp-static",
         "title": null,
-        "url": "http://localhost:8080/blu-pen/browse",
+        "url": "http://bp-static/blu-pen/browse",
         "description": ""
       },
       {
@@ -198,10 +198,10 @@
         "highlighted": [],
         "bookmarklet": true,
         "note_count": 0,
-        "source_url": "http://localhost:8080/blu-pen/home.html",
-        "source_title": "localhost",
+        "source_url": "http://bp-static/blu-pen/home.html",
+        "source_title": "bp-static",
         "title": "link-name",
-        "url": "http://localhost:8080/blu-pen/browse",
+        "url": "http://bp-static/blu-pen/browse",
         "description": "<p>link-description</p>"
       },
       {

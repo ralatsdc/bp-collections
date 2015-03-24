@@ -19,7 +19,7 @@ cc.shell = (function () {
 
     var
     module_Config = {
-        host: 'localhost:8080',
+        host: 'bp-static',
         collection_name: 'car',
         init_page_name: 'cover',
         settable: {

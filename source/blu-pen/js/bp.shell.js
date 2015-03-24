@@ -17,7 +17,7 @@ bp.shell = (function () {
 
     var
     module_Config = {
-        host: 'localhost:8080',
+        host: 'bp-static',
         page_names: [
             'home',
             'browse',
