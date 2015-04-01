@@ -995,7 +995,8 @@ bp.shell = (function () {
         var page_name, jq_page, section_name, uri_anchor;
 
         if (module_State.scroll_element === undefined) {
-            module_State.scroll_element = get_Scroll_Element();
+            // module_State.scroll_element = get_Scroll_Element();
+            module_State.scroll_element = 'html, body';
         }
 
         page_name = module_State.uri_anchor.page_name;
@@ -1039,6 +1040,7 @@ bp.shell = (function () {
         });
     };
 
+    // TODO: Remove
     get_Scroll_Element = function () {
 
         /* If missing doctype (quirks mode) then will always use 'body' */
