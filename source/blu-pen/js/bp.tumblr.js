@@ -36,8 +36,19 @@ bp.tumblr = (function () {
         var
         page_name = event.data.page_name,
         section_name = event.data.section_name,
+        jq_page,
+        jq_section,
+        posts;
+        
+        posts = bp.model.getPosts();
+        if (posts === null) {
+            bp.model.initModule(createNews,
+                                {page_name: page_name, section_name: section_name});
+            return;
+        }
+
         jq_page =
-            bp.shell.getJqContainers()[page_name],
+            bp.shell.getJqContainers()[page_name];
         jq_section =
             bp.shell.getJqContainers()[page_name + '-' + section_name]
 
@@ -55,12 +66,6 @@ bp.tumblr = (function () {
         module_State.jq_page = jq_page;
         module_State.jq_section = jq_section;
 
-        var posts = bp.model.getPosts();
-        if (posts === null) {
-            bp.model.initModule(createNews,
-                                {page_name: page_name, section_name: section_name});
-            return;
-        }
         for (var i_post = 0; i_post < posts.length; i_post += 1) {
             var post = posts[i_post];
 
@@ -88,8 +93,9 @@ bp.tumblr = (function () {
                  * height          Number  The height of the photo or photoset
                  */
                 var
-                content = '<h3 class="comfortaabold">' + post.date + '</h3>',
+                content = undefined,
                 photos = post.photos;
+                content = '<h3 class="comfortaabold">' + post.date + '</h3>';
                 for (var i_photo = 0; i_photo < photos.length; i_photo += 1) {
                     var
                     photo = photos[i_photo],
