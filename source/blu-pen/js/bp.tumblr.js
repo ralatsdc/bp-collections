@@ -69,6 +69,10 @@ bp.tumblr = (function () {
         for (var i_post = 0; i_post < posts.length; i_post += 1) {
             var post = posts[i_post];
 
+            if (post.tags.indexOf('news') === -1) {
+                continue;
+            }
+            
             switch (post.type) {
             case 'text':
                 /*
@@ -93,9 +97,8 @@ bp.tumblr = (function () {
                  * height          Number  The height of the photo or photoset
                  */
                 var
-                content = undefined,
+                content = '<h3 class="comfortaabold">' + post.date + '</h3>',
                 photos = post.photos;
-                content = '<h3 class="comfortaabold">' + post.date + '</h3>';
                 for (var i_photo = 0; i_photo < photos.length; i_photo += 1) {
                     var
                     photo = photos[i_photo],
@@ -103,12 +106,46 @@ bp.tumblr = (function () {
                     content += '<img src="' + url + '">';
                 }
                 content += post.caption;
+                content += '<h5 class="alpha column">SHARE THIS</h5>';
+                content += '<a class="bp-shell-share-on-tumblr bp-shell-black-on-white"></a>';
+                content += '<a class="bp-shell-share-on-twitter bp-shell-black-on-white"></a>';
+                content += '<span class="bp-shell-share-by-email bp-shell-black-on-white">abc</span>';
+                
+                var element = $('<div></div>');
+                element.html(post.caption);
+                var text = element.text();
+                
                 jq_section
                     .find('div.bp-shell-section-content')
                     .append('<div></div>')
                     .find('div:last')
                     .addClass('eight columns offset-by-four')
                     .html(content)
+
+                    .find('a.bp-shell-share-on-tumblr')
+                    .attr('href',
+                          'http://www.tumblr.com/share/link?url=' +
+                          encodeURIComponent(post.post_url) +
+                          '&name=' + encodeURIComponent('Blu Pen') +
+                          '&description=' + encodeURIComponent(text))
+                    .load('img/bp-logo-tumblr-square.svg')
+                    .end()
+
+                    .find('a.bp-shell-share-on-twitter')
+                    .attr('href',
+                          'https://twitter.com/share?url=' +
+                          encodeURIComponent(post.post_url) +
+                          '&via=' + encodeURIComponent('blu_pen') +
+                          '&text=' + encodeURIComponent(text))
+                    .load('img/bp-logo-twitter-square.svg')
+                    .end()
+
+                    .find('span.bp-shell-share-by-email')
+                    .load('img/bp-logo-email-square.svg')
+                    .click({subject: 'Blu Pen',
+                            body: text + ' ' + post.post_url}, bp.shell.sendMessage)
+                    .end()
+                
                     .end();
 
                 break;

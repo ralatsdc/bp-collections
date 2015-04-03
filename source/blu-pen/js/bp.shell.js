@@ -13,7 +13,9 @@ bp.shell = (function () {
     initModule,
     getJqContainers,
     createFooter,
-    delegatePage;
+    delegatePage,
+    getHost,
+    sendMessage;
 
     var
     module_Config = {
@@ -108,8 +110,6 @@ bp.shell = (function () {
     disable_scrolling,
     enable_scrolling,
 
-    send_Message,
-
     hover_In,
     hover_Out,
     on_Hash_Change,
@@ -191,12 +191,12 @@ bp.shell = (function () {
                     .find('.bp-shell-footer-content span.bp-shell-share-by-email:first')
                     .click({subject: 'Blu Pen',
                             body: 'The Crisis Collection \u2014 One http://' +
-                            module_Config.host + '/blu-pen/browse.html'}, send_Message)
+                            module_Config.host + '/blu-pen/browse.html'}, sendMessage)
                     .end()
 
                     .find('.bp-shell-footer-content span.bp-shell-share-by-email:last')
                     .click({to: module_Config.mail_to,
-                            subject: 'Greetings!'}, send_Message)
+                            subject: 'Greetings!'}, sendMessage)
                     .end()
 
                     .find('.bp-shell-nav-to-browse')
@@ -217,6 +217,41 @@ bp.shell = (function () {
 
     delegatePage = function (event) {
         present_Page(event);
+    };
+
+    getHost = function () {
+        return module_Config.host;
+    };
+    
+    sendMessage = function (event) {
+        /*
+        window.setTimeout(
+            function () {
+                var event = {data: {page_name: 'connect'}};
+                present_Page(event);
+            }, 2000);
+        */
+        var url, qry = '?', win;
+        url = 'mailto:';
+        if (event.data !== null) {
+            if (event.data.hasOwnProperty('to')) {
+                url += encodeURIComponent(event.data.to);
+            }
+            if (event.data.hasOwnProperty('subject')) {
+                url += qry + 'subject=' + encodeURIComponent(event.data.subject);
+                qry = '&';
+            }
+            if (event.data.hasOwnProperty('body')) {
+                url += qry + 'body=' + encodeURIComponent(event.data.body);
+            }
+        }
+        win = window.open(url);
+        win.setTimeout(
+            function () {
+                if (win && win.open && !win.closed) {
+                    win.close();
+                }
+            }, 1000);
     };
 
     init_Header = function () {
@@ -459,7 +494,7 @@ bp.shell = (function () {
                         .find('span.bp-shell-share-by-email')
                         .click({subject: 'Blu Pen',
                                 body: 'Content is flooding the Internet http://' +
-                                module_Config.host + '/blu-pen/home.html'}, send_Message)
+                                module_Config.host + '/blu-pen/home.html'}, sendMessage)
                         .end()
 
                         .addClass('bp-shell-section-without-footer')
@@ -521,7 +556,7 @@ bp.shell = (function () {
                         .find('div.bp-shell-content span.bp-shell-share-by-email')
                         .click({subject: 'Blu Pen',
                                 body: 'The Crisis Collection \u2014 One http://' +
-                                module_Config.host + '/blu-pen/browse.html'}, send_Message)
+                                module_Config.host + '/blu-pen/browse.html'}, sendMessage)
                         .end()
 
                         .find('#bp-shell-collection-source-car')
@@ -553,7 +588,7 @@ bp.shell = (function () {
                         .find('div#bp-shell-collection-share-car span.bp-shell-share-by-email')
                         .click({subject: 'Blu Pen',
                                 body: 'CAR \u2014 A Visual Collection http://' +
-                                module_Config.host + '/crisis-countries/car.html'}, send_Message)
+                                module_Config.host + '/crisis-countries/car.html'}, sendMessage)
                         .end()
 
                         .find('#bp-shell-collection-source-haiti')
@@ -585,7 +620,7 @@ bp.shell = (function () {
                         .find('div#bp-shell-collection-share-haiti span.bp-shell-share-by-email')
                         .click({subject: 'Blu Pen',
                                 body: 'Haiti \u2014 A Visual Collection http://' +
-                                module_Config.host + '/crisis-countries/haiti.html'}, send_Message)
+                                module_Config.host + '/crisis-countries/haiti.html'}, sendMessage)
                         .end()
 
                         .find('#bp-shell-collection-source-japan')
@@ -617,7 +652,7 @@ bp.shell = (function () {
                         .find('div#bp-shell-collection-share-japan span.bp-shell-share-by-email')
                         .click({subject: 'Blu Pen',
                                 body: 'Japan \u2014 A Visual Collection http://' +
-                                module_Config.host + '/crisis-countries/japan.html'}, send_Message)
+                                module_Config.host + '/crisis-countries/japan.html'}, sendMessage)
                         .end()
 
                         .find('#bp-shell-collection-source-philippines')
@@ -649,7 +684,7 @@ bp.shell = (function () {
                         .find('div#bp-shell-collection-share-philippines span.bp-shell-share-by-email')
                         .click({subject: 'Blu Pen',
                                 body: 'Philippines \u2014 A Visual Collection http://' +
-                                module_Config.host + '/crisis-countries/philippines.html'}, send_Message)
+                                module_Config.host + '/crisis-countries/philippines.html'}, sendMessage)
                         .end()
 
                         .find('#bp-shell-collection-source-south-sudan')
@@ -681,7 +716,7 @@ bp.shell = (function () {
                         .find('div#bp-shell-collection-share-south-sudan span.bp-shell-share-by-email')
                         .click({subject: 'Blu Pen',
                                 body: 'South Sudan \u2014 A Visual Collection http://' +
-                                module_Config.host + '/crisis-countries/south-sudan.html'}, send_Message)
+                                module_Config.host + '/crisis-countries/south-sudan.html'}, sendMessage)
                         .end()
 
                         .find('#bp-shell-collection-source-syria')
@@ -713,7 +748,7 @@ bp.shell = (function () {
                         .find('div#bp-shell-collection-share-syria span.bp-shell-share-by-email')
                         .click({subject: 'Blu Pen',
                                 body: 'Syria \u2014 A Visual Collection http://' +
-                                module_Config.host + '/crisis-countries/syria.html'}, send_Message)
+                                module_Config.host + '/crisis-countries/syria.html'}, sendMessage)
                         .end()
 
                         .find('#bp-shell-collection-source-zimbabwe')
@@ -745,7 +780,7 @@ bp.shell = (function () {
                         .find('div#bp-shell-collection-share-zimbabwe span.bp-shell-share-by-email')
                         .click({subject: 'Blu Pen',
                                 body: 'Zimbabwe \u2014 A Visual Collection http://' +
-                                module_Config.host + '/crisis-countries/zimbabwe.html'}, send_Message)
+                                module_Config.host + '/crisis-countries/zimbabwe.html'}, sendMessage)
                         .end();
 
                     createFooter(jq_page, function () {
@@ -759,7 +794,7 @@ bp.shell = (function () {
                             .addClass('bp-shell-section-with-footer')
                             .find('.bp-shell-share-by-email')
                             .click({to: module_Config.mail_to,
-                                    subject: 'Greetings!'}, send_Message)
+                                    subject: 'Greetings!'}, sendMessage)
                             .end();
 
                         on_Resize();
@@ -877,7 +912,7 @@ bp.shell = (function () {
 
                             .find('span.bp-shell-share-by-email')
                             .click({subject: 'Blu Pen',
-                                    body: 'The Crisis Collection \u2014 One'}, send_Message)
+                                    body: 'The Crisis Collection \u2014 One'}, sendMessage)
                             .end();
 
                         switch (section_name) {
@@ -949,7 +984,7 @@ bp.shell = (function () {
 
                     .find('span.bp-shell-share-by-email')
                     .click({subject: 'Blu Pen',
-                            body: 'The Crisis Collection \u2014 One'}, send_Message)
+                            body: 'The Crisis Collection \u2014 One'}, sendMessage)
                     .end();
 
                 switch (section_name) {
@@ -1120,37 +1155,6 @@ bp.shell = (function () {
         $(module_State.scroll_element).css('overflow', 'auto');
     };
 
-    send_Message = function (event) {
-        /*
-        window.setTimeout(
-            function () {
-                var event = {data: {page_name: 'connect'}};
-                present_Page(event);
-            }, 2000);
-        */
-        var url, qry = '?', win;
-        url = 'mailto:';
-        if (event.data !== null) {
-            if (event.data.hasOwnProperty('to')) {
-                url += encodeURIComponent(event.data.to);
-            }
-            if (event.data.hasOwnProperty('subject')) {
-                url += qry + 'subject=' + encodeURIComponent(event.data.subject);
-                qry = '&';
-            }
-            if (event.data.hasOwnProperty('body')) {
-                url += qry + 'body=' + encodeURIComponent(event.data.body);
-            }
-        }
-        win = window.open(url);
-        win.setTimeout(
-            function () {
-                if (win && win.open && !win.closed) {
-                    win.close();
-                }
-            }, 1000);
-    };
-
     hover_In = function () {
         module_State.last_color = $(this).css('color');
         $(this).animate({'color': '#1AB6E5'}, 100);
@@ -1302,7 +1306,9 @@ bp.shell = (function () {
         initModule: initModule,
         getJqContainers: getJqContainers,
         createFooter: createFooter,
-        delegatePage: delegatePage
+        delegatePage: delegatePage,
+        getHost: getHost,
+        sendMessage: sendMessage
     };
 
 }());
