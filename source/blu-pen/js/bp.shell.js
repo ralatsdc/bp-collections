@@ -1029,11 +1029,6 @@ bp.shell = (function () {
 
         var page_name, jq_page, section_name, uri_anchor;
 
-        if (module_State.scroll_element === undefined) {
-            // module_State.scroll_element = get_Scroll_Element();
-            module_State.scroll_element = 'html, body';
-        }
-
         page_name = module_State.uri_anchor.page_name;
         jq_page = module_State.jq_containers[page_name];
 
@@ -1047,6 +1042,14 @@ bp.shell = (function () {
 
             jq_page.fadeIn('slow', function () {
                 on_Resize();
+
+                /* Detect the scroll element after the _first_ page
+                has been rendered. Note that we will always arrive
+                here before the dismiss_Page function sets
+                scrollTop. */
+                if (module_State.scroll_element === undefined) {
+                    module_State.scroll_element = get_Scroll_Element();
+                }
 
                 section_name = event.data.section_name;
 
@@ -1075,7 +1078,6 @@ bp.shell = (function () {
         });
     };
 
-    // TODO: Remove
     get_Scroll_Element = function () {
 
         /* If missing doctype (quirks mode) then will always use 'body' */
@@ -1097,7 +1099,7 @@ bp.shell = (function () {
         browsers) */
         var newY = startingY + 1;
         window.scrollTo(0, newY);
-
+        
         /* And check which property changed. FF and IE use only
          html. Safari uses only body. Chrome has values for both, but
          says body.scrollTop is deprecated when in Strict mode, so
