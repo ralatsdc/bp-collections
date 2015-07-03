@@ -163,11 +163,15 @@ cc.force = (function () {
             module_State.nominal_G[page_name] = module_Config.default_G / 10.0;
             module_State.nominal_C[page_name] =
                 module_Config.default_C * Math.pow(module_State.nominal_R / module_Config.default_R, 2) / 5.0;
+            // TODO: Decide about using include (only use here)
+            /*
             for(var i_source = sources.length - 1; i_source >= 0; i_source -= 1) {
+                // TODO: Isn't this backwards?
                 if(!sources[i_source].include) {
                     sources.splice(i_source, 1);
                 }
             }
+            */
             break;
 
         default:
@@ -459,7 +463,7 @@ cc.force = (function () {
      */
     present_Source = function (d) {
         var sources = cc.model.getSources();
-        for (var i_src = 1; i_src < sources.length; i_src += 1) {
+        for (var i_src = 0; i_src < sources.length; i_src += 1) {
             if (d.name === sources[i_src].name &&
                 d.json === sources[i_src].json) {
                 break;
