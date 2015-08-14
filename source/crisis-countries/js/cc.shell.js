@@ -353,7 +353,7 @@ cc.shell = (function () {
                 .find('div:last')
                 .attr('id', 'cc-shell-cover-logo')
                 .click(function () {
-                    window.open('http://www.blu-pen.com');
+                    window.open('http://www.blu-pen.com/blu-pen');
                 })
                 .load('img/bp-logo-two-color-text-circle.svg')
                 .end()
@@ -1014,7 +1014,7 @@ cc.shell = (function () {
                 $('div#cc-shell-front-follow-' + page_name)
                     .find('.cc-shell-front-logo')
                     .click(function () {
-                        window.open('http://www.blu-pen.com');
+                        window.open('http://www.blu-pen.com/blu-pen');
                     })
                     .load('img/bp-logo-two-color-text-circle.svg')
                     .end()
@@ -1267,7 +1267,7 @@ cc.shell = (function () {
                     $('div#cc-shell-visual-follow-' + page_name)
                     .find('.cc-shell-visual-logo')
                     .click(function () {
-                        window.open('http://www.blu-pen.com');
+                        window.open('http://www.blu-pen.com/blu-pen');
                     })
                     .load('img/bp-logo-two-color-text-circle.svg')
                     .end()
@@ -1439,7 +1439,7 @@ cc.shell = (function () {
                 $('div#cc-shell-source-follow-' + page_name)
                     .find('.cc-shell-visual-logo')
                     .click(function () {
-                        window.open('http://www.blu-pen.com');
+                        window.open('http://www.blu-pen.com/blu-pen');
                     })
                     .load('img/bp-logo-two-color-text-circle.svg')
                     .end()
